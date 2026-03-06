@@ -34,6 +34,9 @@
 /uz/process  /uz  301
 /ru/products  /ru/catalog-products  301
 /uz/products  /uz/catalog-products  301
+/ru/catalog  /ru/catalog-products  301
+/uz/catalog  /uz/catalog-products  301
+/catalog  /ru/catalog-products  301
 
 # neo-corporate and neo-gift → catalog
 /ru/products/neo-corporate  /ru/catalog-products  301
