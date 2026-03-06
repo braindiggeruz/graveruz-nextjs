@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Disallow: /ru/thanks
+Disallow: /uz/thanks
+Disallow: /_next/
+Disallow: /api/
+
+Host: https://graver-studio.uz
+Sitemap: https://graver-studio.uz/sitemap.xml

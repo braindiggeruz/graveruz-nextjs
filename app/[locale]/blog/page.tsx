@@ -7,7 +7,7 @@ import { getAllPostsMeta } from '@/lib/blog'
 import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
 
 interface PageProps {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export async function generateStaticParams() {
@@ -15,8 +15,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  if (!isValidLocale(params.locale)) return {}
-  const locale = params.locale as Locale
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) return {}
+  const locale = resolvedParams.locale as Locale
 
   if (locale === 'ru') {
     return buildMetadata({
@@ -35,9 +36,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
-export default function BlogIndexPage({ params }: PageProps) {
-  if (!isValidLocale(params.locale)) notFound()
-  const locale = params.locale as Locale
+export default async function BlogIndexPage({ params }: PageProps) {
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) notFound()
+  const locale = resolvedParams.locale as Locale
   const messages = getMessages(locale)
   const posts = getAllPostsMeta(locale)
   const isRu = locale === 'ru'

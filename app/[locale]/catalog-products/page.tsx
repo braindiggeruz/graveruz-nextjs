@@ -6,7 +6,7 @@ import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
 
 interface PageProps {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export async function generateStaticParams() {
@@ -14,8 +14,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  if (!isValidLocale(params.locale)) return {}
-  const locale = params.locale as Locale
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) return {}
+  const locale = resolvedParams.locale as Locale
 
   if (locale === 'ru') {
     return buildMetadata({
@@ -42,9 +43,10 @@ const PRODUCTS = [
   { slug: 'notebooks', icon: '📓', ru: { name: 'Блокноты', desc: 'Кожаные и деревянные блокноты с гравировкой' }, uz: { name: 'Daftarlar', desc: 'O\'ymakorlik bilan teri va yog\'och daftarlar' } },
 ]
 
-export default function CatalogProductsPage({ params }: PageProps) {
-  if (!isValidLocale(params.locale)) notFound()
-  const locale = params.locale as Locale
+export default async function CatalogProductsPage({ params }: PageProps) {
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) notFound()
+  const locale = resolvedParams.locale as Locale
   const messages = getMessages(locale)
   const isRu = locale === 'ru'
 

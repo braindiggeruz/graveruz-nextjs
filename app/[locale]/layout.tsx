@@ -6,16 +6,17 @@ import Footer from '@/components/Footer'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
 }
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  if (!isValidLocale(params.locale)) return {}
-  const messages = getMessages(params.locale as Locale)
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) return {}
+  const messages = getMessages(resolvedParams.locale as Locale)
   return {
     title: {
       default: `${messages.site.name} — ${messages.site.tagline}`,
@@ -24,8 +25,8 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   }
 }
 
-export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
-  const { locale } = params
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+  const { locale } = await params
 
   if (!isValidLocale(locale)) {
     notFound()

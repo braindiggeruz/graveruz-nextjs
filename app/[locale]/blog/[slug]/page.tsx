@@ -9,7 +9,7 @@ import SchemaOrg, { articleSchema, faqSchema, breadcrumbSchema } from '@/compone
 import HreflangLinks from '@/components/HreflangLinks'
 
 interface PageProps {
-  params: { locale: string; slug: string }
+  params: Promise<{ locale: string; slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -24,9 +24,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  if (!isValidLocale(params.locale)) return {}
-  const locale = params.locale as Locale
-  const post = getPost(locale, params.slug)
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) return {}
+  const locale = resolvedParams.locale as Locale
+  const post = getPost(locale, resolvedParams.slug)
   if (!post) return {}
 
   return buildArticleMetadata({
@@ -43,10 +44,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-  if (!isValidLocale(params.locale)) notFound()
-  const locale = params.locale as Locale
-  const post = getPost(locale, params.slug)
+export default async function BlogPostPage({ params }: PageProps) {
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) notFound()
+  const locale = resolvedParams.locale as Locale
+  const post = getPost(locale, resolvedParams.slug)
   if (!post) notFound()
 
   const messages = getMessages(locale)

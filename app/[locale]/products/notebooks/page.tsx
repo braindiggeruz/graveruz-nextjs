@@ -4,15 +4,16 @@ import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import ProductPage from '@/components/ProductPage'
 
-interface PageProps { params: { locale: string } }
+interface PageProps { params: Promise<{ locale: string }> }
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  if (!isValidLocale(params.locale)) return {}
-  const locale = params.locale as Locale
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) return {}
+  const locale = resolvedParams.locale as Locale
   if (locale === 'ru') {
     return buildMetadata({ locale, path: 'products/notebooks', title: 'Блокноты с гравировкой логотипа — корпоративный подарок | Graver.uz', description: 'Блокноты с лазерной гравировкой логотипа. Корпоративные подарки в Ташкенте. Тираж от 10 штук.' })
   }
@@ -30,7 +31,8 @@ const PRODUCT = {
   featuresUz: ["Muqovada logotipning o'ymakorligi", "Tabiiy teri yoki yog'och", "80 g/m² yoki undan yuqori qog'oz", "A5 va A6 formatlari", "10 donadan boshlab", "So'rov bo'yicha to'plamda ruchka"],
 }
 
-export default function Page({ params }: PageProps) {
-  if (!isValidLocale(params.locale)) notFound()
-  return <ProductPage locale={params.locale as Locale} product={PRODUCT} />
+export default async function Page({ params }: PageProps) {
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) notFound()
+  return <ProductPage locale={resolvedParams.locale as Locale} product={PRODUCT} />
 }

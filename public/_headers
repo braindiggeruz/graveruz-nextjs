@@ -1,0 +1,15 @@
+# Cloudflare Pages _headers
+# Security headers for all pages
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Immutable cache for Next.js static assets
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images cache
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

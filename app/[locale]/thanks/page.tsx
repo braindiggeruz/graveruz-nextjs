@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 
 interface PageProps {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export const metadata: Metadata = {
@@ -16,9 +16,10 @@ export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
 }
 
-export default function ThanksPage({ params }: PageProps) {
-  if (!isValidLocale(params.locale)) notFound()
-  const locale = params.locale as Locale
+export default async function ThanksPage({ params }: PageProps) {
+  const resolvedParams = await params
+  if (!isValidLocale(resolvedParams.locale)) notFound()
+  const locale = resolvedParams.locale as Locale
   const messages = getMessages(locale)
 
   return (

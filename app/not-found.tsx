@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function NotFound() {
+export default async function NotFound() {
   return (
     <html lang="ru">
       <body className="bg-black text-white min-h-screen flex items-center justify-center">

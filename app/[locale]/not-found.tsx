@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function LocaleNotFound() {
+export default async function LocaleNotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center">
