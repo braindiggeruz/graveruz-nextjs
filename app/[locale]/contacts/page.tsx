@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return buildMetadata({
       locale,
       path: 'contacts',
-      title: 'Контакты — Graver.uz | Лазерная гравировка в Ташкенте',
+      title: 'Контакты — Graver.uz',
       description: 'Свяжитесь с Graver.uz: телефон, Telegram, адрес в Ташкенте. Работаем с B2B-клиентами по всему Узбекистану.',
     })
   }
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return buildMetadata({
     locale,
     path: 'contacts',
-    title: "Aloqa — Graver.uz | Toshkentda lazer o'ymakorlik",
+    title: "Aloqa — Graver.uz",
     description: "Graver.uz bilan bog'laning: telefon, Telegram, Toshkentdagi manzil. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
   })
 }

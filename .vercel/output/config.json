@@ -49,7 +49,7 @@
       "continue": true
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(.*).json",
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(.*).json",
       "dest": "/$1",
       "override": true,
       "continue": true,
@@ -310,7 +310,7 @@
         {
           "type": "header",
           "key": "x-prerender-revalidate",
-          "value": "59485eb2dfab8a0e15dfb8475f7993de"
+          "value": "310000b3327127efc4c0895d32b4a42a"
         }
       ],
       "middlewarePath": "middleware",
@@ -327,7 +327,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/index.json",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/index.json",
       "continue": true,
       "override": true
     },
@@ -339,7 +339,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/$1.json",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/$1.json",
       "continue": true,
       "override": true
     },
@@ -379,7 +379,7 @@
       "handle": "filesystem"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(.*).json",
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(.*).json",
       "dest": "/$1",
       "continue": true,
       "has": [
@@ -455,7 +455,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/index.json",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/index.json",
       "continue": true
     },
     {
@@ -466,60 +466,60 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/$1.json",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/$1.json",
       "continue": true
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale].json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale].json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/blog(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/blog.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/blog(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/blog.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/blog/(?<nxtPslug>[^/]+?)(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/blog/[slug].json?nxtPlocale=$nxtPlocale&nxtPslug=$nxtPslug"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/blog/(?<nxtPslug>[^/]+?)(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/blog/[slug].json?nxtPlocale=$nxtPlocale&nxtPslug=$nxtPslug"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/catalog\\-products(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/catalog-products.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/catalog\\-products(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/catalog-products.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/contacts(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/contacts.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/contacts(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/contacts.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/engraved\\-gifts(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/engraved-gifts.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/engraved\\-gifts(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/engraved-gifts.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/guarantees(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/guarantees.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/guarantees(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/guarantees.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/products/lighters(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/products/lighters.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/products/lighters(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/products/lighters.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/products/neo\\-watches(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/products/neo-watches.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/products/neo\\-watches(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/products/neo-watches.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/products/notebooks(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/products/notebooks.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/products/notebooks(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/products/notebooks.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/products/pens(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/products/pens.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/products/pens(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/products/pens.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/products/powerbanks(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/products/powerbanks.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/products/powerbanks(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/products/powerbanks.json?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(?<nxtPlocale>[^/]+?)/thanks(?:/)?.json$",
-      "dest": "/_next/data/snGNKy6S6G9n3VhE9lpRd/[locale]/thanks.json?nxtPlocale=$nxtPlocale"
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(?<nxtPlocale>[^/]+?)/thanks(?:/)?.json$",
+      "dest": "/_next/data/ZLKM_iWQUdFkb-J7qYOyS/[locale]/thanks.json?nxtPlocale=$nxtPlocale"
     },
     {
       "src": "^/(?<nxtPlocale>[^/]+?)(?:\\.rsc)(?:/)?$",
@@ -626,7 +626,7 @@
       "dest": "/[locale]/thanks?nxtPlocale=$nxtPlocale"
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(.*).json",
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(.*).json",
       "headers": {
         "x-nextjs-matched-path": "/$1"
       },
@@ -634,14 +634,14 @@
       "override": true
     },
     {
-      "src": "^/_next/data/snGNKy6S6G9n3VhE9lpRd/(.*).json",
+      "src": "^/_next/data/ZLKM_iWQUdFkb\\-J7qYOyS/(.*).json",
       "dest": "__next_data_catchall"
     },
     {
       "handle": "hit"
     },
     {
-      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|snGNKy6S6G9n3VhE9lpRd)/.+",
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|ZLKM_iWQUdFkb\\-J7qYOyS)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },
