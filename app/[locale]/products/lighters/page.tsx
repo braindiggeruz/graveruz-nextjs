@@ -27,6 +27,12 @@ const PRODUCT = {
   descRu: 'Металлические зажигалки с персонализированной лазерной гравировкой. Популярный корпоративный сувенир для мужской аудитории.',
   descUz: "Shaxsiylashtirilgan lazer o'ymakorligi bilan metall zажигalkalar. Erkak auditoriyasi uchun mashhur korporativ suvenir.",
   icon: '🔥',
+  heroImage: '/images/products/lighters/r109_silver_gloss.jpg',
+  galleryImages: [
+    '/images/products/lighters/r110_black_matte.jpg',
+    '/images/products/lighters/r111_black_texture.jpg',
+    '/images/products/lighters/r112_brushed_steel.jpg',
+  ],
   featuresRu: ["Лазерная гравировка логотипа или текста", "Нержавеющая сталь или хром", "Ветрозащитное пламя", "Тираж от 10 штук", "Индивидуальная упаковка", "Быстрое изготовление от 1 дня"],
   featuresUz: ["Logotip yoki matnning lazer o'ymakorligi", "Zanglamaydigan po'lat yoki xrom", "Shamolga chidamli alanga", "10 donadan boshlab", "Individual qadoqlash", "1 kundan boshlab tezkor ishlab chiqarish"],
 }

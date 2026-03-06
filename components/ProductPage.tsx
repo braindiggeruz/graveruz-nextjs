@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Locale } from '@/lib/i18n'
 import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
@@ -13,6 +14,8 @@ interface ProductPageProps {
     featuresRu: string[]
     featuresUz: string[]
     icon: string
+    heroImage?: string       // e.g. '/images/products/neo/neo-watch-hero.jpg'
+    galleryImages?: string[] // additional gallery images
   }
 }
 
@@ -43,12 +46,43 @@ export default function ProductPage({ locale, product }: ProductPageProps) {
           </ol>
         </nav>
 
+        {/* Hero image or emoji icon */}
+        {product.heroImage ? (
+          <div className="mb-8 rounded-2xl overflow-hidden border border-gray-700 bg-gray-800/50">
+            <Image
+              src={product.heroImage}
+              alt={name}
+              width={900}
+              height={500}
+              className="w-full object-cover max-h-[420px]"
+              priority
+            />
+          </div>
+        ) : null}
+
         <div className="flex items-center space-x-4 mb-6">
-          <span className="text-5xl">{product.icon}</span>
+          {!product.heroImage && <span className="text-5xl">{product.icon}</span>}
           <h1 className="text-4xl font-bold text-white">{name}</h1>
         </div>
 
         <p className="text-xl text-gray-300 mb-10">{desc}</p>
+
+        {/* Gallery grid */}
+        {product.galleryImages && product.galleryImages.length > 0 && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
+            {product.galleryImages.map((src, i) => (
+              <div key={i} className="rounded-xl overflow-hidden border border-gray-700 bg-gray-800/50 aspect-square">
+                <Image
+                  src={src}
+                  alt={`${name} — ${i + 1}`}
+                  width={300}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 mb-8">
           <h2 className="text-xl font-semibold text-white mb-4">

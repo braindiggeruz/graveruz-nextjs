@@ -93,6 +93,8 @@ export function buildArticleMetadata(params: SeoParams & {
 
   return {
     ...base,
+    // Override to template title (not absolute) so layout appends "| Graver.uz" consistently
+    title: params.title,
     openGraph: {
       ...base.openGraph,
       type: 'article',

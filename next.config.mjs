@@ -93,6 +93,9 @@ const nextConfig = {
       { source: '/uz/process',                destination: '/uz',                      permanent: true },
       { source: '/ru/products',               destination: '/ru/catalog-products',    permanent: true },
       { source: '/uz/products',               destination: '/uz/catalog-products',    permanent: true },
+      { source: '/ru/catalog',                destination: '/ru/catalog-products',    permanent: true },
+      { source: '/uz/catalog',                destination: '/uz/catalog-products',    permanent: true },
+      { source: '/catalog',                   destination: '/ru/catalog-products',    permanent: true },
 
       // ── neo-corporate and neo-gift → catalog ──────────────────────────────
       { source: '/ru/products/neo-corporate', destination: '/ru/catalog-products', permanent: true },
