@@ -1,15 +1,25 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
+import { isValidLocale, getMessages, getLocaleUrl, type Locale } from '@/lib/i18n'
 
 interface PageProps {
   params: Promise<{ locale: string }>
 }
 
-export const metadata: Metadata = {
-  title: 'Спасибо за заявку — Graver.uz',
-  robots: { index: false, follow: false },
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const resolvedParams = await params
+  const locale = isValidLocale(resolvedParams.locale) ? (resolvedParams.locale as Locale) : 'ru'
+  const canonicalUrl = getLocaleUrl(locale, 'thanks')
+  const title = locale === 'uz'
+    ? 'Rahmat — Graver.uz'
+    : 'Спасибо за заявку — Graver.uz'
+
+  return {
+    title,
+    alternates: { canonical: canonicalUrl },
+    robots: { index: false, follow: false },
+  }
 }
 
 export async function generateStaticParams() {

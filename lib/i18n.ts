@@ -20,7 +20,7 @@ export function isValidLocale(locale: string): locale is Locale {
 
 /** Returns the HTML lang attribute value for a locale */
 export function getHtmlLang(locale: Locale): string {
-  return locale === 'uz' ? 'uz-Latn' : 'ru'
+  return locale === 'uz' ? 'uz' : 'ru'
 }
 
 /** Returns the hreflang value for a locale */
