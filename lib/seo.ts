@@ -51,7 +51,7 @@ export function buildMetadata(params: SeoParams): Metadata {
   languages['x-default'] = getLocaleUrl('ru', path)
 
   const metadata: Metadata = {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical: canonicalUrl,

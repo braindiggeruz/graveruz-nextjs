@@ -6,7 +6,6 @@ import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 import { buildArticleMetadata } from '@/lib/seo'
 import { getPost, getAllSlugs, getRelatedPosts } from '@/lib/blog'
 import SchemaOrg, { articleSchema, faqSchema, breadcrumbSchema } from '@/components/SchemaOrg'
-import HreflangLinks from '@/components/HreflangLinks'
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>
@@ -79,7 +78,6 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <>
-      <HreflangLinks locale={locale} path={`blog/${post.slug}`} alternateSlug={post.alternateSlug} />
       <SchemaOrg schema={schemas} />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
