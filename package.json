@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "migrate-blog": "node scripts/migrate-blog.js"
+    "migrate-blog": "node scripts/migrate-blog.js",
+    "build:cf": "vercel build && npx @cloudflare/next-on-pages --skip-build",
+    "deploy:cf": "npm run build:cf && npx wrangler pages deploy .vercel/output/static --project-name graveruz-nextjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
@@ -21,7 +23,6 @@
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",
-    "@opennextjs/cloudflare": "^1.17.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

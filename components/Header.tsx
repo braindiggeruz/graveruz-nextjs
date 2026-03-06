@@ -107,17 +107,15 @@ export default function Header({ locale, messages }: HeaderProps) {
             {/* Language switcher */}
             <div className="flex items-center space-x-2 border-l border-gray-700 pl-4">
               <Link
-                href={`/ru${locale === 'ru' ? '' : ''}`}
+                href="/ru"
                 className={`text-sm font-medium transition ${locale === 'ru' ? 'text-teal-500' : 'text-gray-400 hover:text-white'}`}
-                hrefLang="ru"
               >
                 RU
               </Link>
               <span className="text-gray-600">/</span>
               <Link
-                href={`/uz`}
+                href="/uz"
                 className={`text-sm font-medium transition ${locale === 'uz' ? 'text-teal-500' : 'text-gray-400 hover:text-white'}`}
-                hrefLang="uz"
               >
                 UZ
               </Link>
@@ -168,8 +166,8 @@ export default function Header({ locale, messages }: HeaderProps) {
               {nav.contacts}
             </Link>
             <div className="flex items-center space-x-4 px-4 pt-2 border-t border-gray-800">
-              <Link href="/ru" className={`text-sm font-medium ${locale === 'ru' ? 'text-teal-500' : 'text-gray-400'}`} hrefLang="ru">RU</Link>
-              <Link href="/uz" className={`text-sm font-medium ${locale === 'uz' ? 'text-teal-500' : 'text-gray-400'}`} hrefLang="uz">UZ</Link>
+              <Link href="/ru" className={`text-sm font-medium ${locale === 'ru' ? 'text-teal-500' : 'text-gray-400'}`}>RU</Link>
+              <Link href="/uz" className={`text-sm font-medium ${locale === 'uz' ? 'text-teal-500' : 'text-gray-400'}`}>UZ</Link>
             </div>
           </nav>
         )}

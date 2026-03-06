@@ -11,12 +11,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const resolvedParams = await params
   const locale = isValidLocale(resolvedParams.locale) ? (resolvedParams.locale as Locale) : 'ru'
   const canonicalUrl = getLocaleUrl(locale, 'thanks')
-  const title = locale === 'uz'
+  const titleText = locale === 'uz'
     ? 'Rahmat — Graver.uz'
     : 'Спасибо за заявку — Graver.uz'
 
   return {
-    title,
+    title: { absolute: titleText },
     alternates: { canonical: canonicalUrl },
     robots: { index: false, follow: false },
   }
