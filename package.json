@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "migrate-blog": "node scripts/migrate-blog.js",
-    "build:cf": "vercel build && npx @cloudflare/next-on-pages --skip-build",
-    "deploy:cf": "npm run build:cf && npx wrangler pages deploy .vercel/output/static --project-name graveruz-nextjs"
+    "build:cf": "npx vercel build --yes && npx @cloudflare/next-on-pages --skip-build",
+    "deploy:cf": "npm run build:cf && npx wrangler pages deploy .vercel/output/static --project-name graveruz-nextjs",
+    "smoke-test": "node scripts/smoke-test.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
