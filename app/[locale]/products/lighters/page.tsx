@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import LightersLanding from '@/components/LightersLanding'
+import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -33,5 +34,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
-  return <LightersLanding locale={resolvedParams.locale as Locale} />
+  const locale = resolvedParams.locale as Locale
+  const isRu = locale === 'ru'
+  const base = 'https://graver-studio.uz'
+  const breadcrumbs = [
+    { name: isRu ? 'Главная' : 'Bosh sahifa', url: `${base}/${locale}` },
+    { name: isRu ? 'Продукция' : 'Mahsulotlar', url: `${base}/${locale}/products/lighters` },
+    { name: isRu ? 'Зажигалки с гравировкой' : 'Gravyurali zajigalkalar', url: `${base}/${locale}/products/lighters` },
+  ]
+  return (
+    <>
+      <SchemaOrg schema={breadcrumbSchema(breadcrumbs)} />
+      <LightersLanding locale={locale} />
+    </>
+  )
 }

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import NeoWatchesLanding from '@/components/NeoWatchesLanding'
+import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -130,5 +131,18 @@ const _UNUSED = {
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
-  return <NeoWatchesLanding locale={resolvedParams.locale as Locale} />
+  const locale = resolvedParams.locale as Locale
+  const isRu = locale === 'ru'
+  const base = 'https://graver-studio.uz'
+  const breadcrumbs = [
+    { name: isRu ? 'Главная' : 'Bosh sahifa', url: `${base}/${locale}` },
+    { name: isRu ? 'Продукция' : 'Mahsulotlar', url: `${base}/${locale}/products/neo-watches` },
+    { name: isRu ? 'Часы NEO с гравировкой' : 'NEO soatlar gravyura bilan', url: `${base}/${locale}/products/neo-watches` },
+  ]
+  return (
+    <>
+      <SchemaOrg schema={breadcrumbSchema(breadcrumbs)} />
+      <NeoWatchesLanding locale={locale} />
+    </>
+  )
 }
