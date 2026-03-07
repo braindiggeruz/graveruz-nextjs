@@ -45,22 +45,28 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         {/* Preconnect to critical origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* System font stack — no external font fetch needed for performance */}
-        
-        {/* Google Tag Manager */}
+
+        {/* Google Analytics 4 (GA4) — Measurement ID: G-Z7V0FSGE4Y */}
         <Script
-          id="gtm-script"
+          id="ga4-gtag"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z7V0FSGE4Y"
+        />
+        <Script
+          id="ga4-config"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-XXXXXX');`,
+            __html: `window.dataLayer=window.dataLayer||[];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Z7V0FSGE4Y', {
+              page_path: window.location.pathname,
+              send_page_view: true
+            });`,
           }}
         />
-        
-        {/* Meta Pixel */}
+
+        {/* Meta Pixel — ID: 1358428289305229 */}
         <Script
           id="meta-pixel"
           strategy="afterInteractive"
@@ -73,22 +79,22 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', 'XXXXXXXXXX');
+            fbq('init', '1358428289305229');
             fbq('track', 'PageView');`,
           }}
         />
-      </head>
-      <body className="bg-black text-white min-h-screen antialiased">
-        {/* GTM noscript fallback */}
         <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=1358428289305229&ev=PageView&noscript=1"
+            alt=""
           />
         </noscript>
-
+      </head>
+      <body className="bg-black text-white min-h-screen antialiased">
         <TrackingProvider>
           <Header locale={validLocale} messages={messages} />
           <main id="main-content" className="pt-20">
