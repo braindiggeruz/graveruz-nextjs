@@ -1,13 +1,7 @@
 name = "graveruz-nextjs"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
-
-[env.production]
 pages_build_output_dir = ".vercel/output/static"
 
 [vars]
 NEXT_TELEMETRY_DISABLED = "1"
-
-[build]
-command = "npm ci --legacy-peer-deps && npx vercel build --yes && npx @cloudflare/next-on-pages@1.13.16"
-cwd = "."
