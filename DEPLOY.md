@@ -64,3 +64,4 @@ The following directories are **gitignored** and must never be committed:
 | Build output dir | `.vercel/output/static` |
 | Node.js version | 22 |
 | Custom domain | `graver-studio.uz` |
+# Build: npm run build && npx opennextjs-cloudflare build
