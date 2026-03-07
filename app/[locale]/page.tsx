@@ -59,50 +59,67 @@ export default async function HomePage({ params }: PageProps) {
       <SchemaOrg schema={[organizationSchema(), localBusinessSchema()]} />
 
       {/* ═══════════════════════════════════════════════════════════
-          HERO SECTION
+          HERO SECTION — exact transplant from CRA App.js
       ═══════════════════════════════════════════════════════════ */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black" />
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500 rounded-full filter blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-600 rounded-full filter blur-3xl" />
-        </div>
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            {isRu ? (
-              <>
-                Лазерная гравировка<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
-                  и брендирование
-                </span><br />
-                для бизнеса
-              </>
-            ) : (
-              <>
-                Lazer o&apos;ymakorlik<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
-                  va brendlash
-                </span><br />
-                biznes uchun
-              </>
-            )}
-          </h1>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            {messages.hero.subtitle}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
-              className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition"
-            >
-              {messages.hero.cta_primary}
-            </a>
-            <a
-              href="#portfolio"
-              className="border border-gray-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:border-teal-500 transition"
-            >
-              {messages.hero.cta_secondary}
-            </a>
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black pt-20" id="hero">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(20,184,166,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(212,175,55,0.05),transparent_50%)]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div className="text-center space-y-8">
+            <div className="inline-block">
+              <span className="bg-teal-500/10 border border-teal-500/30 text-teal-400 text-sm font-medium px-4 py-2 rounded-full">
+                {messages.hero.badge}
+              </span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+              {messages.hero.title}<br />
+              <span className="bg-gradient-to-r from-teal-500 to-cyan-400 bg-clip-text text-transparent">{messages.hero.titleAccent}</span>
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              {messages.hero.subtitle}<br className="hidden sm:block" />
+              {messages.hero.subtitleLine2}<br className="hidden sm:block" />
+              <span className="text-teal-500 font-semibold">{messages.hero.subtitleAccent}</span>
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+              <a
+                href="#contact"
+                className="w-full sm:w-auto bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-10 py-5 rounded-lg font-bold text-lg hover:from-teal-600 hover:to-cyan-700 transition shadow-lg shadow-teal-500/50 min-h-[56px] text-center"
+                data-track="cta"
+                data-placement="hero-primary"
+              >
+                {messages.hero.ctaPrimary}
+              </a>
+              <a
+                href="https://t.me/GraverAdm"
+                data-track="tg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-transparent text-white px-8 py-4 rounded-lg font-semibold text-base hover:bg-white/10 transition border border-white/30 flex items-center justify-center gap-2 min-h-[56px]"
+                data-placement="hero-secondary"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                {messages.hero.ctaSecondary}
+              </a>
+            </div>
+            {/* Trust indicators — exact from CRA */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 max-w-4xl mx-auto">
+              <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-teal-500">100%</div>
+                <div className="text-sm text-gray-300">{messages.hero.stats.approval}</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-teal-500">1-3</div>
+                <div className="text-sm text-gray-300">{messages.hero.stats.days}</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-teal-500">∞</div>
+                <div className="text-sm text-gray-300">{messages.hero.stats.volume}</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-3xl font-bold text-teal-500">✓</div>
+                <div className="text-sm text-gray-300">{messages.hero.stats.guarantee}</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

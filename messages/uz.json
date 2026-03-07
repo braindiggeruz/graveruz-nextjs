@@ -15,13 +15,26 @@
     "lighters": "Zажигalkalar",
     "pens": "Ruchkalar",
     "powerbanks": "Powerbank",
-    "notebooks": "Daftarlar"
+    "notebooks": "Daftarlar",
+    "catalog": "Katalog"
   },
   "hero": {
-    "title": "Biznes uchun lazer o'ymakorlik va brendlash",
-    "subtitle": "Logotip bilan korporativ sovg'alar, welcome-to'plamlar, VIP-to'plamlar. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
-    "cta_primary": "Hisob-kitob olish",
-    "cta_secondary": "Portfolioni ko'rish"
+    "badge": "Toshkent • Premium B2B yechimlar",
+    "title": "Korporativ sovg'alar —",
+    "titleAccent": "maketni siz tasdiqlaysiz, biz emas",
+    "subtitle": "Ishlab chiqarishdan oldin yakuniy natijani ko'rasiz.",
+    "subtitleLine2": "Premium lazer gravyurasi. 1 dan 10,000+ donagacha.",
+    "subtitleAccent": "1-3 kun odatiy muddat. Sifat kafolati.",
+    "ctaPrimary": "Hisob so'rash",
+    "ctaSecondary": "Telegramda tezkor maslahat",
+    "cta_primary": "Hisob so'rash",
+    "cta_secondary": "Portfelni ko'rish",
+    "stats": {
+      "approval": "Ishlab chiqarishdan oldin tasdiqlash",
+      "days": "Kun odatiy ishlab chiqarish",
+      "volume": "Har qanday hajm",
+      "guarantee": "Sifat kafolati"
+    }
   },
   "services": {
     "title": "Bizning xizmatlar",
@@ -36,7 +49,11 @@
     "subtitle": "Korporativ sovg'alar, o'ymakorlik va brendlash haqida foydali maqolalar",
     "read_more": "Batafsil o'qish",
     "related": "O'xshash maqolalar",
-    "back": "Blogga qaytish"
+    "back": "Blogga qaytish",
+    "search_placeholder": "Maqolalar bo'yicha qidirish...",
+    "all_categories": "Barcha kategoriyalar",
+    "no_results": "Maqolalar topilmadi",
+    "min_read": "daq o'qish"
   },
   "contact": {
     "title": "Biz bilan bog'laning",
@@ -61,7 +78,12 @@
     "rights": "Barcha huquqlar himoyalangan",
     "address": "Toshkent, Mukimiy ko'chasi",
     "phone1": "+998 77 080 22 88",
-    "phone2": "+998 97 480 22 88"
+    "phone2": "+998 97 480 22 88",
+    "nav_title": "Navigatsiya",
+    "contacts_title": "Kontaktlar",
+    "working_hours": "Du–Shan: 09:00–18:00",
+    "working_hours_label": "Ish vaqti",
+    "requests_24_7": "Arizalar 24/7"
   },
   "404": {
     "title": "Sahifa topilmadi",
@@ -72,5 +94,36 @@
     "title": "Arizangiz uchun rahmat!",
     "description": "Arizangizni oldik va tez orada siz bilan bog'lanamiz.",
     "back_home": "Bosh sahifaga"
+  },
+  "benefits": {
+    "title": "Nima uchun yirik kompaniyalar",
+    "titleAccent": "Graver.uz ni tanlaydi",
+    "subtitle": "Korporativ buyurtmalar uchun ishonchli hamkor. Shaffof jarayon, kafolatlangan sifat.",
+    "items": {
+      "preview": {
+        "title": "Ishlab chiqarishdan oldin maket",
+        "description": "Aniq o'lchamlar va joylashuvga ega raqamli ko'rib chiqish. Siz ishni boshlashdan oldin har bir tafsilotni tasdiqlaysiz — kutilmagan hodisalar yo'q."
+      },
+      "volumes": {
+        "title": "Har qanday hajmdagi tirajlar",
+        "description": "Yakka premium sovg'alardan minglab donagacha. Har bir mahsulotni ismlar va lavozimlar bilan personalizatsiya qilish."
+      },
+      "timing": {
+        "title": "Aniq muddatlar",
+        "description": "Oddiy buyurtmalar 1-3 kun. So'rov bo'yicha shoshilinch ishlab chiqarish. Korporativ taqvimingiz va tadbirlaringiz uchun shaffof rejalashtirish."
+      },
+      "materials": {
+        "title": "Har qanday materiallar",
+        "description": "Metall, anodlangan alyuminiy, yog'och, shisha, charm, premium plastmassalar. Har bir vazifa uchun Fiber, CO2, MOPA, UV texnologiyalari."
+      },
+      "files": {
+        "title": "Sizning fayllaringiz bilan ishlaymiz",
+        "description": "Logotiplar, brend-gaydlar, vektor, foto. Maket bo'lmasa — korporativ uslubingizga mos yaratamiz. Brendbuk talablariga rioya qilamiz."
+      },
+      "b2b": {
+        "title": "B2B xizmat",
+        "description": "Yuridik shaxslar bilan ishlash, yopuvchi hujjatlar, kelishuv bo'yicha to'lovni kechiktirish. Yirik buyurtmalar uchun shaxsiy menejer."
+      }
+    }
   }
 }

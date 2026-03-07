@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TrackingProvider from '@/components/TrackingProvider'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
+import { getAllPostsMeta } from '@/lib/blog'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -100,7 +101,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <main id="main-content" className="pt-20">
             {children}
           </main>
-          <Footer locale={validLocale} messages={messages} />
+          <Footer locale={validLocale} messages={messages} recentPosts={getAllPostsMeta(validLocale).slice(0, 3)} />
           <StickyMobileCTA locale={validLocale} />
         </TrackingProvider>
       </body>
