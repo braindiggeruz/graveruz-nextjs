@@ -1,4 +1,11 @@
-import { getAllSlugs, getPost } from '@/lib/blog'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
+import { buildArticleMetadata } from '@/lib/seo'
+import { getPost, getAllSlugs, getRelatedPosts } from '@/lib/blog'
+import SchemaOrg, { articleSchema, faqSchema, breadcrumbSchema } from '@/components/SchemaOrg'
 
 export async function generateStaticParams() {
   const locales = ['ru', 'uz'] as const
@@ -14,26 +21,15 @@ export async function generateStaticParams() {
   return params
 }
 
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
-import { buildArticleMetadata } from '@/lib/seo'
-import { getPost, getAllSlugs, getRelatedPosts } from '@/lib/blog'
-import SchemaOrg, { articleSchema, faqSchema, breadcrumbSchema } from '@/components/SchemaOrg'
-
-
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>
 }
-
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) return {}
   const locale = resolvedParams.locale as Locale
-  const post = getPost(locale, resolvedParams.slug)
+  const post = await getPost(locale, resolvedParams.slug)
   if (!post) return {}
 
   return buildArticleMetadata({
@@ -49,7 +45,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternateSlug: post.alternateSlug,
   })
 }
-
 
 export default async function BlogPostPage({ params }: PageProps) {
   const resolvedParams = await params
