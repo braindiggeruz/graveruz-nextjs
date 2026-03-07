@@ -714,6 +714,52 @@ export default function NeoWatchesLanding({ locale }: NeoWatchesLandingProps) {
           </div>
         </section>
 
+        {/* ── REVIEWS ── */}
+        <section style={{ padding: '60px 0' }} data-testid="neo-reviews">
+          <h2 className="neo-section-title">{isRu ? 'Отзывы клиентов' : 'Mijozlar sharhlari'}</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginTop: '32px' }}>
+            {[
+              {
+                nameRu: 'Даврон Т.',
+                nameUz: 'Davron T.',
+                roleRu: 'Генеральный директор, строительная компания',
+                roleUz: 'Bosh direktor, qurilish kompaniyasi',
+                textRu: 'Заказали 30 часов NEO с логотипом для топ-менеджеров. Макет согласовали за день, срок выдержали. Подарок получился премиальным.',
+                textUz: "Logotip bilan 30 ta NEO soat buyurtma qildik top-menejerlar uchun. Maketni bir kunda kelishib oldik, muddatga rioya qilindi. Sovg'a premium chiqdi.",
+              },
+              {
+                nameRu: 'Назокат Р.',
+                nameUz: 'Nazokat R.',
+                roleRu: 'HR-менеджер, банк',
+                roleUz: 'HR-menejer, bank',
+                textRu: 'Часы NEO в подарок партнёрам на юбилей банка. Гравировка чёткая, упаковка премиальная. Партнёры оценили.',
+                textUz: "Bank yubileyi uchun hamkorlarga NEO soatlar. Gravyura aniq, qadoqlash premium. Hamkorlar mamnun bo'ldi.",
+              },
+              {
+                nameRu: 'Алишер М.',
+                nameUz: 'Alisher M.',
+                roleRu: 'Собственник бизнеса',
+                roleUz: 'Biznes egasi',
+                textRu: 'Подарил партнёру — часы NEO с его инициалами. Выглядит дорого, без излишних слов. Буду заказывать ещё.',
+                textUz: "Hamkorga sovg'a — initsiallar bilan NEO soat. Ko'rinishi qimmatbaho, ortiqcha gaplarsiz. Yana buyurtma beraman.",
+              },
+            ].map((r, i) => (
+              <div key={i} style={{ background: 'var(--neo-dark-3)', border: '1px solid var(--neo-border-dark)', borderRadius: 'var(--neo-radius)', padding: '24px' }}>
+                <div style={{ display: 'flex', gap: '4px', marginBottom: '12px' }}>
+                  {[1,2,3,4,5].map(s => (
+                    <svg key={s} style={{ width: '16px', height: '16px', color: 'var(--neo-gold)' }} fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p style={{ color: 'var(--neo-muted-on-dark)', fontSize: '0.9rem', marginBottom: '16px', fontStyle: 'italic' }}>«{isRu ? r.textRu : r.textUz}»</p>
+                <p style={{ color: 'var(--neo-text-on-dark)', fontWeight: 600, fontSize: '0.9rem' }}>{isRu ? r.nameRu : r.nameUz}</p>
+                <p style={{ color: 'rgba(240,237,232,0.4)', fontSize: '0.8rem' }}>{isRu ? r.roleRu : r.roleUz}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── FAQ ── */}
         <section className="neo-faq">
           <h2 className="neo-section-title">{isRu ? 'Частые вопросы' : "Ko'p so'raladigan savollar"}</h2>

@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (locale === 'ru') {
     return buildMetadata({ locale, path: 'products/neo-watches', title: 'Часы NEO с гравировкой на заказ | Премиум подарок | Graver.uz', description: 'Часы NEO с персональной гравировкой — кварцевые и механические. Бесплатный макет перед нанесением. Идеальный подарок для себя, близких и партнёров.' })
   }
-  return buildMetadata({ locale, path: 'products/neo-watches', title: "NEO soatlar gravyura bilan | Graver.uz", description: "NEO soatlar shaxsiy gravyura bilan — kvars va mexanik. Naqsh qo'yishdan oldin bepul maket. O'zingiz, yaqinlaringiz va hamkorlaringiz uchun ideal sovg'a." })
+  return buildMetadata({ locale, path: 'products/neo-watches', title: "NEO soatlar gravyura bilan buyurtmaga | Premium sovg'a | Graver.uz", description: "NEO soatlar shaxsiy gravyura bilan — kvars va mexanik. Naqsh qo'yishdan oldin bepul maket. O'zingiz, yaqinlaringiz va hamkorlaringiz uchun ideal sovg'a." })
 }
 
 function productSchema(locale: string) {
