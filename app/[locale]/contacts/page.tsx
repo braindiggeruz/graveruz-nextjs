@@ -70,10 +70,10 @@ export default async function ContactsPage({ params }: PageProps) {
                 {isRu ? 'Телефоны' : 'Telefonlar'}
               </h2>
               <div className="space-y-2">
-                <a href="tel:+998770802288" className="block text-teal-500 hover:text-teal-400 text-lg font-semibold transition">
+                <a href="tel:+998770802288" data-track="tel" data-placement="contacts" className="block text-teal-500 hover:text-teal-400 text-lg font-semibold transition">
                   +998 77 080 22 88
                 </a>
-                <a href="tel:+998974802288" className="block text-gray-300 hover:text-teal-500 transition">
+                <a href="tel:+998974802288" data-track="tel" data-placement="contacts" className="block text-gray-300 hover:text-teal-500 transition">
                   +998 97 480 22 88
                 </a>
               </div>
@@ -83,6 +83,7 @@ export default async function ContactsPage({ params }: PageProps) {
               <h2 className="text-xl font-semibold text-white mb-4">Telegram</h2>
               <a
                 href="https://t.me/GraverAdm"
+                data-track="tg" data-placement="contacts"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-teal-500 hover:text-teal-400 transition text-lg"
@@ -123,6 +124,7 @@ export default async function ContactsPage({ params }: PageProps) {
             <div className="space-y-4">
               <a
                 href="https://t.me/GraverAdm"
+                data-track="tg" data-placement="contacts-cta"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-6 py-4 rounded-lg font-semibold hover:opacity-90 transition"
@@ -131,6 +133,7 @@ export default async function ContactsPage({ params }: PageProps) {
               </a>
               <a
                 href="tel:+998770802288"
+                data-track="tel" data-placement="contacts-cta"
                 className="block w-full text-center border border-teal-500 text-teal-500 px-6 py-4 rounded-lg font-semibold hover:bg-teal-500 hover:text-white transition"
               >
                 {isRu ? 'Позвонить' : "Qo'ng'iroq qilish"}

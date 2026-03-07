@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 import { isValidLocale, getMessages, getHtmlLang, type Locale } from '@/lib/i18n'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import TrackingProvider from '@/components/TrackingProvider'
+import StickyMobileCTA from '@/components/StickyMobileCTA'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -43,13 +46,57 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* System font stack — no external font fetch needed for performance */}
+        
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-XXXXXX');`,
+          }}
+        />
+        
+        {/* Meta Pixel */}
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `!function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', 'XXXXXXXXXX');
+            fbq('track', 'PageView');`,
+          }}
+        />
       </head>
       <body className="bg-black text-white min-h-screen antialiased">
-        <Header locale={validLocale} messages={messages} />
-        <main id="main-content" className="pt-20">
-          {children}
-        </main>
-        <Footer locale={validLocale} messages={messages} />
+        {/* GTM noscript fallback */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+
+        <TrackingProvider>
+          <Header locale={validLocale} messages={messages} />
+          <main id="main-content" className="pt-20">
+            {children}
+          </main>
+          <Footer locale={validLocale} messages={messages} />
+          <StickyMobileCTA locale={validLocale} />
+        </TrackingProvider>
       </body>
     </html>
   )

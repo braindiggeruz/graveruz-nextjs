@@ -124,10 +124,10 @@ export default function Header({ locale, messages }: HeaderProps) {
 
           {/* Phone numbers */}
           <div className="hidden md:flex flex-col items-end space-y-1">
-            <a href="tel:+998770802288" className="text-white font-semibold hover:text-teal-500 transition text-sm">
+            <a href="tel:+998770802288" data-track="tel" data-placement="header" className="text-white font-semibold hover:text-teal-500 transition text-sm">
               +998 77 080 22 88
             </a>
-            <a href="tel:+998974802288" className="text-gray-300 text-xs hover:text-teal-500 transition">
+            <a href="tel:+998974802288" data-track="tel" data-placement="header" className="text-gray-300 text-xs hover:text-teal-500 transition">
               +998 97 480 22 88
             </a>
           </div>

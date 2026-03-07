@@ -18,88 +18,122 @@ interface FooterProps {
 export default function Footer({ locale, messages }: FooterProps) {
   const { footer, nav } = messages
   const year = new Date().getFullYear()
+  const isRu = locale === 'ru'
 
   return (
-    <footer className="bg-black border-t border-gray-800 mt-20">
+    <footer className="bg-black border-t border-gray-800 mt-20" id="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Brand */}
           <div>
             <Link href={`/${locale}`} className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">G</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">G</span>
               </div>
-              <span className="text-xl font-bold text-white">
+              <span className="text-2xl font-bold text-white">
                 Graver<span className="text-teal-500">.uz</span>
               </span>
             </Link>
-            <p className="text-gray-400 text-sm">{footer.description}</p>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">
-              {locale === 'ru' ? 'Навигация' : 'Navigatsiya'}
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href={`/${locale}#services`} className="text-gray-400 hover:text-teal-500 text-sm transition">
-                  {nav.services}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/catalog-products`} className="text-gray-400 hover:text-teal-500 text-sm transition">
-                  {nav.products}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/blog`} className="text-gray-400 hover:text-teal-500 text-sm transition">
-                  {nav.blog}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${locale}/contacts`} className="text-gray-400 hover:text-teal-500 text-sm transition">
-                  {nav.contacts}
-                </Link>
-              </li>
-            </ul>
+            <p className="text-gray-400 text-sm leading-relaxed">{footer.description}</p>
           </div>
 
           {/* Contacts */}
           <div>
-            <h3 className="text-white font-semibold mb-4">
-              {locale === 'ru' ? 'Контакты' : 'Aloqa'}
+            <h3 className="text-white font-bold mb-4">
+              {isRu ? 'Контакты' : 'Aloqa'}
             </h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="tel:+998770802288" className="text-gray-400 hover:text-teal-500 text-sm transition">
-                  {footer.phone1}
-                </a>
-              </li>
-              <li>
-                <a href="tel:+998974802288" className="text-gray-400 hover:text-teal-500 text-sm transition">
-                  {footer.phone2}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://t.me/GraverAdm"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-teal-500 text-sm transition"
-                >
-                  Telegram
-                </a>
-              </li>
-              <li className="text-gray-500 text-sm">{footer.address}</li>
-            </ul>
+            <div className="space-y-3 text-gray-300 text-sm">
+              <a href="tel:+998770802288" data-track="tel" data-placement="footer" className="flex items-center hover:text-teal-500 transition">
+                <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                {footer.phone1}
+              </a>
+              <a href="tel:+998974802288" data-track="tel" data-placement="footer" className="flex items-center hover:text-teal-500 transition">
+                <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                {footer.phone2}
+              </a>
+              <a href="https://t.me/GraverAdm" data-track="tg" data-placement="footer" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-teal-500 transition">
+                <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                @GraverAdm
+              </a>
+              <div className="flex items-start">
+                <svg className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                <span>{footer.address}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Blog links */}
+          <div>
+            <h3 className="text-white font-bold mb-4">{nav.blog}</h3>
+            <div className="space-y-2 text-gray-300 text-sm">
+              <Link href={`/${locale}/blog`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Все статьи' : 'Barcha maqolalar'} &rarr;
+              </Link>
+            </div>
+          </div>
+
+          {/* Working hours + Quick links */}
+          <div>
+            <h3 className="text-white font-bold mb-4">
+              {isRu ? 'Режим работы' : 'Ish vaqti'}
+            </h3>
+            <div className="space-y-2 text-gray-300 text-sm">
+              <p className="flex items-center">
+                <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+                {isRu ? 'Пн–Сб: 09:00–18:00' : 'Du–Shan: 09:00–18:00'}
+              </p>
+              <p className="text-teal-500 font-semibold">
+                {isRu ? 'Заявки 24/7' : 'Arizalar 24/7'}
+              </p>
+            </div>
+
+            <h3 className="text-white font-bold mt-6 mb-3">
+              {isRu ? 'Быстрые ссылки' : 'Tez havolalar'}
+            </h3>
+            <div className="space-y-2 text-gray-300 text-sm">
+              <Link href={`/${locale}/blog`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Блог' : 'Blog'}
+              </Link>
+              <Link href={`/${locale}#services`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Услуги' : 'Xizmatlar'}
+              </Link>
+              <Link href={`/${locale}#portfolio`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Портфолио' : 'Portfolio'}
+              </Link>
+              <Link href={`/${locale}/contacts`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Контакты' : 'Aloqa'}
+              </Link>
+            </div>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h3 className="text-white font-bold mb-4">{nav.products}</h3>
+            <div className="space-y-2 text-gray-300 text-sm">
+              <Link href={`/${locale}/products/neo-watches`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Часы NEO' : 'NEO soatlar'}
+              </Link>
+              <Link href={`/${locale}/products/lighters`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Зажигалки' : 'Zazhigalkalar'}
+              </Link>
+              <Link href={`/${locale}/products/pens`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Ручки' : 'Ruchkalar'}
+              </Link>
+              <Link href={`/${locale}/products/powerbanks`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Повербанки' : 'Powerbanklar'}
+              </Link>
+              <Link href={`/${locale}/products/notebooks`} className="block hover:text-teal-500 transition">
+                {isRu ? 'Ежедневники' : 'Kundaliklar'}
+              </Link>
+              <Link href={`/${locale}/catalog-products`} className="block text-teal-500 hover:text-teal-400 font-medium mt-3">
+                {isRu ? 'Весь каталог' : "To'liq katalog"} &rarr;
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-500 text-sm">
-            © {year} Graver.uz. {footer.rights}.
-          </p>
+        <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+          <p>&copy; {year} Graver.uz. {footer.rights}.</p>
         </div>
       </div>
     </footer>
