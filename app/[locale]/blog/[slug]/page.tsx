@@ -1,3 +1,19 @@
+import { getAllSlugs, getPost } from '@/lib/blog'
+
+export async function generateStaticParams() {
+  const locales = ['ru', 'uz'] as const
+  const params: Array<{ locale: string; slug: string }> = []
+  
+  for (const locale of locales) {
+    const slugs = getAllSlugs(locale)
+    for (const slug of slugs) {
+      params.push({ locale, slug })
+    }
+  }
+  
+  return params
+}
+
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -6,7 +22,6 @@ import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 import { buildArticleMetadata } from '@/lib/seo'
 import { getPost, getAllSlugs, getRelatedPosts } from '@/lib/blog'
 import SchemaOrg, { articleSchema, faqSchema, breadcrumbSchema } from '@/components/SchemaOrg'
-export const runtime = 'edge'
 
 
 interface PageProps {
@@ -35,7 +50,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
-export const revalidate = 3600 // ISR: revalidate every 1 hour
 
 export default async function BlogPostPage({ params }: PageProps) {
   const resolvedParams = await params

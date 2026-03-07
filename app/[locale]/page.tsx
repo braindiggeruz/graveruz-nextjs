@@ -7,7 +7,10 @@ import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { organizationSchema, localBusinessSchema } from '@/components/SchemaOrg'
 import { getAllPostsMeta } from '@/lib/blog'
 import FAQSection from '@/components/FAQSection'
-export const runtime = 'edge'
+
+export async function generateStaticParams() {
+  return [{ locale: 'ru' }, { locale: 'uz' }]
+}
 
 
 interface PageProps {
@@ -39,7 +42,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
-export const revalidate = 3600 // ISR: revalidate every 1 hour
 
 export default async function HomePage({ params }: PageProps) {
   const resolvedParams = await params

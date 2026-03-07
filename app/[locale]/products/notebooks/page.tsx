@@ -3,7 +3,10 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import ProductPage from '@/components/ProductPage'
-export const runtime = 'edge'
+
+export async function generateStaticParams() {
+  return [{ locale: 'ru' }, { locale: 'uz' }]
+}
 
 
 interface PageProps { params: Promise<{ locale: string }> }
@@ -30,7 +33,6 @@ const PRODUCT = {
   featuresUz: ["Muqovada logotipning o'ymakorligi", "Tabiiy teri yoki yog'och", "80 g/m² yoki undan yuqori qog'oz", "A5 va A6 formatlari", "10 donadan boshlab", "So'rov bo'yicha to'plamda ruchka"],
 }
 
-export const revalidate = 3600 // ISR: revalidate every 1 hour
 
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params

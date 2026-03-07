@@ -1,0 +1,16 @@
+import { getAllSlugs, getPost } from '@/lib/blog'
+
+export async function generateStaticParams() {
+  const locales = ['ru', 'uz'] as const
+  const params: Array<{ locale: string; slug: string }> = []
+  
+  for (const locale of locales) {
+    const slugs = getAllSlugs(locale)
+    for (const slug of slugs) {
+      params.push({ locale, slug })
+    }
+  }
+  
+  return params
+}
+

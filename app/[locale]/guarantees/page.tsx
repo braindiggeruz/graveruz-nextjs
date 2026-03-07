@@ -4,7 +4,10 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
-export const runtime = 'edge'
+
+export async function generateStaticParams() {
+  return [{ locale: 'ru' }, { locale: 'uz' }]
+}
 
 
 interface PageProps {
@@ -34,7 +37,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
-export const revalidate = 3600 // ISR: revalidate every 1 hour
 
 export default async function GuaranteesPage({ params }: PageProps) {
   const resolvedParams = await params
