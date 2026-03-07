@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { SUPPORTED_LOCALES, DEFAULT_LOCALE, isValidLocale } from './lib/i18n'
 
+export const runtime = 'edge'
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
