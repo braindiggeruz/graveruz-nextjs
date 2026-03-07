@@ -40,7 +40,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: post.description,
     ogTitle: post.ogTitle,
     ogDescription: post.ogDescription,
-    ogImage: post.ogImage ?? 'https://graver-studio.uz/images/og/og-blog.jpg',
+    ogImage: (post.ogImage ?? '/images/og/og-blog.jpg').startsWith('http')
+      ? post.ogImage!
+      : `https://graver-studio.uz${post.ogImage ?? '/images/og/og-blog.jpg'}`,
     publishedTime: post.date,
     author: post.author,
     alternateSlug: post.alternateSlug,
@@ -59,7 +61,8 @@ export default async function BlogPostPage({ params }: PageProps) {
   const relatedPosts = post.relatedSlugs ? getRelatedPosts(locale, post.relatedSlugs) : []
 
   const canonicalUrl = `https://graver-studio.uz/${locale}/blog/${post.slug}`
-  const ogImage = post.ogImage ?? 'https://graver-studio.uz/images/og/og-blog.jpg'
+  const ogImageRaw = post.ogImage ?? 'https://graver-studio.uz/images/og/og-blog.jpg'
+  const ogImage = ogImageRaw.startsWith('http') ? ogImageRaw : `https://graver-studio.uz${ogImageRaw}`
 
   const breadcrumbs = [
     { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },
