@@ -7,6 +7,7 @@ import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 import { buildArticleMetadata } from '@/lib/seo'
 import { getPost, getAllSlugs, getRelatedPosts } from '@/lib/blog'
 import SchemaOrg, { articleSchema, faqSchema, breadcrumbSchema } from '@/components/SchemaOrg'
+import AlternateSlugSetter from '@/components/AlternateSlugSetter'
 
 export async function generateStaticParams() {
   const locales = ['ru', 'uz'] as const
@@ -86,6 +87,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <>
       <SchemaOrg schema={schemas} />
+      <AlternateSlugSetter alternateSlug={post.alternateSlug} />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb */}

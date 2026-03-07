@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState, useRef } from 'react'
 import type { Locale } from '@/lib/i18n'
+import LocaleSwitcher from '@/components/LocaleSwitcher'
 
 interface HeaderProps {
   locale: Locale
@@ -144,20 +145,8 @@ export default function Header({ locale, messages }: HeaderProps) {
             </Link>
 
             {/* Language switcher */}
-            <div className="flex items-center space-x-2 border-l border-gray-700 pl-4">
-              <Link
-                href="/ru"
-                className={`text-sm font-medium transition ${locale === 'ru' ? 'text-teal-500' : 'text-gray-400 hover:text-white'}`}
-              >
-                RU
-              </Link>
-              <span className="text-gray-600">/</span>
-              <Link
-                href="/uz"
-                className={`text-sm font-medium transition ${locale === 'uz' ? 'text-teal-500' : 'text-gray-400 hover:text-white'}`}
-              >
-                UZ
-              </Link>
+            <div className="flex items-center border-l border-gray-700 pl-4">
+              <LocaleSwitcher locale={locale} />
             </div>
           </nav>
 
@@ -242,11 +231,11 @@ export default function Header({ locale, messages }: HeaderProps) {
               </Link>
 
               <div className="pt-2 border-t border-gray-800 px-2">
-                <div className="flex items-center space-x-3">
-                  <Link href="/ru" className={`text-sm font-medium ${locale === 'ru' ? 'text-teal-500' : 'text-gray-400'}`}>RU</Link>
-                  <span className="text-gray-600">/</span>
-                  <Link href="/uz" className={`text-sm font-medium ${locale === 'uz' ? 'text-teal-500' : 'text-gray-400'}`}>UZ</Link>
-                </div>
+                <LocaleSwitcher
+                  locale={locale}
+                  className="flex items-center space-x-3"
+                  inactiveClassName="text-gray-400"
+                />
               </div>
               <div className="flex flex-col space-y-2 pt-2 border-t border-gray-800 px-2">
                 <a href="tel:+998770802288" className="text-white font-semibold hover:text-teal-500 transition flex items-center" data-track="tel">
