@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
-import ProductPage from '@/components/ProductPage'
+import NeoWatchesLanding from '@/components/NeoWatchesLanding'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -15,12 +15,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!isValidLocale(resolvedParams.locale)) return {}
   const locale = resolvedParams.locale as Locale
   if (locale === 'ru') {
-    return buildMetadata({ locale, path: 'products/neo-watches', title: 'Часы NEO с гравировкой логотипа — корпоративный подарок | Graver.uz', description: 'Часы NEO с лазерной гравировкой логотипа. Корпоративные подарки для VIP-клиентов в Ташкенте. Тираж от 10 штук. Японский механизм, сапфировое стекло.' })
+    return buildMetadata({ locale, path: 'products/neo-watches', title: 'Часы NEO с гравировкой на заказ | Премиум подарок | Graver.uz', description: 'Часы NEO с персональной гравировкой — кварцевые и механические. Бесплатный макет перед нанесением. Идеальный подарок для себя, близких и партнёров.' })
   }
-  return buildMetadata({ locale, path: 'products/neo-watches', title: "Logotip o'ymakorligi bilan NEO soatlar — korporativ sovg'a | Graver.uz", description: "Logotipning lazer o'ymakorligi bilan NEO soatlar. Toshkentda VIP-mijozlar uchun korporativ sovg'alar. 10 donadan boshlab." })
+  return buildMetadata({ locale, path: 'products/neo-watches', title: "NEO soatlar gravyura bilan | Graver.uz", description: "NEO soatlar shaxsiy gravyura bilan — kvars va mexanik. Naqsh qo'yishdan oldin bepul maket. O'zingiz, yaqinlaringiz va hamkorlaringiz uchun ideal sovg'a." })
 }
 
-const PRODUCT = {
+// PRODUCT data removed — replaced by NeoWatchesLanding (exact historical transplant from CRA)
+const _UNUSED = {
   slug: 'neo-watches',
   nameRu: 'Часы NEO с гравировкой',
   nameUz: "NEO soatlar o'ymakorlik bilan",
@@ -129,5 +130,5 @@ const PRODUCT = {
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
-  return <ProductPage locale={resolvedParams.locale as Locale} product={PRODUCT} />
+  return <NeoWatchesLanding locale={resolvedParams.locale as Locale} />
 }
