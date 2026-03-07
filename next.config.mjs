@@ -101,6 +101,11 @@ const nextConfig = {
       { source: '/ru/products/neo-gift',      destination: '/ru/catalog-products', permanent: true },
       { source: '/uz/products/neo-gift',      destination: '/uz/catalog-products', permanent: true },
 
+      // ── Services → homepage (no separate /services page exists) ──────────────────────────────
+      { source: '/ru/services', destination: '/ru', permanent: true },
+      { source: '/uz/services', destination: '/uz', permanent: true },
+      { source: '/services',    destination: '/ru', permanent: true },
+
       // ── Blog post merges ───────────────────────────────────────────────────
       { source: '/ru/blog/keys-welcome-pak-it-kompaniya-tashkent',    destination: '/ru/blog/keys-welcome-pack-enps-uzbekistan', permanent: true },
       { source: '/ru/blog/keys-welcome-pack-povysil-enps-v-it-kompanii', destination: '/ru/blog/keys-welcome-pack-enps-uzbekistan', permanent: true },

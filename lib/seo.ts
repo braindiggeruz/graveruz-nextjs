@@ -40,15 +40,34 @@ export function buildMetadata(params: SeoParams): Metadata {
   const canonicalUrl = getLocaleUrl(locale, path)
 
   // Build hreflang alternates
+  // For blog articles: only add a locale alternate if a true counterpart exists.
+  // If alternateSlug is provided (non-null), it means this page has locale-specific slugs.
+  // Only include a locale if: (a) it's the current locale, OR (b) alternateSlug[loc] is explicitly set.
+  // This prevents fake hreflang links that would 404 for Googlebot.
   const languages: Record<string, string> = {}
+  const isBlogArticle = alternateSlug !== undefined  // alternateSlug presence signals blog article
   for (const loc of SUPPORTED_LOCALES) {
-    const altPath = alternateSlug?.[loc]
-      ? path.replace(/[^/]*$/, alternateSlug[loc]!)  // replace slug part
-      : path
-    languages[getHreflang(loc)] = getLocaleUrl(loc, altPath)
+    if (isBlogArticle) {
+      // Only add alternate for this locale if it's the current locale OR has an explicit alternateSlug
+      if (loc === locale) {
+        languages[getHreflang(loc)] = getLocaleUrl(loc, path)
+      } else if (alternateSlug?.[loc]) {
+        const altPath = path.replace(/[^/]*$/, alternateSlug[loc]!)
+        languages[getHreflang(loc)] = getLocaleUrl(loc, altPath)
+      }
+      // else: skip — no fake hreflang for missing counterpart
+    } else {
+      // Non-article pages: always include all locales (same path structure)
+      languages[getHreflang(loc)] = getLocaleUrl(loc, path)
+    }
   }
-  // x-default points to the Russian version
-  languages['x-default'] = getLocaleUrl('ru', path)
+  // x-default: for articles with no RU alternate, point to current page; otherwise point to RU
+  if (isBlogArticle) {
+    const ruPath = alternateSlug?.['ru'] ? path.replace(/[^/]*$/, alternateSlug['ru']!) : (locale === 'ru' ? path : null)
+    languages['x-default'] = ruPath ? getLocaleUrl('ru', ruPath) : getLocaleUrl(locale, path)
+  } else {
+    languages['x-default'] = getLocaleUrl('ru', path)
+  }
 
   const metadata: Metadata = {
     title: { absolute: title },
