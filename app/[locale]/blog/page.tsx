@@ -6,6 +6,8 @@ import { buildMetadata } from '@/lib/seo'
 import { getAllPostsMeta } from '@/lib/blog'
 import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
 
+export const runtime = 'edge'
+
 interface PageProps {
   params: Promise<{ locale: string }>
 }
