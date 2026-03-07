@@ -7,8 +7,6 @@ import Footer from '@/components/Footer'
 import TrackingProvider from '@/components/TrackingProvider'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
 
-export const runtime = 'edge'
-
 interface LocaleLayoutProps {
   children: React.ReactNode
   params: Promise<{ locale: string }>
