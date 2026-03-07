@@ -9,6 +9,8 @@ interface PageProps {
   params: Promise<{ locale: string }>
 }
 
+export const revalidate = 3600 // 1 hour
+
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
 }
