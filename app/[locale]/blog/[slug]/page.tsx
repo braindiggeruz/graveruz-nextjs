@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   const params: Array<{ locale: string; slug: string }> = []
   
   for (const locale of locales) {
-    const slugs = await getAllSlugs(locale)
+    const slugs = getAllSlugs(locale)
     for (const slug of slugs) {
       params.push({ locale, slug })
     }
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) return {}
   const locale = resolvedParams.locale as Locale
-  const post = await getPost(locale, resolvedParams.slug)
+  const post = getPost(locale, resolvedParams.slug)
   if (!post) return {}
 
   return buildArticleMetadata({
@@ -50,12 +50,12 @@ export default async function BlogPostPage({ params }: PageProps) {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
   const locale = resolvedParams.locale as Locale
-  const post = await getPost(locale, resolvedParams.slug)
+  const post = getPost(locale, resolvedParams.slug)
   if (!post) notFound()
 
   const messages = getMessages(locale)
   const isRu = locale === 'ru'
-  const relatedPosts = post.relatedSlugs ? await getRelatedPosts(locale, post.relatedSlugs) : []
+  const relatedPosts = post.relatedSlugs ? getRelatedPosts(locale, post.relatedSlugs) : []
 
   const canonicalUrl = `https://graver-studio.uz/${locale}/blog/${post.slug}`
   const ogImage = post.ogImage ?? 'https://graver-studio.uz/images/og/og-blog.jpg'

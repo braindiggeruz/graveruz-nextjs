@@ -32,22 +32,22 @@ export interface BlogPostMeta extends BlogPostFrontmatter {
   // No content — used for listing pages
 }
 
-/** Returns all slugs for a given locale (server-only) */
+/** Returns all slugs for a given locale (build-time only) */
 export function getAllSlugs(locale: Locale): string[] {
   return getAllSlugsServer(locale)
 }
 
-/** Returns post metadata + content for a single post (server-only) */
+/** Returns post metadata + content for a single post (build-time only) */
 export function getPost(locale: Locale, slug: string): BlogPost | null {
   return getPostServer(locale, slug)
 }
 
-/** Returns metadata only (no content) for all posts in a locale, sorted by date desc (server-only) */
+/** Returns metadata only (no content) for all posts in a locale, sorted by date desc (build-time only) */
 export function getAllPostsMeta(locale: Locale): BlogPostMeta[] {
   return getAllPostsMetaServer(locale)
 }
 
-/** Returns related posts metadata given a list of slugs (server-only) */
+/** Returns related posts metadata given a list of slugs (build-time only) */
 export function getRelatedPosts(locale: Locale, slugs: string[]): BlogPostMeta[] {
   return getRelatedPostsServer(locale, slugs)
 }

@@ -1,5 +1,3 @@
-'use server'
-
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -18,8 +16,8 @@ function estimateReadingTime(content: string): number {
   return Math.ceil(wordCount / wordsPerMinute)
 }
 
-/** Server-only: Returns all slugs for a given locale */
-export async function getAllSlugsServer(locale: Locale): Promise<string[]> {
+/** Build-time only: Returns all slugs for a given locale */
+export function getAllSlugsServer(locale: Locale): string[] {
   const dir = path.join(CONTENT_DIR, locale)
   if (!fs.existsSync(dir)) return []
   return fs
@@ -28,8 +26,8 @@ export async function getAllSlugsServer(locale: Locale): Promise<string[]> {
     .map((f) => f.replace(/\.mdx$/, ''))
 }
 
-/** Server-only: Returns post metadata + content for a single post */
-export async function getPostServer(locale: Locale, slug: string): Promise<BlogPost | null> {
+/** Build-time only: Returns post metadata + content for a single post */
+export function getPostServer(locale: Locale, slug: string): BlogPost | null {
   const filePath = getPostFilePath(locale, slug)
   if (!fs.existsSync(filePath)) return null
 
@@ -45,9 +43,9 @@ export async function getPostServer(locale: Locale, slug: string): Promise<BlogP
   }
 }
 
-/** Server-only: Returns metadata only (no content) for all posts in a locale, sorted by date desc */
-export async function getAllPostsMetaServer(locale: Locale): Promise<BlogPostMeta[]> {
-  const slugs = await getAllSlugsServer(locale)
+/** Build-time only: Returns metadata only (no content) for all posts in a locale, sorted by date desc */
+export function getAllPostsMetaServer(locale: Locale): BlogPostMeta[] {
+  const slugs = getAllSlugsServer(locale)
   const posts: BlogPostMeta[] = []
 
   for (const slug of slugs) {
@@ -64,8 +62,8 @@ export async function getAllPostsMetaServer(locale: Locale): Promise<BlogPostMet
   })
 }
 
-/** Server-only: Returns related posts metadata given a list of slugs */
-export async function getRelatedPostsServer(locale: Locale, slugs: string[]): Promise<BlogPostMeta[]> {
+/** Build-time only: Returns related posts metadata given a list of slugs */
+export function getRelatedPostsServer(locale: Locale, slugs: string[]): BlogPostMeta[] {
   const result: BlogPostMeta[] = []
   for (const slug of slugs.slice(0, 4)) {
     const filePath = getPostFilePath(locale, slug)
