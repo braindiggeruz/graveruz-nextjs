@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import ProductPage from '@/components/ProductPage'
+import SchemaOrg from '@/components/SchemaOrg'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -35,8 +36,37 @@ const PRODUCT = {
 }
 
 
+function productSchema(locale: string) {
+  const isRu = locale === 'ru'
+  const base = 'https://graver-studio.uz'
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: isRu ? 'Ручки с лазерной гравировкой' : "Lazer gravyurali ruchkalar",
+    description: isRu
+      ? 'Деловые ручки с лазерной гравировкой имени или логотипа. Металлический корпус, немецкий стержень. Тираж от 10 штук.'
+      : "Ism yoki logotipning lazer o'ymakorligi bilan biznes ruchkalar. 10 donadan boshlab.",
+    image: `${base}/images/products/pens/pen-hero.jpg`,
+    url: `${base}/${locale}/products/pens`,
+    brand: { '@type': 'Brand', name: 'Graver.uz' },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'UZS',
+      price: '45000',
+      availability: 'https://schema.org/InStock',
+      seller: { '@type': 'Organization', name: 'Graver.uz', url: base },
+    },
+  }
+}
+
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
-  return <ProductPage locale={resolvedParams.locale as Locale} product={PRODUCT} />
+  const locale = resolvedParams.locale as Locale
+  return (
+    <>
+      <SchemaOrg schema={productSchema(locale)} />
+      <ProductPage locale={locale} product={PRODUCT} />
+    </>
+  )
 }

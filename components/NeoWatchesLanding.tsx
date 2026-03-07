@@ -597,6 +597,14 @@ export default function NeoWatchesLanding({ locale }: NeoWatchesLandingProps) {
               <span>✓ {isRu ? 'Макет перед нанесением' : 'Naqshdan oldin maket'}</span>
               <span>✓ {isRu ? 'Для себя и корпоративно' : "O'zingiz va korporativ"}</span>
             </div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '20px', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '8px', padding: '8px 16px' }}>
+              <span style={{ color: '#c9a84c', fontWeight: 700, fontSize: '1.1rem' }}>
+                {isRu ? 'от 750 000 сум' : "750 000 so'mdan"}
+              </span>
+              <span style={{ color: 'rgba(240,237,232,0.55)', fontSize: '0.85rem' }}>
+                {isRu ? '· тираж от 10 шт.' : '· 10 donadan'}
+              </span>
+            </div>
             <div className="neo-hero-ctas">
               <button className="neo-cta-primary" onClick={handleFormOpen}>
                 {isRu ? 'Оставить заявку' : 'Ariza qoldirish'}

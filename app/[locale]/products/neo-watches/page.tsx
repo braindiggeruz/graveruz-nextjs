@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import NeoWatchesLanding from '@/components/NeoWatchesLanding'
-import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
+import SchemaOrg, { breadcrumbSchema, faqSchema } from '@/components/SchemaOrg'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -21,112 +21,59 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return buildMetadata({ locale, path: 'products/neo-watches', title: "NEO soatlar gravyura bilan | Graver.uz", description: "NEO soatlar shaxsiy gravyura bilan — kvars va mexanik. Naqsh qo'yishdan oldin bepul maket. O'zingiz, yaqinlaringiz va hamkorlaringiz uchun ideal sovg'a." })
 }
 
-// PRODUCT data removed — replaced by NeoWatchesLanding (exact historical transplant from CRA)
-const _UNUSED = {
-  slug: 'neo-watches',
-  nameRu: 'Часы NEO с гравировкой',
-  nameUz: "NEO soatlar o'ymakorlik bilan",
-  descRu: 'Премиальные наручные часы NEO с лазерной гравировкой логотипа. Японский кварцевый механизм, сапфировое стекло. Идеальный корпоративный подарок для VIP-клиентов и топ-менеджеров.',
-  descUz: "Logotipning lazer o'ymakorligi bilan premium NEO qo'l soatlari. Yaponiya kvarts mexanizmi, safir oyna. VIP-mijozlar va top-menejerlar uchun ideal korporativ sovg'a.",
-  icon: '⌚',
-  heroImage: '/images/products/neo/neo-watch-black-gold.jpg',
-  galleryImages: [
-    '/images/products/neo/neo-watch-black-silver.jpg',
-    '/images/products/neo/neo-watch-white-gold.jpg',
-    '/images/products/neo/neo-watch-white-silver.jpg',
-    '/images/products/neo/neo-watch-black-gold.jpg',
-  ],
-  trustBadgesRu: [
-    'Японский механизм',
-    'Сапфировое стекло',
-    'Тираж от 10 штук',
-    'Подарочная упаковка',
-  ],
-  trustBadgesUz: [
-    'Yaponiya mexanizmi',
-    'Safir oyna',
-    '10 donadan boshlab',
-    "Sovg'a qadoqlash",
-  ],
-  featuresRu: [
-    'Лазерная гравировка логотипа на крышке или задней крышке',
-    'Японский кварцевый механизм',
-    'Сапфировое стекло',
-    'Тираж от 10 штук',
-    'Подарочная упаковка включена',
-    'Доставка по всему Узбекистану',
-  ],
-  featuresUz: [
-    "Qopqoq yoki orqa qopqoqda logotipning lazer o'ymakorligi",
-    'Yaponiya kvarts mexanizmi',
-    'Safir oyna',
-    '10 donadan boshlab',
-    "Sovg'a qadoqlash kiritilgan",
-    "O'zbekiston bo'ylab yetkazib berish",
-  ],
-  pricingTiers: [
-    {
-      nameRu: 'NEO Classic (белый циферблат)',
-      nameUz: 'NEO Classic (oq raqamli)',
-      price: '890 000 сум',
-      descRu: 'Белый циферблат, серебряный или золотой корпус.',
-      descUz: "Oq raqamli, kumush yoki oltin korpus.",
+function productSchema(locale: string) {
+  const isRu = locale === 'ru'
+  const base = 'https://graver-studio.uz'
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: isRu ? 'Часы NEO с лазерной гравировкой' : 'NEO soatlar lazer gravyurasi bilan',
+    description: isRu
+      ? 'Премиальные наручные часы NEO с лазерной гравировкой логотипа. Японский кварцевый механизм, сапфировое стекло. Идеальный корпоративный подарок. Тираж от 10 штук.'
+      : "Premium NEO qo'l soatlari logotipning lazer gravyurasi bilan. Yaponiya kvarts mexanizmi, safir oyna. 10 donadan boshlab.",
+    image: `${base}/images/products/neo/neo-watch-black-gold.jpg`,
+    url: `${base}/${locale}/products/neo-watches`,
+    brand: {
+      '@type': 'Brand',
+      name: 'NEO',
     },
-    {
-      nameRu: 'NEO Dark (чёрный циферблат)',
-      nameUz: 'NEO Dark (qora raqamli)',
-      price: '950 000 сум',
-      descRu: 'Чёрный циферблат, чёрный или золотой корпус. Топ-продажи.',
-      descUz: "Qora raqamli, qora yoki oltin korpus. Eng ko'p sotiladigan.",
-      highlight: true,
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'UZS',
+      lowPrice: '750000',
+      highPrice: '1200000',
+      offerCount: '3',
+      availability: 'https://schema.org/InStock',
+      seller: {
+        '@type': 'Organization',
+        name: 'Graver.uz',
+        url: base,
+      },
     },
-    {
-      nameRu: 'NEO Premium Set',
-      nameUz: 'NEO Premium Set',
-      price: '1 200 000 сум',
-      descRu: 'Часы + кожаный ремешок + гравированная коробка.',
-      descUz: "Soat + charm qayish + o'ymakorli quti.",
-    },
-  ],
-  processStepsRu: [
-    'Выберите модель и цвет корпуса',
-    'Пришлите логотип для гравировки (SVG/PNG)',
-    'Согласуйте макет на крышке или задней крышке',
-    'Получите готовые часы в подарочной упаковке',
-  ],
-  processStepsUz: [
-    'Model va korpus rangini tanlang',
-    "O'ymakorlik uchun logotip yuboring (SVG/PNG)",
-    'Qopqoq yoki orqa qopqoqdagi maketni tasdiqlang',
-    "Sovg'a qadoqlamasida tayyor soatlarni oling",
-  ],
-  faq: [
-    {
-      qRu: 'Какой минимальный тираж для часов NEO?',
-      qUz: 'NEO soatlar uchun minimal tiraj qancha?',
-      aRu: 'Минимальный тираж — 10 штук. При заказе от 20 штук действует скидка 8%, от 50 штук — 15%.',
-      aUz: "Minimal tiraj — 10 dona. 20 donadan buyurtma berishda 8% chegirma, 50 donadan — 15%.",
-    },
-    {
-      qRu: 'Где наносится гравировка на часах?',
-      qUz: 'Soatlarda o\'ymakorlik qayerga qo\'llaniladi?',
-      aRu: 'Гравировка наносится на заднюю крышку часов или на циферблат. Возможна гравировка на ремешке.',
-      aUz: "O'ymakorlik soatlarning orqa qopqog'iga yoki raqamli qismiga qo'llaniladi. Qayishga o'ymakorlik ham mumkin.",
-    },
-    {
-      qRu: 'Какой срок изготовления?',
-      qUz: 'Ishlab chiqarish muddati qancha?',
-      aRu: 'Стандартный срок — 3–5 рабочих дней. Срочный заказ (2 дня) возможен при наличии модели на складе.',
-      aUz: "Standart muddat — 3–5 ish kuni. Shoshilinch buyurtma (2 kun) omborda model mavjud bo'lganda mumkin.",
-    },
-    {
-      qRu: 'Входит ли подарочная упаковка?',
-      qUz: "Sovg'a qadoqlash kiritilganmi?",
-      aRu: 'Да, каждые часы поставляются в фирменной подарочной коробке. Возможна брендированная упаковка с логотипом вашей компании.',
-      aUz: "Ha, har bir soat firma sovg'a qutisida yetkaziladi. Kompaniyangiz logotipi bilan brendlangan qadoqlash ham mumkin.",
-    },
-  ],
+  }
 }
+
+const FAQ_RU = [
+  { q: 'Какой минимальный тираж для часов NEO?', a: 'Минимальный тираж — 10 штук. При заказе от 20 штук действует скидка 8%, от 50 штук — 15%.' },
+  { q: 'Где наносится гравировка на часах?', a: 'Гравировка наносится на заднюю крышку часов или на циферблат. Возможна гравировка на ремешке.' },
+  { q: 'Какой срок изготовления?', a: 'Стандартный срок — 3–5 рабочих дней. Срочный заказ (2 дня) возможен при наличии модели на складе.' },
+  { q: 'Входит ли подарочная упаковка?', a: 'Да, каждые часы поставляются в фирменной подарочной коробке. Возможна брендированная упаковка с логотипом вашей компании.' },
+  { q: 'Можно ли заказать часы с логотипом компании?', a: 'Да, мы наносим любой логотип, текст или изображение методом лазерной гравировки. Пришлите файл SVG или PNG.' },
+  { q: 'Какие механизмы используются?', a: 'В часах NEO используются японские кварцевые механизмы Miyota. По запросу доступны автоматические механизмы.' },
+  { q: 'Есть ли доставка по Узбекистану?', a: 'Да, доставляем по всему Узбекистану. Ташкент — курьером за 1 день. Регионы — 2–3 дня.' },
+  { q: 'Можно ли заказать 1 штуку?', a: 'Минимальный тираж для часов NEO — 10 штук. Для единичных заказов рекомендуем зажигалки или ручки — тираж от 1 штуки.' },
+]
+
+const FAQ_UZ = [
+  { q: 'NEO soatlar uchun minimal tiraj qancha?', a: "Minimal tiraj — 10 dona. 20 donadan buyurtma berishda 8% chegirma, 50 donadan — 15%." },
+  { q: "Soatlarda o'ymakorlik qayerga qo'llaniladi?", a: "O'ymakorlik soatlarning orqa qopqog'iga yoki raqamli qismiga qo'llaniladi. Qayishga o'ymakorlik ham mumkin." },
+  { q: 'Ishlab chiqarish muddati qancha?', a: "Standart muddat — 3–5 ish kuni. Shoshilinch buyurtma (2 kun) omborda model mavjud bo'lganda mumkin." },
+  { q: "Sovg'a qadoqlash kiritilganmi?", a: "Ha, har bir soat firma sovg'a qutisida yetkaziladi. Kompaniyangiz logotipi bilan brendlangan qadoqlash ham mumkin." },
+  { q: "Kompaniya logotipi bilan soat buyurtma berish mumkinmi?", a: "Ha, biz lazer gravyurasi usuli bilan istalgan logotip, matn yoki tasvirni qo'llaymiz. SVG yoki PNG fayl yuboring." },
+  { q: "Qanday mexanizmlar ishlatiladi?", a: "NEO soatlarida Miyota yapon kvarts mexanizmlari ishlatiladi. So'rov bo'yicha avtomatik mexanizmlar ham mavjud." },
+  { q: "O'zbekiston bo'ylab yetkazib berish bormi?", a: "Ha, butun O'zbekiston bo'ylab yetkazib beramiz. Toshkent — 1 kunda kuryer. Viloyatlar — 2–3 kun." },
+  { q: "1 dona buyurtma berish mumkinmi?", a: "NEO soatlar uchun minimal tiraj — 10 dona. Yagona buyurtmalar uchun zajigalkalar yoki ruchkalarni tavsiya etamiz — 1 donadan boshlab." },
+]
 
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params
@@ -139,9 +86,12 @@ export default async function Page({ params }: PageProps) {
     { name: isRu ? 'Продукция' : 'Mahsulotlar', url: `${base}/${locale}/products/neo-watches` },
     { name: isRu ? 'Часы NEO с гравировкой' : 'NEO soatlar gravyura bilan', url: `${base}/${locale}/products/neo-watches` },
   ]
+  const faqItems = (isRu ? FAQ_RU : FAQ_UZ).map(item => ({ q: item.q, a: item.a }))
   return (
     <>
       <SchemaOrg schema={breadcrumbSchema(breadcrumbs)} />
+      <SchemaOrg schema={productSchema(locale)} />
+      <SchemaOrg schema={faqSchema(faqItems)} />
       <NeoWatchesLanding locale={locale} />
     </>
   )

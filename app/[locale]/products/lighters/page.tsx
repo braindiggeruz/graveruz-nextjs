@@ -31,6 +31,38 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
+function productSchema(locale: string) {
+  const isRu = locale === 'ru'
+  const base = 'https://graver-studio.uz'
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: isRu ? 'Металлические зажигалки с лазерной гравировкой' : 'Lazer gravyurasi bilan metall zajigalkalar',
+    description: isRu
+      ? 'Зажигалки с лазерной гравировкой логотипа или имени. 4 модели: R-109, R-110, R-111, R-112. Тираж от 1 штуки. Срок 1–3 дня.'
+      : "Logotip yoki ism bilan lazer gravyurali zajigalkalar. 4 model. 1 donadan boshlab.",
+    image: `${base}/images/products/lighters/lighter-r109.jpg`,
+    url: `${base}/${locale}/products/lighters`,
+    brand: {
+      '@type': 'Brand',
+      name: 'Graver.uz',
+    },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'UZS',
+      lowPrice: '140000',
+      highPrice: '170000',
+      offerCount: '4',
+      availability: 'https://schema.org/InStock',
+      seller: {
+        '@type': 'Organization',
+        name: 'Graver.uz',
+        url: base,
+      },
+    },
+  }
+}
+
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
@@ -45,6 +77,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <SchemaOrg schema={breadcrumbSchema(breadcrumbs)} />
+      <SchemaOrg schema={productSchema(locale)} />
       <LightersLanding locale={locale} />
     </>
   )
