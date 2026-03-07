@@ -8,6 +8,7 @@ import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { organizationSchema, localBusinessSchema } from '@/components/SchemaOrg'
 import { getAllPostsMeta } from '@/lib/blog'
 import FAQSection from '@/components/FAQSection'
+import ContactForm from '@/components/ContactForm'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -622,17 +623,42 @@ export default async function HomePage({ params }: PageProps) {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {recentPosts.map((post) => (
-                <article key={post.slug} className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700 hover:border-teal-500 transition">
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2">
+                <article key={post.slug} className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700 hover:border-teal-500 transition flex flex-col">
+                  {post.ogImage && (
+                    <div className="aspect-video bg-gray-700 overflow-hidden">
+                      <img
+                        src={post.ogImage}
+                        alt={post.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-3 mb-3">
+                      {post.category && (
+                        <span className="bg-teal-500/20 text-teal-400 text-xs px-2 py-1 rounded-full">{post.category}</span>
+                      )}
+                      {post.date && (
+                        <time dateTime={post.date} className="text-gray-500 text-xs">
+                          {new Date(post.date).toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'uz-UZ', { year: 'numeric', month: 'short', day: 'numeric' })}
+                        </time>
+                      )}
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2 flex-1">
                       <Link href={`/${locale}/blog/${post.slug}`} className="hover:text-teal-500 transition">
                         {post.title}
                       </Link>
                     </h3>
                     <p className="text-gray-400 text-sm line-clamp-3 mb-4">{post.description}</p>
-                    <Link href={`/${locale}/blog/${post.slug}`} className="text-teal-500 text-sm hover:text-teal-400 transition">
-                      {messages.blog.read_more} →
-                    </Link>
+                    <div className="flex items-center justify-between mt-auto">
+                      <Link href={`/${locale}/blog/${post.slug}`} className="text-teal-500 text-sm hover:text-teal-400 transition">
+                        {messages.blog.read_more} →
+                      </Link>
+                      {post.readingTime && (
+                        <span className="text-gray-500 text-xs">{post.readingTime} {isRu ? 'мин' : 'daq'}</span>
+                      )}
+                    </div>
                   </div>
                 </article>
               ))}
@@ -650,32 +676,50 @@ export default async function HomePage({ params }: PageProps) {
           CONTACT SECTION (existing, enhanced with tracking)
       ═══════════════════════════════════════════════════════════ */}
       <section id="contact" className="py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">{messages.contact.title}</h2>
-          <p className="text-gray-400 mb-8">
-            {isRu
-              ? 'Оставьте заявку — мы свяжемся с вами в течение 30 минут и подберём оптимальное решение.'
-              : "Ariza qoldiring — 30 daqiqa ichida siz bilan bog'lanamiz va optimal yechim topamiz."}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+998770802288"
-              className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition"
-              data-track="tel"
-              data-placement="homepage-contact"
-            >
-              +998 77 080 22 88
-            </a>
-            <a
-              href="https://t.me/GraverAdm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-teal-500 text-teal-500 px-8 py-4 rounded-lg font-semibold hover:bg-teal-500 hover:text-white transition"
-              data-track="tg"
-              data-placement="homepage-contact"
-            >
-              Telegram
-            </a>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left: contact info */}
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-4">{messages.contact.title}</h2>
+              <p className="text-gray-400 mb-8">
+                {isRu
+                  ? 'Оставьте заявку — мы свяжемся с вами в течение 30 минут и подберём оптимальное решение.'
+                  : "Ariza qoldiring — 30 daqiqa ichida siz bilan bog'lanamiz va optimal yechim topamiz."}
+              </p>
+              <div className="space-y-4 mb-8">
+                <a
+                  href="tel:+998770802288"
+                  className="flex items-center gap-3 text-gray-300 hover:text-teal-500 transition"
+                  data-track="tel"
+                  data-placement="homepage-contact"
+                >
+                  <div className="w-10 h-10 bg-teal-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                  </div>
+                  <span className="font-semibold">+998 77 080 22 88</span>
+                </a>
+                <a
+                  href="https://t.me/GraverAdm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-gray-300 hover:text-teal-500 transition"
+                  data-track="tg"
+                  data-placement="homepage-contact"
+                >
+                  <div className="w-10 h-10 bg-teal-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                  </div>
+                  <span className="font-semibold">@GraverAdm</span>
+                </a>
+              </div>
+              <div className="bg-gray-800/50 rounded-xl p-5 border border-gray-700">
+                <p className="text-teal-400 font-semibold mb-1">{isRu ? 'Режим работы' : 'Ish vaqti'}</p>
+                <p className="text-gray-300 text-sm">{isRu ? 'Пн–Сб: 09:00–18:00' : 'Du–Shan: 09:00–18:00'}</p>
+                <p className="text-teal-500 text-sm font-medium mt-1">{isRu ? 'Заявки принимаем 24/7' : 'Arizalar 24/7'}</p>
+              </div>
+            </div>
+            {/* Right: contact form */}
+            <ContactForm locale={locale} />
           </div>
         </div>
       </section>

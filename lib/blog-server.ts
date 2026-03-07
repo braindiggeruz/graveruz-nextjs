@@ -51,8 +51,8 @@ export function getAllPostsMetaServer(locale: Locale): BlogPostMeta[] {
   for (const slug of slugs) {
     const filePath = getPostFilePath(locale, slug)
     const raw = fs.readFileSync(filePath, 'utf-8')
-    const { data } = matter(raw)
-    posts.push({ ...(data as BlogPostFrontmatter), slug, locale })
+    const { data, content } = matter(raw)
+    posts.push({ ...(data as BlogPostFrontmatter), slug, locale, readingTime: estimateReadingTime(content) })
   }
 
   return posts.sort((a, b) => {

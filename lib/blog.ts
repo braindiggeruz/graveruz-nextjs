@@ -30,6 +30,7 @@ export interface BlogPost extends BlogPostFrontmatter {
 
 export interface BlogPostMeta extends BlogPostFrontmatter {
   // No content — used for listing pages
+  readingTime?: number
 }
 
 /** Returns all slugs for a given locale (build-time only) */
