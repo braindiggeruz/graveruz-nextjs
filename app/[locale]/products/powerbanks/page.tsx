@@ -3,13 +3,11 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import ProductPage from '@/components/ProductPage'
+export const runtime = 'edge'
 
 
 interface PageProps { params: Promise<{ locale: string }> }
 
-export async function generateStaticParams() {
-  return [{ locale: 'ru' }, { locale: 'uz' }]
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params
@@ -31,6 +29,8 @@ const PRODUCT = {
   featuresRu: ["Лазерная гравировка логотипа на корпусе", "Ёмкость от 5000 до 20000 мАч", "Быстрая зарядка (Quick Charge)", "Тираж от 10 штук", "Подарочная упаковка", "Сертификат безопасности"],
   featuresUz: ["Korpusda logotipning lazer o'ymakorligi", "5000 dan 20000 mAh gacha sig'im", "Tezkor zaryadlash (Quick Charge)", "10 donadan boshlab", "Sovg'a qadoqlash", "Xavfsizlik sertifikati"],
 }
+
+export const revalidate = 3600 // ISR: revalidate every 1 hour
 
 export default async function Page({ params }: PageProps) {
   const resolvedParams = await params

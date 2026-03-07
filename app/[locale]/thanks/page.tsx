@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isValidLocale, getMessages, getLocaleUrl, type Locale } from '@/lib/i18n'
+export const runtime = 'edge'
 
 
 interface PageProps {
@@ -23,9 +24,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-export async function generateStaticParams() {
-  return [{ locale: 'ru' }, { locale: 'uz' }]
-}
+
+export const revalidate = 3600 // ISR: revalidate every 1 hour
 
 export default async function ThanksPage({ params }: PageProps) {
   const resolvedParams = await params

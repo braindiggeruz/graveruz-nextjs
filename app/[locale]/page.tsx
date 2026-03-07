@@ -7,15 +7,13 @@ import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { organizationSchema, localBusinessSchema } from '@/components/SchemaOrg'
 import { getAllPostsMeta } from '@/lib/blog'
 import FAQSection from '@/components/FAQSection'
+export const runtime = 'edge'
 
 
 interface PageProps {
   params: Promise<{ locale: string }>
 }
 
-export async function generateStaticParams() {
-  return [{ locale: 'ru' }, { locale: 'uz' }]
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params
@@ -40,6 +38,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ogImage: 'https://graver-studio.uz/images/og/og-home.jpg',
   })
 }
+
+export const revalidate = 3600 // ISR: revalidate every 1 hour
 
 export default async function HomePage({ params }: PageProps) {
   const resolvedParams = await params

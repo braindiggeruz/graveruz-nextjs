@@ -5,15 +5,13 @@ import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import { getAllPostsMeta } from '@/lib/blog'
 import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
+export const runtime = 'edge'
 
 
 interface PageProps {
   params: Promise<{ locale: string }>
 }
 
-export async function generateStaticParams() {
-  return [{ locale: 'ru' }, { locale: 'uz' }]
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params
@@ -36,6 +34,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: "Korporativ sovg'alar, lazer o'ymakorlik va brendlash haqida foydali maqolalar. Toshkentdagi B2B-jamoalar uchun maslahatlar.",
   })
 }
+
+export const revalidate = 3600 // ISR: revalidate every 1 hour
 
 export default async function BlogIndexPage({ params }: PageProps) {
   const resolvedParams = await params

@@ -5,15 +5,13 @@ import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { localBusinessSchema, breadcrumbSchema } from '@/components/SchemaOrg'
 import ContactForm from '@/components/ContactForm'
+export const runtime = 'edge'
 
 
 interface PageProps {
   params: Promise<{ locale: string }>
 }
 
-export async function generateStaticParams() {
-  return [{ locale: 'ru' }, { locale: 'uz' }]
-}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params
@@ -36,6 +34,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: "Graver.uz bilan bog'laning: telefon, Telegram, Toshkentdagi manzil. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
   })
 }
+
+export const revalidate = 3600 // ISR: revalidate every 1 hour
 
 export default async function ContactsPage({ params }: PageProps) {
   const resolvedParams = await params
