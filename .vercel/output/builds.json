@@ -3,14 +3,14 @@
   "target": "preview",
   "argv": [
     "/home/ubuntu/.nvm/versions/node/v22.13.0/bin/node",
-    "/home/ubuntu/graveruz-nextjs/node_modules/.bin/vercel",
+    "/tmp/graveruz-nextjs/node_modules/.bin/vercel",
     "build",
     "--yes"
   ],
   "builds": [
     {
       "require": "@vercel/next",
-      "requirePath": "/home/ubuntu/graveruz-nextjs/node_modules/@vercel/next/dist/index",
+      "requirePath": "/tmp/graveruz-nextjs/node_modules/@vercel/next/dist/index",
       "apiVersion": 2,
       "src": "package.json",
       "use": "@vercel/next",

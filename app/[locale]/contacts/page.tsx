@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { localBusinessSchema, breadcrumbSchema } from '@/components/SchemaOrg'
+import ContactForm from '@/components/ContactForm'
 
 interface PageProps {
   params: Promise<{ locale: string }>
@@ -111,35 +112,8 @@ export default async function ContactsPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* CTA */}
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              {isRu ? 'Напишите нам' : 'Bizga yozing'}
-            </h2>
-            <p className="text-gray-400 mb-6">
-              {isRu
-                ? 'Ответим в течение 30 минут в рабочее время. Для срочных вопросов — звоните.'
-                : "Ish vaqtida 30 daqiqa ichida javob beramiz. Shoshilinch savollar uchun — qo'ng'iroq qiling."}
-            </p>
-            <div className="space-y-4">
-              <a
-                href="https://t.me/GraverAdm"
-                data-track="tg" data-placement="contacts-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-6 py-4 rounded-lg font-semibold hover:opacity-90 transition"
-              >
-                {isRu ? 'Написать в Telegram' : "Telegramga yozish"}
-              </a>
-              <a
-                href="tel:+998770802288"
-                data-track="tel" data-placement="contacts-cta"
-                className="block w-full text-center border border-teal-500 text-teal-500 px-6 py-4 rounded-lg font-semibold hover:bg-teal-500 hover:text-white transition"
-              >
-                {isRu ? 'Позвонить' : "Qo'ng'iroq qilish"}
-              </a>
-            </div>
-          </div>
+          {/* Contact Form */}
+          <ContactForm locale={locale} />
         </div>
       </div>
     </>
