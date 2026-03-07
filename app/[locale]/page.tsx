@@ -8,7 +8,6 @@ import SchemaOrg, { organizationSchema, localBusinessSchema } from '@/components
 import { getAllPostsMeta } from '@/lib/blog'
 import FAQSection from '@/components/FAQSection'
 
-export const runtime = 'edge'
 
 interface PageProps {
   params: Promise<{ locale: string }>

@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isValidLocale, getMessages, getLocaleUrl, type Locale } from '@/lib/i18n'
 
-export const runtime = 'edge'
 
 interface PageProps {
   params: Promise<{ locale: string }>

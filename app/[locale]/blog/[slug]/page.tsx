@@ -7,7 +7,6 @@ import { buildArticleMetadata } from '@/lib/seo'
 import { getPost, getAllSlugs, getRelatedPosts } from '@/lib/blog'
 import SchemaOrg, { articleSchema, faqSchema, breadcrumbSchema } from '@/components/SchemaOrg'
 
-export const runtime = 'edge'
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>

@@ -5,7 +5,6 @@ import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { localBusinessSchema, breadcrumbSchema } from '@/components/SchemaOrg'
 
-export const runtime = 'edge'
 
 interface PageProps {
   params: Promise<{ locale: string }>

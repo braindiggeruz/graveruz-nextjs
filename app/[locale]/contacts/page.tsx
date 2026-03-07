@@ -6,7 +6,6 @@ import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { localBusinessSchema, breadcrumbSchema } from '@/components/SchemaOrg'
 import ContactForm from '@/components/ContactForm'
 
-export const runtime = 'edge'
 
 interface PageProps {
   params: Promise<{ locale: string }>
