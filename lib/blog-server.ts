@@ -19,7 +19,7 @@ function estimateReadingTime(content: string): number {
 }
 
 /** Server-only: Returns all slugs for a given locale */
-export function getAllSlugsServer(locale: Locale): string[] {
+export async function getAllSlugsServer(locale: Locale): Promise<string[]> {
   const dir = path.join(CONTENT_DIR, locale)
   if (!fs.existsSync(dir)) return []
   return fs
@@ -29,7 +29,7 @@ export function getAllSlugsServer(locale: Locale): string[] {
 }
 
 /** Server-only: Returns post metadata + content for a single post */
-export function getPostServer(locale: Locale, slug: string): BlogPost | null {
+export async function getPostServer(locale: Locale, slug: string): Promise<BlogPost | null> {
   const filePath = getPostFilePath(locale, slug)
   if (!fs.existsSync(filePath)) return null
 
@@ -46,8 +46,8 @@ export function getPostServer(locale: Locale, slug: string): BlogPost | null {
 }
 
 /** Server-only: Returns metadata only (no content) for all posts in a locale, sorted by date desc */
-export function getAllPostsMetaServer(locale: Locale): BlogPostMeta[] {
-  const slugs = getAllSlugsServer(locale)
+export async function getAllPostsMetaServer(locale: Locale): Promise<BlogPostMeta[]> {
+  const slugs = await getAllSlugsServer(locale)
   const posts: BlogPostMeta[] = []
 
   for (const slug of slugs) {
@@ -65,7 +65,7 @@ export function getAllPostsMetaServer(locale: Locale): BlogPostMeta[] {
 }
 
 /** Server-only: Returns related posts metadata given a list of slugs */
-export function getRelatedPostsServer(locale: Locale, slugs: string[]): BlogPostMeta[] {
+export async function getRelatedPostsServer(locale: Locale, slugs: string[]): Promise<BlogPostMeta[]> {
   const result: BlogPostMeta[] = []
   for (const slug of slugs.slice(0, 4)) {
     const filePath = getPostFilePath(locale, slug)

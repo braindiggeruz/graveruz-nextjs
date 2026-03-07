@@ -44,7 +44,7 @@ export default async function BlogIndexPage({ params }: PageProps) {
   if (!isValidLocale(resolvedParams.locale)) notFound()
   const locale = resolvedParams.locale as Locale
   const messages = getMessages(locale)
-  const posts = getAllPostsMeta(locale)
+  const posts = await getAllPostsMeta(locale)
   const isRu = locale === 'ru'
 
   const breadcrumbs = [

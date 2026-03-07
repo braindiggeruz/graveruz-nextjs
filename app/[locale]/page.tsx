@@ -48,7 +48,7 @@ export default async function HomePage({ params }: PageProps) {
   if (!isValidLocale(resolvedParams.locale)) notFound()
   const locale = resolvedParams.locale as Locale
   const messages = getMessages(locale)
-  const recentPosts = getAllPostsMeta(locale).slice(0, 3)
+  const recentPosts = (await getAllPostsMeta(locale)).slice(0, 3)
 
   const isRu = locale === 'ru'
 
