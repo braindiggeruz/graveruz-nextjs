@@ -1,3 +1,5 @@
+export const prerender = true
+
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
