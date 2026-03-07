@@ -14,9 +14,9 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "^14.2.29",
+    "@next/mdx": "15.2.9",
     "gray-matter": "^4.0.3",
-    "next": "^15.2.2",
+    "next": "15.2.9",
     "next-mdx-remote": "^6.0.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
