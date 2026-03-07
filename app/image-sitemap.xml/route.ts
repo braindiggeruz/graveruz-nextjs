@@ -1,8 +1,7 @@
-import { getAllPostsMeta } from '@/lib/blog'
+import { BLOG_IMAGE_ENTRIES } from './blog-images'
 
 const BASE = 'https://graver-studio.uz'
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
 function abs(path: string) {
   return path.startsWith('http') ? path : `${BASE}${path}`
 }
@@ -22,7 +21,6 @@ interface ImageEntry {
 }
 
 // ── Static page image map ─────────────────────────────────────────────────────
-// Each entry covers both RU and UZ (same images, different page URLs)
 const STATIC_ENTRIES: {
   paths: string[]
   images: { url: string; title: string; caption?: string }[]
@@ -45,34 +43,13 @@ const STATIC_ENTRIES: {
         title: 'Часы NEO с гравировкой логотипа — корпоративный подарок',
         caption: 'Премиальные наручные часы NEO с лазерной гравировкой. Тираж от 10 шт.',
       },
-      {
-        url: '/images/products/neo-watch-hero.jpg',
-        title: 'NEO Watch Hero — часы с гравировкой',
-      },
-      {
-        url: '/images/products/neo-watch-automatic.jpg',
-        title: 'NEO Watch Automatic — автоматические часы с гравировкой',
-      },
-      {
-        url: '/images/products/neo-watch-quartz.jpg',
-        title: 'NEO Watch Quartz — кварцевые часы с гравировкой',
-      },
-      {
-        url: '/images/products/neo/neo-watch-black-gold.jpg',
-        title: 'NEO часы Black Gold — корпоративный подарок',
-      },
-      {
-        url: '/images/products/neo/neo-watch-black-silver.jpg',
-        title: 'NEO часы Black Silver — корпоративный подарок',
-      },
-      {
-        url: '/images/products/neo/neo-watch-white-gold.jpg',
-        title: 'NEO часы White Gold — корпоративный подарок',
-      },
-      {
-        url: '/images/products/neo/neo-watch-white-silver.jpg',
-        title: 'NEO часы White Silver — корпоративный подарок',
-      },
+      { url: '/images/products/neo-watch-hero.jpg', title: 'NEO Watch Hero — часы с гравировкой' },
+      { url: '/images/products/neo-watch-automatic.jpg', title: 'NEO Watch Automatic — автоматические часы с гравировкой' },
+      { url: '/images/products/neo-watch-quartz.jpg', title: 'NEO Watch Quartz — кварцевые часы с гравировкой' },
+      { url: '/images/products/neo/neo-watch-black-gold.jpg', title: 'NEO часы Black Gold — корпоративный подарок' },
+      { url: '/images/products/neo/neo-watch-black-silver.jpg', title: 'NEO часы Black Silver — корпоративный подарок' },
+      { url: '/images/products/neo/neo-watch-white-gold.jpg', title: 'NEO часы White Gold — корпоративный подарок' },
+      { url: '/images/products/neo/neo-watch-white-silver.jpg', title: 'NEO часы White Silver — корпоративный подарок' },
     ],
   },
   {
@@ -81,24 +58,12 @@ const STATIC_ENTRIES: {
       {
         url: '/images/og/og-lighters.jpg',
         title: 'Зажигалки с гравировкой логотипа — корпоративный подарок',
-        caption: 'Зажигалки Zippo и Brizard с лазерной гравировкой. Тираж от 10 шт.',
+        caption: 'Зажигалки с лазерной гравировкой. Тираж от 10 шт.',
       },
-      {
-        url: '/images/products/lighters/r109_silver_gloss.jpg',
-        title: 'Зажигалка R109 Silver Gloss с гравировкой',
-      },
-      {
-        url: '/images/products/lighters/r110_black_matte.jpg',
-        title: 'Зажигалка R110 Black Matte с гравировкой',
-      },
-      {
-        url: '/images/products/lighters/r111_black_texture.jpg',
-        title: 'Зажигалка R111 Black Texture с гравировкой',
-      },
-      {
-        url: '/images/products/lighters/r112_brushed_steel.jpg',
-        title: 'Зажигалка R112 Brushed Steel с гравировкой',
-      },
+      { url: '/images/products/lighters/r109_silver_gloss.jpg', title: 'Зажигалка R109 Silver Gloss с гравировкой' },
+      { url: '/images/products/lighters/r110_black_matte.jpg', title: 'Зажигалка R110 Black Matte с гравировкой' },
+      { url: '/images/products/lighters/r111_black_texture.jpg', title: 'Зажигалка R111 Black Texture с гравировкой' },
+      { url: '/images/products/lighters/r112_brushed_steel.jpg', title: 'Зажигалка R112 Brushed Steel с гравировкой' },
     ],
   },
   {
@@ -157,42 +122,18 @@ ${rows}
 export async function GET() {
   const entries: ImageEntry[] = []
 
-  // Static pages (each path gets its own <url> entry with the same images)
+  // Static pages
   for (const { paths, images } of STATIC_ENTRIES) {
     for (const path of paths) {
       entries.push({ loc: `${BASE}${path}`, images })
     }
   }
 
-  // Blog articles — RU
-  const ruPosts = getAllPostsMeta('ru')
-  for (const post of ruPosts) {
-    if (!post.ogImage) continue
+  // Blog articles (statically embedded — CF Worker safe)
+  for (const { loc, img, title, caption } of BLOG_IMAGE_ENTRIES) {
     entries.push({
-      loc: `${BASE}/ru/blog/${post.slug}`,
-      images: [
-        {
-          url: post.ogImage,
-          title: post.title,
-          caption: post.description || post.title,
-        },
-      ],
-    })
-  }
-
-  // Blog articles — UZ
-  const uzPosts = getAllPostsMeta('uz')
-  for (const post of uzPosts) {
-    if (!post.ogImage) continue
-    entries.push({
-      loc: `${BASE}/uz/blog/${post.slug}`,
-      images: [
-        {
-          url: post.ogImage,
-          title: post.title,
-          caption: post.description || post.title,
-        },
-      ],
+      loc,
+      images: [{ url: img, title, caption }],
     })
   }
 
