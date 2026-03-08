@@ -101,6 +101,16 @@ const nextConfig = {
       { source: '/ru/products/neo-gift',      destination: '/ru/catalog-products', permanent: true },
       { source: '/uz/products/neo-gift',      destination: '/uz/catalog-products', permanent: true },
 
+      // ── Unknown locale prefixes → prevent /en → /ru/en → 404 chain ──────────
+      { source: '/en',        destination: '/ru',        permanent: true },
+      { source: '/en/:path*', destination: '/ru/:path*', permanent: true },
+      { source: '/fr',        destination: '/ru',        permanent: true },
+      { source: '/fr/:path*', destination: '/ru/:path*', permanent: true },
+      { source: '/de',        destination: '/ru',        permanent: true },
+      { source: '/de/:path*', destination: '/ru/:path*', permanent: true },
+      { source: '/kk',        destination: '/uz',        permanent: true },
+      { source: '/kk/:path*', destination: '/uz/:path*', permanent: true },
+
       // ── Services → homepage (no separate /services page exists) ──────────────────────────────
       { source: '/ru/services', destination: '/ru', permanent: true },
       { source: '/uz/services', destination: '/uz', permanent: true },
