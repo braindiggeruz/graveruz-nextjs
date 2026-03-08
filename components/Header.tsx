@@ -162,6 +162,16 @@ export default function Header({ locale, messages }: HeaderProps) {
             </a>
           </div>
 
+          {/* Mobile locale switcher — always visible between logo and burger */}
+          <div className="lg:hidden flex items-center mr-1">
+            <LocaleSwitcher
+              locale={locale}
+              className="flex items-center space-x-1"
+              activeClassName="text-teal-400 font-bold text-sm"
+              inactiveClassName="text-gray-400 hover:text-white text-sm"
+            />
+          </div>
+
           {/* Mobile menu button */}
           <button
             className="lg:hidden text-white p-2"
