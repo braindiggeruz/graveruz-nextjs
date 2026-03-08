@@ -44,7 +44,8 @@ function getLocaleUrl(
   }
 
   // 3. Any other page with locale prefix — replace locale segment
-  if (match && currentLocale && currentLocale !== targetLocale) {
+  // This also handles the same-locale case (active locale link) — replace /ru with /ru = same path
+  if (match && currentLocale) {
     return pathname.replace(`/${currentLocale}`, `/${targetLocale}`)
   }
 
