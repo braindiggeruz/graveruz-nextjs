@@ -6,7 +6,3 @@ compatibility_flags = ["nodejs_compat"]
 
 [vars]
 NEXT_TELEMETRY_DISABLED = "1"
-
-[assets]
-directory = ".open-next/assets"
-binding = "ASSETS"
