@@ -21,6 +21,8 @@ export interface BlogPostFrontmatter {
   faq?: Array<{ q: string; a: string }>
   category?: string
   tags?: string[]
+  noindex?: boolean            // set true on thin/duplicate posts to suppress indexing
+  canonicalOverride?: string  // full URL to override canonical (for duplicate posts)
 }
 
 export interface BlogPost extends BlogPostFrontmatter {

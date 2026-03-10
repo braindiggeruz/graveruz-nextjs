@@ -103,7 +103,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             <main id="main-content" className="pt-20">
               {children}
             </main>
-            <Footer locale={validLocale} messages={messages} recentPosts={getAllPostsMeta(validLocale).slice(0, 3)} />
+            <Footer locale={validLocale} messages={messages} recentPosts={getAllPostsMeta(validLocale).filter(p => !p.noindex).slice(0, 3)} />
             <StickyMobileCTA locale={validLocale} />
           </AlternateSlugProvider>
         </TrackingProvider>

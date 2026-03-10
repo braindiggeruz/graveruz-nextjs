@@ -46,7 +46,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : `https://graver-studio.uz${post.ogImage ?? '/images/og/og-blog.jpg'}`,
     publishedTime: post.date,
     author: post.author,
-    alternateSlug: post.alternateSlug,
+    // Always pass alternateSlug as an object (even empty {}) so seo.ts treats this as a blog article
+    // and skips generating hreflang for locales without a real counterpart page.
+    alternateSlug: post.alternateSlug ?? {},
+    noindex: post.noindex,
+    canonicalOverride: post.canonicalOverride,
   })
 }
 

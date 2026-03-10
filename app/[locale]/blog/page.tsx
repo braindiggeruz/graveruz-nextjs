@@ -39,7 +39,8 @@ export default async function BlogIndexPage({ params }: PageProps) {
   if (!isValidLocale(resolvedParams.locale)) notFound()
   const locale = resolvedParams.locale as Locale
 
-  const posts = getAllPostsMeta(locale)
+  // Filter out noindex posts — they are duplicate/thin content and should not appear in listings
+  const posts = getAllPostsMeta(locale).filter(p => !p.noindex)
 
   const breadcrumbs = [
     { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },

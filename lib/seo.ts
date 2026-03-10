@@ -13,6 +13,7 @@ interface SeoParams {
   ogDescription?: string
   ogImage?: string
   noindex?: boolean
+  canonicalOverride?: string  // full URL to override canonical (for duplicate posts)
   alternateSlug?: Partial<Record<Locale, string>>  // for blog posts with different slugs per locale
 }
 
@@ -34,10 +35,12 @@ export function buildMetadata(params: SeoParams): Metadata {
     ogDescription,
     ogImage = `${BASE_URL}/images/og/og-home.jpg`,
     noindex = false,
+    canonicalOverride,
     alternateSlug,
   } = params
 
-  const canonicalUrl = getLocaleUrl(locale, path)
+  // Use canonicalOverride if provided (e.g. for duplicate/thin posts that should point to the canonical version)
+  const canonicalUrl = canonicalOverride ?? getLocaleUrl(locale, path)
 
   // Build hreflang alternates
   // For blog articles: only add a locale alternate if a true counterpart exists.
@@ -108,7 +111,7 @@ export function buildArticleMetadata(params: SeoParams & {
   author?: string
 }): Metadata {
   const base = buildMetadata(params)
-  const canonicalUrl = getLocaleUrl(params.locale, params.path ?? '')
+  const canonicalUrl = params.canonicalOverride ?? getLocaleUrl(params.locale, params.path ?? '')
 
   return {
     ...base,

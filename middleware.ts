@@ -28,7 +28,7 @@ export function middleware(request: NextRequest) {
   // No locale prefix — redirect to default locale
   const url = request.nextUrl.clone()
   url.pathname = `/${DEFAULT_LOCALE}${pathname === '/' ? '' : pathname}`
-  return NextResponse.redirect(url, { status: 302 })
+  return NextResponse.redirect(url, { status: 301 })
 }
 
 export const config = {

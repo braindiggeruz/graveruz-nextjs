@@ -122,6 +122,13 @@ export default function Header({ locale, messages }: HeaderProps) {
                       >
                         {locale === 'ru' ? 'Весь каталог →' : "To'liq katalog →"}
                       </Link>
+                      <Link
+                        href={`/${locale}/engraved-gifts`}
+                        className="block px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-teal-500 transition text-sm"
+                        onClick={() => setProductsOpen(false)}
+                      >
+                        {locale === 'ru' ? 'Гравированные подарки' : "O'ymakor sovg'alar"}
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -219,6 +226,9 @@ export default function Header({ locale, messages }: HeaderProps) {
                     ))}
                     <Link href={`/${locale}/catalog-products`} className="text-teal-500 hover:text-teal-400 transition text-sm font-medium" onClick={() => setMobileOpen(false)}>
                       {locale === 'ru' ? 'Весь каталог →' : "To'liq katalog →"}
+                    </Link>
+                    <Link href={`/${locale}/engraved-gifts`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
+                      {locale === 'ru' ? 'Гравированные подарки' : "O'ymakor sovg'alar"}
                     </Link>
                   </div>
                 )}

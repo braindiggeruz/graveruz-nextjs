@@ -71,16 +71,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const post of ruPosts) {
+    // Skip noindex posts — they should not appear in sitemap
+    if (post.noindex) continue
     const ruUrl = getLocaleUrl('ru', `blog/${post.slug}`)
     const uzSlug = uzSlugByRu[post.slug] || post.alternateSlug?.uz
-    const uzUrl = uzSlug
-      ? getLocaleUrl('uz', `blog/${uzSlug}`)
-      : getLocaleUrl('uz', `blog/${post.slug}`)
 
-    const languages: Record<string, string> = {
-      ru: ruUrl,
-      uz: uzUrl,
-      'x-default': ruUrl,
+    // Only include UZ hreflang if a real UZ counterpart exists
+    const languages: Record<string, string> = { ru: ruUrl, 'x-default': ruUrl }
+    if (uzSlug) {
+      languages['uz'] = getLocaleUrl('uz', `blog/${uzSlug}`)
     }
 
     entries.push({
