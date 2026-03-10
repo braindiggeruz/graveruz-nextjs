@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!isValidLocale(resolvedParams.locale)) return {}
   const locale = resolvedParams.locale as Locale
   if (locale === 'ru') {
-    return buildMetadata({ locale, path: 'products/notebooks', title: 'Блокноты с гравировкой логотипа на заказ | Корпоративные подарки Ташкент | Graver.uz', description: 'Кожаные и деревянные блокноты с лазерной гравировкой логотипа. Форматы A5 и A6. Тираж от 10 штук. Доставка по Узбекистану.' })
+    return buildMetadata({ locale, path: 'products/notebooks', title: 'Блокноты с гравировкой логотипа | Корпоративные подарки', description: 'Кожаные и деревянные блокноты с лазерной гравировкой логотипа. Форматы A5 и A6. Тираж от 10 штук. Доставка по Узбекистану.' })
   }
-  return buildMetadata({ locale, path: 'products/notebooks', title: "Logotip o'ymakorligi bilan daftarlar buyurtma | Korporativ sovg'alar Toshkent | Graver.uz", description: "Logotipning lazer o'ymakorligi bilan teri va yog'och daftarlar. A5 va A6 formatlari. 10 donadan boshlab." })
+  return buildMetadata({ locale, path: 'products/notebooks', title: "Logotip o'ymakorligi bilan daftarlar | Toshkent", description: "Logotipning lazer o'ymakorligi bilan teri va yog'och daftarlar. A5 va A6 formatlari. 10 donadan boshlab." })
 }
 
 const PRODUCT = {

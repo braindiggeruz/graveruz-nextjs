@@ -16,9 +16,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!isValidLocale(resolvedParams.locale)) return {}
   const locale = resolvedParams.locale as Locale
   if (locale === 'ru') {
-    return buildMetadata({ locale, path: 'products/pens', title: 'Ручки с гравировкой логотипа на заказ | Корпоративные подарки Ташкент | Graver.uz', description: 'Деловые ручки с лазерной гравировкой имени или логотипа. Металлический корпус, немецкий стержень. Тираж от 10 штук. Доставка по Узбекистану.' })
+    return buildMetadata({ locale, path: 'products/pens', title: 'Ручки с гравировкой логотипа | Корпоративные подарки', description: 'Деловые ручки с лазерной гравировкой имени или логотипа. Металлический корпус, немецкий стержень. Тираж от 10 штук. Доставка по Узбекистану.' })
   }
-  return buildMetadata({ locale, path: 'products/pens', title: "Logotip o'ymakorligi bilan ruchkalar buyurtma | Korporativ sovg'alar Toshkent | Graver.uz", description: "Ism yoki logotipning lazer o'ymakorligi bilan biznes ruchkalar. Metall korpus, nemis qalami. 10 donadan boshlab. O'zbekiston bo'ylab yetkazib berish." })
+  return buildMetadata({ locale, path: 'products/pens', title: "Logotip o'ymakorligi bilan ruchkalar | Toshkent", description: "Ism yoki logotipning lazer o'ymakorligi bilan biznes ruchkalar. Metall korpus, nemis qalami. 10 donadan boshlab. O'zbekiston bo'ylab yetkazib berish." })
 }
 
 const PRODUCT = {

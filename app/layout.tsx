@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   },
   description: 'Корпоративные подарки, welcome-паки, VIP-наборы с лазерной гравировкой. Работаем с B2B-клиентами по всему Узбекистану.',
   metadataBase: new URL('https://graver-studio.uz'),
+  twitter: {
+    card: 'summary_large_image',
+    site: '@graver_uz',
+    creator: '@graver_uz',
+  },
   // Favicon
   icons: {
     icon: '/favicon.ico',

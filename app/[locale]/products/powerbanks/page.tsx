@@ -19,9 +19,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!isValidLocale(resolvedParams.locale)) return {}
   const locale = resolvedParams.locale as Locale
   if (locale === 'ru') {
-    return buildMetadata({ locale, path: 'products/powerbanks', title: 'Повербанки с гравировкой логотипа на заказ | Корпоративные подарки Ташкент | Graver.uz', description: 'Портативные зарядные устройства с лазерной гравировкой логотипа. Ёмкость 5000–20000 мАч, Quick Charge. Тираж от 10 штук. Доставка по Узбекистану.' })
+    return buildMetadata({ locale, path: 'products/powerbanks', title: 'Повербанки с гравировкой логотипа | Корпоративные подарки', description: 'Портативные зарядные устройства с лазерной гравировкой логотипа. Ёмкость 5000–20000 мАч, Quick Charge. Тираж от 10 штук. Доставка по Узбекистану.' })
   }
-  return buildMetadata({ locale, path: 'products/powerbanks', title: "Logotip gravyurali powerbank buyurtma | Korporativ sovg'alar Toshkent | Graver.uz", description: "Logotipning lazer o'ymakorligi bilan ko'chma zaryadlovchi qurilmalar. 5000–20000 mAh, Quick Charge. 10 donadan boshlab." })
+  return buildMetadata({ locale, path: 'products/powerbanks', title: "Logotip gravyurali powerbank buyurtma | Toshkent", description: "Logotipning lazer o'ymakorligi bilan ko'chma zaryadlovchi qurilmalar. 5000–20000 mAh, Quick Charge. 10 donadan boshlab." })
 }
 
 const PRODUCT = {
