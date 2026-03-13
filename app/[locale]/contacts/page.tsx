@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -25,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       locale,
       path: 'contacts',
       title: 'Контакты — Лазерная гравировка в Ташкенте | Graver.uz',
-      description: 'Свяжитесь с Graver.uz: телефон, WhatsApp, Telegram, адрес в Ташкенте. Работаем с B2B-клиентами по всему Узбекистану.',
+      description: 'Свяжитесь с Graver.uz: телефон, WhatsApp, Telegram, адрес — ул. Мукими, 59, Ташкент. Ответ в Telegram за 15 минут. Работаем с B2B-клиентами по всему Узбекистану.',
     })
   }
 
@@ -33,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     locale,
     path: 'contacts',
     title: "Aloqa — Toshkentda lazer o'ymakorlik | Graver.uz",
-    description: "Graver.uz bilan bog'laning: telefon, WhatsApp, Telegram, Toshkentdagi manzil. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
+    description: "Graver.uz bilan bog'laning: telefon, WhatsApp, Telegram, manzil — Mukimiy ko'chasi, 59, Toshkent. Telegramda 15 daqiqada javob. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
   })
 }
 
@@ -108,6 +107,9 @@ export default async function ContactsPage({ params }: PageProps) {
               >
                 @GraverAdm
               </a>
+              <p className="text-gray-400 text-sm mt-2">
+                {isRu ? 'Обычно отвечаем в течение 15 минут' : "Odatda 15 daqiqa ichida javob beramiz"}
+              </p>
             </div>
 
             <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
@@ -115,8 +117,11 @@ export default async function ContactsPage({ params }: PageProps) {
                 {isRu ? 'Адрес' : 'Manzil'}
               </h2>
               <address className="text-gray-300 not-italic">
-                {isRu ? 'Ташкент, ул. Мукими' : "Toshkent, Mukimiy ko'chasi"}
+                {isRu ? 'Ташкент, ул. Мукими, 59' : "Toshkent, Mukimiy ko'chasi, 59"}
               </address>
+              <p className="text-gray-400 text-sm mt-2">
+                {isRu ? 'Рядом с метро Амира Темура' : "Amir Temur metro bekatiga yaqin"}
+              </p>
             </div>
 
             <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
@@ -125,6 +130,9 @@ export default async function ContactsPage({ params }: PageProps) {
               </h2>
               <p className="text-gray-300">
                 {isRu ? 'Пн–Сб: 09:00–18:00' : 'Du–Shan: 09:00–18:00'}
+              </p>
+              <p className="text-teal-500 text-sm mt-1 font-semibold">
+                {isRu ? 'Заявки принимаем 24/7' : 'Arizalar 24/7 qabul qilinadi'}
               </p>
             </div>
           </div>
@@ -147,11 +155,13 @@ export default async function ContactsPage({ params }: PageProps) {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title={isRu ? 'Graver.uz на карте — Ташкент, ул. Мукими' : "Graver.uz xaritada — Toshkent, Mukimiy ko'chasi"}
+              title={isRu ? 'Graver.uz на карте — Ташкент, ул. Мукими, 59' : "Graver.uz xaritada — Toshkent, Mukimiy ko'chasi, 59"}
             />
           </div>
           <p className="text-gray-400 text-sm mt-2">
-            {isRu ? 'Ташкент, ул. Мукими' : "Toshkent, Mukimiy ko'chasi"}
+            {isRu
+              ? 'Ташкент, ул. Мукими, 59 — рядом с метро Амира Темура'
+              : "Toshkent, Mukimiy ko'chasi, 59 — Amir Temur metro bekatiga yaqin"}
           </p>
         </div>
       </div>
