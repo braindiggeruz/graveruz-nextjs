@@ -62,6 +62,21 @@ export default async function CatalogProductsPage({ params }: PageProps) {
   return (
     <>
       <SchemaOrg schema={breadcrumbSchema(breadcrumbs)} />
+      <SchemaOrg schema={{
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: isRu ? 'Каталог продукции для гравировки' : "Oʻymakorlik uchun mahsulotlar katalogi",
+        description: isRu
+          ? 'Продукция для лазерной гравировки с логотипом компании'
+          : "Kompaniya logotipi bilan lazer oʻymakorlik uchun mahsulotlar",
+        numberOfItems: PRODUCTS.length,
+        itemListElement: PRODUCTS.map((p, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: isRu ? p.ru.name : p.uz.name,
+          url: `https://graver-studio.uz/${locale}/products/${p.slug}`,
+        })),
+      }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <nav aria-label="breadcrumb" className="mb-8">
