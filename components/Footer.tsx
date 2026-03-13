@@ -119,6 +119,9 @@ export default function Footer({ locale, messages, recentPosts = [] }: FooterPro
               <Link href={`/${locale}/guarantees`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Гарантии' : 'Kafolatlar'}
               </Link>
+              <Link href={`/${locale}/about`} className="block hover:text-teal-500 transition">
+                {isRu ? 'О нас' : 'Biz haqimizda'}
+              </Link>
               <Link href={`/${locale}#portfolio`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Портфолио' : 'Portfolio'}
               </Link>

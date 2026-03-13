@@ -17,6 +17,7 @@ interface HeaderProps {
       faq: string
       blog: string
       contacts: string
+      about?: string
       watches: string
       lighters: string
       pens: string
@@ -147,6 +148,11 @@ export default function Header({ locale, messages }: HeaderProps) {
             <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-blog">
               {nav.blog}
             </Link>
+            {nav.about && (
+              <Link href={`/${locale}/about`} className="text-gray-300 hover:text-teal-500 transition">
+                {nav.about}
+              </Link>
+            )}
             <Link href={`/${locale}/contacts`} className="text-gray-300 hover:text-teal-500 transition">
               {nav.contacts}
             </Link>
@@ -246,6 +252,11 @@ export default function Header({ locale, messages }: HeaderProps) {
               <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                 {nav.blog}
               </Link>
+              {nav.about && (
+                <Link href={`/${locale}/about`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
+                  {nav.about}
+                </Link>
+              )}
               <Link href={`/${locale}/contacts`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                 {nav.contacts}
               </Link>
