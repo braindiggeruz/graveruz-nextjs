@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
-import SchemaOrg, { organizationSchema, localBusinessSchema } from '@/components/SchemaOrg'
+import SchemaOrg, { organizationSchema, localBusinessSchema, faqSchema } from '@/components/SchemaOrg'
 import { getAllPostsMeta } from '@/lib/blog'
 import FAQSection from '@/components/FAQSection'
 import ContactForm from '@/components/ContactForm'
@@ -56,7 +56,27 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <>
-      <SchemaOrg schema={[organizationSchema(), localBusinessSchema()]} />
+      <SchemaOrg schema={[organizationSchema(), localBusinessSchema(), faqSchema(
+        isRu ? [
+          { q: 'Какой минимальный тираж для корпоративного заказа?', a: 'Минимального тиража нет. Делаем как 1 эксклюзивный подарок, так и серии на тысячи единиц. Цена за единицу снижается при объёмах от 50+ штук.' },
+          { q: 'Можно ли сделать персонализацию для каждого сотрудника?', a: 'Да, делаем индивидуальную гравировку имени, должности, даты для каждого изделия в тираже. Пришлите список — подготовим макеты для согласования.' },
+          { q: 'Работаете ли с юридическими лицами?', a: 'Да, работаем с юрлицами. Предоставляем все закрывающие документы, счета, акты. По согласованию возможна отсрочка платежа для постоянных клиентов.' },
+          { q: 'Сколько времени занимает производство?', a: 'Типовые заказы — 1-3 дня после утверждения макета. Крупные тиражи и сложные проекты — обсуждаем индивидуально. Срочное производство — по запросу.' },
+          { q: 'Что нужно от нас для начала работы?', a: 'Логотип в векторе (AI/SVG/PDF) или качественное фото. Описание: что наносим, на какие предметы, тираж, к какому сроку. Если нет готового макета — создадим сами.' },
+          { q: 'На каких материалах делаете гравировку?', a: 'Металл (сталь, алюминий, латунь), анодированный алюминий, дерево, кожа, стекло, акрил, премиальные пластики. Fiber, CO2, MOPA и UV-технологии.' },
+          { q: 'Можно ли увидеть результат до производства?', a: 'Обязательно. Это наш стандарт работы: вы получаете цифровой макет с точными размерами и размещением, утверждаете его, и только потом мы запускаем производство.' },
+          { q: 'Предоставляете ли подарочную упаковку?', a: 'Да, предлагаем премиальную упаковку под ключ: коробки, пакеты, ленты, открытки — всё под ваш корпоративный стиль.' },
+        ] : [
+          { q: 'Korporativ buyurtma uchun minimal tiraj qancha?', a: "Minimal tiraj yo'q. 1 ta eksklyuziv sovg'adan minglab donagacha tayyorlaymiz. 50+ donadan narx pasayadi." },
+          { q: 'Har bir xodim uchun personalizatsiya qilish mumkinmi?', a: "Ha, tirajdagi har bir mahsulot uchun individual ism, lavozim, sana gravyura qilamiz. Ro'yxat yuboring — tasdiqlash uchun maketlar tayyorlaymiz." },
+          { q: 'Yuridik shaxslar bilan ishlaysizmi?', a: "Ha, yuridik shaxslar bilan ishlaymiz. Barcha yopuvchi hujjatlar, hisob-fakturalar, dalolatnomalar taqdim etamiz. Doimiy mijozlar uchun to'lovni kechiktirish mumkin." },
+          { q: 'Ishlab chiqarish qancha vaqt oladi?', a: "Oddiy buyurtmalar — maketni tasdiqlagandan keyin 1-3 kun. Katta tirajlar va murakkab loyihalar — individual muhokasa qilinadi. Shoshilinch ishlab chiqarish — so'rov bo'yicha." },
+          { q: 'Ishni boshlash uchun bizdan nima kerak?', a: "Vektor formatida logotip (AI/SVG/PDF) yoki sifatli foto. Tavsif: nima qo'yiladi, qaysi buyumlarga, tiraj, qachongacha. Tayyor maket bo'lmasa — o'zimiz yaratamiz." },
+          { q: 'Qaysi materiallarda gravyura qilasiz?', a: "Metall (po'lat, alyuminiy, latun), anodlangan alyuminiy, yog'och, charm, shisha, akril, premium plastmassalar. Fiber, CO2, MOPA va UV texnologiyalari." },
+          { q: "Ishlab chiqarishdan oldin natijani ko'rish mumkinmi?", a: "Albatta. Bu bizning standart ishimiz: aniq o'lchamlar va joylashuvga ega raqamli maket olasiz, uni tasdiqlaysiz, va faqat shundan keyin ishlab chiqarishni boshlaymiz." },
+          { q: "Sovg'a qadoqlash taqdim etasizmi?", a: "Ha, tayyor premium qadoqlash taklif qilamiz: qutichalar, paketlar, lentalar, ochiq xatlar — hammasi sizning korporativ uslubingizga mos." },
+        ]
+      )]} />
 
       {/* ═══════════════════════════════════════════════════════════
           HERO SECTION — exact transplant from CRA App.js

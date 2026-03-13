@@ -55,7 +55,7 @@ export function localBusinessSchema() {
     telephone: '+998770802288',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'улица Мукими',
+      streetAddress: 'ул. Мукими, 59',
       addressLocality: 'Ташкент',
       addressCountry: 'UZ',
     },
