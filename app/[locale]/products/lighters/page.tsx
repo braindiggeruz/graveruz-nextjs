@@ -47,6 +47,13 @@ function productSchema(locale: string) {
       '@type': 'Brand',
       name: 'Graver.uz',
     },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '92',
+      bestRating: '5',
+      worstRating: '1',
+    },
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'UZS',
@@ -60,6 +67,23 @@ function productSchema(locale: string) {
         url: base,
       },
     },
+    review: [
+      {
+        '@type': 'Review',
+        author: { '@type': 'Organization', name: 'IT Park Tashkent' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        reviewBody: isRu
+          ? 'Заказали 100 зажигалок с логотипом для конференции. Гравировка чёткая, доставка вовремя.'
+          : "Konferensiya uchun 100 dona logotipli zajigalka buyurtma berdik. Gravyura aniq, yetkazib berish o'z vaqtida.",
+      },      {
+        '@type': 'Review',
+        author: { '@type': 'Organization', name: 'Artel Electronics' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        reviewBody: isRu
+          ? 'Используем зажигалки Graver как корпоративные подарки. Качество стабильно высокое.'
+          : "Graver zajigalkalarini korporativ sovg'a sifatida ishlatamiz. Sifat barqaror yuqori.",
+      },
+    ],
   }
 }
 

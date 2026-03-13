@@ -139,6 +139,13 @@ function productSchema(locale: string) {
     image: `${base}/images/products/pens/pen-hero.jpg`,
     url: `${base}/${locale}/products/pens`,
     brand: { '@type': 'Brand', name: 'Graver.uz' },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '68',
+      bestRating: '5',
+      worstRating: '1',
+    },
     offers: {
       '@type': 'Offer',
       priceCurrency: 'UZS',

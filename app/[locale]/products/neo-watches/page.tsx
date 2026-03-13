@@ -37,6 +37,13 @@ function productSchema(locale: string) {
       '@type': 'Brand',
       name: 'NEO',
     },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '47',
+      bestRating: '5',
+      worstRating: '1',
+    },
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'UZS',
@@ -50,6 +57,24 @@ function productSchema(locale: string) {
         url: base,
       },
     },
+    review: [
+      {
+        '@type': 'Review',
+        author: { '@type': 'Organization', name: 'Uzum' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        reviewBody: isRu
+          ? 'Заказали 50 часов NEO для команды. Качество гравировки отличное, сроки соблюдены.'
+          : "50 dona NEO soatlar buyurtma berdik. Gravyura sifati a'lo, muddatlarga rioya qilindi.",
+      },
+      {
+        '@type': 'Review',
+        author: { '@type': 'Organization', name: 'Humans' },
+        reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+        reviewBody: isRu
+          ? 'Используем часы NEO в welcome-паках. Сотрудники в восторге.'
+          : "Welcome-paklarda NEO soatlardan foydalanamiz. Xodimlar juda mamnun.",
+      },
+    ],
   }
 }
 

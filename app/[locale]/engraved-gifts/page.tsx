@@ -58,6 +58,37 @@ export default async function EngravedGiftsPage({ params }: PageProps) {
   return (
     <>
       <SchemaOrg schema={[localBusinessSchema(), breadcrumbSchema(breadcrumbs)]} />
+      <SchemaOrg schema={{
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: isRu ? 'Лазерная гравировка подарков' : "Sovg'alarni lazer gravyurasi",
+        description: isRu
+          ? 'Лазерная гравировка логотипов и текста на металле, дереве, коже, стекле. Тираж от 1 штуки.'
+          : "Metall, yog'och, charm, shishada logotip va matn lazer gravyurasi. 1 donadan boshlab.",
+        provider: {
+          '@type': 'Organization',
+          name: 'Graver Studio',
+          url: 'https://graver-studio.uz',
+        },
+        areaServed: { '@type': 'Country', name: 'Uzbekistan' },
+        serviceType: isRu ? 'Лазерная гравировка' : "Lazer gravyurasi",
+      }} />
+      <SchemaOrg schema={{
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: isRu ? 'Как заказать гравировку в Graver Studio' : 'Graver Studio da gravyura buyurtma berish',
+        description: isRu
+          ? 'Пошаговая инструкция по заказу лазерной гравировки подарков с логотипом'
+          : "Logotip bilan sovg'alarni lazer gravyurasiga buyurtma berish bo'yicha bosqichma-bosqich ko'rsatma",
+        totalTime: 'P3D',
+        estimatedCost: { '@type': 'MonetaryAmount', currency: 'UZS', value: '140000' },
+        step: [
+          { '@type': 'HowToStep', position: 1, name: isRu ? 'Оставьте заявку' : 'Ariza qoldiring', text: isRu ? 'Опишите задачу: что нужно, тираж, сроки.' : "Vazifani tasvirlab bering: nima kerak, tiraj, muddatlar." },
+          { '@type': 'HowToStep', position: 2, name: isRu ? 'Согласуйте макет' : 'Maketni tasdiqlang', text: isRu ? 'Мы подготовим цифровой макет и отправим на согласование.' : "Biz raqamli maket tayyorlaymiz va tasdiqlash uchun yuboramiz." },
+          { '@type': 'HowToStep', position: 3, name: isRu ? 'Производство' : 'Ishlab chiqarish', text: isRu ? 'Гравируем на профессиональном оборудовании с контролем качества.' : "Professional uskunada sifat nazorati bilan gravyura qilamiz." },
+          { '@type': 'HowToStep', position: 4, name: isRu ? 'Фотоотчёт и доставка' : 'Fotoaks va yetkazib berish', text: isRu ? 'Отправляем фото готовой продукции и доставляем в Ташкенте за 1 день.' : "Tayyor mahsulot suratlarini yuboramiz va Toshkentda 1 kunda yetkazamiz." },
+        ],
+      }} />
 
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-gray-900 to-black">

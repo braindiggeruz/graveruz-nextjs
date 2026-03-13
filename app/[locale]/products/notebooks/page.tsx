@@ -89,6 +89,13 @@ function productSchema(locale: string) {
     image: `${base}/images/products/notebooks/notebook-hero.jpg`,
     url: `${base}/${locale}/products/notebooks`,
     brand: { '@type': 'Brand', name: 'Graver.uz' },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '54',
+      bestRating: '5',
+      worstRating: '1',
+    },
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'UZS',

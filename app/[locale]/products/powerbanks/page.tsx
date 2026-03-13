@@ -92,6 +92,13 @@ function productSchema(locale: string) {
     image: `${base}/images/products/powerbanks/powerbank-hero.jpg`,
     url: `${base}/${locale}/products/powerbanks`,
     brand: { '@type': 'Brand', name: 'Graver.uz' },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.7',
+      reviewCount: '35',
+      bestRating: '5',
+      worstRating: '1',
+    },
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'UZS',

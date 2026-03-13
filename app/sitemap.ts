@@ -16,6 +16,7 @@ const STATIC_PAGES = [
   'products/notebooks',
   'guarantees',
   'contacts',
+  'about',
   'blog',
 ]
 
