@@ -31,6 +31,36 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
+function faqSchema(locale: string) {
+  const isRu = locale === 'ru'
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: isRu ? 'Какие модели зажигалок доступны для гравировки?' : 'Gravyura uchun qanday zajigalka modellari mavjud?',
+        acceptedAnswer: { '@type': 'Answer', text: isRu ? 'Доступны 4 модели: R-109, R-110, R-111, R-112. Каждая модель отличается формой и размером, но все подходят для лазерной гравировки логотипа, имени или фото.' : "4 ta model mavjud: R-109, R-110, R-111, R-112. Har bir model shakli va o'lchami bilan farqlanadi, lekin barchasi logotip, ism yoki foto lazer gravyurasi uchun mos." },
+      },
+      {
+        '@type': 'Question',
+        name: isRu ? 'Сколько стоит зажигалка с гравировкой?' : 'Gravyurali zajigalka qancha turadi?',
+        acceptedAnswer: { '@type': 'Answer', text: isRu ? 'Цена зажигалки с лазерной гравировкой — от 140 000 до 170 000 сум в зависимости от модели. При заказе от 50 штук действуют скидки.' : "Lazer gravyurali zajigalka narxi — 140 000 dan 170 000 so'mgacha, modelga qarab. 50 donadan buyurtma berganda chegirmalar amal qiladi." },
+      },
+      {
+        '@type': 'Question',
+        name: isRu ? 'Можно ли заказать одну зажигалку с гравировкой?' : 'Bitta zajigalkaga gravyura buyurtma berish mumkinmi?',
+        acceptedAnswer: { '@type': 'Answer', text: isRu ? 'Да, минимальный тираж — 1 штука. Мы выполняем как единичные заказы, так и крупные корпоративные партии.' : "Ha, minimal tiraj — 1 dona. Biz yakka buyurtmalarni ham, yirik korporativ partiyalarni ham bajaramiz." },
+      },
+      {
+        '@type': 'Question',
+        name: isRu ? 'Сколько времени занимает изготовление?' : 'Tayyorlash qancha vaqt oladi?',
+        acceptedAnswer: { '@type': 'Answer', text: isRu ? 'Стандартный срок — 1–3 рабочих дня после утверждения макета. Срочные заказы выполняются за 24 часа.' : "Standart muddat — maket tasdiqlanganidan keyin 1–3 ish kuni. Shoshilinch buyurtmalar 24 soat ichida bajariladi." },
+      },
+    ],
+  }
+}
+
 function productSchema(locale: string) {
   const isRu = locale === 'ru'
   const base = 'https://graver-studio.uz'
@@ -102,6 +132,7 @@ export default async function Page({ params }: PageProps) {
     <>
       <SchemaOrg schema={breadcrumbSchema(breadcrumbs)} />
       <SchemaOrg schema={productSchema(locale)} />
+      <SchemaOrg schema={faqSchema(locale)} />
       <LightersLanding locale={locale} />
     </>
   )

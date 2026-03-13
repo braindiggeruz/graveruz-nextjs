@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import ProductPage from '@/components/ProductPage'
-import SchemaOrg from '@/components/SchemaOrg'
+import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -173,8 +173,16 @@ export default async function Page({ params }: PageProps) {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
   const locale = resolvedParams.locale as Locale
+
+  const breadcrumbs = [
+    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },
+    { name: isRu ? 'Каталог' : 'Katalog', url: `https://graver-studio.uz/${locale}/catalog-products` },
+    { name: isRu ? 'Ручки' : 'Ruchkalar', url: `https://graver-studio.uz/${locale}/products/pens` },
+  ]
+
   return (
     <>
+      <SchemaOrg schema={breadcrumbSchema(breadcrumbs)} />
       <SchemaOrg schema={productSchema(locale)} />
       <SchemaOrg schema={faqSchema(locale)} />
       <ProductPage locale={locale} product={PRODUCT} />
