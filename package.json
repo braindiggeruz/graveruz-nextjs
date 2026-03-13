@@ -8,7 +8,8 @@
     "start": "next start",
     "migrate-blog": "node scripts/migrate-blog.js",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "npm run build && npx opennextjs-cloudflare build && mkdir -p .open-next/bundle && npx esbuild .open-next/worker.js --bundle --outfile=.open-next/bundle/worker.js --format=esm --platform=browser --conditions=workerd,worker,browser --external:cloudflare:* --external:node:* --external:async_hooks --external:buffer --external:crypto --external:fs --external:http --external:https --external:path --external:process --external:stream --external:url --external:util --external:vm && cp .open-next/bundle/worker.js .open-next/assets/_worker.js && npx wrangler pages deploy .open-next/assets --project-name=graveruz-nextjs",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "smoke-test": "node scripts/smoke-test.js"
   },
   "dependencies": {
