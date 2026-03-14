@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { SUPPORTED_LOCALES, DEFAULT_LOCALE, isValidLocale } from './lib/i18n'
-
+import { DEFAULT_LOCALE, isValidLocale } from './lib/i18n'
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -25,10 +24,23 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // No locale prefix — redirect to default locale
+  // No locale prefix — redirect to default locale with guaranteed 301.
+  // We use a native Response with a Location header instead of
+  // NextResponse.redirect() because some versions of OpenNext/Cloudflare
+  // Workers override the custom status code and fall back to 302.
   const url = request.nextUrl.clone()
   url.pathname = `/${DEFAULT_LOCALE}${pathname === '/' ? '' : pathname}`
-  return NextResponse.redirect(url, { status: 301 })
+  // Ensure trailing slash to match trailingSlash:true config
+  if (!url.pathname.endsWith('/')) {
+    url.pathname = url.pathname + '/'
+  }
+  return new Response(null, {
+    status: 301,
+    headers: {
+      Location: url.toString(),
+      'Cache-Control': 'public, max-age=31536000',
+    },
+  })
 }
 
 export const config = {
