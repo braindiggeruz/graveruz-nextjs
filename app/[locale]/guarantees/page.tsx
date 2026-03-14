@@ -90,8 +90,8 @@ export default async function GuaranteesPage({ params }: PageProps) {
   const isRu = locale === 'ru'
 
   const breadcrumbs = [
-    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },
-    { name: isRu ? 'Гарантии' : 'Kafolatlar', url: `https://graver-studio.uz/${locale}/guarantees` },
+    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` },
+    { name: isRu ? 'Гарантии' : 'Kafolatlar', url: `https://graver-studio.uz/${locale}/guarantees/` },
   ]
 
   const guarantees = isRu ? guaranteesRu : guaranteesUz

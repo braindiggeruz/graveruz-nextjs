@@ -44,8 +44,8 @@ export default async function ContactsPage({ params }: PageProps) {
   const isRu = locale === 'ru'
 
   const breadcrumbs = [
-    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },
-    { name: messages.contact.title, url: `https://graver-studio.uz/${locale}/contacts` },
+    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` },
+    { name: messages.contact.title, url: `https://graver-studio.uz/${locale}/contacts/` },
   ]
 
   return (

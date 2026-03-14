@@ -130,6 +130,27 @@ export default function Header({ locale, messages }: HeaderProps) {
                       >
                         {locale === 'ru' ? 'Гравированные подарки' : "O'ymakor sovg'alar"}
                       </Link>
+                      <Link
+                        href={`/${locale}/korporativnye-podarki`}
+                        className="block px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-teal-500 transition text-sm"
+                        onClick={() => setProductsOpen(false)}
+                      >
+                        {locale === 'ru' ? 'Корпоративные подарки' : "Korporativ sovg'alar"}
+                      </Link>
+                      <Link
+                        href={`/${locale}/welcome-packs`}
+                        className="block px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-teal-500 transition text-sm"
+                        onClick={() => setProductsOpen(false)}
+                      >
+                        {locale === 'ru' ? 'Welcome-паки' : 'Welcome-paklar'}
+                      </Link>
+                      <Link
+                        href={`/${locale}/vip-podarki`}
+                        className="block px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-teal-500 transition text-sm"
+                        onClick={() => setProductsOpen(false)}
+                      >
+                        {locale === 'ru' ? 'VIP-подарки' : "VIP sovg'alar"}
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -235,6 +256,15 @@ export default function Header({ locale, messages }: HeaderProps) {
                     </Link>
                     <Link href={`/${locale}/engraved-gifts`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
                       {locale === 'ru' ? 'Гравированные подарки' : "O'ymakor sovg'alar"}
+                    </Link>
+                    <Link href={`/${locale}/korporativnye-podarki`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
+                      {locale === 'ru' ? 'Корпоративные подарки' : "Korporativ sovg'alar"}
+                    </Link>
+                    <Link href={`/${locale}/welcome-packs`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
+                      {locale === 'ru' ? 'Welcome-паки' : 'Welcome-paklar'}
+                    </Link>
+                    <Link href={`/${locale}/vip-podarki`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
+                      {locale === 'ru' ? 'VIP-подарки' : "VIP sovg'alar"}
                     </Link>
                   </div>
                 )}

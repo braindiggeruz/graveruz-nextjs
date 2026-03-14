@@ -29,12 +29,16 @@ export function getHreflang(locale: Locale): string {
 }
 
 /** Returns the absolute URL for a given locale and path */
+// NOTE: trailingSlash: true in next.config.mjs — all canonical URLs must end with /
+// This ensures canonical tags match the actual served URL (prevents GSC canonical mismatch)
 export function getLocaleUrl(locale: Locale, path: string = ''): string {
   const base = 'https://graver-studio.uz'
-  // When path is empty (homepage), return /locale without trailing slash
+  // Homepage: /ru/ or /uz/
   if (!path || path === '/') {
-    return `${base}/${locale}`
+    return `${base}/${locale}/`
   }
   const cleanPath = path.startsWith('/') ? path : `/${path}`
-  return `${base}/${locale}${cleanPath}`
+  // Ensure trailing slash on all URLs
+  const withSlash = cleanPath.endsWith('/') ? cleanPath : `${cleanPath}/`
+  return `${base}/${locale}${withSlash}`
 }

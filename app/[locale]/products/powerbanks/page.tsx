@@ -130,9 +130,9 @@ export default async function Page({ params }: PageProps) {
   const locale = resolvedParams.locale as Locale
 
   const breadcrumbs = [
-    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },
-    { name: isRu ? 'Каталог' : 'Katalog', url: `https://graver-studio.uz/${locale}/catalog-products` },
-    { name: isRu ? 'Повербанки' : 'Powerbank', url: `https://graver-studio.uz/${locale}/products/powerbanks` },
+    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` },
+    { name: isRu ? 'Каталог' : 'Katalog', url: `https://graver-studio.uz/${locale}/catalog-products/` },
+    { name: isRu ? 'Повербанки' : 'Powerbank', url: `https://graver-studio.uz/${locale}/products/powerbanks/` },
   ]
 
   return (

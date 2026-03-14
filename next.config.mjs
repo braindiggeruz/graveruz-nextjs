@@ -12,7 +12,9 @@ const nextConfig = {
   // Static pages (SSG) work without this
 
   // ── Trailing slash ──────────────────────────────────────────────────────────
-  trailingSlash: false,
+  // trailingSlash: true ensures all URLs end with / (canonical form)
+  // Fixes 194 GSC errors: "Страница с переадресацией" caused by 308 redirects
+  trailingSlash: true,
 
   // ── Image optimization ──────────────────────────────────────────────────────
   images: {
@@ -56,10 +58,12 @@ const nextConfig = {
   async redirects() {
     return [
       // ── Root → default locale ──────────────────────────────────────────────
+      // permanent: true = 301 redirect (was: false = 302)
+      // Fixes: root domain authority not being passed to /ru
       {
         source: '/',
         destination: '/ru',
-        permanent: false,
+        permanent: true,
       },
 
       // ── Old URLs without locale prefix → RU ───────────────────────────────
@@ -121,6 +125,26 @@ const nextConfig = {
       { source: '/ru/blog/keys-welcome-pack-povysil-enps-v-it-kompanii', destination: '/ru/blog/keys-welcome-pack-enps-uzbekistan', permanent: true },
       { source: '/ru/blog/chto-podarit-kollege-na-8-marta',           destination: '/ru/blog/podarki-8-marta-20-idej', permanent: true },
       { source: '/ru/blog/podarki-na-8-marta-sotrudnicam',            destination: '/ru/blog/podarki-8-marta-20-idej', permanent: true },
+
+      // ── Additional old CRA slugs → 404 fix (13 slugs) ───────────────────────
+      { source: '/ru/blog/banklar-va-fintex-uchun-sovgalar-toshkent', destination: '/ru/blog/podarki-dlya-bankov-i-finteha-tashkent', permanent: true },
+      { source: '/ru/blog/welcome-pack-dlya-sotrudnikov-2024',        destination: '/ru/blog/welcome-pack-dlya-sotrudnikov', permanent: true },
+      { source: '/ru/blog/korporativnye-podarki-dlya-klientov',       destination: '/ru/blog/korporativnye-podarki-uzbekistan', permanent: true },
+      { source: '/ru/blog/podarki-na-8-marta-v-tashkente',           destination: '/ru/blog/podarki-8-marta-20-idej', permanent: true },
+      { source: '/ru/blog/podarki-na-novyj-god-2025',                destination: '/ru/blog/top-idei-podarkov-na-novyj-god', permanent: true },
+      { source: '/ru/blog/gravirovka-na-chashkah',                   destination: '/ru/blog/korporativnye-podarki-uzbekistan', permanent: true },
+      { source: '/ru/blog/gravirovka-na-ruczkah',                    destination: '/ru/blog/korporativnye-podarki-s-gravirovkoy-metody', permanent: true },
+      { source: '/ru/blog/gravirovka-na-zajigalkah',                 destination: '/ru/blog/korporativnye-podarki-s-gravirovkoy-metody', permanent: true },
+      { source: '/ru/blog/gravirovka-na-bloknotah',                  destination: '/ru/blog/korporativnye-podarki-s-gravirovkoy-metody', permanent: true },
+      { source: '/ru/blog/gravirovka-na-poverbanikah',               destination: '/ru/blog/korporativnye-podarki-s-gravirovkoy-metody', permanent: true },
+      { source: '/ru/blog/gravirovka-na-chashkah-2',                 destination: '/ru/blog/korporativnye-podarki-uzbekistan', permanent: true },
+      { source: '/ru/blog/gravirovka-na-ruczkah-2',                  destination: '/ru/blog/korporativnye-podarki-s-gravirovkoy-metody', permanent: true },
+      { source: '/ru/blog/gravirovka-na-zajigalkah-2',               destination: '/ru/blog/korporativnye-podarki-s-gravirovkoy-metody', permanent: true },
+
+      // ── New commercial pages → root locale redirect ─────────────────────────────
+      { source: '/korporativnye-podarki', destination: '/ru/korporativnye-podarki', permanent: true },
+      { source: '/welcome-packs',         destination: '/ru/welcome-packs',         permanent: true },
+      { source: '/vip-podarki',           destination: '/ru/vip-podarki',           permanent: true },
     ]
   },
 

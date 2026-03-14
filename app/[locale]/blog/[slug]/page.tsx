@@ -65,13 +65,13 @@ export default async function BlogPostPage({ params }: PageProps) {
   const isRu = locale === 'ru'
   const relatedPosts = post.relatedSlugs ? getRelatedPosts(locale, post.relatedSlugs) : []
 
-  const canonicalUrl = `https://graver-studio.uz/${locale}/blog/${post.slug}`
+  const canonicalUrl = `https://graver-studio.uz/${locale}/blog/${post.slug}/`
   const ogImageRaw = post.ogImage ?? 'https://graver-studio.uz/images/og/og-blog.jpg'
   const ogImage = ogImageRaw.startsWith('http') ? ogImageRaw : `https://graver-studio.uz${ogImageRaw}`
 
   const breadcrumbs = [
-    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },
-    { name: messages.blog.title, url: `https://graver-studio.uz/${locale}/blog` },
+    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` },
+    { name: messages.blog.title, url: `https://graver-studio.uz/${locale}/blog/` },
     { name: post.title, url: canonicalUrl },
   ]
 

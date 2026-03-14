@@ -72,7 +72,7 @@ function productSchema(locale: string) {
       ? 'Зажигалки с лазерной гравировкой логотипа или имени. 4 модели: R-109, R-110, R-111, R-112. Тираж от 1 штуки. Срок 1–3 дня.'
       : "Logotip yoki ism bilan lazer gravyurali zajigalkalar. 4 model. 1 donadan boshlab.",
     image: `${base}/images/products/lighters/lighter-r109.jpg`,
-    url: `${base}/${locale}/products/lighters`,
+    url: `${base}/${locale}/products/lighters/`,
     brand: {
       '@type': 'Brand',
       name: 'Graver.uz',
@@ -124,9 +124,9 @@ export default async function Page({ params }: PageProps) {
   const isRu = locale === 'ru'
   const base = 'https://graver-studio.uz'
   const breadcrumbs = [
-    { name: isRu ? 'Главная' : 'Bosh sahifa', url: `${base}/${locale}` },
-    { name: isRu ? 'Продукция' : 'Mahsulotlar', url: `${base}/${locale}/products/lighters` },
-    { name: isRu ? 'Зажигалки с гравировкой' : 'Gravyurali zajigalkalar', url: `${base}/${locale}/products/lighters` },
+    { name: isRu ? 'Главная' : 'Bosh sahifa', url: `${base}/${locale}/` },
+    { name: isRu ? 'Продукция' : 'Mahsulotlar', url: `${base}/${locale}/products/lighters/` },
+    { name: isRu ? 'Зажигалки с гравировкой' : 'Gravyurali zajigalkalar', url: `${base}/${locale}/products/lighters/` },
   ]
   return (
     <>

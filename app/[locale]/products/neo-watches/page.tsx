@@ -32,7 +32,7 @@ function productSchema(locale: string) {
       ? 'Премиальные наручные часы NEO с лазерной гравировкой логотипа. Японский кварцевый механизм, сапфировое стекло. Идеальный корпоративный подарок. Тираж от 10 штук.'
       : "Premium NEO qo'l soatlari logotipning lazer gravyurasi bilan. Yaponiya kvarts mexanizmi, safir oyna. 10 donadan boshlab.",
     image: `${base}/images/products/neo/neo-watch-black-gold.jpg`,
-    url: `${base}/${locale}/products/neo-watches`,
+    url: `${base}/${locale}/products/neo-watches/`,
     brand: {
       '@type': 'Brand',
       name: 'NEO',
@@ -107,9 +107,9 @@ export default async function Page({ params }: PageProps) {
   const isRu = locale === 'ru'
   const base = 'https://graver-studio.uz'
   const breadcrumbs = [
-    { name: isRu ? 'Главная' : 'Bosh sahifa', url: `${base}/${locale}` },
-    { name: isRu ? 'Продукция' : 'Mahsulotlar', url: `${base}/${locale}/products/neo-watches` },
-    { name: isRu ? 'Часы NEO с гравировкой' : 'NEO soatlar gravyura bilan', url: `${base}/${locale}/products/neo-watches` },
+    { name: isRu ? 'Главная' : 'Bosh sahifa', url: `${base}/${locale}/` },
+    { name: isRu ? 'Продукция' : 'Mahsulotlar', url: `${base}/${locale}/products/neo-watches/` },
+    { name: isRu ? 'Часы NEO с гравировкой' : 'NEO soatlar gravyura bilan', url: `${base}/${locale}/products/neo-watches/` },
   ]
   const faqItems = (isRu ? FAQ_RU : FAQ_UZ).map(item => ({ q: item.q, a: item.a }))
   return (

@@ -48,10 +48,10 @@ export default async function EngravedGiftsPage({ params }: PageProps) {
   const isRu = locale === 'ru'
 
   const breadcrumbs = [
-    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },
+    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` },
     {
       name: isRu ? 'Гравированные подарки' : "O'ymakor sovg'alar",
-      url: `https://graver-studio.uz/${locale}/engraved-gifts`,
+      url: `https://graver-studio.uz/${locale}/engraved-gifts/`,
     },
   ]
 

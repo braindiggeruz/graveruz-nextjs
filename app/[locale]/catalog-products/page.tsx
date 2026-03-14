@@ -55,8 +55,8 @@ export default async function CatalogProductsPage({ params }: PageProps) {
   const isRu = locale === 'ru'
 
   const breadcrumbs = [
-    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },
-    { name: messages.nav.products, url: `https://graver-studio.uz/${locale}/catalog-products` },
+    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` },
+    { name: messages.nav.products, url: `https://graver-studio.uz/${locale}/catalog-products/` },
   ]
 
   return (
@@ -74,7 +74,7 @@ export default async function CatalogProductsPage({ params }: PageProps) {
           '@type': 'ListItem',
           position: i + 1,
           name: isRu ? p.ru.name : p.uz.name,
-          url: `https://graver-studio.uz/${locale}/products/${p.slug}`,
+          url: `https://graver-studio.uz/${locale}/products/${p.slug}/`,
         })),
       }} />
 

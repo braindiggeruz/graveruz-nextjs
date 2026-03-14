@@ -106,8 +106,8 @@ export default async function AboutPage({ params }: PageProps) {
   const timeline = isRu ? timelineRu : timelineUz
 
   const breadcrumbs = breadcrumbSchema([
-    { name: isRu ? 'Главная' : 'Bosh sahifa', url: `https://graver-studio.uz/${locale}` },
-    { name: isRu ? 'О нас' : 'Biz haqimizda', url: `https://graver-studio.uz/${locale}/about` },
+    { name: isRu ? 'Главная' : 'Bosh sahifa', url: `https://graver-studio.uz/${locale}/` },
+    { name: isRu ? 'О нас' : 'Biz haqimizda', url: `https://graver-studio.uz/${locale}/about/` },
   ])
 
   const aboutSchema = {
@@ -117,7 +117,7 @@ export default async function AboutPage({ params }: PageProps) {
     description: isRu
       ? 'Graver Studio — студия лазерной гравировки и корпоративных подарков в Ташкенте с 2019 года.'
       : "Graver Studio — 2019 yildan beri Toshkentdagi lazer o'ymakorlik va korporativ sovg'alar studiyasi.",
-    url: `https://graver-studio.uz/${locale}/about`,
+    url: `https://graver-studio.uz/${locale}/about/`,
     mainEntity: {
       '@type': 'Organization',
       name: 'Graver Studio',

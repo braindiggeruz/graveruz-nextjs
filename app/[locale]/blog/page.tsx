@@ -43,8 +43,8 @@ export default async function BlogIndexPage({ params }: PageProps) {
   const posts = getAllPostsMeta(locale).filter(p => !p.noindex)
 
   const breadcrumbs = [
-    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}` },
-    { name: locale === 'ru' ? 'Блог' : 'Blog', url: `https://graver-studio.uz/${locale}/blog` },
+    { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` },
+    { name: locale === 'ru' ? 'Блог' : 'Blog', url: `https://graver-studio.uz/${locale}/blog/` },
   ]
 
   return (

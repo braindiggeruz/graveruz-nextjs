@@ -8,6 +8,9 @@ const BASE_URL = 'https://graver-studio.uz'
 const STATIC_PAGES = [
   '',                          // homepage
   'engraved-gifts',
+  'korporativnye-podarki',
+  'welcome-packs',
+  'vip-podarki',
   'catalog-products',
   'products/neo-watches',
   'products/lighters',
