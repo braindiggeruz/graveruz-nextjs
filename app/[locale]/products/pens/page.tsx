@@ -173,6 +173,7 @@ export default async function Page({ params }: PageProps) {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
   const locale = resolvedParams.locale as Locale
+  const isRu = locale === 'ru'
 
   const breadcrumbs = [
     { name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` },
