@@ -26,7 +26,7 @@ const STATIC_ENTRIES: {
   images: { url: string; title: string; caption?: string }[]
 }[] = [
   {
-    paths: ['/ru', '/uz'],
+    paths: ['/ru/', '/uz/'],
     images: [
       {
         url: '/images/og/og-home.jpg',
@@ -36,7 +36,7 @@ const STATIC_ENTRIES: {
     ],
   },
   {
-    paths: ['/ru/products/neo-watches', '/uz/products/neo-watches'],
+    paths: ['/ru/products/neo-watches/', '/uz/products/neo-watches/'],
     images: [
       {
         url: '/images/og/og-neo-watches.jpg',
@@ -53,7 +53,7 @@ const STATIC_ENTRIES: {
     ],
   },
   {
-    paths: ['/ru/products/lighters', '/uz/products/lighters'],
+    paths: ['/ru/products/lighters/', '/uz/products/lighters/'],
     images: [
       {
         url: '/images/og/og-lighters.jpg',
@@ -67,7 +67,7 @@ const STATIC_ENTRIES: {
     ],
   },
   {
-    paths: ['/ru/catalog-products', '/uz/catalog-products'],
+    paths: ['/ru/catalog-products/', '/uz/catalog-products/'],
     images: [
       {
         url: '/images/og/og-catalog.jpg',
@@ -77,7 +77,7 @@ const STATIC_ENTRIES: {
     ],
   },
   {
-    paths: ['/ru/blog', '/uz/blog'],
+    paths: ['/ru/blog/', '/uz/blog/'],
     images: [
       {
         url: '/images/og/og-blog.jpg',
@@ -122,17 +122,21 @@ ${rows}
 export async function GET() {
   const entries: ImageEntry[] = []
 
-  // Static pages
+  // Static pages — all paths already include trailing slash (required by next.config trailingSlash: true)
   for (const { paths, images } of STATIC_ENTRIES) {
     for (const path of paths) {
-      entries.push({ loc: `${BASE}${path}`, images })
+      // Enforce trailing slash: every <loc> must match the canonical URL served by the site
+      const canonicalPath = path.endsWith('/') ? path : `${path}/`
+      entries.push({ loc: `${BASE}${canonicalPath}`, images })
     }
   }
 
   // Blog articles (statically embedded — CF Worker safe)
+  // Enforce trailing slash on all blog loc entries
   for (const { loc, img, title, caption } of BLOG_IMAGE_ENTRIES) {
+    const canonicalLoc = loc.endsWith('/') ? loc : `${loc}/`
     entries.push({
-      loc,
+      loc: canonicalLoc,
       images: [{ url: img, title, caption }],
     })
   }
