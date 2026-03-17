@@ -70,8 +70,10 @@ const nextConfig = {
       ...r('/guarantees',         '/ru/guarantees'),
       ...r('/contacts',           '/ru/contacts'),
       ...r('/thanks',             '/ru/thanks'),
-      ...r('/watches-with-logo',  '/ru/watches-with-logo'),
-      ...r('/lighters-engraving', '/ru/lighters-engraving'),
+      // Collapsed double-hop: /watches-with-logo -> /ru/watches-with-logo -> /ru/products/neo-watches
+      ...r('/watches-with-logo',  '/ru/products/neo-watches'),
+      // Collapsed double-hop: /lighters-engraving -> /ru/lighters-engraving -> /ru/products/lighters
+      ...r('/lighters-engraving', '/ru/products/lighters'),
       { source: '/blog/:slug',      destination: '/ru/blog/:slug/',      permanent: true },
       { source: '/blog/:slug/',     destination: '/ru/blog/:slug/',      permanent: true },
       { source: '/products/:path*', destination: '/ru/products/:path*/', permanent: true },
@@ -81,8 +83,10 @@ const nextConfig = {
       ...r('/uz/gravirovkali-sovgalar', '/uz/engraved-gifts'),
       ...r('/uz/logotipli-soat',        '/uz/products/neo-watches'),
       ...r('/uz/neo-soatlar',           '/uz/products/neo-watches'),
-      ...r('/uz/neo-korporativ',        '/uz/products/neo-corporate'),
-      ...r('/uz/neo-sovga',             '/uz/products/neo-gift'),
+      // Collapsed double-hop: /uz/neo-korporativ -> /uz/products/neo-corporate -> /uz/catalog-products
+      ...r('/uz/neo-korporativ',        '/uz/catalog-products'),
+      // Collapsed double-hop: /uz/neo-sovga -> /uz/products/neo-gift -> /uz/catalog-products
+      ...r('/uz/neo-sovga',             '/uz/catalog-products'),
 
       // ── Legacy pages → new equivalents ────────────────────────────────────
       ...r('/ru/watches-with-logo',      '/ru/products/neo-watches'),

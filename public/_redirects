@@ -1,89 +1,98 @@
 # Cloudflare Pages _redirects
-# Generated from next.config.mjs redirects
 # Format: source destination status
+# Last updated: 2026-03-17 (SEO forensic fix)
 
 # Root → default locale
-/  /ru  302
+# CRITICAL: Must be 301 (permanent), not 302 (temporary).
+# A 302 signals to Google that the redirect is temporary and prevents PageRank consolidation.
+# Google may treat / as a separate canonical instead of passing authority to /ru/.
+/  /ru/  301
 
 # Old URLs without locale prefix → RU
-/blog  /ru/blog  301
+/blog  /ru/blog/  301
 /blog/*  /ru/blog/:splat  301
-/catalog-products  /ru/catalog-products  301
+/catalog-products  /ru/catalog-products/  301
 /products/*  /ru/products/:splat  301
-/engraved-gifts  /ru/engraved-gifts  301
-/guarantees  /ru/guarantees  301
-/contacts  /ru/contacts  301
-/thanks  /ru/thanks  301
-/process  /ru/process  301
-/watches-with-logo  /ru/watches-with-logo  301
-/lighters-engraving  /ru/lighters-engraving  301
+/engraved-gifts  /ru/engraved-gifts/  301
+/guarantees  /ru/guarantees/  301
+/contacts  /ru/contacts/  301
+/thanks  /ru/thanks/  301
+# Collapsed double-redirect chains: /process -> /ru/process -> /ru  (was 2 hops)
+/process  /ru/  301
+# Collapsed double-redirect chains: /watches-with-logo -> /ru/watches-with-logo -> /ru/products/neo-watches
+/watches-with-logo  /ru/products/neo-watches/  301
+# Collapsed double-redirect chains: /lighters-engraving -> /ru/lighters-engraving -> /ru/products/lighters
+/lighters-engraving  /ru/products/lighters/  301
 
 # UZ locale slug aliases
-/uz/mahsulotlar-katalogi  /uz/catalog-products  301
-/uz/gravirovkali-sovgalar  /uz/engraved-gifts  301
-/uz/logotipli-soat  /uz/products/neo-watches  301
-/uz/neo-soatlar  /uz/products/neo-watches  301
-/uz/neo-korporativ  /uz/products/neo-corporate  301
-/uz/neo-sovga  /uz/products/neo-gift  301
+/uz/mahsulotlar-katalogi  /uz/catalog-products/  301
+/uz/gravirovkali-sovgalar  /uz/engraved-gifts/  301
+/uz/logotipli-soat  /uz/products/neo-watches/  301
+/uz/neo-soatlar  /uz/products/neo-watches/  301
+# Collapsed double-redirect chains: /uz/neo-korporativ -> /uz/products/neo-corporate -> /uz/catalog-products
+/uz/neo-korporativ  /uz/catalog-products/  301
+# Collapsed double-redirect chains: /uz/neo-sovga -> /uz/products/neo-gift -> /uz/catalog-products
+/uz/neo-sovga  /uz/catalog-products/  301
 
 # Legacy pages → new equivalents
-/ru/watches-with-logo  /ru/products/neo-watches  301
-/uz/watches-with-logo  /uz/products/neo-watches  301
-/ru/lighters-engraving  /ru/products/lighters  301
-/ru/process  /ru  301
-/uz/process  /uz  301
-/ru/products  /ru/catalog-products  301
-/uz/products  /uz/catalog-products  301
-/ru/catalog  /ru/catalog-products  301
-/uz/catalog  /uz/catalog-products  301
-/catalog  /ru/catalog-products  301
+/ru/watches-with-logo  /ru/products/neo-watches/  301
+/uz/watches-with-logo  /uz/products/neo-watches/  301
+/ru/lighters-engraving  /ru/products/lighters/  301
+/ru/process  /ru/  301
+/uz/process  /uz/  301
+/ru/products  /ru/catalog-products/  301
+/uz/products  /uz/catalog-products/  301
+/ru/catalog  /ru/catalog-products/  301
+/uz/catalog  /uz/catalog-products/  301
+/catalog  /ru/catalog-products/  301
 
 # neo-corporate and neo-gift → catalog
-/ru/products/neo-corporate  /ru/catalog-products  301
-/uz/products/neo-corporate  /uz/catalog-products  301
-/ru/products/neo-gift  /ru/catalog-products  301
-/uz/products/neo-gift  /uz/catalog-products  301
+/ru/products/neo-corporate  /ru/catalog-products/  301
+/uz/products/neo-corporate  /uz/catalog-products/  301
+/ru/products/neo-gift  /ru/catalog-products/  301
+/uz/products/neo-gift  /uz/catalog-products/  301
 
 # Blog post merges
-/ru/blog/keys-welcome-pak-it-kompaniya-tashkent  /ru/blog/keys-welcome-pack-enps-uzbekistan  301
-/ru/blog/keys-welcome-pack-povysil-enps-v-it-kompanii  /ru/blog/keys-welcome-pack-enps-uzbekistan  301
-/ru/blog/chto-podarit-kollege-na-8-marta  /ru/blog/podarki-8-marta-20-idej  301
-/ru/blog/podarki-na-8-marta-sotrudnicam  /ru/blog/podarki-8-marta-20-idej  301
+/ru/blog/keys-welcome-pak-it-kompaniya-tashkent  /ru/blog/keys-welcome-pack-enps-uzbekistan/  301
+/ru/blog/keys-welcome-pack-povysil-enps-v-it-kompanii  /ru/blog/keys-welcome-pack-enps-uzbekistan/  301
+/ru/blog/chto-podarit-kollege-na-8-marta  /ru/blog/podarki-8-marta-20-idej/  301
+/ru/blog/podarki-na-8-marta-sotrudnicam  /ru/blog/podarki-8-marta-20-idej/  301
 
 # Blog consolidation redirects (SEO overhaul March 2026)
-/ru/blog/welcome-pack-dlya-sotrudnikov-gid  /ru/blog/welcome-pack-dlya-sotrudnikov  301
-/uz/blog/welcome-pack-dlya-sotrudnikov-gid  /uz/blog/welcome-pack-dlya-sotrudnikov  301
-/ru/blog/welcome-pack-novym-sotrudnikam  /ru/blog/welcome-pack-dlya-sotrudnikov  301
-/uz/blog/welcome-pack-novym-sotrudnikam  /uz/blog/welcome-pack-dlya-sotrudnikov  301
-/ru/blog/podarki-na-8-marta-sotrudnitsam  /ru/blog/podarki-na-8-marta-sotrudnicam  301
-/uz/blog/podarki-na-8-marta-sotrudnitsam  /uz/blog/podarki-na-8-marta-sotrudnicam  301
-/ru/blog/nedorogie-podarki-na-8-marta  /ru/blog/podarki-na-8-marta-sotrudnicam  301
-/uz/blog/nedorogie-podarki-na-8-marta  /uz/blog/podarki-na-8-marta-sotrudnicam  301
-/ru/blog/originalnye-podarki-na-8-marta  /ru/blog/podarki-na-8-marta-sotrudnicam  301
-/uz/blog/originalnye-podarki-na-8-marta  /uz/blog/podarki-na-8-marta-sotrudnicam  301
-/ru/blog/gravirovka-v-tashkente-na-8-marta  /ru/blog/podarki-na-8-marta-sotrudnicam  301
-/uz/blog/gravirovka-v-tashkente-na-8-marta  /uz/blog/podarki-na-8-marta-sotrudnicam  301
-/ru/blog/polniy-gid-po-korporativnym-podarkam  /ru/blog/korporativnye-podarki-uzbekistan  301
-/uz/blog/polniy-gid-po-korporativnym-podarkam  /uz/blog/korporativnye-podarki-uzbekistan  301
-/ru/blog/korporativnye-podarki-s-logotipom-polnyy-gayd  /ru/blog/korporativnye-podarki-uzbekistan  301
-/uz/blog/korporativnye-podarki-s-logotipom-polnyy-gayd  /uz/blog/korporativnye-podarki-uzbekistan  301
-/ru/blog/korporativnye-podarki-s-gravirovkoy-metody  /ru/blog/korporativnye-podarki-uzbekistan  301
-/uz/blog/korporativnye-podarki-s-gravirovkoy-metody  /uz/blog/korporativnye-podarki-uzbekistan  301
-/ru/blog/podarki-na-navruz  /ru/blog/korporativnye-podarki-na-navruz  301
-/uz/blog/podarki-na-navruz  /uz/blog/korporativnye-podarki-na-navruz  301
-/ru/blog/gastronomicheskie-nabory-na-navruz-tashkent  /ru/blog/korporativnye-podarki-na-navruz  301
-/uz/blog/gastronomicheskie-nabory-na-navruz-tashkent  /uz/blog/korporativnye-podarki-na-navruz  301
-/ru/blog/keys-brendirovannye-podarki-dlya-it  /ru/blog/keys-welcome-pack-enps-uzbekistan  301
-/uz/blog/keys-brendirovannye-podarki-dlya-it  /uz/blog/keys-welcome-pack-enps-uzbekistan  301
-/ru/blog/lazernaya-gravirovka-podarkov-tehnologiya  /ru/blog/lazernaya-gravirovka-podarkov  301
-/uz/blog/lazernaya-gravirovka-podarkov-tehnologiya  /uz/blog/lazernaya-gravirovka-podarkov  301
-/ru/blog/gravirovka-na-biznes-podarkah  /ru/blog/lazernaya-gravirovka-podarkov  301
-/uz/blog/gravirovka-na-biznes-podarkah  /uz/blog/lazernaya-gravirovka-podarkov  301
-/ru/blog/merch-dlya-it-kompaniy-tashkent  /ru/blog/merch-dlya-kompanii-brendirovanie  301
-/uz/blog/merch-dlya-it-kompaniy-tashkent  /uz/blog/merch-dlya-kompanii-brendirovanie  301
-/ru/blog/korporativniy-merch-kak-instrument-marketinga  /ru/blog/merch-dlya-kompanii-brendirovanie  301
-/uz/blog/korporativniy-merch-kak-instrument-marketinga  /uz/blog/merch-dlya-kompanii-brendirovanie  301
-/ru/blog/podarki-sotrudnikam-loyalnost  /ru/blog/podarki-sotrudnikam-hr-gayd  301
-/uz/blog/podarki-sotrudnikam-loyalnost  /uz/blog/podarki-sotrudnikam-hr-gayd  301
-/ru/blog/kak-vybrat-podarki-dlya-sotrudnikov  /ru/blog/podarki-sotrudnikam-hr-gayd  301
-/uz/blog/kak-vybrat-podarki-dlya-sotrudnikov  /uz/blog/podarki-sotrudnikam-hr-gayd  301
+/ru/blog/welcome-pack-dlya-sotrudnikov-gid  /ru/blog/welcome-pack-dlya-sotrudnikov/  301
+/uz/blog/welcome-pack-dlya-sotrudnikov-gid  /uz/blog/welcome-pack-dlya-sotrudnikov/  301
+/ru/blog/welcome-pack-novym-sotrudnikam  /ru/blog/welcome-pack-dlya-sotrudnikov/  301
+/uz/blog/welcome-pack-novym-sotrudnikam  /uz/blog/welcome-pack-dlya-sotrudnikov/  301
+# Collapsed double-redirect chains: -> podarki-na-8-marta-sotrudnicam -> podarki-8-marta-20-idej
+/ru/blog/podarki-na-8-marta-sotrudnitsam  /ru/blog/podarki-8-marta-20-idej/  301
+/uz/blog/podarki-na-8-marta-sotrudnitsam  /uz/blog/podarki-na-8-marta-sotrudnicam/  301
+/ru/blog/nedorogie-podarki-na-8-marta  /ru/blog/podarki-8-marta-20-idej/  301
+/uz/blog/nedorogie-podarki-na-8-marta  /uz/blog/podarki-na-8-marta-sotrudnicam/  301
+/ru/blog/originalnye-podarki-na-8-marta  /ru/blog/podarki-8-marta-20-idej/  301
+/uz/blog/originalnye-podarki-na-8-marta  /uz/blog/podarki-na-8-marta-sotrudnicam/  301
+/ru/blog/gravirovka-v-tashkente-na-8-marta  /ru/blog/podarki-8-marta-20-idej/  301
+/uz/blog/gravirovka-v-tashkente-na-8-marta  /uz/blog/podarki-na-8-marta-sotrudnicam/  301
+/ru/blog/polniy-gid-po-korporativnym-podarkam  /ru/blog/korporativnye-podarki-uzbekistan/  301
+/uz/blog/polniy-gid-po-korporativnym-podarkam  /uz/blog/korporativnye-podarki-uzbekistan/  301
+/ru/blog/korporativnye-podarki-s-logotipom-polnyy-gayd  /ru/blog/korporativnye-podarki-uzbekistan/  301
+/uz/blog/korporativnye-podarki-s-logotipom-polnyy-gayd  /uz/blog/korporativnye-podarki-uzbekistan/  301
+/ru/blog/korporativnye-podarki-s-gravirovkoy-metody  /ru/blog/korporativnye-podarki-uzbekistan/  301
+/uz/blog/korporativnye-podarki-s-gravirovkoy-metody  /uz/blog/korporativnye-podarki-uzbekistan/  301
+/ru/blog/podarki-na-navruz  /ru/blog/korporativnye-podarki-na-navruz/  301
+/uz/blog/podarki-na-navruz  /uz/blog/korporativnye-podarki-na-navruz/  301
+/ru/blog/gastronomicheskie-nabory-na-navruz-tashkent  /ru/blog/korporativnye-podarki-na-navruz/  301
+/uz/blog/gastronomicheskie-nabory-na-navruz-tashkent  /uz/blog/korporativnye-podarki-na-navruz/  301
+/ru/blog/keys-brendirovannye-podarki-dlya-it  /ru/blog/keys-welcome-pack-enps-uzbekistan/  301
+/uz/blog/keys-brendirovannye-podarki-dlya-it  /uz/blog/keys-welcome-pack-enps-uzbekistan/  301
+/ru/blog/lazernaya-gravirovka-podarkov-tehnologiya  /ru/blog/lazernaya-gravirovka-podarkov/  301
+/uz/blog/lazernaya-gravirovka-podarkov-tehnologiya  /uz/blog/lazernaya-gravirovka-podarkov/  301
+/ru/blog/gravirovka-na-biznes-podarkah  /ru/blog/lazernaya-gravirovka-podarkov/  301
+/uz/blog/gravirovka-na-biznes-podarkah  /uz/blog/lazernaya-gravirovka-podarkov/  301
+/ru/blog/merch-dlya-it-kompaniy-tashkent  /ru/blog/merch-dlya-kompanii-brendirovanie/  301
+/uz/blog/merch-dlya-it-kompaniy-tashkent  /uz/blog/merch-dlya-kompanii-brendirovanie/  301
+/ru/blog/korporativniy-merch-kak-instrument-marketinga  /ru/blog/merch-dlya-kompanii-brendirovanie/  301
+/uz/blog/korporativniy-merch-kak-instrument-marketinga  /uz/blog/merch-dlya-kompanii-brendirovanie/  301
+/ru/blog/podarki-sotrudnikam-loyalnost  /ru/blog/podarki-sotrudnikam-hr-gayd/  301
+/uz/blog/podarki-sotrudnikam-loyalnost  /uz/blog/podarki-sotrudnikam-hr-gayd/  301
+/ru/blog/kak-vybrat-podarki-dlya-sotrudnikov  /ru/blog/podarki-sotrudnikam-hr-gayd/  301
+/uz/blog/kak-vybrat-podarki-dlya-sotrudnikov  /uz/blog/podarki-sotrudnikam-hr-gayd/  301
