@@ -448,13 +448,22 @@ const products = collection({
 })
 
 // ─── CONFIG ─────────────────────────────────────────────────────────
+// Storage mode: always GitHub when deployed (CF Workers filesystem is read-only,
+// local mode only useful via `yarn dev` locally).
+// Env vars KEYSTATIC_GITHUB_CLIENT_ID/CLIENT_SECRET/SECRET must be set at runtime.
+const useGithub =
+  process.env.KEYSTATIC_STORAGE === 'github' ||
+  Boolean(process.env.CF_PAGES) ||
+  Boolean(process.env.CLOUDFLARE_ENV) ||
+  Boolean(process.env.KEYSTATIC_GITHUB_FORCE)
+
 export default config({
-  storage: process.env.KEYSTATIC_GITHUB_REPO_OWNER && process.env.KEYSTATIC_GITHUB_CLIENT_ID
+  storage: useGithub
     ? {
         kind: 'github',
         repo: {
-          owner: process.env.KEYSTATIC_GITHUB_REPO_OWNER,
-          name: process.env.KEYSTATIC_GITHUB_REPO_NAME || 'graveruz-nextjs',
+          owner: 'braindiggeruz',
+          name: 'graveruz-nextjs',
         },
       }
     : {
