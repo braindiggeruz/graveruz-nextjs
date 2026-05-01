@@ -7,6 +7,12 @@ import LocaleSwitcher from '@/components/LocaleSwitcher'
 
 interface HeaderProps {
   locale: Locale
+  settings?: {
+    phone1?: string
+    phone1Display?: string
+    phone2?: string
+    phone2Display?: string
+  } | null
   messages: {
     nav: {
       services: string
@@ -27,12 +33,16 @@ interface HeaderProps {
   }
 }
 
-export default function Header({ locale, messages }: HeaderProps) {
+export default function Header({ locale, messages, settings }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const nav = messages.nav
+  const phone1 = settings?.phone1 || '+998770802288'
+  const phone1Display = settings?.phone1Display || '+998 77 080 22 88'
+  const phone2 = settings?.phone2 || '+998974802288'
+  const phone2Display = settings?.phone2Display || '+998 97 480 22 88'
 
   const handleWrapperEnter = () => {
     if (leaveTimer.current) clearTimeout(leaveTimer.current)
@@ -186,13 +196,13 @@ export default function Header({ locale, messages }: HeaderProps) {
 
           {/* Phone Numbers */}
           <div className="hidden md:flex flex-col items-end space-y-1">
-            <a href="tel:+998770802288" className="text-white font-semibold hover:text-teal-500 transition flex items-center text-sm" data-testid="phone-number-1" data-track="tel" data-placement="header">
+            <a href={`tel:${phone1}`} className="text-white font-semibold hover:text-teal-500 transition flex items-center text-sm" data-testid="phone-number-1" data-track="tel" data-placement="header">
               <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              +998 77 080 22 88
+              {phone1Display}
             </a>
-            <a href="tel:+998974802288" className="text-gray-300 text-xs hover:text-teal-500 transition flex items-center" data-testid="phone-number-2" data-track="tel" data-placement="header">
+            <a href={`tel:${phone2}`} className="text-gray-300 text-xs hover:text-teal-500 transition flex items-center" data-testid="phone-number-2" data-track="tel" data-placement="header">
               <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              +998 97 480 22 88
+              {phone2Display}
             </a>
           </div>
 
@@ -299,13 +309,13 @@ export default function Header({ locale, messages }: HeaderProps) {
                 />
               </div>
               <div className="flex flex-col space-y-2 pt-2 border-t border-gray-800 px-2">
-                <a href="tel:+998770802288" className="text-white font-semibold hover:text-teal-500 transition flex items-center" data-track="tel">
+                <a href={`tel:${phone1}`} className="text-white font-semibold hover:text-teal-500 transition flex items-center" data-track="tel">
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  +998 77 080 22 88
+                  {phone1Display}
                 </a>
-                <a href="tel:+998974802288" className="text-gray-300 hover:text-teal-500 transition flex items-center" data-track="tel">
+                <a href={`tel:${phone2}`} className="text-gray-300 hover:text-teal-500 transition flex items-center" data-track="tel">
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  +998 97 480 22 88
+                  {phone2Display}
                 </a>
               </div>
             </nav>

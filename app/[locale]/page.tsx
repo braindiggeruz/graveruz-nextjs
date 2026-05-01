@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,6 +8,7 @@ import SchemaOrg, { organizationSchema, localBusinessSchema, faqSchema, websiteS
 import { getAllPostsMeta } from '@/lib/blog'
 import FAQSection from '@/components/FAQSection'
 import ContactForm from '@/components/ContactForm'
+import { getHomepage } from '@/lib/cms'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -24,23 +24,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) return {}
   const locale = resolvedParams.locale as Locale
+  const home = await getHomepage().catch(() => null)
+  const seoFromCMS = home?.seo
 
   if (locale === 'ru') {
     return buildMetadata({
       locale,
       path: '',
-      title: 'Лазерная гравировка и брендирование для бизнеса в Ташкенте — Graver.uz',
-      description: 'Корпоративные подарки, welcome-паки, VIP-наборы с лазерной гравировкой. Работаем с B2B-клиентами по всему Узбекистану. Ташкент.',
-      ogImage: 'https://graver-studio.uz/images/og/og-home.jpg',
+      title: seoFromCMS?.title || 'Лазерная гравировка и брендирование для бизнеса в Ташкенте — Graver.uz',
+      description: seoFromCMS?.description || 'Корпоративные подарки, welcome-паки, VIP-наборы с лазерной гравировкой. Работаем с B2B-клиентами по всему Узбекистану. Ташкент.',
+      ogImage: seoFromCMS?.ogImage || 'https://graver-studio.uz/images/og/og-home.jpg',
+      noindex: seoFromCMS?.noindex || false,
     })
   }
 
   return buildMetadata({
     locale,
     path: '',
-    title: "Toshkentda biznes uchun lazer o'ymakorlik va brendlash — Graver.uz",
-    description: "Logotip bilan korporativ sovg'alar, welcome-to'plamlar, VIP-to'plamlar. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
-    ogImage: 'https://graver-studio.uz/images/og/og-home.jpg',
+    title: seoFromCMS?.title || "Toshkentda biznes uchun lazer o'ymakorlik va brendlash — Graver.uz",
+    description: seoFromCMS?.description || "Logotip bilan korporativ sovg'alar, welcome-to'plamlar, VIP-to'plamlar. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
+    ogImage: seoFromCMS?.ogImage || 'https://graver-studio.uz/images/og/og-home.jpg',
+    noindex: seoFromCMS?.noindex || false,
   })
 }
 
@@ -51,13 +55,25 @@ export default async function HomePage({ params }: PageProps) {
   const locale = resolvedParams.locale as Locale
   const messages = getMessages(locale)
   const recentPosts = getAllPostsMeta(locale).slice(0, 3)
+  const home = await getHomepage().catch(() => null)
 
   const isRu = locale === 'ru'
 
-  return (
-    <>
-      <SchemaOrg schema={[organizationSchema(), websiteSchema(locale), localBusinessSchema(), breadcrumbSchema([{ name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` }]), faqSchema(
-        isRu ? [
+  // ── Hero: CMS → fallback to messages JSON
+  const heroBadge = (isRu ? home?.hero?.badgeRu : home?.hero?.badgeUz) || messages.hero.badge
+  const heroTitle = (isRu ? home?.hero?.titleRu : home?.hero?.titleUz) || messages.hero.title
+  const heroTitleAccent = (isRu ? home?.hero?.titleAccentRu : home?.hero?.titleAccentUz) || messages.hero.titleAccent
+  const heroSubtitle = (isRu ? home?.hero?.subtitleRu : home?.hero?.subtitleUz) || messages.hero.subtitle
+  const heroCtaPrimary = (isRu ? home?.hero?.ctaPrimaryRu : home?.hero?.ctaPrimaryUz) || messages.hero.ctaPrimary
+
+  // ── FAQ from CMS (fallback to hardcoded)
+  const cmsFaq = home?.faq || []
+  const faqItems = cmsFaq.length > 0
+    ? cmsFaq.map((f) => ({
+        q: (isRu ? f.questionRu : f.questionUz) || f.questionRu || '',
+        a: (isRu ? f.answerRu : f.answerUz) || f.answerRu || '',
+      }))
+    : (isRu ? [
           { q: 'Какой минимальный тираж для корпоративного заказа?', a: 'Минимального тиража нет. Делаем как 1 эксклюзивный подарок, так и серии на тысячи единиц. Цена за единицу снижается при объёмах от 50+ штук.' },
           { q: 'Можно ли сделать персонализацию для каждого сотрудника?', a: 'Да, делаем индивидуальную гравировку имени, должности, даты для каждого изделия в тираже. Пришлите список — подготовим макеты для согласования.' },
           { q: 'Работаете ли с юридическими лицами?', a: 'Да, работаем с юрлицами. Предоставляем все закрывающие документы, счета, акты. По согласованию возможна отсрочка платежа для постоянных клиентов.' },
@@ -66,7 +82,7 @@ export default async function HomePage({ params }: PageProps) {
           { q: 'На каких материалах делаете гравировку?', a: 'Металл (сталь, алюминий, латунь), анодированный алюминий, дерево, кожа, стекло, акрил, премиальные пластики. Fiber, CO2, MOPA и UV-технологии.' },
           { q: 'Можно ли увидеть результат до производства?', a: 'Обязательно. Это наш стандарт работы: вы получаете цифровой макет с точными размерами и размещением, утверждаете его, и только потом мы запускаем производство.' },
           { q: 'Предоставляете ли подарочную упаковку?', a: 'Да, предлагаем премиальную упаковку под ключ: коробки, пакеты, ленты, открытки — всё под ваш корпоративный стиль.' },
-        ] : [
+      ] : [
           { q: 'Korporativ buyurtma uchun minimal tiraj qancha?', a: "Minimal tiraj yo'q. 1 ta eksklyuziv sovg'adan minglab donagacha tayyorlaymiz. 50+ donadan narx pasayadi." },
           { q: 'Har bir xodim uchun personalizatsiya qilish mumkinmi?', a: "Ha, tirajdagi har bir mahsulot uchun individual ism, lavozim, sana gravyura qilamiz. Ro'yxat yuboring — tasdiqlash uchun maketlar tayyorlaymiz." },
           { q: 'Yuridik shaxslar bilan ishlaysizmi?', a: "Ha, yuridik shaxslar bilan ishlaymiz. Barcha yopuvchi hujjatlar, hisob-fakturalar, dalolatnomalar taqdim etamiz. Doimiy mijozlar uchun to'lovni kechiktirish mumkin." },
@@ -75,8 +91,11 @@ export default async function HomePage({ params }: PageProps) {
           { q: 'Qaysi materiallarda gravyura qilasiz?', a: "Metall (po'lat, alyuminiy, latun), anodlangan alyuminiy, yog'och, charm, shisha, akril, premium plastmassalar. Fiber, CO2, MOPA va UV texnologiyalari." },
           { q: "Ishlab chiqarishdan oldin natijani ko'rish mumkinmi?", a: "Albatta. Bu bizning standart ishimiz: aniq o'lchamlar va joylashuvga ega raqamli maket olasiz, uni tasdiqlaysiz, va faqat shundan keyin ishlab chiqarishni boshlaymiz." },
           { q: "Sovg'a qadoqlash taqdim etasizmi?", a: "Ha, tayyor premium qadoqlash taklif qilamiz: qutichalar, paketlar, lentalar, ochiq xatlar — hammasi sizning korporativ uslubingizga mos." },
-        ]
-      )]} />
+      ])
+
+  return (
+    <>
+      <SchemaOrg schema={[organizationSchema(), websiteSchema(locale), localBusinessSchema(), breadcrumbSchema([{ name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` }]), faqSchema(faqItems)]} />
 
       {/* ═══════════════════════════════════════════════════════════
           HERO SECTION — exact transplant from CRA App.js
@@ -107,7 +126,7 @@ export default async function HomePage({ params }: PageProps) {
                 data-track="cta"
                 data-placement="hero-primary"
               >
-                {messages.hero.ctaPrimary}
+                {heroCtaPrimary}
               </a>
               <a
                 href="https://t.me/GraverAdm"

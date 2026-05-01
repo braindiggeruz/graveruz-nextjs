@@ -105,11 +105,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <body className="bg-black text-white min-h-screen antialiased">
         <TrackingProvider>
           <AlternateSlugProvider>
-            <Header locale={validLocale} messages={messages} />
+            <Header locale={validLocale} messages={messages} settings={settings} />
             <main id="main-content" className="pt-20">
               {children}
             </main>
-            <Footer locale={validLocale} messages={messages} recentPosts={getAllPostsMeta(validLocale).filter(p => !p.noindex).slice(0, 3)} />
+            <Footer locale={validLocale} messages={messages} settings={settings} recentPosts={getAllPostsMeta(validLocale).filter(p => !p.noindex).slice(0, 3)} />
             <StickyMobileCTA locale={validLocale} />
           </AlternateSlugProvider>
         </TrackingProvider>
