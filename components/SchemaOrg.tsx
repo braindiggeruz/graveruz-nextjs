@@ -31,6 +31,7 @@ export function organizationSchema() {
     '@type': 'Organization',
     '@id': 'https://graver-studio.uz/#organization',
     name: 'Graver.uz',
+    alternateName: 'Graver Studio',
     url: 'https://graver-studio.uz',
     logo: 'https://graver-studio.uz/logo192.png',
     description: 'Премиальная лазерная гравировка и брендирование для бизнеса в Ташкенте',
@@ -41,6 +42,22 @@ export function organizationSchema() {
       contactType: 'customer service',
       availableLanguage: ['Russian', 'Uzbek'],
     },
+  }
+}
+
+/**
+ * WebSite schema — enables Sitelinks Search Box in Google SERP
+ * and explicitly declares the site's primary language & in-language alternates.
+ */
+export function websiteSchema(locale: 'ru' | 'uz' = 'ru') {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://graver-studio.uz/#website',
+    url: 'https://graver-studio.uz',
+    name: 'Graver.uz',
+    inLanguage: locale === 'uz' ? 'uz-UZ' : 'ru-RU',
+    publisher: { '@id': 'https://graver-studio.uz/#organization' },
   }
 }
 

@@ -17,7 +17,7 @@ export default function StickyMobileCTA({ locale }: StickyMobileCTAProps) {
     <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-black/95 backdrop-blur-sm border-t border-gray-800 p-3 z-40">
       <div className="flex gap-2">
         <a
-          href={`/${locale}/contacts`}
+          href={`/${locale}/contacts/`}
           className="flex-1 bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-4 py-3 rounded-lg font-semibold text-center hover:from-teal-600 hover:to-cyan-700 transition min-h-[48px] flex items-center justify-center"
         >
           {isRu ? 'Запросить расчёт' : "Narx so'rash"}

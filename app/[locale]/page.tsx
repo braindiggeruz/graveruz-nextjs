@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
-import SchemaOrg, { organizationSchema, localBusinessSchema, faqSchema } from '@/components/SchemaOrg'
+import SchemaOrg, { organizationSchema, localBusinessSchema, faqSchema, websiteSchema, breadcrumbSchema } from '@/components/SchemaOrg'
 import { getAllPostsMeta } from '@/lib/blog'
 import FAQSection from '@/components/FAQSection'
 import ContactForm from '@/components/ContactForm'
@@ -56,7 +56,7 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <>
-      <SchemaOrg schema={[organizationSchema(), localBusinessSchema(), faqSchema(
+      <SchemaOrg schema={[organizationSchema(), websiteSchema(locale), localBusinessSchema(), breadcrumbSchema([{ name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` }]), faqSchema(
         isRu ? [
           { q: 'Какой минимальный тираж для корпоративного заказа?', a: 'Минимального тиража нет. Делаем как 1 эксклюзивный подарок, так и серии на тысячи единиц. Цена за единицу снижается при объёмах от 50+ штук.' },
           { q: 'Можно ли сделать персонализацию для каждого сотрудника?', a: 'Да, делаем индивидуальную гравировку имени, должности, даты для каждого изделия в тираже. Пришлите список — подготовим макеты для согласования.' },

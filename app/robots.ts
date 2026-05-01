@@ -9,6 +9,8 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
+          '/ru/thanks/',
+          '/uz/thanks/',
           '/ru/thanks',
           '/uz/thanks',
           '/_next/',
@@ -17,6 +19,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: [`${BASE_URL}/sitemap.xml`, `${BASE_URL}/image-sitemap.xml`],
-    host: BASE_URL,
   }
 }
