@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/braindiggeruz/graveruz-nextjs
 **Live admin:** https://graver-studio.uz/keystatic/
-**Stack:** Next.js 15.2.9 + Keystatic 0.5 + OpenNext + Cloudflare Pages
+**Stack:** Next.js 15.2.9 + Keystatic 0.5.50 + OpenNext + Cloudflare Pages
 **Content storage:** Git-backed (local mode for dev; GitHub App mode for production editing)
 
 ## Session Log
@@ -13,44 +13,48 @@
 - robots.txt cleanup, StickyMobileCTA trailing-slash fix
 
 ### Session 2 (Jan 2026): Admin panel CMS foundation → LIVE
+- Keystatic v0.5.50 + Next 5.0.4 installed; admin at `/keystatic`
+- 5 modules defined (Home, Pages, Stories, Products, Settings)
+- Real-data migration from hardcoded → YAML for homepage/products/settings
+- `lib/cms.ts` reader bridge for SSG
+- Middleware excludes `/keystatic` + `/api/keystatic`
+- `public/_routes.json` fix — restored `/_next/static/chunks/*.js` 200 responses
 
-**Shipped:**
-- **Keystatic v0.5.50 + Next v5.0.4** installed, admin at `/keystatic`
-- **5 modules defined** with full TypeScript schema (keystatic.config.ts):
-  1. **Home** (singleton) — hero, benefits, services, portfolio, process steps, FAQ
-  2. **Pages** (collection) — commercial landings (schema ready, editor-created in admin)
-  3. **Stories** (collection) — reads existing 112 MDX blog posts natively
-  4. **Products** (collection) — structured pricing/reviews/FAQ → auto Product schema
-  5. **Settings** (singleton) — brand, contacts, address, GA4/Pixel IDs
-- **Real-data migration** from hardcoded to YAML:
-  - `content/settings/index.yaml` — phones, address, Telegram, GA4, Meta Pixel
-  - `content/homepage/index.yaml` — all homepage sections (6 benefits, 6 services, 6 portfolio cases, 4 process steps, 8 FAQ items, bilingual RU/UZ)
-  - `content/products/{neo-watches,lighters,pens,powerbanks,notebooks}/index.yaml`
-- **Pipeline proof-of-concept:** `app/[locale]/layout.tsx` now reads GA4 + Meta Pixel IDs from Settings singleton (one source of truth). Verified live: `G-Z7V0FSGE4Y` served from `content/settings/index.yaml`.
-- **`lib/cms.ts`** — Keystatic reader bridge for build-time SSG consumption
-- **Middleware updated** to exclude `/keystatic` and `/api/keystatic` from locale redirect
-- **CMS_SETUP.md** — full GitHub App setup guide for production-mode admin editing
+### Session 3 (Feb 2026): Wave 2 + Wave 3 → READY TO DEPLOY
 
-**Bonus fix (affects whole site, not just admin):**
-- **`public/_routes.json`** — fixes pre-existing bug where all `/_next/static/chunks/*.js` and CSS returned 404 on production (OpenNext worker.js was catching static asset paths before CF ASSETS binding could serve them). Now all JS chunks return 200 `application/javascript` with 1-year immutable cache. **Benefits the entire production site's client hydration.**
+**Wave 2 — Production OAuth editing (FIXED):**
+- `app/api/keystatic/[...params]/route.ts` rewritten with `export const dynamic = 'force-dynamic'` + `export const runtime = 'nodejs'`. Removes the build-time env evaluation crash on Cloudflare Pages.
+- `npm run build` now succeeds end-to-end. The route appears as `ƒ /api/keystatic/[...params]` (Dynamic) in the build output — the correct mode for runtime env-var injection.
 
-**Validated live on https://graver-studio.uz:**
-- `/keystatic/` → 200 OK, admin UI renders with 5-module sidebar (Home/Pages/Stories/Products/Settings)
-- `/_next/static/chunks/webpack-*.js` → 200 OK (was 404 for weeks+)
-- Homepage GA4 ID served from CMS
-- Blog still 200 OK, title clean (from Session 1 fix)
+**Wave 3 — Block builder + slug-change SEO safety (SHIPPED):**
+- **Pages collection** in `keystatic.config.ts` rewired to a 6-block visual builder via `fields.conditional()`:
+  1. Hero (badge, title, subtitle, image, CTA)
+  2. Rich Text (MDX)
+  3. Features Grid (icon + title + description, array)
+  4. Image + Text (left/right side switcher)
+  5. CTA Banner
+  6. FAQ
+- **`components/PageBlocks.tsx`** — server component that renders all 6 block types with brutalist styling matching the site theme. Uses `lucide-react` icons (12 curated icons via `iconPicker`).
+- **`app/[locale]/[slug]/page.tsx`** — dynamic CMS page route. Pulls from Keystatic, generates SSG at build time. Reserves the static folder slugs (`about`, `blog`, `products`, etc.) so they take precedence over dynamic CMS pages. Auto-emits `breadcrumbSchema` + `faqSchema` JSON-LD from any FAQ block on the page.
+- **Slug-change auto-301 redirects** — added `previousSlugs` array field to **pages**, **products**, and **stories** collections. `scripts/generate-redirects.mjs` runs as `prebuild` and writes managed `# === BEGIN/END AUTO-GENERATED CMS REDIRECTS ===` block into `public/_redirects`. Per-collection routing:
+  - Pages: `/{locale}/{old}/  → /{locale}/{new}/`
+  - Products: `/{locale}/products/{old}/  → /{locale}/products/{new}/`
+  - Stories: `/{locale}/blog/{old}/  → /{locale}/blog/{new}/`
+- **RU/UZ pair linking** — added `alternateSlug` (RU/UZ) field to pages collection. Used by both renderer (`hreflang`) and `app/sitemap.ts` (locale alternates for CMS pages).
+- **`app/sitemap.ts`** now async; reads CMS pages via `getAllPages()` and emits canonical + hreflang entries (skips noindex and reserved slugs).
+- **`lib/cms.ts`** — fixed shadowing bug where `data.slug` (from schema field) overrode the directory-name slug returned by `list()`. Spread order corrected.
 
 ## What WORKS right now
 
-- **Local dev** (`yarn dev` → `localhost:3000/keystatic`): full read+write access, no auth needed
-- **Production admin UI shell** at https://graver-studio.uz/keystatic/ — renders, navigation works
-- **Production site performance improved** via static asset routing fix
+- **Build:** `npm run build` exits 0; route map shows `ƒ /api/keystatic/[...params]`, `ƒ /keystatic/[[...params]]`, plus a working dynamic `● /[locale]/[slug]` (verified with a temp test page).
+- **Dev mode:** `npm run dev` → `localhost:3000/keystatic` — read+write, no auth needed.
+- **Production admin shell** at https://graver-studio.uz/keystatic/ — UI renders.
+- **Slug-change SEO:** any editor edit to `previousSlugs` → next build emits 301 redirects in `_redirects`.
+- **Sitemap:** auto-includes CMS pages.
 
-## What needs 5 min of user setup for full production editing
+## Setup needed once for live editing (on the user's side)
 
-The admin on production shows "Not found" for content because Keystatic config defaults to `local` storage unless GitHub App credentials are provided. This is intentional — the user must create a GitHub App once, add env vars to Cloudflare Pages, redeploy. Full instructions in `CMS_SETUP.md`.
-
-Once that's done, editors log in with GitHub, every save becomes a commit to `braindiggeruz/graveruz-nextjs`, CF Pages auto-deploys in ~2 min.
+User must create a GitHub App (per `seo_work/repo/CMS_SETUP.md`), set the env vars `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET`, `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` in Cloudflare Pages → Variables → Production, then redeploy. From that moment forward, every admin save becomes a commit.
 
 ## Content Model
 
@@ -58,57 +62,59 @@ Once that's done, editors log in with GitHub, every save becomes a commit to `br
 content/
 ├── settings/index.yaml          [singleton]
 ├── homepage/index.yaml          [singleton, 6 sections migrated]
-├── pages/<slug>/index.yaml      [collection, empty v1 — create via admin]
+├── pages/<slug>/index.yaml      [collection — block-builder, alternateSlug, previousSlugs]
 ├── blog/{ru,uz}/<slug>.mdx      [collection, 112 existing MDX read natively]
 └── products/<slug>/index.yaml   [collection, 5 migrated]
 ```
 
+Each collection now supports:
+- `previousSlugs[]` — auto 301 emitted at build time
+- `alternateSlug{ru,uz}` — RU/UZ pair linking (pages, stories)
+
 ## Architecture decisions
 
-- **Git-backed (not Sanity/Strapi/Payload):** zero runtime cost, zero external dep, works with CF Pages SSG, full audit trail via git commits
-- **Keystatic local mode for dev, GitHub mode for prod:** switchable via env var, documented
-- **Meta keywords field NOT included:** Google ignores since 2009, pure UI clutter
-- **Schema JSON-LD auto-generated:** editors fill structured fields (price, reviews, FAQ); app produces Product/Article/FAQ schema — no raw JSON editing
-- **Custom SEO panel with character counters, slug-lock middleware, RU/UZ tab-switcher UX:** deferred to v1.1 (Keystatic built-in UI is sufficient for MVP)
+- **Git-backed (not Sanity/Strapi/Payload):** zero runtime cost
+- **Keystatic local for dev / GitHub for prod:** switchable
+- **Block-builder with 6 reusable blocks:** editors compose pages without touching code
+- **Auto-301 from `previousSlugs[]`:** SEO-safe slug changes; no manual `_redirects` edits
+- **Sitemap reads CMS pages:** newly published commercial landings are crawled
+- **Schema JSON-LD auto-generated:** Product, Article, FAQ, Breadcrumb
 
-## Backlog (v1.1 next sessions)
+## Backlog
 
-### P0 — Production admin unlock
-- User creates GitHub App per CMS_SETUP.md (5 min)
-- User adds env vars to Cloudflare Pages (3 min)
-- Redeploy → full editor workflow live
-
-### P1 — Wire more pages to CMS
-Now that Settings + Homepage content exists in YAML, the next task is to rewrite `app/[locale]/page.tsx` to consume from `getHomepage()` instead of hardcoded inline data. Same for Products page — consume from `getProduct(slug)` so pricing changes reflect instantly.
-
-### P1 — SEO safeguards layer
-- Character-counter on SEO title/description fields (custom Keystatic field component)
-- Slug-lock on published docs + auto-301 redirect writer
+### P1 — More SEO safeguards (deferred this session)
+- Custom Keystatic SEO field with live character counter (Title 60ch / Desc 160ch). Requires a Keystatic component plugin — non-trivial; not blocking.
 - Pre-publish checklist modal
-- Cannibalization linter
+- Cannibalization linter (warn when two pages target the same query)
+
+### P1 — Pair UI indicator
+- Show a visual "missing translation" badge in Keystatic admin when `alternateSlug.uz` empty. Requires custom Keystatic field component.
 
 ### P2 — UX polish
-- Side-by-side RU/UZ tab switcher UX (currently separate docs paired via `alternateSlug`)
 - Cmd+K command palette
-- Recent-Edits default view (replace Keystatic's default dashboard)
+- Recent-Edits default view
 - Dark theme matching site brand
 
 ### P2 — Collections that outgrew inline arrays
 - Portfolio cases (when count > 15)
-- Testimonials
-- FAQs (when shared across 3+ pages)
+- Testimonials (when shared across pages)
 
 ## Environment notes
 
-- Node 20+ required for local dev; CF Pages uses Node 22
-- CF build command (via API): `npm run build && npx @opennextjs/cloudflare@1.17.1 build && ... && cp -r .next/static/* .open-next/assets/_next/static/ && ...`
-- `.npmrc` with `legacy-peer-deps=true` required due to opennextjs peer dep conflict with Next 15.2.9
-- `yarn.lock` deleted from repo; CF uses `package-lock.json` + npm install
+- Node 20+ for local dev; CF Pages uses Node 22
+- CF build command: `npm run build && npx @opennextjs/cloudflare@1.17.1 build && cp -r .next/static/* .open-next/assets/_next/static/ && ...`
+- `.npmrc` with `legacy-peer-deps=true` due to opennextjs peer dep conflict
+- `yarn.lock` MUST stay deleted; build uses npm + `package-lock.json`
+- Hot warning `[TypeError: Cannot read properties of undefined (reading 'os')]` from Next.js's lockfile-patcher is a known Next 15.2.9 issue — does not affect output
 
 ## Contacts for future agents
 
-- Keystatic config: `keystatic.config.ts` (single file, ~400 lines)
+- Keystatic config: `keystatic.config.ts` (single file, ~600 lines after Wave 3)
 - Reader bridge: `lib/cms.ts`
+- Block renderer: `components/PageBlocks.tsx`
+- CMS page route: `app/[locale]/[slug]/page.tsx`
+- Redirects script: `scripts/generate-redirects.mjs` (runs in `prebuild`)
 - Admin route: `app/keystatic/[[...params]]/page.tsx` + `app/api/keystatic/[...params]/route.ts`
 - Never re-add `| Graver.uz` to blog frontmatter title (Session 1 fix)
-- Never touch `public/_routes.json` without understanding it fixes the Worker/static routing
+- Never touch `public/_routes.json` (Session 2 fix)
+- Never edit `# === BEGIN/END AUTO-GENERATED CMS REDIRECTS ===` block manually (Session 3 fix)
