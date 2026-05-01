@@ -1,0 +1,250 @@
+<analysis>**original_problem_statement:** 
+Initial request was for a forensic technical SEO audit, roadmap, and direct implementation on a Next.js (App Router) Cloudflare Pages repository (). After fixing initial SEO bugs (duplicate brand titles), the user pivoted to requesting a mega-elegant, brutalist, writing-first Admin Panel/CMS. The solution chosen was Keystatic (a Git-backed CMS with zero runtime DB dependencies). The user demands strict Wave 1 completion (live data wiring) and Wave 2 (Production GitHub OAuth editing) to be fully functional end-to-end.
+PRODUCT REQUIREMENTS: 
+- Keystatic CMS integrated into Next.js.
+- Wave 1 (DONE): Homepage, Products, Header, Footer must render live from CMS YAML. Auto-schema generation from CMS data.
+- Wave 2 (IN PROGRESS): Production editing via GitHub App OAuth integration.
+- Wave 3 (UPCOMING): Commercial block-builder pages, strict SEO-safe auto-redirects (slug locks), and RU/UZ parity linking.
+
+**User's preferred language**: Russian (ru). INSTRUCT next agent to respond in Russian ONLY.
+
+**what currently exists?** 
+A Next.js 15 project deployed on Cloudflare Pages (via OpenNext). Keystatic CMS is installed. Wave 1 is fully complete: The live site's Homepage, 5 Product pages, Header, and Footer are successfully reading from YAML files in the  directory. Product JSON-LD schema is auto-generating perfectly. The  admin UI loads on production, but production editing (Wave 2) is currently blocked.
+
+**Last working item**: 
+    - Last item agent was working: Fixing the Keystatic GitHub OAuth API route () to work on Cloudflare Pages. Next.js was evaluating  (GitHub Client ID/Secret) at build time, failing the build or hardcoding the storage mode to . The agent was attempting to lazy-load the Keystatic handler to force it to use runtime environment variables, but introduced a syntax/build error.
+    - Status: IN PROGRESS / BLOCKED (Build failing)
+    - Agent Testing Done: N (Build failed on the last attempt)
+    - Which testing method agent to use? backend testing agent / manual testing via  locally to verify Next.js compiles the route correctly without throwing build-time env errors.
+    - User Testing Done: N
+
+**All Pending/In progress Issue list**:
+  Issue 1: P0 - Keystatic API Route Build Failure on Cloudflare / Next.js
+  
+  Issues Detail:
+  - Issue 1: Keystatic API Route Build Failure
+     - Attempted fixes: The agent tried to wrap  in a lazy initialization block so that  and  aren't evaluated during the Next.js static build phase. It resulted in a syntax error / .
+     - Next debug checklist: Check . Ensure the file exports standard Next.js route handlers (, ) and that the Keystatic config is instantiated in a way that is compatible with Next.js App Router static analysis, while deferring environment variable checks to runtime. Look into Next.js  for this route.
+     - Why fix this issue and what will be achieved with the fix? It is the sole blocker preventing Wave 2 (Production editing via GitHub App). Fixing it allows the client to actually log in and edit the site on production.
+     - Status: IN PROGRESS / BLOCKED
+     - Is recurring issue? Y (Stuck in a build failure loop in the last few turns)
+     - Should Test frontend/backend/both after fix? Backend (Build test)
+     - Blocked on other issue: None
+
+**In progress Task List**:
+  Task 1: P0 - Wave 2: Production Editing (GitHub App OAuth)
+  
+ Task Detail:
+  - Task 1: Wave 2 Production Editing
+     - Where to resume: Fix the API route build issue (). Then test the  endpoint.
+     - What will be achieved with this? The marketer will be able to log in to the  admin panel on the live production site and push commits directly to GitHub.
+     - Status: IN PROGRESS
+     - Should Test frontend/backend/both after fix? Frontend (Testing the OAuth redirect)
+     - Blocked on something: Issue 1 (API Route Build Failure)
+
+**Upcoming and Future Tasks**
+    Upcoming Tasks:
+    - Wave 3: Create rendering layer for Commercial Pages ( or similar) using Keystatic Block editor (6 block types). (P1)
+    - Wave 3: Implement strict slug-change safety. Auto-generate 301 redirects in  when a published page's slug changes. (P1)
+    - Wave 3: Implement RU/UZ pair UI linking in Keystatic (visual indicator if a translation is missing). (P2)
+    - Wave 3: Create custom Keystatic field component for SEO Title/Description with character counters. (P2)
+
+**Completed work in this session**
+- SEO Audit & implementation: Removed duplicate  from 46 blog titles, added WebSite and BreadcrumbList schema (DONE).
+- Cloudflare OpenNext Build Fix: Pinned  to , switched from yarn install v1.22.22
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 0.03s. to npm <command>
+
+Usage:
+
+npm install        install all the dependencies in your project
+npm install <foo>  add the <foo> dependency to your project
+npm test           run this project's tests
+npm run <foo>      run the script named <foo>
+npm <command> -h   quick help on <command>
+npm -l             display usage info for all commands
+npm help <term>    search for help on <term>
+npm help npm       more involved overview
+
+All commands:
+
+    access, adduser, audit, bugs, cache, ci, completion,
+    config, dedupe, deprecate, diff, dist-tag, docs, doctor,
+    edit, exec, explain, explore, find-dupes, fund, get, help,
+    help-search, hook, init, install, install-ci-test,
+    install-test, link, ll, login, logout, ls, org, outdated,
+    owner, pack, ping, pkg, prefix, profile, prune, publish,
+    query, rebuild, repo, restart, root, run-script, sbom,
+    search, set, shrinkwrap, star, stars, start, stop, team,
+    test, token, uninstall, unpublish, unstar, update, version,
+    view, whoami
+
+Specify configs in the ini-formatted file:
+    /root/.npmrc
+or on the command line via: npm <command> --key=value
+
+More configuration info: npm help config
+Configuration fields: npm help 7 config
+
+npm@10.8.2 /usr/lib/node_modules/npm, and fixed a critical CF Pages 404 issue on  chunks by manually copying them in the build command and updating  (DONE).
+- Wave 1 CMS Wiring: 
+  -  created with fully typed schemas.
+  -  rewritten to read  and  singletons (DONE).
+  -  built. All 5 products wired to YAML (DONE).
+  -  created for auto-generating JSON-LD (Product, AggregateOffer, Review) from CMS data (DONE).
+  - Header and Footer wired to  YAML for phone numbers and addresses (DONE).
+
+**Earlier issues found/mentioned but not fixed**
+   - None ignored. User actively forced the agent to drop all nice to have features (like cannibalization linters, schema previews) to focus purely on a brutalist, functional v1 admin panel.
+
+**Known issue recurrence from previous fork**
+  - Recurrence count: 0 (First fork)
+  - Status: NA
+
+**Code Architecture**
+- : Next.js App Router (i18n).
+- : Keystatic Git-backed database (YAML for singletons/products, MDX for stories).
+- : CMS Schema definitions.
+- : Admin UI route.
+- : Admin API route (OAuth, GitHub communication).
+
+**Key Technical Concepts**
+Next.js 15, App Router, Keystatic CMS, Cloudflare Pages, OpenNext, SSG, i18n, JSON-LD Structured Data.
+
+**key DB schema**
+  - : Singleton YAML (phones, addresses, analytics).
+  - : Singleton YAML (hero, benefits, services, portfolio, faq).
+  - : Collection YAML (pricing, availability, reviews).
+  - : Collection MDX (RU/UZ blog posts).
+
+**changes in tech stack**
+  - Added Keystatic (, ).
+  - **CRITICAL:** Replaced yarn install v1.22.22
+[1/4] Resolving packages...
+success Already up-to-date.
+Done in 0.02s. with npm <command>
+
+Usage:
+
+npm install        install all the dependencies in your project
+npm install <foo>  add the <foo> dependency to your project
+npm test           run this project's tests
+npm run <foo>      run the script named <foo>
+npm <command> -h   quick help on <command>
+npm -l             display usage info for all commands
+npm help <term>    search for help on <term>
+npm help npm       more involved overview
+
+All commands:
+
+    access, adduser, audit, bugs, cache, ci, completion,
+    config, dedupe, deprecate, diff, dist-tag, docs, doctor,
+    edit, exec, explain, explore, find-dupes, fund, get, help,
+    help-search, hook, init, install, install-ci-test,
+    install-test, link, ll, login, logout, ls, org, outdated,
+    owner, pack, ping, pkg, prefix, profile, prune, publish,
+    query, rebuild, repo, restart, root, run-script, sbom,
+    search, set, shrinkwrap, star, stars, start, stop, team,
+    test, token, uninstall, unpublish, unstar, update, version,
+    view, whoami
+
+Specify configs in the ini-formatted file:
+    /root/.npmrc
+or on the command line via: npm <command> --key=value
+
+More configuration info: npm help config
+Configuration fields: npm help 7 config
+
+npm@10.8.2 /usr/lib/node_modules/npm for builds ( deleted,  added for ). Cloudflare OpenNext was failing with yarn.
+
+**All files of reference** 
+-  (Broken - needs fixing for CF Pages)
+-  (Core CMS schema)
+-  (Reader setup)
+-  (Rewired to CMS)
+-  (Rewired to CMS)
+-  (Auto schema generation)
+-  (Crucial for CF Pages static asset routing)
+
+**Areas that need refactoring**: 
+- : Needs a clean refactor to enforce dynamic rendering () and safely load GitHub credentials from runtime  without breaking the static Next.js build.
+
+**key api endpoints**
+-  (Failing - returns 404 or breaks build)
+-  (Working UI)
+
+**Critical Info for New Agent** 
+- **DEPLOYMENT IS CLOUDFLARE PAGES VIA OPENNEXT.** You cannot use standard Vercel assumptions. Next.js static builds happen in CI, and OpenNext bundles the worker.
+- **NEVER USE YARN.** The build pipeline was strictly shifted to npm <command>
+
+Usage:
+
+npm install        install all the dependencies in your project
+npm install <foo>  add the <foo> dependency to your project
+npm test           run this project's tests
+npm run <foo>      run the script named <foo>
+npm <command> -h   quick help on <command>
+npm -l             display usage info for all commands
+npm help <term>    search for help on <term>
+npm help npm       more involved overview
+
+All commands:
+
+    access, adduser, audit, bugs, cache, ci, completion,
+    config, dedupe, deprecate, diff, dist-tag, docs, doctor,
+    edit, exec, explain, explore, find-dupes, fund, get, help,
+    help-search, hook, init, install, install-ci-test,
+    install-test, link, ll, login, logout, ls, org, outdated,
+    owner, pack, ping, pkg, prefix, profile, prune, publish,
+    query, rebuild, repo, restart, root, run-script, sbom,
+    search, set, shrinkwrap, star, stars, start, stop, team,
+    test, token, uninstall, unpublish, unstar, update, version,
+    view, whoami
+
+Specify configs in the ini-formatted file:
+    /root/.npmrc
+or on the command line via: npm <command> --key=value
+
+More configuration info: npm help config
+Configuration fields: npm help 7 config
+
+npm@10.8.2 /usr/lib/node_modules/npm with  due to OpenNext  incompatibilities.
+- **ENVIRONMENT VARIABLES:** Cloudflare injects production variables at runtime. Next.js tries to inline them at build time. The current failure in  is exactly because Keystatic's config expects  at build time, throwing an error. You must construct the Keystatic API handler dynamically.
+- Do not suggest new features. The user demands strict adherence to fixing Wave 2 and moving to Wave 3.
+
+**documents and test reports created in this job** 
+  - /app/memory/PRD.md
+  - /app/seo_work/repo/CMS_SETUP.md
+
+**Last 10 User Messages and any pending HUMAN messages** 
+1. (User) продолжи выполнение задачи! - Agent hit a token/execution limit while debugging the Keystatic build failure.
+
+**Project Health Check:**
+Broken (Next.js build fails on API route syntax/initialization).
+
+**3rd Party Integrations** 
+- Keystatic GitHub App (Authentication / Git write access) — requires User API Keys (Already set in CF env vars: , ).
+
+**Testing status**
+  - Testing agent used after significant changes: NO (Manual/CLI bash testing used).
+  - Troubleshoot agent used after agent stuck in loop: NO.
+  - Test files created: []
+  - Known regressions: API route broken.
+
+**Credentials to test flow:**
+Available in Cloudflare Pages environment variables.
+
+**What agent forgot to execute**
+The agent got stuck trying to make the Keystatic API route compile under Next.js 15 for Cloudflare Workers. It forgot to apply  and cleanly wrap the configuration logic.
+
+**Debugging checklist for current issue**
+    Issue: Keystatic API route () fails to build or returns 404 because  is undefined at Next.js build time.
+
+    Backend files to check: 
+    Fix strategy:
+    
+    *Note: Ensure  also does not throw if  variables are missing, or handle the  dynamically based on the presence of the env vars.*</analysis>
