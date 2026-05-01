@@ -1,0 +1,40 @@
+slug: notebooks
+status: published
+nameRu: Ежедневники с гравировкой
+nameUz: Gravyurali kundaliklar
+descriptionRu: |
+  Кожаные и комбинированные ежедневники с лазерной гравировкой логотипа или имени.
+  А5-формат, датированные и недатированные. Ленточка, резинка, карман.
+  Welcome-пак, подарок партнёру, корпоративный сувенир.
+descriptionUz: |
+  Charm va aralash kundaliklar logotip yoki ism lazer gravyurasi bilan.
+  A5 format, sanali va sanasiz. Lentacha, rezinka, cho'ntak.
+  Welcome-pak, hamkorga sovg'a, korporativ suvenir.
+brand: ""
+availability: InStock
+minBatchSize: 10
+pricingTiers:
+  - nameRu: Стандарт
+    nameUz: Standart
+    price: 75000
+    priceDisplay: "от 75 000 сум"
+    descRu: Комбинированная обложка
+    descUz: Aralash muqova
+    highlight: false
+  - nameRu: Premium Leather
+    nameUz: Premium charm
+    price: 185000
+    priceDisplay: "от 185 000 сум"
+    descRu: Натуральная кожа
+    descUz: Tabiiy charm
+    highlight: true
+faq:
+  - qRu: "Можно ли именную гравировку?"
+    qUz: "Shaxsiy gravyura mumkinmi?"
+    aRu: "Да, наносим имена сотрудников индивидуально. Подготовим макеты для согласования."
+    aUz: "Ha, xodimlar ismlarini individual qo'yamiz. Tasdiqlash uchun maketlar tayyorlaymiz."
+seo:
+  title: "Ежедневники с гравировкой логотипа — корпоративные | Graver.uz"
+  description: "Кожаные и комбинированные ежедневники А5 с лазерной гравировкой. Welcome-пак, партнёрский подарок, корпоративный сувенир. От 10 штук."
+  ogImage: /images/og/og-home.jpg
+  noindex: false

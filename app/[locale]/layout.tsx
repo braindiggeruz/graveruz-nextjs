@@ -8,6 +8,7 @@ import TrackingProvider from '@/components/TrackingProvider'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
 import { getAllPostsMeta } from '@/lib/blog'
 import { AlternateSlugProvider } from '@/components/AlternateSlugContext'
+import { getSettings } from '@/lib/cms'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -41,6 +42,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const messages = getMessages(validLocale)
   const htmlLang = getHtmlLang(validLocale)
 
+  // Read site-level settings from Keystatic CMS (one source of truth)
+  const settings = await getSettings().catch(() => null)
+  const ga4Id = settings?.ga4Id || 'G-Z7V0FSGE4Y'
+  const metaPixelId = settings?.metaPixelId || '1358428289305229'
+
   return (
     <html lang={htmlLang} className="scroll-smooth">
       <head>
@@ -48,11 +54,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Google Analytics 4 (GA4) — Measurement ID: G-Z7V0FSGE4Y */}
+        {/* Google Analytics 4 (GA4) — ID from CMS Settings */}
         <Script
           id="ga4-gtag"
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-Z7V0FSGE4Y"
+          src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
         />
         <Script
           id="ga4-config"
@@ -61,14 +67,14 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             __html: `window.dataLayer=window.dataLayer||[];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-Z7V0FSGE4Y', {
+            gtag('config', '${ga4Id}', {
               page_path: window.location.pathname,
               send_page_view: true
             });`,
           }}
         />
 
-        {/* Meta Pixel — ID: 1358428289305229 */}
+        {/* Meta Pixel — ID from CMS Settings */}
         <Script
           id="meta-pixel"
           strategy="afterInteractive"
@@ -81,7 +87,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1358428289305229');
+            fbq('init', '${metaPixelId}');
             fbq('track', 'PageView');`,
           }}
         />
@@ -91,7 +97,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             height="1"
             width="1"
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=1358428289305229&ev=PageView&noscript=1"
+            src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
             alt=""
           />
         </noscript>

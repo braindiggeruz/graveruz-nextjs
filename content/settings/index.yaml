@@ -1,0 +1,29 @@
+brandName: Graver.uz
+brandAlternateName: Graver Studio
+tagline:
+  ru: Премиальная лазерная гравировка и брендирование для бизнеса в Ташкенте
+  uz: Toshkentda biznes uchun premium lazer o'ymakorligi va brendlash
+phone1: "+998770802288"
+phone1Display: "+998 77 080 22 88"
+phone2: "+998974802288"
+phone2Display: "+998 97 480 22 88"
+telegram: "@GraverAdm"
+telegramUrl: https://t.me/GraverAdm
+whatsapp: https://wa.me/998770802288
+email: ""
+addressStreet: "ул. Мукими, 59"
+addressCity: Ташкент
+addressCountry: UZ
+geoLat: 41.2995
+geoLng: 69.2401
+openingHoursLabel:
+  ru: "Пн–Сб: 09:00–18:00"
+  uz: "Du–Shan: 09:00–18:00"
+requests247Label:
+  ru: Заявки принимаем 24/7
+  uz: Arizalar 24/7
+defaultOgImage: /images/og/og-home.jpg
+ga4Id: G-Z7V0FSGE4Y
+metaPixelId: "1358428289305229"
+sameAs:
+  - https://t.me/GraverAdm

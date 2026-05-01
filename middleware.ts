@@ -5,10 +5,11 @@ import { DEFAULT_LOCALE, isValidLocale } from './lib/i18n'
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Skip static files, API routes, and Next.js internals
+  // Skip static files, API routes, Keystatic admin, and Next.js internals
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
+    pathname.startsWith('/keystatic') ||
     pathname.startsWith('/images') ||
     pathname.includes('.') // static files
   ) {

@@ -1,0 +1,47 @@
+slug: powerbanks
+status: published
+nameRu: Повербанки с гравировкой
+nameUz: Powerbanklar gravyura bilan
+descriptionRu: |
+  Брендированные повербанки с лазерной гравировкой логотипа.
+  Ёмкость 5 000 – 20 000 мАч. Алюминиевый корпус, USB-C + USB-A.
+  Корпоративный подарок, который реально используют каждый день.
+descriptionUz: |
+  Brendlangan powerbanklar logotipning lazer gravyurasi bilan.
+  Sig'imi 5 000 – 20 000 mAh. Alyuminiy korpus, USB-C + USB-A.
+  Har kuni ishlatiladigan korporativ sovg'a.
+brand: ""
+availability: InStock
+minBatchSize: 10
+pricingTiers:
+  - nameRu: 5 000 мАч
+    nameUz: 5 000 mAh
+    price: 95000
+    priceDisplay: "от 95 000 сум"
+    descRu: Компактный, лёгкий
+    descUz: Ixcham, yengil
+    highlight: false
+  - nameRu: 10 000 мАч
+    nameUz: 10 000 mAh
+    price: 135000
+    priceDisplay: "от 135 000 сум"
+    descRu: Оптимальный выбор
+    descUz: Optimal tanlov
+    highlight: true
+  - nameRu: 20 000 мАч
+    nameUz: 20 000 mAh
+    price: 195000
+    priceDisplay: "от 195 000 сум"
+    descRu: Максимальная ёмкость
+    descUz: Maksimal sig'im
+    highlight: false
+faq:
+  - qRu: "Минимальный тираж?"
+    qUz: "Minimal tiraj?"
+    aRu: "10 штук. Для тиражей 100+ — отдельные условия."
+    aUz: "10 dona. 100+ tirajlar uchun alohida shartlar."
+seo:
+  title: "Повербанки с гравировкой логотипа — корпоративные | Graver.uz"
+  description: "Брендированные повербанки 5k–20k мАч с лазерной гравировкой логотипа. Алюминиевый корпус, USB-C + USB-A. От 10 штук. Ташкент."
+  ogImage: /images/og/og-home.jpg
+  noindex: false

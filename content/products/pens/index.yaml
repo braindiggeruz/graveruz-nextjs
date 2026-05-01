@@ -1,0 +1,44 @@
+slug: pens
+status: published
+nameRu: Ручки с гравировкой
+nameUz: Gravyurali ruchkalar
+descriptionRu: |
+  Металлические корпоративные ручки с лазерной гравировкой логотипа или имени.
+  Премиум-механизмы, приятный вес. Welcome-пак, конференц-подарок, VIP-набор.
+  Тираж от 10 штук.
+descriptionUz: |
+  Metall korporativ ruchkalar logotip yoki ism lazer gravyurasi bilan.
+  Premium mexanizmlar, qulay og'irlik. Welcome-pak, konferensiya sovg'asi, VIP-to'plam.
+  10 donadan boshlab.
+brand: ""
+availability: InStock
+minBatchSize: 10
+pricingTiers:
+  - nameRu: Стандарт
+    nameUz: Standart
+    price: 35000
+    priceDisplay: "от 35 000 сум"
+    descRu: Металлический корпус, лазерная гравировка
+    descUz: Metall korpus, lazer gravyurasi
+    highlight: false
+  - nameRu: Premium
+    nameUz: Premium
+    price: 85000
+    priceDisplay: "от 85 000 сум"
+    descRu: Тяжёлый корпус, премиум-механизм
+    descUz: Og'ir korpus, premium mexanizmi
+    highlight: true
+faq:
+  - qRu: "Сколько ручек минимум?"
+    qUz: "Minimal nechta ruchka?"
+    aRu: "От 10 штук. Для больших тиражей действуют прогрессивные скидки."
+    aUz: "10 donadan. Katta tirajlar uchun progressiv chegirmalar amal qiladi."
+  - qRu: "Можно ли именную гравировку?"
+    qUz: "Shaxsiy gravyura mumkinmi?"
+    aRu: "Да, гравируем имена и должности индивидуально на каждой ручке в тираже. Пришлите список."
+    aUz: "Ha, har bir ruchkaga individual ism va lavozim gravyura qilamiz. Ro'yxatni yuboring."
+seo:
+  title: "Ручки с гравировкой логотипа — корпоративные подарки | Graver.uz"
+  description: "Металлические ручки с лазерной гравировкой. Welcome-пак, конференц-подарок, VIP-набор. Тираж от 10 штук. Ташкент."
+  ogImage: /images/og/og-home.jpg
+  noindex: false

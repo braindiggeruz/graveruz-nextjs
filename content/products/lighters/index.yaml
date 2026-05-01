@@ -1,0 +1,63 @@
+slug: lighters
+status: published
+nameRu: Зажигалки с лазерной гравировкой
+nameUz: Lazer gravyurali zajigalkalar
+descriptionRu: |
+  Металлические зажигалки с лазерной гравировкой логотипа, имени или фото.
+  4 модели в премиум-отделке: Silver Gloss, Black Matte, Black Texture, Brushed Steel.
+  Корпоративный подарок с характером. Тираж от 1 штуки.
+descriptionUz: |
+  Logotip, ism yoki surat bilan metall zajigalkalar lazer gravyurasi bilan.
+  4 model premium tugatma bilan: Silver Gloss, Black Matte, Black Texture, Brushed Steel.
+  Xarakterli korporativ sovg'a. 1 donadan boshlab.
+heroImage: /images/products/lighters/r109_silver_gloss.jpg
+brand: ""
+availability: InStock
+minBatchSize: 1
+pricingTiers:
+  - nameRu: Silver Gloss
+    nameUz: Silver Gloss
+    price: 140000
+    priceDisplay: "140 000 сум"
+    descRu: Глянцевый серебристый корпус
+    descUz: Yaltiroq kumush korpus
+    highlight: false
+  - nameRu: Black Matte
+    nameUz: Black Matte
+    price: 150000
+    priceDisplay: "150 000 сум"
+    descRu: Матовый чёрный корпус
+    descUz: Mat qora korpus
+    highlight: false
+  - nameRu: Brushed Steel
+    nameUz: Brushed Steel
+    price: 160000
+    priceDisplay: "160 000 сум"
+    descRu: Сатиновая сталь
+    descUz: Atlas po'lat
+    highlight: false
+  - nameRu: Black Texture
+    nameUz: Black Texture
+    price: 170000
+    priceDisplay: "170 000 сум"
+    descRu: Текстурированный чёрный
+    descUz: Teksturali qora
+    highlight: true
+faq:
+  - qRu: "Какой минимальный тираж для зажигалок?"
+    qUz: "Zajigalkalar uchun minimal tiraj qancha?"
+    aRu: "От 1 штуки. Единичный подарок с гравировкой или корпоративные тиражи — делаем любой объём."
+    aUz: "1 donadan. Gravyurali yagona sovg'a yoki korporativ tirajlar — istalgan hajmni tayyorlaymiz."
+  - qRu: "Что можно гравировать на зажигалках?"
+    qUz: "Zajigalkalarga nimani o'ymakorlik qilish mumkin?"
+    aRu: "Логотипы, имена, даты, фразы, простые изображения. Пришлите макет — покажем результат на цифровом превью."
+    aUz: "Logotiplar, ismlar, sanalar, iboralar, oddiy tasvirlar. Maketni yuboring — natijani raqamli previewda ko'rsatamiz."
+  - qRu: "Входит ли подарочная упаковка?"
+    qUz: "Sovg'a qadoqlash kiritilganmi?"
+    aRu: "Базовая коробка входит. Премиум-упаковка с брендированием — по запросу."
+    aUz: "Asosiy quti kiritilgan. Brendlash bilan premium qadoqlash — so'rov bo'yicha."
+seo:
+  title: "Металлические зажигалки с лазерной гравировкой — Graver.uz"
+  description: "Зажигалки с гравировкой логотипа, имени или фото. 4 модели: Silver Gloss, Black Matte, Brushed Steel, Black Texture. От 1 штуки. Доставка по Ташкенту."
+  ogImage: /images/products/lighters/r109_silver_gloss.jpg
+  noindex: false

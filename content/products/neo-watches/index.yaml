@@ -1,0 +1,65 @@
+slug: neo-watches
+status: published
+nameRu: Часы NEO с гравировкой
+nameUz: NEO soatlar gravyura bilan
+descriptionRu: |
+  Премиальные наручные часы NEO с лазерной гравировкой логотипа или имени.
+  Японский кварцевый механизм Miyota, сапфировое стекло, стальной корпус.
+  Идеальный корпоративный подарок для руководителей и ключевых партнёров.
+descriptionUz: |
+  Premium NEO qo'l soatlari logotipning lazer gravyurasi bilan.
+  Yapon Miyota kvarts mexanizmi, safir oyna, po'lat korpus.
+  Rahbarlar va muhim hamkorlar uchun ideal korporativ sovg'a.
+heroImage: /images/products/neo/neo-watch-black-gold.jpg
+brand: NEO
+availability: InStock
+minBatchSize: 10
+pricingTiers:
+  - nameRu: Quartz
+    nameUz: Quartz
+    price: 750000
+    priceDisplay: "750 000 сум"
+    descRu: Японский кварцевый механизм
+    descUz: Yapon kvarts mexanizmi
+    highlight: false
+  - nameRu: Automatic
+    nameUz: Automatic
+    price: 1100000
+    priceDisplay: "1 100 000 сум"
+    descRu: Автоматический механизм
+    descUz: Avtomatik mexanizm
+    highlight: true
+aggregateRating:
+  value: "4.9"
+  count: "47"
+reviews:
+  - authorName: Uzum
+    rating: 5
+    textRu: "Заказали 50 часов NEO для команды. Качество гравировки отличное, сроки соблюдены."
+    textUz: "50 dona NEO soatlar buyurtma berdik. Gravyura sifati a'lo, muddatlarga rioya qilindi."
+  - authorName: Humans
+    rating: 5
+    textRu: "Используем часы NEO в welcome-паках. Сотрудники в восторге."
+    textUz: "Welcome-paklarda NEO soatlardan foydalanamiz. Xodimlar juda mamnun."
+faq:
+  - qRu: "Какой минимальный тираж для часов NEO?"
+    qUz: "NEO soatlar uchun minimal tiraj qancha?"
+    aRu: "Минимальный тираж — 10 штук. При заказе от 20 штук действует скидка 8%, от 50 штук — 15%."
+    aUz: "Minimal tiraj — 10 dona. 20 donadan buyurtma berishda 8% chegirma, 50 donadan — 15%."
+  - qRu: "Где наносится гравировка на часах?"
+    qUz: "Soatlarda o'ymakorlik qayerga qo'llaniladi?"
+    aRu: "Гравировка наносится на заднюю крышку часов или на циферблат. Возможна гравировка на ремешке."
+    aUz: "O'ymakorlik soatlarning orqa qopqog'iga yoki raqamli qismiga qo'llaniladi. Qayishga o'ymakorlik ham mumkin."
+  - qRu: "Какой срок изготовления?"
+    qUz: "Ishlab chiqarish muddati qancha?"
+    aRu: "Стандартный срок — 3–5 рабочих дней. Срочный заказ (2 дня) возможен при наличии модели на складе."
+    aUz: "Standart muddat — 3–5 ish kuni. Shoshilinch buyurtma (2 kun) omborda model mavjud bo'lganda mumkin."
+  - qRu: "Входит ли подарочная упаковка?"
+    qUz: "Sovg'a qadoqlash kiritilganmi?"
+    aRu: "Да, каждые часы поставляются в фирменной подарочной коробке. Возможна брендированная упаковка с логотипом вашей компании."
+    aUz: "Ha, har bir soat firma sovg'a qutisida yetkaziladi. Kompaniyangiz logotipi bilan brendlangan qadoqlash ham mumkin."
+seo:
+  title: "Часы NEO с гравировкой на заказ | Премиум подарок | Graver.uz"
+  description: "Часы NEO с персональной гравировкой — кварцевые и механические. Бесплатный макет перед нанесением. Идеальный подарок для себя, близких и партнёров."
+  ogImage: /images/products/neo/neo-watch-black-gold.jpg
+  noindex: false
