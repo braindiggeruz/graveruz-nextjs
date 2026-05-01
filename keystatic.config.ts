@@ -449,11 +449,11 @@ const products = collection({
 
 // ─── CONFIG ─────────────────────────────────────────────────────────
 export default config({
-  storage: isProd && process.env.KEYSTATIC_GITHUB_REPO_OWNER
+  storage: process.env.KEYSTATIC_GITHUB_REPO_OWNER && process.env.KEYSTATIC_GITHUB_CLIENT_ID
     ? {
         kind: 'github',
         repo: {
-          owner: process.env.KEYSTATIC_GITHUB_REPO_OWNER || 'braindiggeruz',
+          owner: process.env.KEYSTATIC_GITHUB_REPO_OWNER,
           name: process.env.KEYSTATIC_GITHUB_REPO_NAME || 'graveruz-nextjs',
         },
       }
