@@ -111,6 +111,7 @@ const settings = singleton({
   label: 'Настройки сайта',
   path: 'content/settings/',
   format: { data: 'yaml' },
+  previewUrl: 'https://graver-studio.uz/ru/',
   schema: {
     // ─ Бренд ─
     brandName: fields.text({
@@ -207,6 +208,7 @@ const homepage = singleton({
   label: 'Главная',
   path: 'content/homepage/',
   format: { data: 'yaml' },
+  previewUrl: 'https://graver-studio.uz/ru/',
   schema: {
     hero: fields.object(
       {
@@ -353,6 +355,8 @@ const pages = collection({
   path: 'content/pages/*/',
   format: { data: 'yaml' },
   columns: ['h1', 'locale', 'status'],
+  previewUrl: 'https://graver-studio.uz/{locale}/{slug}/',
+  entryLayout: 'content',
   schema: {
     slug: fields.slug({
       name: {
@@ -551,6 +555,10 @@ const stories = collection({
   path: 'content/blog/*/*',
   format: { contentField: 'content' },
   columns: ['title', 'date', 'category'],
+  // Slug for stories is path-encoded (e.g. ru/my-post). Preview opens the
+  // blog index — direct deep-link would require slug surgery in Keystatic.
+  previewUrl: 'https://graver-studio.uz/{locale}/blog/',
+  entryLayout: 'content',
   schema: {
     slug: fields.slug({ name: { label: 'Slug (часть URL)' } }),
     locale: fields.select({
@@ -651,6 +659,8 @@ const products = collection({
   path: 'content/products/*/',
   format: { data: 'yaml' },
   columns: ['nameRu', 'availability', 'status'],
+  previewUrl: 'https://graver-studio.uz/ru/products/{slug}/',
+  entryLayout: 'content',
   schema: {
     slug: fields.slug({
       name: {
