@@ -131,6 +131,20 @@ const settings = singleton({
   },
 })
 
+/** Reusable redirect history field — auto-emits 301s when slug changes */
+const previousSlugsField = fields.array(
+  fields.text({
+    label: 'Previous slug',
+    description: 'Earlier URL segment for this page. Will 301 to current slug.',
+  }),
+  {
+    label: 'Slug History (auto-301)',
+    description:
+      'Past slugs of this page. Each one will permanently redirect to the current URL — set this BEFORE saving the new slug to avoid breaking inbound links.',
+    itemLabel: (p) => p.value || '(empty)',
+  }
+)
+
 // ─── 2. HOMEPAGE (singleton) ────────────────────────────────────────
 const homepage = singleton({
   label: 'Home',
@@ -229,12 +243,12 @@ const pages = collection({
   label: 'Pages',
   slugField: 'slug',
   path: 'content/pages/*/',
-  format: { data: 'yaml', contentField: 'body' },
+  format: { data: 'yaml' },
   schema: {
     slug: fields.slug({
       name: {
         label: 'Internal name',
-        description: 'For admin only. Public slug is derived below.',
+        description: 'Used as public URL segment: graver-studio.uz/{locale}/{slug}',
       },
     }),
     locale: fields.select({
@@ -257,22 +271,113 @@ const pages = collection({
       directory: 'public/images/pages',
       publicPath: '/images/pages/',
     }),
-    body: fields.mdx({
-      label: 'Body',
-      options: {
-        image: {
-          directory: 'public/images/pages',
-          publicPath: '/images/pages/',
-        },
-      },
-    }),
-    faq: fields.array(
-      fields.object({
-        q: fields.text({ label: 'Question' }),
-        a: fields.text({ label: 'Answer', multiline: true }),
-      }),
-      { label: 'FAQ', itemLabel: (p) => p.fields.q.value }
+
+    /** Block editor — 6 reusable section types */
+    blocks: fields.array(
+      fields.conditional(
+        fields.select({
+          label: 'Block type',
+          options: [
+            { label: '1. Hero', value: 'hero' },
+            { label: '2. Rich Text', value: 'richText' },
+            { label: '3. Features Grid', value: 'features' },
+            { label: '4. Image + Text', value: 'imageText' },
+            { label: '5. CTA Banner', value: 'cta' },
+            { label: '6. FAQ', value: 'faq' },
+          ],
+          defaultValue: 'richText',
+        }),
+        {
+          hero: fields.object({
+            badge: fields.text({ label: 'Badge' }),
+            title: fields.text({ label: 'Title' }),
+            subtitle: fields.text({ label: 'Subtitle', multiline: true }),
+            image: fields.image({
+              label: 'Image',
+              directory: 'public/images/pages',
+              publicPath: '/images/pages/',
+            }),
+            ctaLabel: fields.text({ label: 'CTA Label' }),
+            ctaHref: fields.text({ label: 'CTA Link' }),
+          }),
+          richText: fields.object({
+            body: fields.mdx({
+              label: 'Body',
+              options: {
+                image: {
+                  directory: 'public/images/pages',
+                  publicPath: '/images/pages/',
+                },
+              },
+            }),
+          }),
+          features: fields.object({
+            title: fields.text({ label: 'Section Title' }),
+            items: fields.array(
+              fields.object({
+                icon: iconPicker,
+                title: fields.text({ label: 'Title' }),
+                description: fields.text({ label: 'Description', multiline: true }),
+              }),
+              { label: 'Features', itemLabel: (p) => p.fields.title.value }
+            ),
+          }),
+          imageText: fields.object({
+            image: fields.image({
+              label: 'Image',
+              directory: 'public/images/pages',
+              publicPath: '/images/pages/',
+            }),
+            imageSide: fields.select({
+              label: 'Image side',
+              options: [
+                { label: 'Left', value: 'left' },
+                { label: 'Right', value: 'right' },
+              ],
+              defaultValue: 'left',
+            }),
+            title: fields.text({ label: 'Title' }),
+            body: fields.text({ label: 'Body', multiline: true }),
+          }),
+          cta: fields.object({
+            title: fields.text({ label: 'Title' }),
+            subtitle: fields.text({ label: 'Subtitle' }),
+            buttonLabel: fields.text({ label: 'Button Label' }),
+            buttonHref: fields.text({ label: 'Button Link' }),
+          }),
+          faq: fields.object({
+            title: fields.text({ label: 'Section Title' }),
+            items: fields.array(
+              fields.object({
+                q: fields.text({ label: 'Question' }),
+                a: fields.text({ label: 'Answer', multiline: true }),
+              }),
+              { label: 'Items', itemLabel: (p) => p.fields.q.value }
+            ),
+          }),
+        }
+      ),
+      {
+        label: 'Page Sections',
+        itemLabel: (p) => p.discriminant,
+      }
     ),
+
+    /** Pair this page with its translation. The slug of its RU/UZ counterpart. */
+    alternateSlug: fields.object(
+      {
+        ru: fields.text({ label: 'RU counterpart slug' }),
+        uz: fields.text({ label: 'UZ counterpart slug' }),
+      },
+      {
+        label: 'RU/UZ Pair',
+        description: 'Slug of the same page in the other language. Used for hreflang and language switcher.',
+      }
+    ),
+
+    /** Auto-301 redirects when the slug is changed */
+    previousSlugs: previousSlugsField,
+
     seo: seoFields,
   },
 })
@@ -328,6 +433,7 @@ const stories = collection({
     ),
     noindex: fields.checkbox({ label: 'Hide from Google', defaultValue: false }),
     canonicalOverride: fields.text({ label: 'Canonical Override (advanced)' }),
+    previousSlugs: previousSlugsField,
     content: fields.mdx({
       label: 'Content',
       options: {
@@ -443,6 +549,7 @@ const products = collection({
       label: 'Trust Badges (UZ)',
       itemLabel: (p) => p.value,
     }),
+    previousSlugs: previousSlugsField,
     seo: seoFields,
   },
 })

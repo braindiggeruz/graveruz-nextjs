@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getAllPostsMeta } from '@/lib/blog'
-import { SUPPORTED_LOCALES, getLocaleUrl } from '@/lib/i18n'
+import { SUPPORTED_LOCALES, getLocaleUrl, type Locale } from '@/lib/i18n'
+import { getAllPages } from '@/lib/cms'
 
 const BASE_URL = 'https://graver-studio.uz'
 
@@ -34,7 +35,7 @@ const REDIRECTED_RU_SLUGS = new Set([
   'podarki-na-8-marta-sotrudnicam',               // -> podarki-8-marta-20-idej
 ])
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = []
 
   // ── Static pages ──
@@ -139,6 +140,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
       alternates: { languages },
     })
+  }
+
+  // ── CMS-managed commercial pages (created via Keystatic admin) ──
+  // Skip noindex pages and reserved slugs (already covered by STATIC_PAGES).
+  const cmsReservedSlugs = new Set(STATIC_PAGES.map((p) => p.split('/')[0]))
+  try {
+    const cmsPages = await getAllPages()
+    for (const page of cmsPages) {
+      if (page.status !== 'published') continue
+      if (page.seo?.noindex) continue
+      if (cmsReservedSlugs.has(page.slug)) continue
+      const locale = (page.locale as Locale) || 'ru'
+
+      const altSlugs: Partial<Record<Locale, string>> = {}
+      if (page.alternateSlug?.ru) altSlugs.ru = page.alternateSlug.ru
+      if (page.alternateSlug?.uz) altSlugs.uz = page.alternateSlug.uz
+
+      const languages: Record<string, string> = {
+        [locale]: getLocaleUrl(locale, page.slug),
+      }
+      for (const otherLocale of SUPPORTED_LOCALES) {
+        const altSlug = altSlugs[otherLocale]
+        if (altSlug) languages[otherLocale] = getLocaleUrl(otherLocale, altSlug)
+      }
+      languages['x-default'] = languages.ru || languages[locale]
+
+      entries.push({
+        url: getLocaleUrl(locale, page.slug),
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+        alternates: { languages },
+      })
+    }
+  } catch (err) {
+    console.warn('[sitemap] failed to read CMS pages:', err)
   }
 
   return entries

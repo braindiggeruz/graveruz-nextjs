@@ -32,7 +32,7 @@ export async function getAllProducts() {
   const items = await Promise.all(
     slugs.map(async (slug) => {
       const data = await reader.collections.products.read(slug)
-      return data ? { slug, ...data } : null
+      return data ? { ...data, slug } : null
     })
   )
   return items.filter(Boolean) as Array<NonNullable<(typeof items)[number]>>
@@ -41,7 +41,7 @@ export async function getAllProducts() {
 /** Single product by slug */
 export async function getProduct(slug: string) {
   const data = await reader.collections.products.read(slug)
-  return data ? { slug, ...data } : null
+  return data ? { ...data, slug } : null
 }
 
 /** All CMS-managed pages (commercial landings, trust, about) */
@@ -49,9 +49,15 @@ export async function getAllPages() {
   const slugs = await reader.collections.pages.list()
   const items = await Promise.all(
     slugs.map(async (slug) => {
-      const data = await reader.collections.pages.read(slug)
-      return data ? { slug, ...data } : null
+      const data = await reader.collections.pages.read(slug, { resolveLinkedFiles: true })
+      return data ? { ...data, slug } : null
     })
   )
   return items.filter(Boolean) as Array<NonNullable<(typeof items)[number]>>
+}
+
+/** Single CMS page by slug */
+export async function getPage(slug: string) {
+  const data = await reader.collections.pages.read(slug, { resolveLinkedFiles: true })
+  return data ? { ...data, slug } : null
 }

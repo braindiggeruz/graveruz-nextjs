@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-redirects.mjs",
     "build": "next build",
     "start": "next start",
     "migrate-blog": "node scripts/migrate-blog.js",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "smoke-test": "node scripts/smoke-test.js"
+    "smoke-test": "node scripts/smoke-test.js",
+    "redirects": "node scripts/generate-redirects.mjs"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.50",
