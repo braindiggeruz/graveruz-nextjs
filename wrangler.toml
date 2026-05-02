@@ -1,10 +1,19 @@
 name = "graveruz-nextjs"
 pages_build_output_dir = ".open-next/assets"
-# Compat date >= 2025-04-01 + nodejs_compat enables `nodejs_compat_populate_process_env`
-# automatically — this exposes Cloudflare bindings (incl. Pages env vars) as process.env.
-# Required for Keystatic, which reads KEYSTATIC_GITHUB_* synchronously from process.env.
+# Compat date >= 2025-04-01 + nodejs_compat → process.env auto-populated
+# from these [vars] bindings at runtime (and from secret_text bindings set
+# via the Pages dashboard for KEYSTATIC_GITHUB_CLIENT_SECRET / KEYSTATIC_SECRET).
 compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat", "nodejs_compat_populate_process_env"]
 
 [vars]
 NEXT_TELEMETRY_DISABLED = "1"
+
+# Keystatic non-secret runtime config.
+# These MUST live here (not in Pages dashboard "plain_text" env vars), because
+# CF Pages plain_text vars are build-time only — they never reach the Worker.
+KEYSTATIC_STORAGE = "github"
+KEYSTATIC_URL = "https://graver-studio.uz"
+KEYSTATIC_GITHUB_CLIENT_ID = "Iv23ligmipe3Fqj7KoJT"
+KEYSTATIC_GITHUB_REPO_OWNER = "braindiggeruz"
+KEYSTATIC_GITHUB_REPO_NAME = "graveruz-nextjs"
