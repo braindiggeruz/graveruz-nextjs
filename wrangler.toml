@@ -1,6 +1,9 @@
 name = "graveruz-nextjs"
 pages_build_output_dir = ".open-next/assets"
-compatibility_date = "2024-12-30"
+# Compat date >= 2025-04-01 + nodejs_compat enables `nodejs_compat_populate_process_env`
+# automatically — this exposes Cloudflare bindings (incl. Pages env vars) as process.env.
+# Required for Keystatic, which reads KEYSTATIC_GITHUB_* synchronously from process.env.
+compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
 
 [vars]
