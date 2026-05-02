@@ -4,7 +4,7 @@ pages_build_output_dir = ".open-next/assets"
 # automatically — this exposes Cloudflare bindings (incl. Pages env vars) as process.env.
 # Required for Keystatic, which reads KEYSTATIC_GITHUB_* synchronously from process.env.
 compatibility_date = "2025-04-01"
-compatibility_flags = ["nodejs_compat"]
+compatibility_flags = ["nodejs_compat", "nodejs_compat_populate_process_env"]
 
 [vars]
 NEXT_TELEMETRY_DISABLED = "1"
