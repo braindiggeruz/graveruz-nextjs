@@ -16,9 +16,15 @@ function r(source, destination) {
 
 const nextConfig = {
   // ── Trailing slash ──────────────────────────────────────────────────────────
-  // trailingSlash: true ensures all URLs end with / (canonical form)
-  // Fixes 194 GSC errors: "Страница с переадресацией" caused by 308 redirects
+  // trailingSlash: true ensures all URLs end with / (canonical form) for public pages.
+  // Fixes 194 GSC errors: "Страница с переадресацией" caused by 308 redirects.
   trailingSlash: true,
+
+  // skipTrailingSlashRedirect disables Next.js's automatic 308 redirect.
+  // We re-implement trailing-slash enforcement in middleware.ts for public
+  // pages, while *excluding* /keystatic/* where the Keystatic client-side
+  // router does not match URLs ending in `/` (caused "Not found" in admin).
+  skipTrailingSlashRedirect: true,
 
   // ── Image optimization ──────────────────────────────────────────────────────
   images: {

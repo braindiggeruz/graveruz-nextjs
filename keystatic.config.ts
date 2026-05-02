@@ -551,7 +551,10 @@ const pages = collection({
 const stories = collection({
   label: 'Блог / Истории',
   slugField: 'slug',
-  path: 'content/blog/*/*',
+  // Path uses `**` so that the slug spans two segments: `{locale}/{post}`.
+  // Previous `*/*` pattern returned 0 entries because Keystatic
+  // only expands a single trailing `*` as slug.
+  path: 'content/blog/**',
   format: { contentField: 'content' },
   columns: ['title', 'date', 'category'],
   // Slug for stories is path-encoded (e.g. ru/my-post). Preview opens the
