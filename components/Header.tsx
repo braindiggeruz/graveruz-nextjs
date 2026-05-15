@@ -18,6 +18,7 @@ interface HeaderProps {
       services: string
       products: string
       catalog?: string
+      guarantees?: string
       portfolio: string
       process: string
       faq: string
@@ -81,7 +82,7 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center space-x-6" aria-label="Main navigation">
             <Link href={`/${locale}#services`} className="text-gray-300 hover:text-teal-500 transition">
               {nav.services}
             </Link>
@@ -167,6 +168,10 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
               )}
             </div>
 
+            <Link href={`/${locale}/catalog-products`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-catalog">
+              {nav.catalog || (locale === 'ru' ? 'Каталог' : 'Katalog')}
+            </Link>
+
             <Link href={`/${locale}#portfolio`} className="text-gray-300 hover:text-teal-500 transition">
               {nav.portfolio}
             </Link>
@@ -175,6 +180,9 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
             </Link>
             <Link href={`/${locale}#faq`} className="text-gray-300 hover:text-teal-500 transition">
               {nav.faq}
+            </Link>
+            <Link href={`/${locale}/guarantees`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-guarantees">
+              {nav.guarantees || (locale === 'ru' ? 'Гарантии' : 'Kafolatlar')}
             </Link>
             <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-blog">
               {nav.blog}
@@ -280,6 +288,10 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
                 )}
               </div>
 
+              <Link href={`/${locale}/catalog-products`} className="text-gray-300 hover:text-teal-500 transition text-left px-2 font-medium" onClick={() => setMobileOpen(false)}>
+                {nav.catalog || (locale === 'ru' ? 'Каталог' : 'Katalog')}
+              </Link>
+
               <Link href={`/${locale}#portfolio`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                 {nav.portfolio}
               </Link>
@@ -288,6 +300,9 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
               </Link>
               <Link href={`/${locale}#faq`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                 {nav.faq}
+              </Link>
+              <Link href={`/${locale}/guarantees`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
+                {nav.guarantees || (locale === 'ru' ? 'Гарантии' : 'Kafolatlar')}
               </Link>
               <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                 {nav.blog}
