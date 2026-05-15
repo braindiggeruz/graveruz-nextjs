@@ -13,6 +13,8 @@ export default function robots(): MetadataRoute.Robots {
           '/uz/thanks/',
           '/ru/thanks',
           '/uz/thanks',
+          '/keystatic',
+          '/keystatic/',
           '/_next/',
           '/api/',
         ],

@@ -1,5 +1,15 @@
 {
   "version": 1,
   "include": ["/*"],
-  "exclude": ["/_next/static/*", "/_next/image/*", "/images/*", "/favicon.ico"]
+  "exclude": [
+    "/_next/static/*",
+    "/_next/image/*",
+    "/images/*",
+    "/favicon.ico",
+    "/apple-touch-icon.png",
+    "/apple-touch-icon-precomposed.png",
+    "/logo192.png",
+    "/logo512.png",
+    "/robots-static.txt"
+  ]
 }
