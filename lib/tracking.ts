@@ -1,12 +1,23 @@
 /**
  * Centralized tracking utilities for Graver.uz
- * Ported from CRA pixel.js — Meta Pixel + GTM/GA4 event tracking
+ * Meta Pixel + GA4 event tracking.
  *
  * Events:
- *  - Contact  (Telegram CTA clicks, phone clicks)
- *  - Lead     (form submissions, catalog downloads)
+ *  - PageView   (initial + SPA route changes, fired by PixelRouteTracker)
+ *  - Contact    (Telegram CTA clicks, phone clicks)
+ *  - Lead       (form submissions, catalog downloads)
  *  - ViewContent (blog articles)
- *  - ViewCategory (product category pages)
+ *  - ViewCategory (commercial / product category pages)
+ *
+ * Deduplication contract (CAPI ↔ Pixel):
+ *   Every event passes `event_id` BOTH inside the params payload AND in the
+ *   4th `options` object. This is required because Meta's Conversions API
+ *   for Browser / CAPI Gateway zero-code server forwarding reads
+ *   `event_id` from the payload params, while the in-browser SDK reads it
+ *   from `options.eventID`. Sending it in only one place causes
+ *   Meta to report "Серверное событие <Event> не дедуплицируется"
+ *   and double-counts the event.
+ *   Ref: https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events
  */
 
 // ─── Type declarations ──────────────────────────────────────────────────────
@@ -33,21 +44,36 @@ function makeEventID(prefix: string): string {
   return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`
 }
 
+/**
+ * Wrapper that ALWAYS passes event_id in both places so server-side
+ * (CAPI Gateway / Conversion API for Browser) and client-side (Pixel)
+ * agree on the same ID and Meta dedupes correctly.
+ */
+function fireMetaEvent(
+  kind: 'track' | 'trackCustom',
+  eventName: string,
+  params: Record<string, unknown>,
+  eventID: string
+): void {
+  if (!hasFbq()) return
+  window.fbq!(
+    kind,
+    eventName,
+    { ...params, event_id: eventID },
+    { eventID }
+  )
+}
+
 // ─── Contact: Telegram CTA clicks ──────────────────────────────────────────
 
-/**
- * Fires fbq('track', 'Contact') + gtag event for Telegram CTA clicks.
- * Called synchronously inside onClick so the user gesture is preserved.
- */
 export function trackTelegramContact(placement: string): void {
-  if (hasFbq()) {
-    const eventID = makeEventID('contact_' + placement)
-    window.fbq!('track', 'Contact', {
-      source: 'telegram',
-      page: window.location.pathname,
-      placement,
-    }, { eventID })
-  }
+  const eventID = makeEventID('contact_tg_' + placement)
+  fireMetaEvent('track', 'Contact', {
+    source: 'telegram',
+    page: typeof window !== 'undefined' ? window.location.pathname : '',
+    placement,
+  }, eventID)
+
   if (hasGtag()) {
     window.gtag!('event', 'telegram_click', {
       event_category: 'contact',
@@ -70,18 +96,14 @@ export function openTelegramWithTracking(
 
 // ─── Contact: Phone clicks ──────────────────────────────────────────────────
 
-/**
- * Fires Contact event when a visitor clicks a phone number link.
- */
 export function trackPhoneClick(placement: string): void {
-  if (hasFbq()) {
-    const eventID = makeEventID('phone_' + placement)
-    window.fbq!('track', 'Contact', {
-      source: 'phone',
-      page: window.location.pathname,
-      placement,
-    }, { eventID })
-  }
+  const eventID = makeEventID('contact_phone_' + placement)
+  fireMetaEvent('track', 'Contact', {
+    source: 'phone',
+    page: typeof window !== 'undefined' ? window.location.pathname : '',
+    placement,
+  }, eventID)
+
   if (hasGtag()) {
     window.gtag!('event', 'phone_click', {
       event_category: 'contact',
@@ -92,18 +114,14 @@ export function trackPhoneClick(placement: string): void {
 
 // ─── Lead: Form submissions & catalog downloads ─────────────────────────────
 
-/**
- * Fires Lead event when a visitor submits a contact form.
- */
 export function trackFormSubmit(placement: string): void {
-  if (hasFbq()) {
-    const eventID = makeEventID('lead_form_' + placement)
-    window.fbq!('track', 'Lead', {
-      content_name: 'contact_form',
-      placement,
-      page: window.location.pathname,
-    }, { eventID })
-  }
+  const eventID = makeEventID('lead_form_' + placement)
+  fireMetaEvent('track', 'Lead', {
+    content_name: 'contact_form',
+    placement,
+    page: typeof window !== 'undefined' ? window.location.pathname : '',
+  }, eventID)
+
   if (hasGtag()) {
     window.gtag!('event', 'generate_lead', {
       event_category: 'form',
@@ -112,18 +130,14 @@ export function trackFormSubmit(placement: string): void {
   }
 }
 
-/**
- * Fires Lead event when a visitor downloads the PDF catalogue.
- */
 export function trackCatalogDownload(placement: string): void {
-  if (hasFbq()) {
-    const eventID = makeEventID('lead_catalog_' + placement)
-    window.fbq!('track', 'Lead', {
-      content_name: 'catalog_pdf',
-      placement,
-      page: window.location.pathname,
-    }, { eventID })
-  }
+  const eventID = makeEventID('lead_catalog_' + placement)
+  fireMetaEvent('track', 'Lead', {
+    content_name: 'catalog_pdf',
+    placement,
+    page: typeof window !== 'undefined' ? window.location.pathname : '',
+  }, eventID)
+
   if (hasGtag()) {
     window.gtag!('event', 'catalog_download', {
       event_category: 'engagement',
@@ -134,23 +148,19 @@ export function trackCatalogDownload(placement: string): void {
 
 // ─── ViewContent: Blog articles ─────────────────────────────────────────────
 
-/**
- * Fires ViewContent event when a blog article page mounts.
- */
 export function trackViewContent(
   contentId: string,
   contentName: string,
   contentCategory?: string
 ): void {
-  if (hasFbq()) {
-    const eventID = makeEventID('viewcontent_' + contentId)
-    window.fbq!('track', 'ViewContent', {
-      content_ids: [contentId],
-      content_name: contentName,
-      content_category: contentCategory || 'blog',
-      content_type: 'article',
-    }, { eventID })
-  }
+  const eventID = makeEventID('viewcontent_' + contentId)
+  fireMetaEvent('track', 'ViewContent', {
+    content_ids: [contentId],
+    content_name: contentName,
+    content_category: contentCategory || 'blog',
+    content_type: 'article',
+  }, eventID)
+
   if (hasGtag()) {
     window.gtag!('event', 'view_item', {
       content_type: 'article',
@@ -162,21 +172,17 @@ export function trackViewContent(
 
 // ─── ViewCategory: Product category pages ───────────────────────────────────
 
-/**
- * Fires ViewCategory event when a product category page mounts.
- */
 export function trackViewCategory(
   categoryId: string,
   categoryName: string
 ): void {
-  if (hasFbq()) {
-    const eventID = makeEventID('viewcat_' + categoryId)
-    window.fbq!('trackCustom', 'ViewCategory', {
-      category_id: categoryId,
-      category_name: categoryName,
-      page: window.location.pathname,
-    }, { eventID })
-  }
+  const eventID = makeEventID('viewcat_' + categoryId)
+  fireMetaEvent('trackCustom', 'ViewCategory', {
+    category_id: categoryId,
+    category_name: categoryName,
+    page: typeof window !== 'undefined' ? window.location.pathname : '',
+  }, eventID)
+
   if (hasGtag()) {
     window.gtag!('event', 'view_item_list', {
       item_list_id: categoryId,

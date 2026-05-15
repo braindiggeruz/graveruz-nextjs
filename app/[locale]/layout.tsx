@@ -89,7 +89,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             s.parentNode.insertBefore(t,s)}(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${metaPixelId}');
-            fbq('track', 'PageView');`,
+            var _gpvId = 'pv_init_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
+            fbq('track', 'PageView', {event_id: _gpvId}, {eventID: _gpvId});`,
           }}
         />
         <noscript>

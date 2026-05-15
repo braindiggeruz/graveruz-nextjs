@@ -33,9 +33,12 @@ export default function PixelRouteTracker() {
     if (typeof window === 'undefined') return
 
     // Meta Pixel — track PageView for SPA navigation
+    // event_id is passed BOTH inside payload params AND in options.eventID
+    // so CAPI Gateway / Conversion API for Browser can dedupe against the
+    // matching server-side PageView.
     if (typeof window.fbq === 'function') {
       const eventID = `pv_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`
-      window.fbq('track', 'PageView', {}, { eventID })
+      window.fbq('track', 'PageView', { event_id: eventID }, { eventID })
     }
 
     // GA4 — manual page_view for SPA navigation
