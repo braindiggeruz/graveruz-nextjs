@@ -5,6 +5,7 @@ import { isValidLocale, getMessages, getHtmlLang, type Locale } from '@/lib/i18n
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import TrackingProvider from '@/components/TrackingProvider'
+import PixelRouteTracker from '@/components/PixelRouteTracker'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
 import { getAllPostsMeta } from '@/lib/blog'
 import { AlternateSlugProvider } from '@/components/AlternateSlugContext'
@@ -104,6 +105,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       </head>
       <body className="bg-black text-white min-h-screen antialiased">
         <TrackingProvider>
+          <PixelRouteTracker />
           <AlternateSlugProvider>
             <Header locale={validLocale} messages={messages} settings={settings} />
             <main id="main-content" className="pt-20">

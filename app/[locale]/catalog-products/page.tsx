@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, getMessages, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
+import ViewCategoryTracker from '@/components/ViewCategoryTracker'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -62,6 +63,7 @@ export default async function CatalogProductsPage({ params }: PageProps) {
   return (
     <>
       <SchemaOrg schema={breadcrumbSchema(breadcrumbs)} />
+      <ViewCategoryTracker categoryId="catalog-products" categoryName={isRu ? 'Каталог продукции' : 'Mahsulotlar katalogi'} />
       <SchemaOrg schema={{
         '@context': 'https://schema.org',
         '@type': 'ItemList',

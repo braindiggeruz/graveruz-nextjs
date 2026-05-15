@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { localBusinessSchema, breadcrumbSchema } from '@/components/SchemaOrg'
+import ViewCategoryTracker from '@/components/ViewCategoryTracker'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -180,6 +181,7 @@ export default async function KorporativnyePodarkiPage({ params }: PageProps) {
   return (
     <>
       <SchemaOrg schema={[localBusinessSchema(), breadcrumbSchema(breadcrumbs), serviceSchema]} />
+      <ViewCategoryTracker categoryId="korporativnye-podarki" categoryName={isRu ? 'Корпоративные подарки' : "Korporativ sovg'alar"} />
 
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-gray-900 to-black">

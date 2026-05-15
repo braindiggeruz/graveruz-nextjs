@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { localBusinessSchema, breadcrumbSchema } from '@/components/SchemaOrg'
+import ViewCategoryTracker from '@/components/ViewCategoryTracker'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -58,6 +59,7 @@ export default async function EngravedGiftsPage({ params }: PageProps) {
   return (
     <>
       <SchemaOrg schema={[localBusinessSchema(), breadcrumbSchema(breadcrumbs)]} />
+      <ViewCategoryTracker categoryId="engraved-gifts" categoryName={isRu ? 'Гравированные подарки' : "O'ymakor sovg'alar"} />
       <SchemaOrg schema={{
         '@context': 'https://schema.org',
         '@type': 'Service',

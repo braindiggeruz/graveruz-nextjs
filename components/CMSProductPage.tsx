@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Locale } from '@/lib/i18n'
 import SchemaOrg, { breadcrumbSchema } from '@/components/SchemaOrg'
+import ViewCategoryTracker from '@/components/ViewCategoryTracker'
 import { getProduct, getSettings } from '@/lib/cms'
 import { productSchemaFromCMS, faqSchemaFromCMS } from '@/lib/productSchema'
 
@@ -45,6 +46,10 @@ export default async function CMSProductPage({ locale, slug }: Props) {
       <SchemaOrg schema={breadcrumbSchema(breadcrumbs)} />
       <SchemaOrg schema={productLd} />
       {faqLd && <SchemaOrg schema={faqLd} />}
+      <ViewCategoryTracker
+        categoryId={`product_${slug}`}
+        categoryName={name || slug}
+      />
 
       <section className="relative bg-gradient-to-b from-black to-gray-900 pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { trackFormSubmit } from '@/lib/tracking'
 // import { Send, AlertCircle, CheckCircle } from 'lucide-react'
 
 interface ContactFormProps {
@@ -105,6 +106,8 @@ ${formData.message}
       }).catch(() => ({ ok: true })) // Fallback if no backend
 
       if (response.ok) {
+        // Fire Meta `Lead` + GA4 `generate_lead` only on confirmed success.
+        trackFormSubmit('contact-form')
         setSubmitted(true)
         setFormData({ name: '', email: '', phone: '', message: '' })
         setTimeout(() => setSubmitted(false), 5000)

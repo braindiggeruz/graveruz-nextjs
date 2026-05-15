@@ -8,6 +8,7 @@ import { buildArticleMetadata } from '@/lib/seo'
 import { getPost, getAllSlugs, getRelatedPosts } from '@/lib/blog'
 import SchemaOrg, { articleSchema, faqSchema, breadcrumbSchema } from '@/components/SchemaOrg'
 import AlternateSlugSetter from '@/components/AlternateSlugSetter'
+import ViewContentTracker from '@/components/ViewContentTracker'
 
 export async function generateStaticParams() {
   const locales = ['ru', 'uz'] as const
@@ -92,6 +93,11 @@ export default async function BlogPostPage({ params }: PageProps) {
     <>
       <SchemaOrg schema={schemas} />
       <AlternateSlugSetter alternateSlug={post.alternateSlug} />
+      <ViewContentTracker
+        contentId={`blog_${locale}_${post.slug}`}
+        contentName={post.title}
+        contentCategory="blog"
+      />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb */}
