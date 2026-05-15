@@ -152,6 +152,68 @@ const nextConfig = {
       ...r('/korporativnye-podarki', '/ru/korporativnye-podarki'),
       ...r('/welcome-packs',         '/ru/welcome-packs'),
       ...r('/vip-podarki',           '/ru/vip-podarki'),
+
+      // ── GSC indexation recovery: CRA-era paths returning 404 (May 2026) ──
+      // After middleware adds /ru/ locale prefix these must redirect to real
+      // destinations instead of falling through to a 404 page.
+      ...r('/ru/portfolio',  '/ru'),
+      ...r('/uz/portfolio',  '/uz'),
+      ...r('/ru/faq',        '/ru'),
+      ...r('/uz/faq',        '/uz'),
+      ...r('/ru/contact',    '/ru/contacts'),
+      ...r('/uz/contact',    '/uz/contacts'),
+      ...r('/ru/home',       '/ru'),
+      ...r('/uz/home',       '/uz'),
+      ...r('/ru/about-us',   '/ru/about'),
+      ...r('/uz/about-us',   '/uz/about'),
+      ...r('/ru/index.html', '/ru'),
+      ...r('/uz/index.html', '/uz'),
+
+      // Bare product slugs from CRA URLs
+      ...r('/ru/lighters',   '/ru/products/lighters'),
+      ...r('/uz/lighters',   '/uz/products/lighters'),
+      ...r('/ru/watches',    '/ru/products/neo-watches'),
+      ...r('/uz/watches',    '/uz/products/neo-watches'),
+      ...r('/ru/pens',       '/ru/products/pens'),
+      ...r('/uz/pens',       '/uz/products/pens'),
+      ...r('/ru/notebooks',  '/ru/products/notebooks'),
+      ...r('/uz/notebooks',  '/uz/products/notebooks'),
+      ...r('/ru/powerbanks', '/ru/products/powerbanks'),
+      ...r('/uz/powerbanks', '/uz/products/powerbanks'),
+
+      // Old marketing slugs
+      ...r('/ru/welcome-pack',                '/ru/welcome-packs'),
+      ...r('/uz/welcome-pack',                '/uz/welcome-packs'),
+      ...r('/ru/vip',                          '/ru/vip-podarki'),
+      ...r('/uz/vip',                          '/uz/vip-podarki'),
+      ...r('/ru/gravirovka',                   '/ru/korporativnye-podarki'),
+      ...r('/uz/gravirovka',                   '/uz/korporativnye-podarki'),
+      ...r('/ru/gravirovka-tashkent',          '/ru/korporativnye-podarki'),
+      ...r('/uz/gravirovka-tashkent',          '/uz/korporativnye-podarki'),
+      ...r('/ru/korporativnye-podarki-tashkent','/ru/korporativnye-podarki'),
+      ...r('/uz/korporativnye-podarki-tashkent','/uz/korporativnye-podarki'),
+      ...r('/ru/prices',                       '/ru/catalog-products'),
+      ...r('/uz/prices',                       '/uz/catalog-products'),
+      ...r('/ru/pricing',                      '/ru/catalog-products'),
+      ...r('/uz/pricing',                      '/uz/catalog-products'),
+      ...r('/ru/catalogue',                    '/ru/catalog-products'),
+      ...r('/uz/catalogue',                    '/uz/catalog-products'),
+      ...r('/ru/shop',                         '/ru/catalog-products'),
+      ...r('/uz/shop',                         '/uz/catalog-products'),
+
+      // Old form / thank-you endpoints
+      ...r('/ru/thank-you', '/ru/thanks'),
+      ...r('/uz/thank-you', '/uz/thanks'),
+      ...r('/ru/b2b-form',  '/ru/contacts'),
+      ...r('/uz/b2b-form',  '/uz/contacts'),
+      ...r('/ru/b2c-form',  '/ru/contacts'),
+      ...r('/uz/b2c-form',  '/uz/contacts'),
+
+      // UZ counterpart of an indexed legacy slug
+      ...r('/uz/lighters-engraving', '/uz/products/lighters'),
+
+      // Index.html (no locale)
+      { source: '/index.html', destination: '/ru/', permanent: true },
     ]
   },
 
