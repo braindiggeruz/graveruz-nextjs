@@ -82,7 +82,12 @@ const nextConfig = {
       ...r('/lighters-engraving', '/ru/products/lighters'),
       { source: '/blog/:slug',      destination: '/ru/blog/:slug/',      permanent: true },
       { source: '/blog/:slug/',     destination: '/ru/blog/:slug/',      permanent: true },
-      { source: '/products/:path*', destination: '/ru/products/:path*/', permanent: true },
+      // Bare /products without sub-path must go BEFORE the :path* rule so
+      // Next.js doesn't try to substitute an empty :path* into the destination
+      // (which produced a literal "/ru/products/:path*/" 404).
+      { source: '/products',        destination: '/ru/catalog-products/', permanent: true },
+      { source: '/products/',       destination: '/ru/catalog-products/', permanent: true },
+      { source: '/products/:path+', destination: '/ru/products/:path+/', permanent: true },
 
       // ── UZ locale slug aliases ─────────────────────────────────────────────
       ...r('/uz/mahsulotlar-katalogi',  '/uz/catalog-products'),
