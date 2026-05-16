@@ -13,3 +13,14 @@
 # Images cache
 /images/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+# Disable HTTP/3 / QUIC advertisement on the Keystatic admin and its API.
+# Cloudflare Pages SSR responses can intermittently trip Chrome's QUIC layer
+# (ERR_QUIC_PROTOCOL_ERROR) before the admin shell can boot. The public site
+# continues to advertise h3 normally — only the admin path is forced to HTTP/2.
+/keystatic
+  Alt-Svc: clear
+/keystatic/*
+  Alt-Svc: clear
+/api/keystatic/*
+  Alt-Svc: clear
+
