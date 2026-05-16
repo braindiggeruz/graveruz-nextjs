@@ -52,9 +52,9 @@ const seoFields = fields.object(
       publicPath: '/images/og/',
     }),
     noindex: fields.checkbox({
-      label: 'Скрыть от Google (noindex)',
+      label: '⚠ Скрыть от Google (noindex)',
       description:
-        'Только для технических страниц (спасибо, дубль, тест). Никогда не включай для коммерческих и блоговых страниц.',
+        'ОПАСНО: страница исчезнет из Google. Включай только для технических страниц (спасибо, дубль, тест). Никогда — для коммерческих и блоговых.',
       defaultValue: false,
     }),
   },
@@ -69,12 +69,12 @@ const seoFields = fields.object(
 const previousSlugsField = fields.array(
   fields.text({
     label: 'Старый URL',
-    description: 'Например: korporativnyje-podarki-tashkent',
+    description: 'Только slug, без локали и слешей. Пример: korporativnyje-podarki-tashkent',
   }),
   {
     label: 'История URL (авто-301)',
     description:
-      'ВАЖНО для SEO: если ты меняешь slug опубликованной страницы — добавь сюда старый. Сайт сам поставит постоянный 301-редирект, чтобы не потерять трафик и обратные ссылки.',
+      '🔒 SEO-страховка. Если меняешь slug опубликованной страницы — ОБЯЗАТЕЛЬНО добавь сюда старый. При следующей сборке сайт автоматически поставит 301-редирект со старого URL на новый, и ты не потеряешь Google-трафик, бэклинки и шеры в Telegram.',
     itemLabel: (p) => p.value || '— пустой —',
   }
 )
@@ -155,7 +155,11 @@ const settings = singleton({
       description: 'Формат: https://wa.me/998770802288',
       defaultValue: 'https://wa.me/998770802288',
     }),
-    email: fields.text({ label: 'Email' }),
+    email: fields.text({
+      label: 'Email',
+      description:
+        'Контактный email компании. Уходит в schema.org Organization.email и в подпись писем. Если пусто — не показывается на сайте.',
+    }),
 
     // ─ Адрес ─
     addressStreet: fields.text({ label: 'Улица, дом', defaultValue: 'ул. Мукими, 59' }),
@@ -186,12 +190,14 @@ const settings = singleton({
     }),
     ga4Id: fields.text({
       label: 'Google Analytics 4 ID',
-      description: 'Формат: G-XXXXXXXXXX',
+      description:
+        '⚠ Опечатка здесь — и аналитика молча умирает. Формат строго: G-XXXXXXXXXX. Скопируй из admin.google.com/analytics → Поток данных.',
       defaultValue: 'G-Z7V0FSGE4Y',
     }),
     metaPixelId: fields.text({
       label: 'Meta Pixel ID',
-      description: 'Числовой идентификатор Facebook/Instagram пикселя.',
+      description:
+        '⚠ Опечатка здесь сломает ретаргетинг Facebook/Instagram. Только цифры, ~15 знаков. Скопируй из business.facebook.com → Events Manager.',
       defaultValue: '1358428289305229',
     }),
     sameAs: fields.array(fields.url({ label: 'Ссылка на соцсеть' }), {
@@ -354,14 +360,14 @@ const pages = collection({
   slugField: 'slug',
   path: 'content/pages/*/',
   format: { data: 'yaml' },
-  columns: ['h1', 'locale', 'status'],
+  columns: ['slug', 'h1', 'locale', 'status'],
   previewUrl: 'https://graver-studio.uz/{locale}/{slug}/',
   schema: {
     slug: fields.slug({
       name: {
         label: 'Идентификатор страницы',
         description:
-          'Используется как часть URL: graver-studio.uz/{язык}/{slug}. Только латиница, цифры и дефисы.',
+          'Часть URL после языка: graver-studio.uz/{язык}/{slug}/. Только латиница, цифры, дефисы. ⚠ Если страница уже опубликована и ты переименовываешь — добавь старое значение в «История URL (авто-301)» ниже, иначе все внешние ссылки превратятся в 404.',
       },
     }),
     locale: fields.select({
@@ -556,12 +562,18 @@ const stories = collection({
   // only expands a single trailing `*` as slug.
   path: 'content/blog/**',
   format: { contentField: 'content' },
-  columns: ['title', 'date', 'category'],
+  columns: ['title', 'date', 'locale', 'category'],
   // Slug for stories is path-encoded (e.g. ru/my-post). Preview opens the
   // blog index — direct deep-link would require slug surgery in Keystatic.
   previewUrl: 'https://graver-studio.uz/{locale}/blog/',
   schema: {
-    slug: fields.slug({ name: { label: 'Slug (часть URL)' } }),
+    slug: fields.slug({
+      name: {
+        label: 'Slug (часть URL)',
+        description:
+          'Появится в URL: graver-studio.uz/{язык}/blog/{slug}/. Только латиница, цифры, дефисы. ⚠ Переименовываешь slug опубликованной статьи? Добавь старый в «История URL (авто-301)» ниже — иначе ссылки из Google и Telegram умрут.',
+      },
+    }),
     locale: fields.select({
       label: 'Язык',
       options: LOCALES as any,
@@ -579,7 +591,9 @@ const stories = collection({
     }),
     date: fields.text({
       label: 'Дата публикации',
-      description: 'Формат ISO: 2026-03-15. Влияет на сортировку и schema.org datePublished.',
+      description:
+        'Формат строго ISO: 2026-03-15. Используется для сортировки на /blog/ и для schema.org datePublished (Google показывает дату в выдаче). Неверный формат → дата не отрисуется.',
+      validation: { length: { min: 10, max: 10 } },
     }),
     author: fields.text({ label: 'Автор', defaultValue: 'Graver.uz' }),
     category: fields.text({
@@ -631,14 +645,15 @@ const stories = collection({
       description: 'Например: /images/blog/my-article-cover.jpg',
     }),
     noindex: fields.checkbox({
-      label: 'Скрыть от Google (noindex)',
-      description: 'Только для технических постов или дублей.',
+      label: '⚠ Скрыть от Google (noindex)',
+      description:
+        'ОПАСНО: статья исчезнет из поиска. Включай только для технических постов или дублей.',
       defaultValue: false,
     }),
     canonicalOverride: fields.text({
       label: 'Canonical (продвинутый режим)',
       description:
-        'Только если эта статья — копия другой канонической. Полная ссылка. Не трогай если не уверен.',
+        '⚠ ОПАСНО. Заполняй только если эта статья — официальная копия другой канонической страницы. Полная https://-ссылка. Если не уверен — оставь пустым.',
     }),
     previousSlugs: previousSlugsField,
     content: fields.mdx({
@@ -659,13 +674,14 @@ const products = collection({
   slugField: 'slug',
   path: 'content/products/*/',
   format: { data: 'yaml' },
-  columns: ['nameRu', 'availability', 'status'],
+  columns: ['nameRu', 'status', 'availability', 'slug'],
   previewUrl: 'https://graver-studio.uz/ru/products/{slug}/',
   schema: {
     slug: fields.slug({
       name: {
         label: 'URL продукта',
-        description: 'graver-studio.uz/{язык}/products/{slug}. Только латиница и дефисы.',
+        description:
+          'graver-studio.uz/{язык}/products/{slug}/. Только латиница и дефисы. ⚠ Переименовываешь slug опубликованного продукта? Добавь старый в «История URL (авто-301)» ниже — иначе все индексы Google по этому продукту умрут.',
       },
     }),
     status: fields.select({
