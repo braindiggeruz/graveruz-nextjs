@@ -838,10 +838,17 @@ const products = collection({
 })
 
 // ─── CONFIG ─────────────────────────────────────────────────────────
+// IMPORTANT: This config is imported BOTH server-side (API route) AND
+// client-side (admin UI bundle). Webpack only inlines NEXT_PUBLIC_* env
+// vars and NODE_ENV into the client bundle — every other process.env.X
+// is `undefined` in the browser. Using NODE_ENV as the discriminator
+// guarantees the storage kind matches between server and client:
+//   • next build (prod)   → NODE_ENV='production'   → 'github'
+//   • next dev / local    → NODE_ENV='development'  → 'local'
+// KEYSTATIC_GITHUB_FORCE lets us override locally if we want to test
+// github storage against a real GitHub App during development.
 const useGithub =
-  process.env.KEYSTATIC_STORAGE === 'github' ||
-  Boolean(process.env.CF_PAGES) ||
-  Boolean(process.env.CLOUDFLARE_ENV) ||
+  process.env.NODE_ENV === 'production' ||
   Boolean(process.env.KEYSTATIC_GITHUB_FORCE)
 
 export default config({
