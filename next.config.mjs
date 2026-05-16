@@ -60,6 +60,30 @@ const nextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
+      // Force Chrome to stop using HTTP/3 (QUIC) for the Keystatic admin
+      // and its API. Cloudflare Pages SSR responses on this OpenNext worker
+      // can trip Chrome with ERR_QUIC_PROTOCOL_ERROR before the admin shell
+      // can even boot. The zone keeps advertising h3 globally; we expire
+      // it only on admin paths (ma=0) and tell the browser to clear any
+      // cached alt-svc entries it picked up earlier.
+      {
+        source: '/keystatic',
+        headers: [
+          { key: 'Alt-Svc', value: 'clear' },
+        ],
+      },
+      {
+        source: '/keystatic/:path*',
+        headers: [
+          { key: 'Alt-Svc', value: 'clear' },
+        ],
+      },
+      {
+        source: '/api/keystatic/:path*',
+        headers: [
+          { key: 'Alt-Svc', value: 'clear' },
+        ],
+      },
     ]
   },
 
