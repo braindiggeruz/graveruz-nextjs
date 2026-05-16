@@ -14,7 +14,7 @@ NEXT_TELEMETRY_DISABLED = "1"
 # CF Pages plain_text vars are build-time only — they never reach the Worker.
 KEYSTATIC_STORAGE = "github"
 KEYSTATIC_URL = "https://graver-studio.uz"
-KEYSTATIC_GITHUB_CLIENT_ID = "Iv23ligmipe3Fqj7KoJT"
+KEYSTATIC_GITHUB_CLIENT_ID = "Iv23ligmipe3Fq7fKoJT"
 KEYSTATIC_GITHUB_REPO_OWNER = "braindiggeruz"
 KEYSTATIC_GITHUB_REPO_NAME = "graveruz-nextjs"
 NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG = "graveruz-cms"
