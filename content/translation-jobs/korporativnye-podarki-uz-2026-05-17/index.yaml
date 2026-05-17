@@ -1,0 +1,9 @@
+jobId: korporativnye-podarki-uz-2026-05-17
+sourceCollection: pages
+sourceSlug: korporativnye-podarki-tashkent
+sourceLocale: ru
+targetLocale: uz
+targetSlug: toshkentda-korporativ-sovgalar
+overwrite: false
+linkSource: true
+status: pending
