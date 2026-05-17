@@ -1,0 +1,124 @@
+name: Translate Pages (RU → UZ)
+
+# Triggers:
+#   1. Manual via GitHub UI: Actions → "Translate Pages" → Run workflow.
+#      Provide a source slug to translate directly without creating a job.
+#   2. Automatic: when a Translation Job YAML is committed to content/translation-jobs/
+#      (Keystatic operator workflow).
+on:
+  workflow_dispatch:
+    inputs:
+      source_slug:
+        description: 'Source page slug (e.g. lazernaya-gravirovka-tashkent). Leave empty to process pending jobs from content/translation-jobs/.'
+        required: false
+        type: string
+      target_slug:
+        description: 'Optional target UZ slug (auto-generated from translated H1 if empty)'
+        required: false
+        type: string
+      overwrite:
+        description: 'Overwrite existing UZ page if present (DANGEROUS)'
+        required: false
+        default: false
+        type: boolean
+      link_source:
+        description: 'Update source RU page alternateSlug.uz on success'
+        required: false
+        default: true
+        type: boolean
+  push:
+    branches: [main, master]
+    paths:
+      - 'content/translation-jobs/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: translate-pages
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci --no-audit --no-fund
+
+      - name: Verify Gemini key present
+        run: |
+          if [ -z "${{ secrets.GEMINI_API_KEY }}" ]; then
+            echo "::error::Missing repo secret GEMINI_API_KEY. Add it in Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+
+      - name: Run translator (manual dispatch with slug)
+        if: github.event_name == 'workflow_dispatch' && inputs.source_slug != ''
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          ARGS="--source=${{ inputs.source_slug }} --from=ru --to=uz"
+          [ -n "${{ inputs.target_slug }}" ] && ARGS="$ARGS --target=${{ inputs.target_slug }}"
+          [ "${{ inputs.overwrite }}" = "true" ] && ARGS="$ARGS --overwrite"
+          [ "${{ inputs.link_source }}" = "true" ] && ARGS="$ARGS --link-source"
+          echo "Running: node scripts/translate-page.mjs $ARGS"
+          node scripts/translate-page.mjs $ARGS
+
+      - name: Process pending jobs (push to content/translation-jobs OR manual dispatch without slug)
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.source_slug == '')
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/run-translation-jobs.mjs
+
+      - name: Show changes
+        run: |
+          git status --short
+          echo "---"
+          git diff --stat
+
+      - name: Commit and push
+        run: |
+          git config user.name "graveruz-translator-bot"
+          git config user.email "bot@graver-studio.uz"
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git add content/ public/images/ || true
+          MSG="chore(translate): RU→UZ page draft from workflow"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.source_slug }}" ]; then
+            MSG="chore(translate): RU→UZ draft for ${{ inputs.source_slug }}"
+          fi
+          git commit -m "$MSG"
+          git push origin HEAD:${{ github.ref_name }}
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Translation job summary"
+            echo ""
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.source_slug }}" ]; then
+              echo "- **Mode:** manual dispatch"
+              echo "- **Source slug:** \`${{ inputs.source_slug }}\`"
+              echo "- **Target slug:** \`${{ inputs.target_slug || 'auto' }}\`"
+            else
+              echo "- **Mode:** translation-jobs queue"
+            fi
+            echo ""
+            echo "Open Keystatic admin to review the new draft page:"
+            echo "https://graver-studio.uz/keystatic/"
+          } >> "$GITHUB_STEP_SUMMARY"

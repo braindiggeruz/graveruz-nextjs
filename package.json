@@ -12,7 +12,10 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "smoke-test": "node scripts/smoke-test.js",
-    "redirects": "node scripts/generate-redirects.mjs"
+    "redirects": "node scripts/generate-redirects.mjs",
+    "translate:page": "node scripts/translate-page.mjs",
+    "translate:jobs": "node scripts/run-translation-jobs.mjs",
+    "seo:audit": "node scripts/seo-audit.mjs"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.50",
@@ -26,7 +29,8 @@
     "next-mdx-remote": "^6.0.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "reading-time": "^1.5.0"
+    "reading-time": "^1.5.0",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@opennextjs/cloudflare": "^1.17.1",

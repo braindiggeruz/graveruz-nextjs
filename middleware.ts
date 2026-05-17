@@ -31,11 +31,12 @@ export function middleware(request: NextRequest) {
     })
   }
 
-  // ── 2. Skip static, API, Keystatic (handled above), images ──────────────
+  // ── 2. Skip static, API, Keystatic (handled above), admin-tools, images ──
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/keystatic') ||
+    pathname.startsWith('/admin-tools') ||
     pathname.startsWith('/images') ||
     pathname.includes('.') // static files
   ) {
