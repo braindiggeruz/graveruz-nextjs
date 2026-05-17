@@ -137,6 +137,13 @@ export default function Footer({ locale, messages, recentPosts = [], settings }:
               <Link href={`/${locale}/blog`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Блог' : 'Blog'}
               </Link>
+              <Link
+                href={isRu ? '/ru/lazernaya-gravirovka-tashkent/' : '/uz/toshkentda-lazer-gravyura/'}
+                className="block hover:text-teal-500 transition"
+                data-testid="footer-money-page"
+              >
+                {isRu ? 'Лазерная гравировка в Ташкенте' : 'Toshkentda lazer gravyura'}
+              </Link>
               <Link href={`/${locale}#services`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Услуги' : 'Xizmatlar'}
               </Link>

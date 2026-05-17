@@ -713,34 +713,36 @@ const translationJobs = collection({
     sourceSlug: fields.text({
       label: 'Slug исходной страницы (RU)',
       description:
-        'Точный slug RU-страницы из коллекции Страницы. Например: lazernaya-gravirovka-tashkent. Без локали и без слешей.',
+        'Slug русской страницы без /ru/. Пример: lazernaya-gravirovka-tashkent. Найди в Страницы → выбери RU-страницу → колонка slug.',
       validation: { length: { min: 1 } },
     }),
     sourceLocale: fields.select({
       label: 'Язык источника',
+      description: 'Обычно RU — мы переводим с русского.',
       options: LOCALES as any,
       defaultValue: 'ru',
     }),
     targetLocale: fields.select({
       label: 'Язык перевода',
+      description: 'Для узбекского перевода выбери uz / O‘zbek.',
       options: LOCALES as any,
       defaultValue: 'uz',
     }),
     targetSlug: fields.text({
-      label: 'Slug UZ-страницы (опционально)',
+      label: 'Slug будущей UZ-страницы (опционально)',
       description:
-        'Если оставить пустым — slug будет сгенерирован автоматически из переведённого H1 (SEO-friendly latin). Заполняй вручную только если хочешь точный slug.',
+        'Slug будущей UZ-страницы без /uz/. Пример: toshkentda-lazer-gravyura. Если оставить пустым — slug будет сгенерирован автоматически из переведённого H1 (SEO-friendly latin).',
     }),
     overwrite: fields.checkbox({
       label: '⚠ Перезаписать существующую UZ-страницу',
       description:
-        'ОПАСНО. Если UZ-страница с таким slug уже есть — она будет затёрта. По умолчанию выключено.',
+        'ОПАСНО. Safe/skip existing — оставь выключенным, чтобы не затереть уже опубликованные страницы. Включай только если хочешь заново перевести и заменить черновик.',
       defaultValue: false,
     }),
     linkSource: fields.checkbox({
       label: 'Прописать alternateSlug.uz в исходной RU-странице',
       description:
-        'Рекомендуется включить. Это автоматически свяжет RU и UZ страницы для hreflang. Если выключено — связь придётся прописать вручную.',
+        'Рекомендуется ВКЛЮЧИТЬ. Это автоматически свяжет RU и UZ страницы для hreflang. Если выключено — связь придётся прописать вручную.',
       defaultValue: true,
     }),
     status: fields.select({

@@ -205,3 +205,13 @@ export function truncateForSerp(text: string, max: number): string {
 }
 
 export const SEO_LIMITS = { TITLE_MIN, TITLE_MAX, DESC_MIN, DESC_MAX } as const
+
+/**
+ * Slugs that are linked from global navigation / footer / header.
+ * These pages are never orphans because every page on the site links
+ * to them. Keep in sync with Footer.tsx / Header.tsx.
+ */
+export const NAV_LINKED_SLUGS = new Set<string>([
+  'lazernaya-gravirovka-tashkent',
+  'toshkentda-lazer-gravyura',
+])

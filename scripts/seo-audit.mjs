@@ -58,6 +58,9 @@ function collectHrefs(blocks) {
 
 const pages = loadPages()
 const inboundBySlug = {}
+// Navigation/Footer global links — these slugs always have inbound from every page.
+const NAV_LINKED_SLUGS = ['lazernaya-gravirovka-tashkent', 'toshkentda-lazer-gravyura']
+for (const s of NAV_LINKED_SLUGS) inboundBySlug[s] = ['(footer/nav)']
 for (const p of pages) {
   for (const h of collectHrefs(p.blocks)) {
     const m = h.match(/^\/(ru|uz)\/([^/?#]+)/)

@@ -31,39 +31,59 @@ export default async function TranslateAdminPage({
         Создание UZ-версии страницы из RU. Все варианты ниже безопасны — RU-страница НЕ перезаписывается.
       </p>
 
-      <section style={{ ...panel, marginTop: 24 }}>
-        <h2 style={{ marginTop: 0 }}>Способ 1 — через Keystatic (рекомендуется)</h2>
-        <ol style={{ lineHeight: 1.9, color: '#cbd5ea' }}>
-          <li>
-            Открой Keystatic → <strong>SEO-инструменты → Переводы (RU → UZ)</strong> →{' '}
-            <em>Create entry</em>.
+      {/* ── Big "3 steps" block ────────────────────────────────── */}
+      <section style={{ ...panel, marginTop: 18, background: '#0e1a3c', border: '1px solid #2a4480' }}>
+        <h2 style={{ marginTop: 0 }}>Как создать UZ-перевод за 3 шага</h2>
+
+        <ol style={{ margin: 0, padding: 0, listStyle: 'none', display: 'grid', gap: 14 }}>
+          <li style={stepBox}>
+            <span style={stepNum}>1</span>
+            <div>
+              <strong>Открой Keystatic → SEO-инструменты → Переводы RU→UZ.</strong>
+              <div style={{ marginTop: 6 }}>
+                <a style={btnPrimary} href="/keystatic/collection/translationJobs" target="_blank">
+                  ↗ Открыть Translation Jobs в Keystatic
+                </a>
+              </div>
+            </div>
           </li>
-          <li>
-            Введи <code style={mono}>ID задачи</code> (любой уникальный, например{' '}
-            <code style={mono}>lazernaya-gravirovka-2026-03-15</code>).
+
+          <li style={stepBox}>
+            <span style={stepNum}>2</span>
+            <div style={{ width: '100%' }}>
+              <strong>Создай новую задачу и заполни:</strong>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 10 }}>
+                <Copy label="sourceSlug" value="lazernaya-gravirovka-tashkent" />
+                <Copy label="targetSlug" value="toshkentda-lazer-gravyura" />
+                <Copy label="sourceLocale" value="ru" />
+                <Copy label="targetLocale" value="uz (O‘zbek)" />
+              </div>
+              <p style={{ color: '#9aa8c4', fontSize: 13, marginTop: 8 }}>
+                <code style={mono}>autoPublish</code> оставь <strong>выключенным</strong> — UZ-страница создаётся как Draft.
+                <br />
+                <code style={mono}>overwrite</code> оставь <strong>выключенным</strong> — Safe/skip существующую.
+              </p>
+            </div>
           </li>
-          <li>
-            Заполни <code style={mono}>Slug исходной страницы (RU)</code> — точный slug RU-страницы.
-          </li>
-          <li>
-            Оставь статус <code style={mono}>Новая (поставить в очередь)</code>.
-          </li>
-          <li>Нажми Save — Keystatic закоммитит job в GitHub.</li>
-          <li>
-            GitHub Action <code style={mono}>Translate Pages</code> подхватит job (1-3 минуты),
-            переведёт через Gemini, закоммитит UZ-страницу как <strong>Draft</strong>.
-          </li>
-          <li>
-            После Cloudflare deploy (1-3 мин) UZ-страница появится в Keystatic → <strong>Страницы</strong> — открой и проверь.
-          </li>
-          <li>
-            Если всё OK, поменяй статус с <em>Черновик</em> на <em>Опубликовано</em> и сохрани.
+
+          <li style={stepBox}>
+            <span style={stepNum}>3</span>
+            <div>
+              <strong>Нажми Save, подожди 2–3 минуты, затем проверь Pages collection.</strong>
+              <p style={{ color: '#9aa8c4', fontSize: 13, marginTop: 6 }}>
+                GitHub Action подхватит задачу, Gemini переведёт страницу, новая запись появится в Keystatic → Страницы со статусом «Черновик».
+              </p>
+            </div>
           </li>
         </ol>
+
+        <div style={warnBox}>
+          ⚠ <strong>UZ-страница создаётся как Draft.</strong> После проверки её нужно опубликовать вручную (открой страницу → Статус: <em>Опубликовано</em> → Save).
+        </div>
       </section>
 
       <section style={{ ...panel, marginTop: 20 }}>
-        <h2 style={{ marginTop: 0 }}>Способ 2 — GitHub Actions (manual dispatch)</h2>
+        <h2 style={{ marginTop: 0 }}>Способ 2 — GitHub Actions (без Keystatic)</h2>
         <p style={{ color: '#9aa8c4', fontSize: 14 }}>
           Открой:{' '}
           <a
@@ -80,11 +100,7 @@ export default async function TranslateAdminPage({
       <section style={{ ...panel, marginTop: 20 }}>
         <h2 style={{ marginTop: 0 }}>Способ 3 — локальный CLI (для разработчика)</h2>
         <pre style={pre}>
-{`# Установи зависимости (один раз)
-npm install
-
-# Запусти перевод с локальным GEMINI_API_KEY
-GEMINI_API_KEY=... npm run translate:page -- \\
+{`GEMINI_API_KEY=... npm run translate:page -- \\
   --source=lazernaya-gravirovka-tashkent \\
   --link-source
 
@@ -180,3 +196,28 @@ const td: React.CSSProperties = { padding: '8px 12px', borderBottom: '1px solid 
 const link: React.CSSProperties = { color: '#9ec1ff', textDecoration: 'none' }
 const mono: React.CSSProperties = { background: '#1f2a44', padding: '1px 6px', borderRadius: 4, fontSize: 12 }
 const pre: React.CSSProperties = { background: '#0b1220', padding: 14, borderRadius: 8, overflowX: 'auto', fontSize: 13, color: '#cbd5ea', border: '1px solid #1f2a44' }
+const btnPrimary: React.CSSProperties = { display: 'inline-block', padding: '8px 14px', background: '#5eead4', color: '#0b1220', borderRadius: 8, textDecoration: 'none', fontWeight: 700, fontSize: 14 }
+const warnBox: React.CSSProperties = { background: '#3a1f10', border: '1px solid #ffb86b', color: '#ffd9a8', padding: '12px 14px', borderRadius: 8, fontSize: 14, marginTop: 16 }
+const stepBox: React.CSSProperties = { display: 'flex', gap: 14, padding: 14, background: '#0b1220', border: '1px solid #1f2a44', borderRadius: 10 }
+const stepNum: React.CSSProperties = { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, borderRadius: '50%', background: '#5eead4', color: '#0b1220', fontWeight: 800, flexShrink: 0 }
+
+function Copy({ label, value }: { label: string; value: string }) {
+  return (
+    <div style={{ background: '#0b1220', border: '1px solid #1f2a44', borderRadius: 8, padding: 10 }}>
+      <div style={{ color: '#7a8aa8', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 4 }}>
+        {label}
+      </div>
+      <code
+        style={{
+          display: 'block',
+          color: '#5eead4',
+          fontSize: 14,
+          fontFamily: 'ui-monospace, monospace',
+          wordBreak: 'break-all',
+        }}
+      >
+        {value}
+      </code>
+    </div>
+  )
+}

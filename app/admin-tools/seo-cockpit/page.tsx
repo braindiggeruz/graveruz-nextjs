@@ -7,7 +7,7 @@
 import { isAuthed, getServerToken } from '@/lib/admin-auth'
 import { TokenForm } from '../_components/TokenForm'
 import { getSnapshotPages, getSnapshotProducts, getSnapshotMeta } from '@/lib/seo-snapshot'
-import { auditPage, scorePage, truncateForSerp, SEO_LIMITS, type SeoCheck } from '@/lib/seo-score'
+import { auditPage, scorePage, truncateForSerp, SEO_LIMITS, NAV_LINKED_SLUGS, type SeoCheck } from '@/lib/seo-score'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -59,6 +59,10 @@ export default async function SeoCockpitPage({
 
   // Build inbound-link graph: which slug links to which slug.
   const inboundBySlug: Record<string, string[]> = {}
+  // Seed: navigation/footer always link to these slugs.
+  for (const navSlug of NAV_LINKED_SLUGS) {
+    inboundBySlug[navSlug] = ['(footer/nav)']
+  }
   for (const p of pages) {
     const hrefs = collectInternalHrefs((p.blocks as any) || [])
     for (const h of hrefs) {
@@ -379,6 +383,11 @@ function FocusCard({ a, inbound }: { a: { page: any; checks: SeoCheck[]; score: 
 
       <div style={{ ...panel, marginTop: 20 }}>
         <h3 style={{ marginTop: 0 }}>Orphan / Inbound Links</h3>
+        <p style={{ color: '#9aa8c4', fontSize: 13, marginTop: 0 }}>
+          <strong>Orphan page</strong> = опубликованная страница, на которую нет внутренних ссылок.
+          Такая страница хуже ранжируется, потому что Google считает её менее важной.
+          Решение: добавь ссылку с главной, меню, продуктов или связанных статей.
+        </p>
         {inbound.length === 0 ? (
           <div style={warnBox}>
             ⚠ Никто не ссылается на эту страницу — orphan. Добавь ссылку из главной (homepage benefits/services CTA),
