@@ -37,9 +37,12 @@ export default function AdminToolsLayout({ children }: { children: React.ReactNo
           <strong>Graver Admin Tools</strong>
           <span style={{ color: '#7a8aa8', fontSize: 13 }}>· SEO Cockpit · Translation</span>
         </div>
-        <nav style={{ display: 'flex', gap: 18, fontSize: 14 }}>
+        <nav style={{ display: 'flex', gap: 18, fontSize: 14, flexWrap: 'wrap' }}>
           <a href="/admin-tools/" style={navLink}>Home</a>
           <a href="/admin-tools/seo-cockpit/" style={navLink}>SEO Cockpit</a>
+          <a href="/admin-tools/stories/" style={navLink}>Stories Audit</a>
+          <a href="/admin-tools/cannibalization/" style={navLink}>Cannibalization</a>
+          <a href="/admin-tools/coverage/" style={navLink}>RU↔UZ Coverage</a>
           <a href="/admin-tools/translate/" style={navLink}>Translate RU→UZ</a>
           <a href="/keystatic/" style={navLink}>← Keystatic</a>
         </nav>

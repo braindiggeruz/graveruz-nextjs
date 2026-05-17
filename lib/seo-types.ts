@@ -25,6 +25,26 @@ export interface CMSPage {
   }
 }
 
+export interface CMSStory {
+  slug: string
+  locale: 'ru' | 'uz'
+  title?: string
+  description?: string
+  date?: string
+  category?: string
+  tags?: string[]
+  ogImage?: string
+  noindex?: boolean
+  canonicalOverride?: string
+  alternateRu?: string
+  alternateUz?: string
+  wordCount?: number
+  hasFaq?: boolean
+  relatedSlugs?: string[]
+  file?: string
+  mtime?: string
+}
+
 export interface CMSProduct {
   slug: string
   status?: 'draft' | 'published'

@@ -295,8 +295,14 @@ const homepage = singleton({
       fields.object({
         image: fields.image({
           label: 'Фото',
-          directory: 'public/images/portfolio',
-          publicPath: '/images/portfolio/',
+          // ⚠ Singleton image diff bug: when directory/publicPath here did not
+          // match the historical YAML values (e.g. /images/products/neo/1.jpg),
+          // Keystatic save would emit a "delete path that does not exist"
+          // GraphQL operation and the homepage refused to save. Using the
+          // top-level /images bucket accepts both legacy paths and any future
+          // uploads without forcing a content migration.
+          directory: 'public/images',
+          publicPath: '/images/',
         }),
         categoryRu: fields.text({ label: 'Категория (RU)' }),
         categoryUz: fields.text({ label: 'Категория (UZ)' }),

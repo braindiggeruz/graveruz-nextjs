@@ -4,8 +4,9 @@
 import Link from 'next/link'
 import { isAuthed, getServerToken } from '@/lib/admin-auth'
 import { TokenForm } from './_components/TokenForm'
-import { getSnapshotPages, getSnapshotMeta } from '@/lib/seo-snapshot'
+import { getSnapshotPages, getSnapshotStories, getSnapshotMeta } from '@/lib/seo-snapshot'
 import { auditPage, scorePage, NAV_LINKED_SLUGS } from '@/lib/seo-score'
+import { clusterByTitle } from '@/lib/seo-cluster'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -45,7 +46,27 @@ export default async function AdminToolsHome({
 
   // ── Compute SEO blockers from snapshot ─────────────────────────────
   const pages = getSnapshotPages()
+  const stories = getSnapshotStories()
   const meta = getSnapshotMeta()
+
+  // Stories-level operator pain signals
+  const ruStories = stories.filter((s) => s.locale === 'ru')
+  const uzStories = stories.filter((s) => s.locale === 'uz')
+  const storiesNoFaq = stories.filter((s) => !s.hasFaq).length
+  const storiesNoDesc = stories.filter((s) => !s.description).length
+  const storiesNoPair = stories.filter((s) => (s.locale === 'ru' ? !s.alternateUz : !s.alternateRu)).length
+  const storiesThin = stories.filter((s) => (s.wordCount || 0) < 200).length
+  const storiesNoindex = stories.filter((s) => s.noindex).length
+  // RU stories that have NO UZ counterpart at all (orphan translation)
+  const ruSlugSet = new Set(ruStories.map((s) => s.slug))
+  const uzSlugSet = new Set(uzStories.map((s) => s.slug))
+  const ruMissingUz = ruStories.filter(
+    (s) => !s.alternateUz || !uzSlugSet.has(s.alternateUz)
+  ).length
+  // Cannibalization preview — quick clusters at default threshold
+  const ruClusters = clusterByTitle(ruStories, 0.45)
+  const uzClusters = clusterByTitle(uzStories, 0.45)
+  void ruSlugSet // referenced in case future logic needs it
 
   const inboundBySlug: Record<string, string[]> = {}
   for (const s of NAV_LINKED_SLUGS) inboundBySlug[s] = ['(footer/nav)']
@@ -177,15 +198,91 @@ export default async function AdminToolsHome({
         </div>
       </section>
 
+      {/* ── Stories cockpit (139 entries) ─────────────────────────── */}
+      <section style={{ marginTop: 40 }}>
+        <h2 style={{ marginBottom: 6 }}>Блог · Stories ({stories.length})</h2>
+        <p style={{ color: '#9aa8c4', fontSize: 14, marginTop: 0 }}>
+          139 статей — это и SEO-сила, и риск каннибализации. Используй три инструмента ниже как ежедневный чек-лист.
+        </p>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: 12,
+            marginTop: 12,
+          }}
+        >
+          <StoryCard
+            href="/admin-tools/stories/"
+            title="Stories SEO Audit"
+            metric={`${stats0Critical(storiesNoindex, storiesNoDesc)} критичн.`}
+            color={storiesNoindex + storiesNoDesc > 0 ? '#ff6b6b' : '#5eead4'}
+            desc={`Заголовки/описания/FAQ/тонкий контент. RU: ${ruStories.length} · UZ: ${uzStories.length}.`}
+          />
+          <StoryCard
+            href="/admin-tools/cannibalization/"
+            title="Cannibalization Radar"
+            metric={`RU ${ruClusters.length} · UZ ${uzClusters.length} кластеров`}
+            color={ruClusters.length + uzClusters.length > 0 ? '#ffb86b' : '#5eead4'}
+            desc="Статьи, конкурирующие за одни и те же запросы Google. Решение: KEEP / UPDATE / MERGE / NOINDEX."
+          />
+          <StoryCard
+            href="/admin-tools/coverage/"
+            title="RU↔UZ Coverage"
+            metric={`${ruMissingUz} RU без UZ-пары`}
+            color={ruMissingUz > 0 ? '#ffb86b' : '#5eead4'}
+            desc={`Где RU-статья без UZ-перевода (и наоборот). Без пары — нет hreflang, не ранжируется в UZ.`}
+          />
+        </div>
+
+        <div style={{ ...miniStatsGrid, marginTop: 14 }}>
+          <MiniStat label="Без FAQ" value={storiesNoFaq} bad={storiesNoFaq > 0} />
+          <MiniStat label="Без description" value={storiesNoDesc} bad={storiesNoDesc > 0} />
+          <MiniStat label="Тонкие (<200 слов)" value={storiesThin} bad={storiesThin > 5} />
+          <MiniStat label="Без языковой пары" value={storiesNoPair} bad={storiesNoPair > 0} />
+          <MiniStat label="Noindex" value={storiesNoindex} bad={storiesNoindex > 0} critical />
+        </div>
+      </section>
+
       <section style={{ marginTop: 36 }}>
         <h3>Полезные ссылки</h3>
         <ul style={{ lineHeight: '2', color: '#9aa8c4' }}>
-          <li><a style={linkStyle} href="/keystatic/" target="_blank">Keystatic CMS</a> — главная админка контента</li>
-          <li><a style={linkStyle} href="/keystatic/branch/main/collection/translationJobs" target="_blank">Keystatic → Переводы RU→UZ</a></li>
-          <li><a style={linkStyle} href="https://graver-studio.uz/sitemap.xml" target="_blank">/sitemap.xml</a></li>
-          <li><a style={linkStyle} href="https://github.com/braindiggeruz/graveruz-nextjs/actions" target="_blank">GitHub Actions</a> — очередь переводов</li>
+          <li><a style={linkStyle} href="/keystatic/" target="_blank" rel="noopener">Keystatic CMS</a> — главная админка контента</li>
+          <li><a style={linkStyle} href="/keystatic/branch/main/collection/translationJobs" target="_blank" rel="noopener">Keystatic → Переводы RU→UZ</a></li>
+          <li><a style={linkStyle} href="https://graver-studio.uz/sitemap.xml" target="_blank" rel="noopener">/sitemap.xml</a></li>
+          <li><a style={linkStyle} href="https://github.com/braindiggeruz/graveruz-nextjs/actions" target="_blank" rel="noopener">GitHub Actions</a> — очередь переводов</li>
+          <li><a style={linkStyle} href="https://github.com/braindiggeruz/graveruz-nextjs/settings/secrets/actions" target="_blank" rel="noopener">Repo secrets</a> — где живёт <code style={mono}>GEMINI_API_KEY</code></li>
         </ul>
       </section>
+    </div>
+  )
+}
+
+function stats0Critical(noindex: number, noDesc: number) {
+  return noindex + noDesc
+}
+
+function StoryCard({ href, title, metric, color, desc }: { href: string; title: string; metric: string; color: string; desc: string }) {
+  return (
+    <Link href={href} style={{
+      display: 'block', textDecoration: 'none', padding: 16, borderRadius: 12,
+      background: '#0d1830', border: `1px solid ${color}33`, color: '#e6edf3',
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+        <strong style={{ fontSize: 15 }}>{title}</strong>
+        <span style={{ color, fontWeight: 700, fontSize: 13 }}>{metric}</span>
+      </div>
+      <p style={{ color: '#9aa8c4', fontSize: 12, margin: '8px 0 0', lineHeight: 1.5 }}>{desc}</p>
+    </Link>
+  )
+}
+
+function MiniStat({ label, value, bad, critical }: { label: string; value: number; bad?: boolean; critical?: boolean }) {
+  const color = !bad ? '#5eead4' : critical ? '#ff6b6b' : '#ffb86b'
+  return (
+    <div style={{ padding: 10, background: '#0a132a', border: `1px solid ${color}33`, borderRadius: 8 }}>
+      <div style={{ color: '#9aa8c4', fontSize: 11 }}>{label}</div>
+      <div style={{ color, fontSize: 20, fontWeight: 700 }}>{value}</div>
     </div>
   )
 }
@@ -282,6 +379,11 @@ function Blocker({
 
 const linkStyle: React.CSSProperties = { color: '#9ec1ff', textDecoration: 'none' }
 const mono: React.CSSProperties = { background: '#1f2a44', padding: '2px 6px', borderRadius: 4, fontSize: 12 }
+const miniStatsGrid: React.CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+  gap: 8,
+}
 
 // touch unused helpers
 void scorePage; void auditPage

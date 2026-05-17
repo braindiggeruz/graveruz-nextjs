@@ -13,9 +13,9 @@
  * static ESM import always resolves.
  */
 import snapshot from './_seo-snapshot.generated.json'
-import type { CMSPage, CMSProduct } from './seo-types'
+import type { CMSPage, CMSProduct, CMSStory } from './seo-types'
 
-const typed = snapshot as { generatedAt: string; pages: CMSPage[]; products: CMSProduct[] }
+const typed = snapshot as { generatedAt: string; pages: CMSPage[]; products: CMSProduct[]; stories?: CMSStory[] }
 
 export function getSnapshotPages(): CMSPage[] {
   return typed.pages || []
@@ -23,6 +23,10 @@ export function getSnapshotPages(): CMSPage[] {
 
 export function getSnapshotProducts(): CMSProduct[] {
   return typed.products || []
+}
+
+export function getSnapshotStories(): CMSStory[] {
+  return typed.stories || []
 }
 
 export function getSnapshotMeta() {

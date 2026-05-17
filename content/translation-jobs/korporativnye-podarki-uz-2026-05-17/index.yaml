@@ -6,4 +6,13 @@ targetLocale: uz
 targetSlug: toshkentda-korporativ-sovgalar
 overwrite: false
 linkSource: true
-status: pending
+status: done
+resultSlug: toshkentda-korporativ-sovgalar
+startedAt: 2026-05-17T07:55:30Z
+completedAt: 2026-05-17T08:00:00Z
+errorMessage: ''
+notes: >-
+  UZ page was created and published manually after first workflow run failed
+  (missing GEMINI_API_KEY secret). Marked done retroactively. New translation
+  jobs will run automatically now that the repo secret is set.
+createdAt: '2026-05-17'
