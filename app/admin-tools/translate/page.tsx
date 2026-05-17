@@ -41,9 +41,17 @@ export default async function TranslateAdminPage({
             <div>
               <strong>Открой Keystatic → SEO-инструменты → Переводы RU→UZ.</strong>
               <div style={{ marginTop: 6 }}>
-                <a style={btnPrimary} href="/keystatic/collection/translationJobs" target="_blank">
+                <a
+                  style={btnPrimary}
+                  href="/keystatic/branch/main/collection/translationJobs"
+                  target="_blank"
+                  data-testid="open-translation-jobs-btn"
+                >
                   ↗ Открыть Translation Jobs в Keystatic
                 </a>
+                <div style={{ color: '#7a8aa8', fontSize: 12, marginTop: 8 }}>
+                  Если кнопка не открылась: <a style={link} href="/keystatic/" target="_blank">Keystatic</a> → SEO-инструменты → Переводы RU→UZ.
+                </div>
               </div>
             </div>
           </li>
@@ -151,7 +159,7 @@ GEMINI_API_KEY=... npm run translate:page -- \\
                       {!uzExists && (
                         <a
                           style={link}
-                          href="/keystatic/collection/translationJobs/new"
+                          href="/keystatic/branch/main/collection/translationJobs/create"
                           target="_blank"
                         >
                           Create job →

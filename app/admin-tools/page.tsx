@@ -181,7 +181,7 @@ export default async function AdminToolsHome({
         <h3>Полезные ссылки</h3>
         <ul style={{ lineHeight: '2', color: '#9aa8c4' }}>
           <li><a style={linkStyle} href="/keystatic/" target="_blank">Keystatic CMS</a> — главная админка контента</li>
-          <li><a style={linkStyle} href="/keystatic/collection/translationJobs" target="_blank">Keystatic → Переводы RU→UZ</a></li>
+          <li><a style={linkStyle} href="/keystatic/branch/main/collection/translationJobs" target="_blank">Keystatic → Переводы RU→UZ</a></li>
           <li><a style={linkStyle} href="https://graver-studio.uz/sitemap.xml" target="_blank">/sitemap.xml</a></li>
           <li><a style={linkStyle} href="https://github.com/braindiggeruz/graveruz-nextjs/actions" target="_blank">GitHub Actions</a> — очередь переводов</li>
         </ul>
