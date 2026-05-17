@@ -1,6 +1,6 @@
 import { isAuthed, getServerToken } from '@/lib/admin-auth'
 import { TokenForm } from '../_components/TokenForm'
-import { getAllPages } from '@/lib/cms'
+import { getSnapshotPages } from '@/lib/seo-snapshot'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -20,7 +20,7 @@ export default async function TranslateAdminPage({
   }
   if (!(await isAuthed(sp.token))) return <TokenForm />
 
-  const pages = await getAllPages()
+  const pages = getSnapshotPages()
   const ruPages = pages.filter((p) => (p.locale || 'ru') === 'ru')
   const uzSlugs = new Set(pages.filter((p) => p.locale === 'uz').map((p) => p.slug))
 

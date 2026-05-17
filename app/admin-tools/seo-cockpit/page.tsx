@@ -6,7 +6,7 @@
  */
 import { isAuthed, getServerToken } from '@/lib/admin-auth'
 import { TokenForm } from '../_components/TokenForm'
-import { getAllPages, getAllProducts } from '@/lib/cms'
+import { getSnapshotPages, getSnapshotProducts, getSnapshotMeta } from '@/lib/seo-snapshot'
 import { auditPage, scorePage, truncateForSerp, SEO_LIMITS, type SeoCheck } from '@/lib/seo-score'
 
 export const dynamic = 'force-dynamic'
@@ -53,8 +53,9 @@ export default async function SeoCockpitPage({
   }
   if (!(await isAuthed(sp.token))) return <TokenForm />
 
-  const pages = await getAllPages()
-  const products = await getAllProducts()
+  const pages = getSnapshotPages()
+  const products = getSnapshotProducts()
+  const meta = getSnapshotMeta()
 
   // Build inbound-link graph: which slug links to which slug.
   const inboundBySlug: Record<string, string[]> = {}
@@ -112,6 +113,10 @@ export default async function SeoCockpitPage({
       <h1 style={{ marginTop: 0 }}>SEO Cockpit</h1>
       <p style={{ color: '#9aa8c4' }}>
         Состояние всех страниц и продуктов. Все ссылки на правки ведут в Keystatic.
+        <br />
+        <small style={{ color: '#5a6a87' }}>
+          Snapshot: {meta.generatedAt} · обновляется при каждом deploy.
+        </small>
       </p>
 
       {/* Global health */}

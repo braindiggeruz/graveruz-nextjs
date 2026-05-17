@@ -1,0 +1,557 @@
+{
+  "generatedAt": "2026-05-17T06:23:45.804Z",
+  "pages": [
+    {
+      "slug": "lazernaya-gravirovka-tashkent",
+      "locale": "ru",
+      "status": "published",
+      "h1": "Лазерная гравировка в Ташкенте",
+      "intro": "Персональная и корпоративная лазерная гравировка на подарках, сувенирах и бизнес-аксессуарах. Поможем подобрать изделие, подготовить макет и сделать подарок запоминающимся.",
+      "heroImage": "/images/pages/lazernaya-gravirovka-tashkent/heroImage.png",
+      "blocks": [
+        {
+          "discriminant": "hero",
+          "value": {
+            "badge": "Лазерная гравировка в Ташкенте",
+            "title": "Лазерная гравировка подарков и сувениров в Ташкенте",
+            "subtitle": "Наносим имена, логотипы, даты и короткие надписи на подарки, сувениры и бизнес-аксессуары. Поможем подобрать изделие, подготовить макет и сделать подарок запоминающимся.",
+            "ctaLabel": "Получить расчёт",
+            "ctaHref": "https://t.me/GraverAdm"
+          }
+        },
+        {
+          "discriminant": "features",
+          "value": {
+            "title": "Почему выбирают Graver Studio",
+            "items": [
+              {
+                "icon": "check",
+                "title": "Гравировка на разных изделиях",
+                "description": "Наносим имена, логотипы, даты и короткие надписи на подарки, сувениры и бизнес-аксессуары."
+              },
+              {
+                "icon": "check",
+                "title": "Для личных и корпоративных подарков",
+                "description": "Подходит для подарков мужчинам, руководителям, партнёрам, сотрудникам, клиентам и близким людям."
+              },
+              {
+                "icon": "check",
+                "title": "Помощь с выбором изделия",
+                "description": "Если вы не знаете, что выбрать, подскажем подходящий вариант под повод, стиль и задачу."
+              },
+              {
+                "icon": "check",
+                "title": "Нанесение логотипа компании",
+                "description": "Можно нанести логотип, имя сотрудника, должность, дату, символ или элемент фирменного стиля."
+              },
+              {
+                "icon": "check",
+                "title": "Подарки с премиальным видом",
+                "description": "Гравировка делает изделие более статусным, персональным и запоминающимся."
+              },
+              {
+                "icon": "check",
+                "title": "Заказы в Ташкенте",
+                "description": "Работаем с личными заказами и корпоративными подарками для компаний в Ташкенте и Узбекистане."
+              }
+            ]
+          }
+        },
+        {
+          "discriminant": "richText",
+          "value": {}
+        },
+        {
+          "discriminant": "imageText",
+          "value": {
+            "image": "/images/pages/lazernaya-gravirovka-tashkent/blocks/3/value/image.png",
+            "imageSide": "right",
+            "title": "Корпоративная гравировка для подарков и бизнес-сувениров",
+            "body": "Лазерная гравировка помогает превратить обычный подарок в персональный бизнес-аксессуар. На изделие можно нанести логотип компании, имя получателя, дату, короткую фразу или элемент фирменного стиля.\n\nТакой формат хорошо подходит для корпоративных подарков, welcome pack, сувениров с логотипом, подарков сотрудникам, клиентам, партнёрам и руководителям. Гравировка делает изделие более аккуратным, статусным и запоминающимся.\n\nВ Graver Studio можно подобрать подарок под задачу: зажигалку, ручку, блокнот, powerbank, часы или подарочный набор. Если вы не знаете, что выбрать, мы подскажем подходящий вариант под повод, стиль и формат заказа."
+          }
+        },
+        {
+          "discriminant": "richText",
+          "value": {}
+        },
+        {
+          "discriminant": "faq",
+          "value": {
+            "title": "Часто задаваемые вопросы",
+            "items": [
+              {
+                "q": "Что можно нанести с помощью лазерной гравировки?",
+                "a": "Можно нанести имя, инициалы, логотип компании, дату, короткую фразу, символ или элемент фирменного стиля. Итоговый вариант зависит от изделия и площади нанесения."
+              },
+              {
+                "q": "Можно ли заказать гравировку на корпоративных подарках?",
+                "a": "Да, лазерная гравировка подходит для корпоративных подарков, welcome pack, сувениров с логотипом, подарков сотрудникам, клиентам и партнёрам."
+              },
+              {
+                "q": "Сколько стоит лазерная гравировка в Ташкенте?",
+                "a": "Стоимость зависит от изделия, тиража, сложности нанесения и подготовки макета. Для точного расчёта лучше отправить описание задачи и желаемое изделие."
+              },
+              {
+                "q": "Можно ли нанести логотип компании?",
+                "a": "Да, можно нанести логотип компании. Лучше всего отправить логотип в хорошем качестве или в векторном формате, чтобы гравировка получилась аккуратной."
+              },
+              {
+                "q": "Какие подарки чаще всего заказывают с гравировкой?",
+                "a": "Чаще всего заказывают зажигалки, ручки, блокноты, ежедневники, powerbank, часы и подарочные наборы для сотрудников или партнёров."
+              }
+            ]
+          }
+        },
+        {
+          "discriminant": "cta",
+          "value": {
+            "title": "Хотите заказать гравировку?",
+            "subtitle": "Напишите нам, что нужно нанести и на какое изделие. Мы подскажем подходящий вариант и рассчитаем заказ.",
+            "buttonLabel": "Получить расчёт",
+            "buttonHref": "https://t.me/GraverAdm"
+          }
+        }
+      ],
+      "alternateSlug": {
+        "ru": "lazernaya-gravirovka-tashkent",
+        "uz": "toshkentda-lazer-gravyura"
+      },
+      "previousSlugs": [],
+      "seo": {
+        "title": "Лазерная гравировка в Ташкенте | Graver.uz",
+        "description": "Лазерная гравировка подарков, сувениров и бизнес-аксессуаров в Ташкенте. Поможем подобрать изделие и подготовить макет.",
+        "ogImage": "/images/og/lazernaya-gravirovka-tashkent/seo/ogImage.png",
+        "noindex": false
+      }
+    },
+    {
+      "slug": "toshkentda-lazer-gravyura",
+      "locale": "uz",
+      "status": "published",
+      "h1": "Toshkentda lazer gravyura",
+      "intro": "Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va qisqa yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va sovg‘ani esda qolarli qilishga yordam beramiz.",
+      "heroImage": "/images/pages/toshkentda-lazer-gravyura/heroImage.png",
+      "blocks": [
+        {
+          "discriminant": "hero",
+          "value": {
+            "badge": "Toshkentda lazer gravyura",
+            "title": "Toshkentda sovg‘alar va suvenirlarga lazer gravyura",
+            "subtitle": "Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va qisqa yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va sovg‘ani esda qolarli qilishga yordam beramiz.",
+            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/0/value/image.png",
+            "ctaLabel": "Hisob-kitob olish",
+            "ctaHref": "https://t.me/GraverAdm"
+          }
+        },
+        {
+          "discriminant": "features",
+          "value": {
+            "title": "Nega Graver Studio tanlanadi",
+            "items": [
+              {
+                "icon": "check",
+                "title": "Turli buyumlarga gravyura",
+                "description": "Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va qisqa yozuvlarni tushiramiz."
+              },
+              {
+                "icon": "check",
+                "title": "Shaxsiy va korporativ sovg‘alar uchun",
+                "description": "Erkaklar, rahbarlar, hamkorlar, xodimlar, mijozlar va yaqin insonlar uchun sovg‘alarga mos keladi."
+              },
+              {
+                "icon": "check",
+                "title": "Buyum tanlashda yordam",
+                "description": "Nima tanlashni bilmasangiz, vazifa, uslub va sovg‘a qilinadigan holatga mos variantni tavsiya qilamiz."
+              },
+              {
+                "icon": "check",
+                "title": "Kompaniya logotipini tushirish",
+                "description": "Logotip, xodim ismi, lavozim, sana, belgi yoki firma uslubi elementlarini tushirish mumkin."
+              },
+              {
+                "icon": "check",
+                "title": "Premium ko‘rinishdagi sovg‘alar",
+                "description": "Gravyura buyumni yanada nufuzli, shaxsiy va esda qolarli qiladi."
+              }
+            ]
+          }
+        },
+        {
+          "discriminant": "richText",
+          "value": {}
+        },
+        {
+          "discriminant": "imageText",
+          "value": {
+            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/3/value/image.png",
+            "imageSide": "right",
+            "title": "Sovg‘alar va biznes suvenirlar uchun korporativ gravyura",
+            "body": "Lazer gravyura oddiy sovg‘ani shaxsiy biznes aksessuariga aylantirishga yordam beradi. Buyumga kompaniya logotipi, oluvchining ismi, sana, qisqa ibora yoki firma uslubi elementini tushirish mumkin.\n\nBunday format korporativ sovg‘alar, welcome pack, logotipli suvenirlar, xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarga mos keladi. Gravyura buyumni yanada nafis, nufuzli va esda qolarli qiladi.\n\nGraver Studio’da vazifaga mos sovg‘ani tanlash mumkin: zajigalka, ruchka, bloknot, powerbank, soat yoki sovg‘a to‘plami. Agar nima tanlashni bilmasangiz, biz holat, uslub va buyurtma formatiga mos variantni tavsiya qilamiz."
+          }
+        },
+        {
+          "discriminant": "richText",
+          "value": {}
+        },
+        {
+          "discriminant": "faq",
+          "value": {
+            "title": "Ko‘p beriladigan savollar",
+            "items": [
+              {
+                "q": "Lazer gravyura yordamida nimalarni tushirish mumkin?",
+                "a": "Ism, bosh harflar, kompaniya logotipi, sana, qisqa ibora, belgi yoki firma uslubi elementini tushirish mumkin. Yakuniy variant buyum va tushirish maydoniga bog‘liq."
+              },
+              {
+                "q": "Korporativ sovg‘alarga gravyura buyurtma qilish mumkinmi?",
+                "a": "Ha, lazer gravyura korporativ sovg‘alar, welcome pack, logotipli suvenirlar, xodimlar, mijozlar va hamkorlar uchun sovg‘alarga mos keladi."
+              },
+              {
+                "q": "Toshkentda lazer gravyura narxi qancha?",
+                "a": "Narx buyum, tiraj, tushirish murakkabligi va maket tayyorlashga bog‘liq. Aniq hisob-kitob uchun vazifa tavsifi va kerakli buyumni yuborish yaxshi."
+              },
+              {
+                "q": "Kompaniya logotipini tushirish mumkinmi?",
+                "a": "Ha, kompaniya logotipini tushirish mumkin. Gravyura chiroyli chiqishi uchun logotipni yaxshi sifatda yoki vektor formatda yuborgan ma’qul."
+              },
+              {
+                "q": "Gravyura bilan qaysi sovg‘alar ko‘p buyurtma qilinadi?",
+                "a": "Ko‘pincha zajigalkalar, ruchkalar, bloknotlar, kundaliklar, powerbank, soatlar va xodimlar yoki hamkorlar uchun sovg‘a to‘plamlari buyurtma qilinadi."
+              }
+            ]
+          }
+        },
+        {
+          "discriminant": "cta",
+          "value": {
+            "title": "Gravyura buyurtma qilmoqchimisiz?",
+            "subtitle": "Nima tushirish kerakligini va qaysi buyumga gravyura qilmoqchi ekaningizni yozing. Biz mos variantni tavsiya qilamiz va buyurtmani hisoblab beramiz.",
+            "buttonLabel": "Hisob-kitob olish",
+            "buttonHref": "https://t.me/GraverAdm"
+          }
+        }
+      ],
+      "alternateSlug": {
+        "ru": "lazernaya-gravirovka-tashkent",
+        "uz": "toshkentda-lazer-gravyura"
+      },
+      "previousSlugs": [],
+      "seo": {
+        "title": "Toshkentda lazer gravyura | Graver.uz",
+        "description": "Toshkentda sovg‘alar, suvenirlar va biznes aksessuarlariga lazer gravyura. Buyumni tanlash va maket tayyorlashga yordam beramiz.",
+        "ogImage": "/images/og/toshkentda-lazer-gravyura/seo/ogImage.png",
+        "noindex": false
+      }
+    }
+  ],
+  "products": [
+    {
+      "slug": "lighters",
+      "status": "published",
+      "nameRu": "Зажигалки с лазерной гравировкой",
+      "nameUz": "Lazer gravyurali zajigalkalar",
+      "descriptionRu": "Металлические зажигалки с лазерной гравировкой логотипа, имени или фото.\n4 модели в премиум-отделке: Silver Gloss, Black Matte, Black Texture, Brushed Steel.\nКорпоративный подарок с характером. Тираж от 1 штуки.\n",
+      "descriptionUz": "Logotip, ism yoki surat bilan metall zajigalkalar lazer gravyurasi bilan.\n4 model premium tugatma bilan: Silver Gloss, Black Matte, Black Texture, Brushed Steel.\nXarakterli korporativ sovg'a. 1 donadan boshlab.\n",
+      "heroImage": "/images/products/lighters/r109_silver_gloss.jpg",
+      "brand": "",
+      "availability": "InStock",
+      "minBatchSize": 1,
+      "pricingTiers": [
+        {
+          "nameRu": "Silver Gloss",
+          "nameUz": "Silver Gloss",
+          "price": 140000,
+          "priceDisplay": "140 000 сум",
+          "descRu": "Глянцевый серебристый корпус",
+          "descUz": "Yaltiroq kumush korpus",
+          "highlight": false
+        },
+        {
+          "nameRu": "Black Matte",
+          "nameUz": "Black Matte",
+          "price": 150000,
+          "priceDisplay": "150 000 сум",
+          "descRu": "Матовый чёрный корпус",
+          "descUz": "Mat qora korpus",
+          "highlight": false
+        },
+        {
+          "nameRu": "Brushed Steel",
+          "nameUz": "Brushed Steel",
+          "price": 160000,
+          "priceDisplay": "160 000 сум",
+          "descRu": "Сатиновая сталь",
+          "descUz": "Atlas po'lat",
+          "highlight": false
+        },
+        {
+          "nameRu": "Black Texture",
+          "nameUz": "Black Texture",
+          "price": 170000,
+          "priceDisplay": "170 000 сум",
+          "descRu": "Текстурированный чёрный",
+          "descUz": "Teksturali qora",
+          "highlight": true
+        }
+      ],
+      "faq": [
+        {
+          "qRu": "Какой минимальный тираж для зажигалок?",
+          "qUz": "Zajigalkalar uchun minimal tiraj qancha?",
+          "aRu": "От 1 штуки. Единичный подарок с гравировкой или корпоративные тиражи — делаем любой объём.",
+          "aUz": "1 donadan. Gravyurali yagona sovg'a yoki korporativ tirajlar — istalgan hajmni tayyorlaymiz."
+        },
+        {
+          "qRu": "Что можно гравировать на зажигалках?",
+          "qUz": "Zajigalkalarga nimani o'ymakorlik qilish mumkin?",
+          "aRu": "Логотипы, имена, даты, фразы, простые изображения. Пришлите макет — покажем результат на цифровом превью.",
+          "aUz": "Logotiplar, ismlar, sanalar, iboralar, oddiy tasvirlar. Maketni yuboring — natijani raqamli previewda ko'rsatamiz."
+        },
+        {
+          "qRu": "Входит ли подарочная упаковка?",
+          "qUz": "Sovg'a qadoqlash kiritilganmi?",
+          "aRu": "Базовая коробка входит. Премиум-упаковка с брендированием — по запросу.",
+          "aUz": "Asosiy quti kiritilgan. Brendlash bilan premium qadoqlash — so'rov bo'yicha."
+        }
+      ],
+      "seo": {
+        "title": "Металлические зажигалки с лазерной гравировкой — Graver.uz",
+        "description": "Зажигалки с гравировкой логотипа, имени или фото. 4 модели: Silver Gloss, Black Matte, Brushed Steel, Black Texture. От 1 штуки. Доставка по Ташкенту.",
+        "ogImage": "/images/products/lighters/r109_silver_gloss.jpg",
+        "noindex": false
+      }
+    },
+    {
+      "slug": "neo-watches",
+      "status": "published",
+      "nameRu": "Часы NEO с гравировкой",
+      "nameUz": "NEO soatlar gravyura bilan",
+      "descriptionRu": "Премиальные наручные часы NEO с лазерной гравировкой логотипа или имени.\nЯпонский кварцевый механизм Miyota, сапфировое стекло, стальной корпус.\nИдеальный корпоративный подарок для руководителей и ключевых партнёров.\n",
+      "descriptionUz": "Premium NEO qo'l soatlari logotipning lazer gravyurasi bilan.\nYapon Miyota kvarts mexanizmi, safir oyna, po'lat korpus.\nRahbarlar va muhim hamkorlar uchun ideal korporativ sovg'a.\n",
+      "heroImage": "/images/products/neo/neo-watch-black-gold.jpg",
+      "brand": "NEO",
+      "availability": "InStock",
+      "minBatchSize": 10,
+      "pricingTiers": [
+        {
+          "nameRu": "Quartz",
+          "nameUz": "Quartz",
+          "price": 750000,
+          "priceDisplay": "750 000 сум",
+          "descRu": "Японский кварцевый механизм",
+          "descUz": "Yapon kvarts mexanizmi",
+          "highlight": false
+        },
+        {
+          "nameRu": "Automatic",
+          "nameUz": "Automatic",
+          "price": 1100000,
+          "priceDisplay": "1 100 000 сум",
+          "descRu": "Автоматический механизм",
+          "descUz": "Avtomatik mexanizm",
+          "highlight": true
+        }
+      ],
+      "aggregateRating": {
+        "value": "4.9",
+        "count": "47"
+      },
+      "reviews": [
+        {
+          "authorName": "Uzum",
+          "rating": 5,
+          "textRu": "Заказали 50 часов NEO для команды. Качество гравировки отличное, сроки соблюдены.",
+          "textUz": "50 dona NEO soatlar buyurtma berdik. Gravyura sifati a'lo, muddatlarga rioya qilindi."
+        },
+        {
+          "authorName": "Humans",
+          "rating": 5,
+          "textRu": "Используем часы NEO в welcome-паках. Сотрудники в восторге.",
+          "textUz": "Welcome-paklarda NEO soatlardan foydalanamiz. Xodimlar juda mamnun."
+        }
+      ],
+      "faq": [
+        {
+          "qRu": "Какой минимальный тираж для часов NEO?",
+          "qUz": "NEO soatlar uchun minimal tiraj qancha?",
+          "aRu": "Минимальный тираж — 10 штук. При заказе от 20 штук действует скидка 8%, от 50 штук — 15%.",
+          "aUz": "Minimal tiraj — 10 dona. 20 donadan buyurtma berishda 8% chegirma, 50 donadan — 15%."
+        },
+        {
+          "qRu": "Где наносится гравировка на часах?",
+          "qUz": "Soatlarda o'ymakorlik qayerga qo'llaniladi?",
+          "aRu": "Гравировка наносится на заднюю крышку часов или на циферблат. Возможна гравировка на ремешке.",
+          "aUz": "O'ymakorlik soatlarning orqa qopqog'iga yoki raqamli qismiga qo'llaniladi. Qayishga o'ymakorlik ham mumkin."
+        },
+        {
+          "qRu": "Какой срок изготовления?",
+          "qUz": "Ishlab chiqarish muddati qancha?",
+          "aRu": "Стандартный срок — 3–5 рабочих дней. Срочный заказ (2 дня) возможен при наличии модели на складе.",
+          "aUz": "Standart muddat — 3–5 ish kuni. Shoshilinch buyurtma (2 kun) omborda model mavjud bo'lganda mumkin."
+        },
+        {
+          "qRu": "Входит ли подарочная упаковка?",
+          "qUz": "Sovg'a qadoqlash kiritilganmi?",
+          "aRu": "Да, каждые часы поставляются в фирменной подарочной коробке. Возможна брендированная упаковка с логотипом вашей компании.",
+          "aUz": "Ha, har bir soat firma sovg'a qutisida yetkaziladi. Kompaniyangiz logotipi bilan brendlangan qadoqlash ham mumkin."
+        }
+      ],
+      "seo": {
+        "title": "Часы NEO с гравировкой на заказ | Премиум подарок | Graver.uz",
+        "description": "Часы NEO с персональной гравировкой — кварцевые и механические. Бесплатный макет перед нанесением. Идеальный подарок для себя, близких и партнёров.",
+        "ogImage": "/images/products/neo/neo-watch-black-gold.jpg",
+        "noindex": false
+      }
+    },
+    {
+      "slug": "notebooks",
+      "status": "published",
+      "nameRu": "Ежедневники с гравировкой",
+      "nameUz": "Gravyurali kundaliklar",
+      "descriptionRu": "Кожаные и комбинированные ежедневники с лазерной гравировкой логотипа или имени.\nА5-формат, датированные и недатированные. Ленточка, резинка, карман.\nWelcome-пак, подарок партнёру, корпоративный сувенир.\n",
+      "descriptionUz": "Charm va aralash kundaliklar logotip yoki ism lazer gravyurasi bilan.\nA5 format, sanali va sanasiz. Lentacha, rezinka, cho'ntak.\nWelcome-pak, hamkorga sovg'a, korporativ suvenir.\n",
+      "brand": "",
+      "availability": "InStock",
+      "minBatchSize": 10,
+      "pricingTiers": [
+        {
+          "nameRu": "Стандарт",
+          "nameUz": "Standart",
+          "price": 75000,
+          "priceDisplay": "от 75 000 сум",
+          "descRu": "Комбинированная обложка",
+          "descUz": "Aralash muqova",
+          "highlight": false
+        },
+        {
+          "nameRu": "Premium Leather",
+          "nameUz": "Premium charm",
+          "price": 185000,
+          "priceDisplay": "от 185 000 сум",
+          "descRu": "Натуральная кожа",
+          "descUz": "Tabiiy charm",
+          "highlight": true
+        }
+      ],
+      "faq": [
+        {
+          "qRu": "Можно ли именную гравировку?",
+          "qUz": "Shaxsiy gravyura mumkinmi?",
+          "aRu": "Да, наносим имена сотрудников индивидуально. Подготовим макеты для согласования.",
+          "aUz": "Ha, xodimlar ismlarini individual qo'yamiz. Tasdiqlash uchun maketlar tayyorlaymiz."
+        }
+      ],
+      "seo": {
+        "title": "Ежедневники с гравировкой логотипа — корпоративные | Graver.uz",
+        "description": "Кожаные и комбинированные ежедневники А5 с лазерной гравировкой. Welcome-пак, партнёрский подарок, корпоративный сувенир. От 10 штук.",
+        "ogImage": "/images/og/og-home.jpg",
+        "noindex": false
+      }
+    },
+    {
+      "slug": "pens",
+      "status": "published",
+      "nameRu": "Ручки с гравировкой",
+      "nameUz": "Gravyurali ruchkalar",
+      "descriptionRu": "Металлические корпоративные ручки с лазерной гравировкой логотипа или имени.\nПремиум-механизмы, приятный вес. Welcome-пак, конференц-подарок, VIP-набор.\nТираж от 10 штук.\n",
+      "descriptionUz": "Metall korporativ ruchkalar logotip yoki ism lazer gravyurasi bilan.\nPremium mexanizmlar, qulay og'irlik. Welcome-pak, konferensiya sovg'asi, VIP-to'plam.\n10 donadan boshlab.\n",
+      "brand": "",
+      "availability": "InStock",
+      "minBatchSize": 10,
+      "pricingTiers": [
+        {
+          "nameRu": "Стандарт",
+          "nameUz": "Standart",
+          "price": 35000,
+          "priceDisplay": "от 35 000 сум",
+          "descRu": "Металлический корпус, лазерная гравировка",
+          "descUz": "Metall korpus, lazer gravyurasi",
+          "highlight": false
+        },
+        {
+          "nameRu": "Premium",
+          "nameUz": "Premium",
+          "price": 85000,
+          "priceDisplay": "от 85 000 сум",
+          "descRu": "Тяжёлый корпус, премиум-механизм",
+          "descUz": "Og'ir korpus, premium mexanizmi",
+          "highlight": true
+        }
+      ],
+      "faq": [
+        {
+          "qRu": "Сколько ручек минимум?",
+          "qUz": "Minimal nechta ruchka?",
+          "aRu": "От 10 штук. Для больших тиражей действуют прогрессивные скидки.",
+          "aUz": "10 donadan. Katta tirajlar uchun progressiv chegirmalar amal qiladi."
+        },
+        {
+          "qRu": "Можно ли именную гравировку?",
+          "qUz": "Shaxsiy gravyura mumkinmi?",
+          "aRu": "Да, гравируем имена и должности индивидуально на каждой ручке в тираже. Пришлите список.",
+          "aUz": "Ha, har bir ruchkaga individual ism va lavozim gravyura qilamiz. Ro'yxatni yuboring."
+        }
+      ],
+      "seo": {
+        "title": "Ручки с гравировкой логотипа — корпоративные подарки | Graver.uz",
+        "description": "Металлические ручки с лазерной гравировкой. Welcome-пак, конференц-подарок, VIP-набор. Тираж от 10 штук. Ташкент.",
+        "ogImage": "/images/og/og-home.jpg",
+        "noindex": false
+      }
+    },
+    {
+      "slug": "powerbanks",
+      "status": "published",
+      "nameRu": "Повербанки с гравировкой",
+      "nameUz": "Powerbanklar gravyura bilan",
+      "descriptionRu": "Брендированные повербанки с лазерной гравировкой логотипа.\nЁмкость 5 000 – 20 000 мАч. Алюминиевый корпус, USB-C + USB-A.\nКорпоративный подарок, который реально используют каждый день.\n",
+      "descriptionUz": "Brendlangan powerbanklar logotipning lazer gravyurasi bilan.\nSig'imi 5 000 – 20 000 mAh. Alyuminiy korpus, USB-C + USB-A.\nHar kuni ishlatiladigan korporativ sovg'a.\n",
+      "brand": "",
+      "availability": "InStock",
+      "minBatchSize": 10,
+      "pricingTiers": [
+        {
+          "nameRu": "5 000 мАч",
+          "nameUz": "5 000 mAh",
+          "price": 95000,
+          "priceDisplay": "от 95 000 сум",
+          "descRu": "Компактный, лёгкий",
+          "descUz": "Ixcham, yengil",
+          "highlight": false
+        },
+        {
+          "nameRu": "10 000 мАч",
+          "nameUz": "10 000 mAh",
+          "price": 135000,
+          "priceDisplay": "от 135 000 сум",
+          "descRu": "Оптимальный выбор",
+          "descUz": "Optimal tanlov",
+          "highlight": true
+        },
+        {
+          "nameRu": "20 000 мАч",
+          "nameUz": "20 000 mAh",
+          "price": 195000,
+          "priceDisplay": "от 195 000 сум",
+          "descRu": "Максимальная ёмкость",
+          "descUz": "Maksimal sig'im",
+          "highlight": false
+        }
+      ],
+      "faq": [
+        {
+          "qRu": "Минимальный тираж?",
+          "qUz": "Minimal tiraj?",
+          "aRu": "10 штук. Для тиражей 100+ — отдельные условия.",
+          "aUz": "10 dona. 100+ tirajlar uchun alohida shartlar."
+        }
+      ],
+      "seo": {
+        "title": "Повербанки с гравировкой логотипа — корпоративные | Graver.uz",
+        "description": "Брендированные повербанки 5k–20k мАч с лазерной гравировкой логотипа. Алюминиевый корпус, USB-C + USB-A. От 10 штук. Ташкент.",
+        "ogImage": "/images/og/og-home.jpg",
+        "noindex": false
+      }
+    }
+  ]
+}
