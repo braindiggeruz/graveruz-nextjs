@@ -372,12 +372,15 @@ const pages = collection({
     }),
     locale: fields.select({
       label: 'Язык',
+      description:
+        '🚫 ОПАСНО для опубликованных страниц. Не меняй язык у уже существующей страницы — это сломает RU-версию (контент останется русским, но URL станет /uz/). Чтобы создать UZ-копию, перейди в «SEO-инструменты → Переводы (RU → UZ)» и создай задачу — система сделает отдельную UZ-страницу автоматически.',
       options: LOCALES as any,
       defaultValue: 'ru',
     }),
     status: fields.select({
       label: 'Статус',
-      description: 'Только Опубликованные страницы попадают на сайт и в sitemap.xml.',
+      description:
+        'Только Опубликованные страницы попадают на сайт и в sitemap.xml. После смены на «Опубликовано» нужно ~1–3 минуты на деплой Cloudflare Pages — пока деплой не прошёл, прямой URL даст 404. Live URL: https://graver-studio.uz/{язык}/{slug}/',
       options: STATUS_OPTIONS as any,
       defaultValue: 'draft',
     }),
@@ -668,6 +671,121 @@ const stories = collection({
   },
 })
 
+// ─── 6. TRANSLATION JOBS ────────────────────────────────────────────
+/**
+ * Translation Job collection — drives the RU → UZ auto-translation
+ * workflow without ever overwriting the source page.
+ *
+ * UX:
+ *   1. Marketer opens Keystatic → "Переводы (RU → UZ)" → Create entry.
+ *   2. Fills sourceSlug (RU page) → leaves status = "Новая".
+ *   3. Saves → Keystatic commits the job to GitHub.
+ *   4. GitHub Action `translate.yml` picks it up, runs Gemini translator,
+ *      commits new draft UZ page (status: draft) back to repo.
+ *   5. Marketer reviews the draft in Keystatic → Pages, publishes manually.
+ *
+ * The job YAML stays in the repo as an audit trail — never delete it.
+ */
+const translationJobs = collection({
+  label: 'Переводы (RU → UZ)',
+  slugField: 'jobId',
+  path: 'content/translation-jobs/*/',
+  format: { data: 'yaml' },
+  columns: ['sourceSlug', 'status', 'resultSlug'],
+  schema: {
+    jobId: fields.slug({
+      name: {
+        label: 'ID задачи',
+        description:
+          'Произвольный уникальный идентификатор задачи. Пример: "lazernaya-gravirovka-2026-03-15". Используется только как имя папки.',
+      },
+    }),
+    sourceCollection: fields.select({
+      label: 'Тип контента',
+      description: 'Сейчас поддерживается только "Страницы". Продукты и блог — в следующем спринте.',
+      options: [
+        { label: 'Страницы', value: 'pages' },
+        { label: 'Продукты (скоро)', value: 'products' },
+        { label: 'Блог / Истории (скоро)', value: 'stories' },
+      ],
+      defaultValue: 'pages',
+    }),
+    sourceSlug: fields.text({
+      label: 'Slug исходной страницы (RU)',
+      description:
+        'Точный slug RU-страницы из коллекции Страницы. Например: lazernaya-gravirovka-tashkent. Без локали и без слешей.',
+      validation: { length: { min: 1 } },
+    }),
+    sourceLocale: fields.select({
+      label: 'Язык источника',
+      options: LOCALES as any,
+      defaultValue: 'ru',
+    }),
+    targetLocale: fields.select({
+      label: 'Язык перевода',
+      options: LOCALES as any,
+      defaultValue: 'uz',
+    }),
+    targetSlug: fields.text({
+      label: 'Slug UZ-страницы (опционально)',
+      description:
+        'Если оставить пустым — slug будет сгенерирован автоматически из переведённого H1 (SEO-friendly latin). Заполняй вручную только если хочешь точный slug.',
+    }),
+    overwrite: fields.checkbox({
+      label: '⚠ Перезаписать существующую UZ-страницу',
+      description:
+        'ОПАСНО. Если UZ-страница с таким slug уже есть — она будет затёрта. По умолчанию выключено.',
+      defaultValue: false,
+    }),
+    linkSource: fields.checkbox({
+      label: 'Прописать alternateSlug.uz в исходной RU-странице',
+      description:
+        'Рекомендуется включить. Это автоматически свяжет RU и UZ страницы для hreflang. Если выключено — связь придётся прописать вручную.',
+      defaultValue: true,
+    }),
+    status: fields.select({
+      label: 'Статус',
+      description:
+        'Установи "Новая" — GitHub Action подхватит и переведёт. После завершения статус сменится автоматически на "Готово" или "Ошибка". Не меняй вручную, если задача уже запущена.',
+      options: [
+        { label: 'Новая (поставить в очередь)', value: 'pending' },
+        { label: 'В работе', value: 'running' },
+        { label: 'Готово', value: 'done' },
+        { label: 'Ошибка', value: 'error' },
+        { label: 'Отменено', value: 'cancelled' },
+      ],
+      defaultValue: 'pending',
+    }),
+    resultSlug: fields.text({
+      label: 'Slug созданной UZ-страницы',
+      description: 'Заполняется автоматически после успешного перевода. Открой Страницы → этот slug — для ревью.',
+    }),
+    startedAt: fields.text({
+      label: 'Начато',
+      description: 'Автоматически. Не редактируй.',
+    }),
+    completedAt: fields.text({
+      label: 'Завершено',
+      description: 'Автоматически. Не редактируй.',
+    }),
+    errorMessage: fields.text({
+      label: 'Текст ошибки',
+      multiline: true,
+      description: 'Если статус "Ошибка" — здесь будет сообщение. Покажи разработчику.',
+    }),
+    notes: fields.text({
+      label: 'Заметки оператора',
+      multiline: true,
+      description:
+        'Свободные заметки: контекст, особые требования, ссылки. Не влияет на перевод, только для истории.',
+    }),
+    createdAt: fields.text({
+      label: 'Дата создания',
+      description: 'YYYY-MM-DD. Можно заполнить вручную для удобства поиска.',
+    }),
+  },
+})
+
 // ─── 5. PRODUCTS ────────────────────────────────────────────────────
 const products = collection({
   label: 'Продукты',
@@ -882,9 +1000,10 @@ export default config({
     navigation: {
       'Каждый день': ['homepage', 'stories', 'pages'],
       Каталог: ['products'],
+      'SEO-инструменты': ['translationJobs'],
       Система: ['settings'],
     },
   },
   singletons: { settings, homepage },
-  collections: { pages, stories, products },
+  collections: { pages, stories, products, translationJobs },
 })
