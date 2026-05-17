@@ -708,11 +708,12 @@ const translationJobs = collection({
     }),
     sourceCollection: fields.select({
       label: 'Тип контента',
-      description: 'Сейчас поддерживается только "Страницы". Продукты и блог — в следующем спринте.',
+      description:
+        'Поддерживаются: Страницы (полный page builder) и Блог / Истории (MDX с frontmatter). Продукты — позже.',
       options: [
         { label: 'Страницы', value: 'pages' },
+        { label: 'Блог / Истории', value: 'stories' },
         { label: 'Продукты (скоро)', value: 'products' },
-        { label: 'Блог / Истории (скоро)', value: 'stories' },
       ],
       defaultValue: 'pages',
     }),

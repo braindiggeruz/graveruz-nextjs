@@ -87,10 +87,11 @@ for (const jobPath of jobFiles) {
   console.log(`  source: ${job.sourceCollection || 'pages'}/${job.sourceSlug} (${job.sourceLocale || 'ru'})`)
   console.log(`  target: → ${job.targetLocale || 'uz'} ${job.targetSlug ? `slug=${job.targetSlug}` : '(auto-slug)'}`)
 
-  // For MVP only "pages" collection is supported.
-  if (job.sourceCollection && job.sourceCollection !== 'pages') {
+  // For MVP we support "pages" and "stories" (blog) collections.
+  const collection = job.sourceCollection || 'pages'
+  if (collection !== 'pages' && collection !== 'stories') {
     job.status = 'error'
-    job.errorMessage = `Unsupported sourceCollection "${job.sourceCollection}" — only "pages" is supported in MVP.`
+    job.errorMessage = `Unsupported sourceCollection "${collection}" — supported: pages, stories.`
     writeYaml(jobPath, job)
     totalErr++
     continue
@@ -100,20 +101,23 @@ for (const jobPath of jobFiles) {
   job.startedAt = new Date().toISOString()
   writeYaml(jobPath, job)
 
-  const cliArgs = [
-    'scripts/translate-page.mjs',
-    `--source=${job.sourceSlug}`,
-    `--from=${job.sourceLocale || 'ru'}`,
-    `--to=${job.targetLocale || 'uz'}`,
-  ]
+  const scriptName = collection === 'stories' ? 'scripts/translate-story.mjs' : 'scripts/translate-page.mjs'
+  const cliArgs = [scriptName, `--source=${job.sourceSlug}`]
+  if (collection === 'pages') {
+    cliArgs.push(`--from=${job.sourceLocale || 'ru'}`, `--to=${job.targetLocale || 'uz'}`)
+  }
   if (job.targetSlug) cliArgs.push(`--target=${job.targetSlug}`)
   if (job.overwrite) cliArgs.push('--overwrite')
   if (job.linkSource !== false) cliArgs.push('--link-source')
 
   try {
     const { out } = await run('node', cliArgs)
-    // Extract the final target slug from output: "Target: content/pages/<slug>/index.yaml"
-    const m = out.match(/content\/pages\/([^/]+)\/index\.yaml \(status: draft\)/)
+    let m = null
+    if (collection === 'pages') {
+      m = out.match(/content\/pages\/([^/]+)\/index\.yaml \(status: draft\)/)
+    } else {
+      m = out.match(/content\/blog\/uz\/([^.]+)\.mdx \(status: draft\)/)
+    }
     job.status = 'done'
     job.completedAt = new Date().toISOString()
     job.resultSlug = m ? m[1] : (job.targetSlug || '')

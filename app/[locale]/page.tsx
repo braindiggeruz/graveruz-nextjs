@@ -278,6 +278,7 @@ export default async function HomePage({ params }: PageProps) {
               {
                 icon: '✦',
                 title: messages.services.laser_engraving,
+                href: isRu ? '/ru/lazernaya-gravirovka-tashkent/' : '/uz/toshkentda-lazer-gravyura/',
                 desc: isRu
                   ? 'Точная лазерная гравировка на металле, дереве, коже и стекле'
                   : "Metall, yog'och, teri va shishada aniq lazer o'ymakorlik",
@@ -285,6 +286,7 @@ export default async function HomePage({ params }: PageProps) {
               {
                 icon: '🎁',
                 title: messages.services.corporate_gifts,
+                href: isRu ? '/ru/korporativnye-podarki/' : '/uz/toshkentda-korporativ-sovgalar/',
                 desc: isRu
                   ? 'Корпоративные подарки с логотипом для сотрудников и партнёров'
                   : "Xodimlar va hamkorlar uchun logotip bilan korporativ sovg'alar",
@@ -292,6 +294,7 @@ export default async function HomePage({ params }: PageProps) {
               {
                 icon: '📦',
                 title: messages.services.welcome_packs,
+                href: `/${locale}/welcome-packs/`,
                 desc: isRu
                   ? 'Welcome-паки для новых сотрудников с брендированными предметами'
                   : "Brendlangan buyumlar bilan yangi xodimlar uchun welcome-to'plamlar",
@@ -299,6 +302,7 @@ export default async function HomePage({ params }: PageProps) {
               {
                 icon: '💼',
                 title: messages.services.branded_sets,
+                href: `/${locale}/catalog-products/`,
                 desc: isRu
                   ? 'Брендированные наборы для корпоративных мероприятий и презентаций'
                   : "Korporativ tadbirlar va taqdimotlar uchun brendlangan to'plamlar",
@@ -306,6 +310,7 @@ export default async function HomePage({ params }: PageProps) {
               {
                 icon: '⭐',
                 title: messages.services.vip_gifts,
+                href: `/${locale}/vip-podarki/`,
                 desc: isRu
                   ? 'VIP-подарки для ключевых клиентов и партнёров высшего уровня'
                   : "Asosiy mijozlar va yuqori darajadagi hamkorlar uchun VIP-sovg'alar",
@@ -313,16 +318,26 @@ export default async function HomePage({ params }: PageProps) {
               {
                 icon: '🏆',
                 title: isRu ? 'Награды и сертификаты' : 'Mukofotlar va sertifikatlar',
+                href: `/${locale}/engraved-gifts/`,
                 desc: isRu
                   ? 'Именные награды, кубки и сертификаты с гравировкой'
                   : "O'ymakorlik bilan shaxsiy mukofotlar, kuboklar va sertifikatlar",
               },
             ].map((service, i) => (
-              <div key={i} className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-teal-500 transition">
+              <a
+                key={i}
+                href={service.href}
+                className="block bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-teal-500 transition group"
+                data-track="service-card"
+                data-placement={`service-${i}`}
+              >
                 <div className="text-3xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-teal-400 transition">{service.title}</h3>
                 <p className="text-gray-400">{service.desc}</p>
-              </div>
+                <span className="inline-block mt-4 text-teal-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition">
+                  {isRu ? 'Подробнее →' : "Batafsil →"}
+                </span>
+              </a>
             ))}
           </div>
         </div>

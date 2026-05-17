@@ -14,8 +14,10 @@
     "smoke-test": "node scripts/smoke-test.js",
     "redirects": "node scripts/generate-redirects.mjs",
     "translate:page": "node scripts/translate-page.mjs",
+    "translate:story": "node scripts/translate-story.mjs",
     "translate:jobs": "node scripts/run-translation-jobs.mjs",
-    "seo:audit": "node scripts/seo-audit.mjs"
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "seo:consolidate": "node scripts/seo-consolidate.mjs"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.50",

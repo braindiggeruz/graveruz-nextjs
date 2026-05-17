@@ -85,7 +85,7 @@ ${JSON.stringify(payload, null, 2)}`
 
   let attempt = 0
   let lastErr
-  while (attempt < 3) {
+  while (attempt < 5) {
     try {
       const res = await fetch(url, {
         method: 'POST',
@@ -94,6 +94,14 @@ ${JSON.stringify(payload, null, 2)}`
       })
       if (!res.ok) {
         const txt = await res.text()
+        // Honor Gemini 429 "Please retry in Xs" hint when present.
+        if (res.status === 429) {
+          const m = txt.match(/retry in ([\d.]+)s/i)
+          const wait = m ? Math.min(Math.ceil(parseFloat(m[1]) * 1000) + 1000, 60000) : 8000
+          await new Promise((r) => setTimeout(r, wait))
+          attempt++
+          if (attempt < 5) continue
+        }
         throw new Error(`Gemini API ${res.status}: ${txt.slice(0, 500)}`)
       }
       const json = await res.json()
@@ -110,8 +118,8 @@ ${JSON.stringify(payload, null, 2)}`
     } catch (err) {
       lastErr = err
       attempt++
-      if (attempt < 3) {
-        const wait = 1500 * attempt
+      if (attempt < 5) {
+        const wait = 2000 * attempt
         await new Promise((r) => setTimeout(r, wait))
       }
     }
