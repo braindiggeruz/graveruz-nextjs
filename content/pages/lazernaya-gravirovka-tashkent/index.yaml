@@ -113,7 +113,9 @@ blocks:
         подходящий вариант и рассчитаем заказ.
       buttonLabel: Получить расчёт
       buttonHref: https://t.me/GraverAdm
-alternateSlug: {}
+alternateSlug:
+  ru: lazernaya-gravirovka-tashkent
+  uz: toshkentda-lazer-gravyura
 previousSlugs: []
 seo:
   title: Лазерная гравировка в Ташкенте | Graver.uz
