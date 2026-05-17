@@ -1,0 +1,121 @@
+slug: toshkentda-lazer-gravyura
+locale: uz
+status: published
+h1: Toshkentda lazer gravyura
+intro: >-
+  Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va qisqa
+  yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va sovg‘ani esda
+  qolarli qilishga yordam beramiz.
+heroImage: /images/pages/toshkentda-lazer-gravyura/heroImage.png
+blocks:
+  - discriminant: hero
+    value:
+      badge: Toshkentda lazer gravyura
+      title: Toshkentda sovg‘alar va suvenirlarga lazer gravyura
+      subtitle: >-
+        Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va
+        qisqa yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va
+        sovg‘ani esda qolarli qilishga yordam beramiz.
+      image: /images/pages/toshkentda-lazer-gravyura/blocks/0/value/image.png
+      ctaLabel: Hisob-kitob olish
+      ctaHref: https://t.me/GraverAdm
+  - discriminant: features
+    value:
+      title: Nega Graver Studio tanlanadi
+      items:
+        - icon: check
+          title: Turli buyumlarga gravyura
+          description: >-
+            Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana
+            va qisqa yozuvlarni tushiramiz.
+        - icon: check
+          title: Shaxsiy va korporativ sovg‘alar uchun
+          description: >-
+            Erkaklar, rahbarlar, hamkorlar, xodimlar, mijozlar va yaqin insonlar
+            uchun sovg‘alarga mos keladi.
+        - icon: check
+          title: Buyum tanlashda yordam
+          description: >-
+            Nima tanlashni bilmasangiz, vazifa, uslub va sovg‘a qilinadigan
+            holatga mos variantni tavsiya qilamiz.
+        - icon: check
+          title: Kompaniya logotipini tushirish
+          description: >-
+            Logotip, xodim ismi, lavozim, sana, belgi yoki firma uslubi
+            elementlarini tushirish mumkin.
+        - icon: check
+          title: Premium ko‘rinishdagi sovg‘alar
+          description: Gravyura buyumni yanada nufuzli, shaxsiy va esda qolarli qiladi.
+  - discriminant: richText
+    value: {}
+  - discriminant: imageText
+    value:
+      image: /images/pages/toshkentda-lazer-gravyura/blocks/3/value/image.png
+      imageSide: right
+      title: Sovg‘alar va biznes suvenirlar uchun korporativ gravyura
+      body: >-
+        Lazer gravyura oddiy sovg‘ani shaxsiy biznes aksessuariga aylantirishga
+        yordam beradi. Buyumga kompaniya logotipi, oluvchining ismi, sana, qisqa
+        ibora yoki firma uslubi elementini tushirish mumkin.
+
+
+        Bunday format korporativ sovg‘alar, welcome pack, logotipli suvenirlar,
+        xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarga mos keladi.
+        Gravyura buyumni yanada nafis, nufuzli va esda qolarli qiladi.
+
+
+        Graver Studio’da vazifaga mos sovg‘ani tanlash mumkin: zajigalka,
+        ruchka, bloknot, powerbank, soat yoki sovg‘a to‘plami. Agar nima
+        tanlashni bilmasangiz, biz holat, uslub va buyurtma formatiga mos
+        variantni tavsiya qilamiz.
+  - discriminant: richText
+    value: {}
+  - discriminant: faq
+    value:
+      title: Ko‘p beriladigan savollar
+      items:
+        - q: Lazer gravyura yordamida nimalarni tushirish mumkin?
+          a: >-
+            Ism, bosh harflar, kompaniya logotipi, sana, qisqa ibora, belgi yoki
+            firma uslubi elementini tushirish mumkin. Yakuniy variant buyum va
+            tushirish maydoniga bog‘liq.
+        - q: Korporativ sovg‘alarga gravyura buyurtma qilish mumkinmi?
+          a: >-
+            Ha, lazer gravyura korporativ sovg‘alar, welcome pack, logotipli
+            suvenirlar, xodimlar, mijozlar va hamkorlar uchun sovg‘alarga mos
+            keladi.
+        - q: Toshkentda lazer gravyura narxi qancha?
+          a: >-
+            Narx buyum, tiraj, tushirish murakkabligi va maket tayyorlashga
+            bog‘liq. Aniq hisob-kitob uchun vazifa tavsifi va kerakli buyumni
+            yuborish yaxshi.
+        - q: Kompaniya logotipini tushirish mumkinmi?
+          a: >-
+            Ha, kompaniya logotipini tushirish mumkin. Gravyura chiroyli
+            chiqishi uchun logotipni yaxshi sifatda yoki vektor formatda
+            yuborgan ma’qul.
+        - q: Gravyura bilan qaysi sovg‘alar ko‘p buyurtma qilinadi?
+          a: >-
+            Ko‘pincha zajigalkalar, ruchkalar, bloknotlar, kundaliklar,
+            powerbank, soatlar va xodimlar yoki hamkorlar uchun sovg‘a
+            to‘plamlari buyurtma qilinadi.
+  - discriminant: cta
+    value:
+      title: Gravyura buyurtma qilmoqchimisiz?
+      subtitle: >-
+        Nima tushirish kerakligini va qaysi buyumga gravyura qilmoqchi
+        ekaningizni yozing. Biz mos variantni tavsiya qilamiz va buyurtmani
+        hisoblab beramiz.
+      buttonLabel: Hisob-kitob olish
+      buttonHref: https://t.me/GraverAdm
+alternateSlug:
+  ru: lazernaya-gravirovka-tashkent
+  uz: toshkentda-lazer-gravyura
+previousSlugs: []
+seo:
+  title: Toshkentda lazer gravyura | Graver.uz
+  description: >-
+    Toshkentda sovg‘alar, suvenirlar va biznes aksessuarlariga lazer gravyura.
+    Buyumni tanlash va maket tayyorlashga yordam beramiz.
+  ogImage: /images/og/toshkentda-lazer-gravyura/seo/ogImage.png
+  noindex: false
