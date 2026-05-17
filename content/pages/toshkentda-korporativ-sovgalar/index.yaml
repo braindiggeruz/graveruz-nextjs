@@ -1,0 +1,126 @@
+slug: toshkentda-korporativ-sovgalar
+locale: uz
+status: published
+h1: Biznes uchun gravyurali korporativ sovg‘alar
+intro: >-
+  Xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarni tanlaymiz va
+  bezaymiz: zajigalkalar, ruchkalar, bloknotlar, powerbank, soatlar va logotipli
+  premium to‘plamlar.
+heroImage: /images/pages/toshkentda-korporativ-sovgalar/heroImage.png
+blocks:
+  - discriminant: hero
+    value:
+      badge: Toshkentda korporativ sovg‘alar
+      title: Biznes uchun gravyurali korporativ sovg‘alar
+      subtitle: >-
+        Xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarni tanlaymiz
+        va bezaymiz: zajigalkalar, ruchkalar, bloknotlar, powerbank, soatlar va
+        logotipli premium to‘plamlar.
+      image: /images/pages/toshkentda-korporativ-sovgalar/blocks/0/value/image.png
+      ctaLabel: Sovg‘a tanlash
+      ctaHref: https://t.me/GraverAdm
+  - discriminant: features
+    value:
+      title: Nega kompaniyalar Graver Studio’ni tanlaydi
+      items:
+        - icon: check
+          title: Turli vazifalar uchun sovg‘alar
+          description: >-
+            Xodimlar, mijozlar, hamkorlar, rahbarlar, tadbirlar va welcome pack
+            uchun mos sovg‘alarni tanlaymiz.
+        - icon: check
+          title: Logotip tushirish
+          description: >-
+            Buyumga kompaniya logotipi, oluvchining ismi, sana, lavozim, slogan
+            yoki firma uslubi elementini tushirish mumkin.
+        - icon: check
+          title: Premium ko‘rinish
+          description: Gravyura sovg‘ani yanada nufuzli, shaxsiy va qimmatli ko‘rsatadi.
+        - icon: check
+          title: Buyum tanlashda yordam
+          description: >-
+            Nima tanlashni bilmasangiz, sovg‘a sababi, auditoriya, brend uslubi
+            va buyurtma formatiga mos variantlarni tavsiya qilamiz.
+        - icon: check
+          title: Kichik va katta buyurtmalar
+          description: >-
+            Yakka sovg‘alar, kichik partiyalar va biznes uchun korporativ
+            to‘plamlar bilan ishlaymiz.
+        - icon: check
+          title: Toshkentdagi kompaniyalar uchun
+          description: >-
+            Toshkent va O‘zbekistondagi bizneslar uchun sovg‘alarni yagona brend
+            uslubida bezashga yordam beramiz.
+  - discriminant: richText
+    value: {}
+  - discriminant: imageText
+    value:
+      image: /images/pages/toshkentda-korporativ-sovgalar/blocks/3/value/image.png
+      imageSide: right
+      title: Logotipli va shaxsiy gravyurali sovg‘alar
+      body: >-
+        Korporativ sovg‘a brend va inson bilan bog‘langanda kuchliroq ishlaydi.
+        Buyumga kompaniya logotipi, xodim ismi, lavozim, sana, qisqa tilak yoki
+        firma uslubi elementini tushirish mumkin.
+
+
+        Bunday format welcome pack, hamkorlar uchun sovg‘alar, mijozlar uchun
+        suvenirlar, rahbarlar uchun sovg‘alar va tadbirlar uchun to‘plamlarga
+        mos keladi. Gravyura buyumni yanada chiroyli, nufuzli va esda qolarli
+        qiladi.
+
+
+        Graver Studio’da vazifaga mos buyumni tanlash mumkin: zajigalka, ruchka,
+        bloknot, powerbank, soat yoki sovg‘a to‘plami. Narx buyum, tiraj,
+        gravyura murakkabligi va maket tayyorlashga bog‘liq.
+  - discriminant: richText
+    value: {}
+  - discriminant: faq
+    value:
+      title: Ko‘p beriladigan savollar
+      items:
+        - q: Qanday korporativ sovg‘alar buyurtma qilish mumkin?
+          a: >-
+            Zajigalkalar, ruchkalar, bloknotlar, kundaliklar, powerbank, soatlar
+            va sovg‘a to‘plamlariga buyurtma berish mumkin. Mos variant sovg‘a
+            sababi, auditoriya, brend uslubi va buyurtma formatiga bog‘liq.
+        - q: Kompaniya logotipini tushirish mumkinmi?
+          a: >-
+            Ha, buyumga kompaniya logotipi, oluvchining ismi, sana, lavozim,
+            qisqa ibora yoki firma uslubi elementini tushirish mumkin. Logotipni
+            yaxshi sifatda yoki vektor formatda yuborgan ma’qul.
+        - q: Bunday sovg‘alar xodimlar uchun mosmi?
+          a: >-
+            Ha, gravyurali korporativ sovg‘alar xodimlar, welcome pack, ichki
+            tadbirlar, kasbiy bayramlar va jamoa ichidagi tabriklar uchun mos
+            keladi.
+        - q: Gravyurali korporativ sovg‘alar narxi qancha?
+          a: >-
+            Narx buyum, miqdor, gravyura murakkabligi va maket tayyorlashga
+            bog‘liq. Aniq hisob-kitob uchun vazifa tavsifi va kerakli buyumlarni
+            yuborish kerak.
+        - q: Sovg‘alarni yagona brend uslubida tayyorlash mumkinmi?
+          a: >-
+            Ha, sovg‘alarni kompaniya uslubida tayyorlash mumkin: logotip, firma
+            elementi, bir xil gravyura kompozitsiyasi va umumiy vizual ko‘rinish
+            bilan.
+  - discriminant: cta
+    value:
+      title: Korporativ sovg‘alar kerakmi?
+      subtitle: >-
+        Sovg‘alar kim uchun tayyorlanishini va ularga nima tushirish kerakligini
+        yozing. Biz mos buyumlarni tavsiya qilamiz va buyurtmani hisoblab
+        beramiz.
+      buttonLabel: Sovg‘a tanlash
+      buttonHref: https://t.me/GraverAdm
+alternateSlug:
+  ru: korporativnye-podarki-tashkent
+  uz: toshkentda-korporativ-sovgalar
+previousSlugs: []
+seo:
+  title: Toshkentda korporativ sovg‘alar | Graver.uz
+  description: >-
+    Toshkentda gravyurali korporativ sovg‘alar: zajigalkalar, ruchkalar,
+    bloknotlar, powerbank, soatlar va logotipli to‘plamlar.
+  ogImage: /images/og/toshkentda-korporativ-sovgalar/seo/ogImage.png
+  noindex: false
