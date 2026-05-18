@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-redirects.mjs && node scripts/build-seo-snapshot.mjs",
+    "prebuild": "node scripts/verify-homepage-cms.mjs && node scripts/generate-redirects.mjs && node scripts/build-seo-snapshot.mjs",
     "build": "next build",
     "start": "next start",
     "migrate-blog": "node scripts/migrate-blog.js",
@@ -17,7 +17,10 @@
     "translate:story": "node scripts/translate-story.mjs",
     "translate:jobs": "node scripts/run-translation-jobs.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
-    "seo:consolidate": "node scripts/seo-consolidate.mjs"
+    "seo:consolidate": "node scripts/seo-consolidate.mjs",
+    "verify:homepage": "node scripts/verify-homepage-cms.mjs",
+    "smoke:prod": "node scripts/smoke-production.mjs",
+    "cf:purge:home": "node scripts/cf-purge-homepage.mjs"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.50",

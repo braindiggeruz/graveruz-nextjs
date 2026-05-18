@@ -39,6 +39,7 @@ export default function AdminToolsLayout({ children }: { children: React.ReactNo
         </div>
         <nav style={{ display: 'flex', gap: 18, fontSize: 14, flexWrap: 'wrap' }}>
           <a href="/admin-tools/" style={navLink}>Home</a>
+          <a href="/admin-tools/health/" style={navLink}>Health</a>
           <a href="/admin-tools/seo-cockpit/" style={navLink}>SEO Cockpit</a>
           <a href="/admin-tools/stories/" style={navLink}>Stories Audit</a>
           <a href="/admin-tools/publish-checklist/" style={navLink}>Publish Checklist</a>
