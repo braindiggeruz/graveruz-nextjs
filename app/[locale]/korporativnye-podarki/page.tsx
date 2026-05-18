@@ -77,6 +77,13 @@ export default async function KorporativnyePodarkiPage({ params }: PageProps) {
   const categories = isRu
     ? [
         {
+          icon: '💼',
+          title: 'Премиальный набор с часами SLIM',
+          desc: 'Подарочный набор: часы SLIM, кожаное портмоне, ручка-роллер в фирменном футляре с логотипом компании. Для партнёров и VIP-клиентов.',
+          href: `/${locale}/podarochniy-nabor-s-chasami/`,
+          cta: 'Открыть страницу набора',
+        },
+        {
           icon: '⌚',
           title: 'Часы с логотипом',
           desc: 'Брендированные часы NEO — премиальный корпоративный подарок. Гравировка логотипа на задней крышке или циферблате.',
@@ -120,6 +127,13 @@ export default async function KorporativnyePodarkiPage({ params }: PageProps) {
         },
       ]
     : [
+        {
+          icon: '💼',
+          title: 'SLIM soat bilan premium to‘plam',
+          desc: "Sovg‘a to‘plami: SLIM soat, charm hamyon, roller ruchka firma futlyarida — kompaniya logotipi bilan. Hamkorlar va VIP-mijozlar uchun.",
+          href: `/${locale}/soatli-sovga-toplami/`,
+          cta: 'To‘plam sahifasini ochish',
+        },
         {
           icon: '⌚',
           title: 'Logotipli soatlar',

@@ -84,6 +84,28 @@ const nextConfig = {
           { key: 'Alt-Svc', value: 'clear' },
         ],
       },
+      // Same QUIC mitigation for the high-traffic Meta Ads landing pages
+      // (RU + UZ). Several owners reported ERR_CONNECTION_RESET in regular
+      // Chrome profiles while incognito/other devices loaded fine — this is
+      // the QUIC-reset pattern Cloudflare Pages workers exhibit. Telling
+      // Chrome to clear its h3 alt-svc cache for these URLs forces it back
+      // onto HTTP/2 over TCP.
+      {
+        source: '/:locale(ru|uz)/podarochniy-nabor-s-chasami',
+        headers: [{ key: 'Alt-Svc', value: 'clear' }],
+      },
+      {
+        source: '/:locale(ru|uz)/podarochniy-nabor-s-chasami/',
+        headers: [{ key: 'Alt-Svc', value: 'clear' }],
+      },
+      {
+        source: '/:locale(ru|uz)/soatli-sovga-toplami',
+        headers: [{ key: 'Alt-Svc', value: 'clear' }],
+      },
+      {
+        source: '/:locale(ru|uz)/soatli-sovga-toplami/',
+        headers: [{ key: 'Alt-Svc', value: 'clear' }],
+      },
     ]
   },
 

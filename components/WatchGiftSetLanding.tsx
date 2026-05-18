@@ -21,32 +21,32 @@ const PRODUCT_ID = 'gift-set-watch'
 // ─── Hardcoded long-form sections (component-internal copy) ───
 const COMPOSITION = [
   {
-    img: '/images/products/gift-set-watch/watch.png',
+    img: '/images/products/gift-set-watch/watch.webp',
     titleRu: 'Часы SLIM',
     titleUz: 'SLIM soat',
     textRu: 'Кварцевый механизм TMI VJ32B Japan. Ремешок из натуральной телячьей кожи.',
     textUz: 'Yapon TMI VJ32B kvarts mexanizmi. Tabiiy buzoq charmidan tasma.',
   },
   {
-    img: '/images/products/gift-set-watch/wallet.png',
+    img: '/images/products/gift-set-watch/wallet.webp',
     titleRu: 'Кожаное портмоне',
     titleUz: 'Charm hamyon',
     textRu: 'Натуральная кожа, производство Турция.',
     textUz: 'Tabiiy charm, Turkiya ishlab chiqarishi.',
   },
   {
-    img: '/images/products/gift-set-watch/pen.png',
+    img: '/images/products/gift-set-watch/pen.webp',
     titleRu: 'Ручка-роллер',
     titleUz: 'Roller ruchka',
     textRu: 'Рифлёная фактура, деловой акцент.',
     textUz: 'Rifli to‘qima, ishbilarmonlik aksenti.',
   },
   {
-    img: '/images/products/gift-set-watch/composition.png',
+    img: '/images/products/gift-set-watch/packaging.webp',
     titleRu: 'Премиальный футляр',
     titleUz: 'Premium futlyar',
-    textRu: 'Эксклюзивная эко-кожа, готовый подарочный вид.',
-    textUz: 'Eksklyuziv eko-charm, tayyor sovg‘a ko‘rinishi.',
+    textRu: 'Эксклюзивная эко-кожа, брендированный пакет, готовый подарочный вид.',
+    textUz: 'Eksklyuziv eko-charm, brendlangan paket, tayyor sovg‘a ko‘rinishi.',
   },
 ]
 
@@ -71,12 +71,12 @@ const PERSONALIZATION_UZ = [
 ]
 
 const AUDIENCE = [
-  { iconRu: '🤝', titleRu: 'Партнёрам и VIP-клиентам', titleUz: 'Hamkorlar va VIP-mijozlarga' },
-  { iconRu: '👔', titleRu: 'Руководителям и топ-менеджерам', titleUz: 'Rahbarlar va top-menejerlarga' },
-  { iconRu: '🎁', titleRu: 'Новым сотрудникам в welcome pack', titleUz: 'Yangi xodimlarga welcome pack' },
-  { iconRu: '🥂', titleRu: 'Команде на корпоративные праздники', titleUz: 'Jamoaga korporativ bayramlarda' },
-  { iconRu: '🎤', titleRu: 'Спикерам и гостям мероприятий', titleUz: 'Spiker va tadbir mehmonlariga' },
-  { iconRu: '✅', titleRu: 'Клиентам после сделки', titleUz: 'Bitim yakuniga yetgan mijozlarga' },
+  { img: '/images/products/gift-set-watch/executive-gift.webp', titleRu: 'Партнёрам и VIP-клиентам', titleUz: 'Hamkorlar va VIP-mijozlarga' },
+  { img: '/images/products/gift-set-watch/executive-gift.webp', titleRu: 'Руководителям и топ-менеджерам', titleUz: 'Rahbarlar va top-menejerlarga' },
+  { img: '/images/products/gift-set-watch/welcome-pack.webp', titleRu: 'Новым сотрудникам в welcome pack', titleUz: 'Yangi xodimlarga welcome pack' },
+  { img: '/images/products/gift-set-watch/cta.webp', titleRu: 'Команде на корпоративные праздники', titleUz: 'Jamoaga korporativ bayramlarda' },
+  { img: '/images/products/gift-set-watch/packaging.webp', titleRu: 'Спикерам и гостям мероприятий', titleUz: 'Spiker va tadbir mehmonlariga' },
+  { img: '/images/products/gift-set-watch/composition.webp', titleRu: 'Клиентам после сделки', titleUz: 'Bitim yakuniga yetgan mijozlarga' },
 ]
 
 const WHY_RU = [
@@ -277,10 +277,10 @@ export default function WatchGiftSetLanding({
         .gs-pers-list li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: #14b8a6; margin-top: 8px; flex-shrink: 0; }
         .gs-pers-note { margin-top: 20px; padding: 14px 18px; border-left: 2px solid #14b8a6; background: rgba(20, 184, 166, 0.06); font-size: 0.92rem; color: rgba(240,237,232,0.78); line-height: 1.55; border-radius: 0 8px 8px 0; }
         .gs-audience { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .gs-aud-card { padding: 22px 22px 26px; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; transition: border-color .2s ease, background .2s ease; }
-        .gs-aud-card:hover { border-color: rgba(20, 184, 166, 0.3); background: rgba(20, 184, 166, 0.04); }
-        .gs-aud-icon { font-size: 1.6rem; margin-bottom: 12px; line-height: 1; }
-        .gs-aud-card h4 { font-size: 1rem; font-weight: 600; color: #fff; margin: 0; line-height: 1.4; }
+        .gs-aud-card { padding: 0; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
+        .gs-aud-card:hover { border-color: rgba(20, 184, 166, 0.35); transform: translateY(-3px); }
+        .gs-aud-photo { position: relative; aspect-ratio: 4/3; background: #0a0a0b; }
+        .gs-aud-card h4 { font-size: 0.98rem; font-weight: 600; color: #fff; margin: 0; line-height: 1.4; padding: 16px 18px 18px; }
         .gs-why { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; max-width: 880px; }
         .gs-why-row { display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.98rem; color: rgba(240,237,232,0.85); line-height: 1.5; }
         .gs-why-row::before { content: '✓'; color: #14b8a6; font-weight: 700; font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
@@ -289,8 +289,8 @@ export default function WatchGiftSetLanding({
         .gs-step-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #14b8a6, #0d9488); color: #06201d; font-weight: 800; font-size: 0.95rem; margin-bottom: 14px; }
         .gs-step h4 { font-size: 0.98rem; font-weight: 700; color: #fff; margin: 0 0 6px; line-height: 1.35; }
         .gs-step p { font-size: 0.85rem; color: rgba(240,237,232,0.6); line-height: 1.5; margin: 0; }
-        .gs-final-cta { text-align: center; background: linear-gradient(135deg, #0a0a0b 0%, #141414 100%); border: 1px solid rgba(20, 184, 166, 0.3); border-radius: 24px; padding: 64px 40px; margin-top: 24px; position: relative; overflow: hidden; }
-        .gs-final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.12), transparent 50%); pointer-events: none; }
+        .gs-final-cta { text-align: center; background: linear-gradient(135deg, rgba(10,10,11,0.92) 0%, rgba(20,20,20,0.92) 100%), url('/images/products/gift-set-watch/cta.webp') center/cover; border: 1px solid rgba(20, 184, 166, 0.3); border-radius: 24px; padding: 64px 40px; margin-top: 24px; position: relative; overflow: hidden; }
+        .gs-final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.18), transparent 55%); pointer-events: none; }
         .gs-final-cta-inner { position: relative; z-index: 1; }
         .gs-final-cta h2 { color: #fff; margin: 0 0 14px; font-size: 1.85rem; font-weight: 800; letter-spacing: -0.01em; }
         .gs-final-cta p { color: rgba(240,237,232,0.7); font-size: 1.02rem; margin: 0 0 32px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.55; }
@@ -385,7 +385,7 @@ export default function WatchGiftSetLanding({
           </div>
           <div className="gs-hero-img">
             <Image
-              src="/images/products/gift-set-watch/hero.png"
+              src="/images/products/gift-set-watch/hero.webp"
               alt={isRu
                 ? 'Премиальный подарочный набор: часы SLIM, кожаное портмоне и ручка-роллер в фирменном футляре с брендированным пакетом'
                 : 'Premium sovg‘a to‘plami: SLIM soat, charm hamyon va roller ruchka firma futlyari va brendlangan paketda'}
@@ -431,10 +431,10 @@ export default function WatchGiftSetLanding({
           <div className="gs-pers-wrap">
             <div className="gs-pers-img">
               <Image
-                src="/images/products/gift-set-watch/composition.png"
+                src="/images/products/gift-set-watch/engraving.webp"
                 alt={isRu
-                  ? 'Кожаное портмоне, часы SLIM и ручка-роллер с местом под персонализацию'
-                  : 'Personalizatsiya joyi bilan charm hamyon, SLIM soat va roller ruchka'}
+                  ? 'Лазерная гравировка эмблемы на металле — рядом часы SLIM и ручка-роллер'
+                  : 'Metalga emblema lazer gravyurasi — yonida SLIM soat va roller ruchka'}
                 fill
                 sizes="(max-width: 768px) 100vw, 480px"
                 style={{ objectFit: 'cover' }}
@@ -472,7 +472,15 @@ export default function WatchGiftSetLanding({
           <div className="gs-audience">
             {AUDIENCE.map((a, i) => (
               <article key={i} className="gs-aud-card">
-                <div className="gs-aud-icon" aria-hidden>{a.iconRu}</div>
+                <div className="gs-aud-photo">
+                  <Image
+                    src={a.img}
+                    alt={isRu ? a.titleRu : a.titleUz}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 380px"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
                 <h4>{isRu ? a.titleRu : a.titleUz}</h4>
               </article>
             ))}
