@@ -1,299 +1,362 @@
 hero:
   badgeRu: Лазерная гравировка и брендирование подарков для бизнеса
-  badgeUz: Biznes uchun sovg‘alarga lazer gravyura va brendlash
-  titleRu: Корпоративные подарки —
-  titleUz: Korporativ sovg'alar —
-  titleAccentRu: макет утверждаете вы, не мы
-  titleAccentUz: maketni siz tasdiqlaysiz, biz emas
+  badgeUz: Biznes sovg‘alari uchun lazer gravyura va brendlash
+  titleRu: Корпоративные подарки, welcome pack и VIP-наборы
+  titleUz: Korporativ sovg‘alar, welcome pack va VIP-to‘plamlar
+  titleAccentRu: с персонализацией
+  titleAccentUz: personalizatsiya bilan
   subtitleRu: >-
-    Вы видите финальный результат до производства. Лазерная гравировка
-    премиум-класса. От 1 до 10,000+ единиц. 1-3 дня типовой срок. Гарантия
-    качества.
+    Подбираем изделия, готовим макет и наносим логотип, имя, дату или короткую
+    фразу. Работаем с компаниями, HR, маркетингом и руководителями в Ташкенте и
+    по Узбекистану.
   subtitleUz: >-
-    Ishlab chiqarishdan oldin yakuniy natijani ko'rasiz. Premium sinfi lazer
-    o'ymakorligi. 1 dan 10,000+ donagacha. 1-3 kun odatiy muddat. Sifat
-    kafolati.
-  ctaPrimaryRu: Запросить расчёт
-  ctaPrimaryUz: Narx so'rash
+    Buyum tanlaymiz, maket tayyorlaymiz va logo, ism, sana yoki qisqa yozuv
+    tushiramiz. Toshkent va O‘zbekiston bo‘yicha kompaniyalar, HR, marketing va
+    rahbarlar bilan ishlaymiz.
+  ctaPrimaryRu: Рассчитать заказ
+  ctaPrimaryUz: Buyurtmani hisoblash
   stats:
-    - value: 100%
-      labelRu: Утверждение до производства
-      labelUz: Ishlab chiqarishdan oldin tasdiqlash
-    - value: 1-3
-      labelRu: Дня типовое производство
-      labelUz: Kun odatiy ishlab chiqarish
-    - value: ∞
-      labelRu: Любой объём тиража
-      labelUz: Istalgan tiraj hajmi
-    - value: ✓
-      labelRu: Гарантия качества
-      labelUz: Sifat kafolati
+    - value: B2B-заказы
+      labelRu: >-
+        Готовим подарки для сотрудников, клиентов, партнёров, руководителей и
+        мероприятий.
+      labelUz: >-
+        Xodimlar, mijozlar, hamkorlar, rahbarlar va tadbirlar uchun sovg‘alar
+        tayyorlaymiz.
+    - value: Персонализация
+      labelRu: Наносим логотип, имя, дату, короткую фразу или элемент фирменного стиля.
+      labelUz: Logo, ism, sana, qisqa yozuv yoki firma uslubi elementini tushiramiz.
+    - value: Макет перед запуском
+      labelRu: Показываем расположение логотипа, имени или надписи до начала работы.
+      labelUz: Logo, ism yoki yozuv joylashuvini ish boshlanishidan oldin ko‘rsatamiz.
+    - value: Ташкент и Узбекистан
+      labelRu: >-
+        Работаем с локальными и корпоративными заказами по Ташкенту и всему
+        Узбекистану.
+      labelUz: >-
+        Toshkent va butun O‘zbekiston bo‘yicha lokal va korporativ buyurtmalar
+        bilan ishlaymiz.
 benefits:
   - icon: check
-    titleRu: Макет до производства
-    titleUz: Ishlab chiqarishdan oldin maket
-    descriptionRu: Вы видите результат до запуска. Утверждаете — запускаем. Без сюрпризов.
+    titleRu: Подбор под задачу
+    titleUz: Vazifaga mos tanlov
+    descriptionRu: >-
+      Сначала понимаем, кому нужен подарок: сотрудникам, клиентам, партнёрам,
+      руководителям или гостям мероприятия.
     descriptionUz: >-
-      Natijani ishga tushirishdan oldin ko'rasiz. Tasdiqlaysiz — ishga
-      tushiramiz. Kutilmagan holatlar bo'lmaydi.
+      Avval sovg‘a kim uchun kerakligini aniqlaymiz: xodimlar, mijozlar,
+      hamkorlar, rahbarlar yoki tadbir mehmonlari uchun.
   - icon: package
-    titleRu: Любые тиражи
-    titleUz: Istalgan tiraj
+    titleRu: Аккуратная гравировка
+    titleUz: Nafis lazer gravyura
     descriptionRu: >-
-      От 1 штуки до тысяч. Единичный VIP-подарок или серия для всей команды с
-      персонализацией.
+      Лазерная гравировка выглядит сдержанно, долго держится и хорошо подходит
+      для деловых подарков.
     descriptionUz: >-
-      1 donadan minglab donagacha. Yagona VIP-sovg'a yoki butun jamoa uchun
-      seriya bilan personalizatsiya qilish.
+      Lazer gravyura saranjom ko‘rinadi, uzoq saqlanadi va biznes sovg‘alar
+      uchun yaxshi mos keladi.
   - icon: clock
-    titleRu: Точные сроки
-    titleUz: Aniq muddatlar
+    titleRu: Макет и согласование
+    titleUz: Maket va kelishuv
     descriptionRu: >-
-      Типовые заказы 1-3 дня. Срочное производство по запросу. Прозрачное
-      планирование под ваш корпоративный календарь и мероприятия.
+      Перед запуском показываем, как будет выглядеть логотип, имя, дата или
+      надпись на изделии.
     descriptionUz: >-
-      Oddiy buyurtmalar 1-3 kun. So'rov bo'yicha shoshilinch ishlab chiqarish.
-      Korporativ taqvimingiz va tadbirlaringiz uchun shaffof rejalashtirish.
+      Ish boshlanishidan oldin logo, ism, sana yoki yozuv buyumda qanday
+      ko‘rinishini ko‘rsatamiz.
   - icon: zap
-    titleRu: Любые материалы
-    titleUz: Har qanday materiallar
+    titleRu: Для HR и маркетинга
+    titleUz: HR va marketing uchun
     descriptionRu: >-
-      Металл, анодированный алюминий, дерево, стекло, кожа, премиальные
-      пластики. Fiber, CO2, MOPA, UV-технологии под каждую задачу.
+      Помогаем собрать welcome pack, подарки сотрудникам, сувениры с логотипом и
+      наборы для мероприятий.
     descriptionUz: >-
-      Metall, anodlangan alyuminiy, yog'och, shisha, charm, premium
-      plastmassalar. Har bir vazifa uchun Fiber, CO2, MOPA, UV texnologiyalari.
+      Welcome pack, xodimlar sovg‘alari, logotipli suvenirlar va tadbirlar uchun
+      to‘plamlar tayyorlashga yordam beramiz.
   - icon: sparkles
-    titleRu: Работаем с вашими файлами
-    titleUz: Sizning fayllaringiz bilan ishlaymiz
+    titleRu: Для премиальных подарков
+    titleUz: Premium sovg‘alar uchun
     descriptionRu: >-
-      Логотипы, брендбуки, вектор, фото. Нет макета — создадим в корпоративном
-      стиле. Соблюдаем требования брендбука.
+      Подбираем изделия и персонализацию для VIP-клиентов, руководителей,
+      партнёров и важных событий.
     descriptionUz: >-
-      Logotiplar, brend-gaydlar, vektor, foto. Maket bo'lmasa — korporativ
-      uslubingizga mos yaratamiz. Brendbuk talablariga rioya qilamiz.
+      VIP-mijozlar, rahbarlar, hamkorlar va muhim tadbirlar uchun buyum va
+      personalizatsiya tanlaymiz.
   - icon: users
-    titleRu: B2B-сервис
-    titleUz: B2B xizmat
+    titleRu: Без случайного мерча
+    titleUz: Tasodifiy merch emas
     descriptionRu: >-
-      Работа с юрлицами, закрывающие документы, отсрочка платежа по
-      согласованию. Персональный менеджер для крупных заказов.
-    descriptionUz: >-
-      Yuridik shaxslar bilan ishlash, yopuvchi hujjatlar, kelishuv bo'yicha
-      to'lovni kechiktirish. Yirik buyurtmalar uchun shaxsiy menejer.
+      Собираем подарки так, чтобы ими пользовались, а не убирали в ящик после
+      вручения.
+    descriptionUz: Sovg‘alarni topshirilgandan keyin ham ishlatiladigan qilib yig‘amiz.
 services:
   - icon: laser
     titleRu: Лазерная гравировка
-    titleUz: Lazer o'ymakorlik
-    descriptionRu: Точная лазерная гравировка на металле, дереве, коже и стекле
-    descriptionUz: Metall, yog'och, teri va shishada aniq lazer o'ymakorlik
+    titleUz: Lazer gravyura
+    descriptionRu: >-
+      Имена, логотипы, даты, фразы и фирменные элементы на подарках, сувенирах и
+      бизнес-аксессуарах.
+    descriptionUz: >-
+      Sovg‘alar, suvenirlar va biznes aksessuarlarga ism, logo, sana, yozuv va
+      firma elementlarini tushiramiz.
   - icon: gift
     titleRu: Корпоративные подарки
-    titleUz: Korporativ sovg'alar
-    descriptionRu: Корпоративные подарки с логотипом для сотрудников и партнёров
-    descriptionUz: Xodimlar va hamkorlar uchun logotip bilan korporativ sovg'alar
+    titleUz: Korporativ sovg‘alar
+    descriptionRu: >-
+      Подарки для сотрудников, клиентов, партнёров, руководителей и
+      корпоративных мероприятий.
+    descriptionUz: >-
+      Xodimlar, mijozlar, hamkorlar, rahbarlar va korporativ tadbirlar uchun
+      sovg‘alar.
   - icon: package
-    titleRu: Welcome-паки
-    titleUz: Welcome-paklar
-    descriptionRu: Welcome-паки для новых сотрудников с брендированными предметами
-    descriptionUz: Brendlangan buyumlar bilan yangi xodimlar uchun welcome-to'plamlar
+    titleRu: Welcome pack
+    titleUz: Welcome pack
+    descriptionRu: >-
+      Наборы для новых сотрудников: полезные вещи, фирменный стиль,
+      персонализация и упаковка.
+    descriptionUz: >-
+      Yangi xodimlar uchun to‘plamlar: foydali buyumlar, firma uslubi,
+      personalizatsiya va qadoqlash.
   - icon: briefcase
-    titleRu: Брендированные наборы
-    titleUz: Brendlangan to'plamlar
-    descriptionRu: Брендированные наборы для корпоративных мероприятий и презентаций
-    descriptionUz: Korporativ tadbirlar va taqdimotlar uchun brendlangan to'plamlar
-  - icon: star
     titleRu: VIP-подарки
-    titleUz: VIP-sovg'alar
-    descriptionRu: VIP-подарки для ключевых клиентов и партнёров высшего уровня
-    descriptionUz: Asosiy mijozlar va yuqori darajadagi hamkorlar uchun VIP-sovg'alar
+    titleUz: VIP-sovg‘alar
+    descriptionRu: >-
+      Статусные подарки для руководителей, важных клиентов, партнёров и особых
+      событий.
+    descriptionUz: >-
+      Rahbarlar, muhim mijozlar, hamkorlar va alohida tadbirlar uchun statusli
+      sovg‘alar.
+  - icon: star
+    titleRu: Сувениры с логотипом
+    titleUz: Logotipli suvenirlar
+    descriptionRu: >-
+      Брендированные ручки, термокружки, powerbank, ежедневники, аксессуары и
+      подарочные наборы.
+    descriptionUz: >-
+      Brendlangan ruchkalar, termokrujkalar, powerbank, kundaliklar,
+      aksessuarlar va sovg‘a to‘plamlari.
   - icon: trophy
-    titleRu: Награды и сертификаты
-    titleUz: Mukofotlar va sertifikatlar
-    descriptionRu: Именные награды, кубки и сертификаты с гравировкой
-    descriptionUz: O'ymakorlik bilan shaxsiy mukofotlar, kuboklar va sertifikatlar
+    titleRu: Подарки с гравировкой
+    titleUz: Gravyurali sovg‘alar
+    descriptionRu: >-
+      Персональные и корпоративные подарки с именем, датой, фразой, логотипом
+      или символом.
+    descriptionUz: >-
+      Ism, sana, yozuv, logo yoki belgi tushirilgan shaxsiy va korporativ
+      sovg‘alar.
 portfolio:
   - image: /images/portfolio/0/image.jpg
-    categoryRu: Награды и признание
-    categoryUz: Mukofotlar va tan olish
-    titleRu: Корпоративные награды
-    titleUz: Korporativ mukofotlar
-    descriptionRu: Премиальные награды с гравировкой для сотрудников и партнёров
-    descriptionUz: Xodimlar va hamkorlar uchun gravyurali premium mukofotlar
-    materialRu: Металл, дерево
-    materialUz: Metall, yog'och
-    applicationRu: Награждение персонала
-    applicationUz: Xodimlarni mukofotlash
+    categoryRu: Корпоративные часы
+    categoryUz: Korporativ soatlar
+    titleRu: Часы с логотипом компании
+    titleUz: Kompaniya logotipi tushirilgan soatlar
+    descriptionRu: >-
+      Премиальные часы с логотипом, именем, датой или короткой надписью для
+      сотрудников, партнёров и VIP-клиентов.
+    descriptionUz: >-
+      Xodimlar, hamkorlar va VIP-mijozlar uchun logo, ism, sana yoki qisqa yozuv
+      tushirilgan premium soatlar.
+    materialRu: Металл, стекло, кожа
+    materialUz: Metall, shisha, charm
+    applicationRu: Подарки руководителям, партнёрам, сотрудникам и VIP-клиентам
+    applicationUz: Rahbarlar, hamkorlar, xodimlar va VIP-mijozlar uchun sovg‘alar
   - image: /images/portfolio/1/image.jpg
-    categoryRu: Премиальные подарки
-    categoryUz: Premium sovg'alar
-    titleRu: Часы с персональной гравировкой
-    titleUz: Shaxsiy gravyurali soatlar
-    descriptionRu: Элитные часы с индивидуальной гравировкой для топ-менеджмента
-    descriptionUz: Top-menejerlar uchun individual gravyurali elit soatlar
-    materialRu: Металл, стекло
-    materialUz: Metall, shisha
-    applicationRu: Подарки руководителям
-    applicationUz: Rahbarlarga sovg'alar
+    categoryRu: Настольные таблички
+    categoryUz: Stol usti tablichkalari
+    titleRu: Настольная табличка с логотипом
+    titleUz: Logotipli stol usti tablichkasi
+    descriptionRu: >-
+      Аккуратная настольная табличка для ресепшн, клиники, офиса или салона с
+      логотипом, контактами и фирменным стилем.
+    descriptionUz: >-
+      Resepshn, klinika, ofis yoki salon uchun logo, kontaktlar va firma
+      uslubidagi saranjom stol usti tablichkasi.
+    materialRu: Акрил, пластик, металл, гравировка
+    materialUz: Akril, plastik, metall, gravyura
+    applicationRu: Ресепшн, клиники, офисы, салоны, стойки администратора
+    applicationUz: Resepshn, klinikalar, ofislar, salonlar, administrator stoli
   - image: /images/portfolio/2/image.jpg
-    categoryRu: Корпоративная продукция
-    categoryUz: Korporativ mahsulotlar
-    titleRu: Брендированные термосы
-    titleUz: Brendlangan termoslar
-    descriptionRu: Качественные термосы с логотипом компании для команды
-    descriptionUz: Jamoa uchun kompaniya logotipi bilan sifatli termoslar
-    materialRu: Анодированный алюминий
-    materialUz: Anodlangan alyuminiy
-    applicationRu: Подарки сотрудникам
-    applicationUz: Xodimlarga sovg'alar
+    categoryRu: Награды и стелы
+    categoryUz: Mukofotlar va stelalar
+    titleRu: Акриловая награда с гравировкой
+    titleUz: Gravyurali akril mukofot
+    descriptionRu: >-
+      Призовая стела из прозрачного акрила с лазерной гравировкой логотипа,
+      текста, даты и названия мероприятия.
+    descriptionUz: >-
+      Tadbir logotipi, matni, sanasi va nomi tushirilgan shaffof akrildan
+      tayyorlangan gravyurali mukofot stela.
+    materialRu: Прозрачный акрил, оргстекло, лазерная гравировка
+    materialUz: Shaffof akril, orgsteklo, lazer gravyura
+    applicationRu: >-
+      Спортивные соревнования, корпоративные награды, премии, турниры и памятные
+      события
+    applicationUz: >-
+      Sport musobaqalari, korporativ mukofotlar, premiyalar, turnirlar va
+      esdalik tadbirlar
   - image: /images/portfolio/3/image.jpg
-    categoryRu: Корпоративные подарки
-    categoryUz: Korporativ sovg'alar
-    titleRu: Премиальный подарочный набор
-    titleUz: Premium sovg'a to'plami
-    descriptionRu: Эксклюзивный набор с брендированием для VIP-клиентов
-    descriptionUz: VIP-mijozlar uchun brendlangan eksklyuziv to'plam
-    materialRu: Комбинированные материалы
-    materialUz: Aralash materiallar
-    applicationRu: Подарки клиентам
-    applicationUz: Mijozlarga sovg'alar
+    categoryRu: Зажигалки с гравировкой
+    categoryUz: Gravyurali zajigalkalar
+    titleRu: Металлическая зажигалка с гравировкой
+    titleUz: Gravyurali metall zajigalka
+    descriptionRu: >-
+      Чёрная металлическая зажигалка с лазерной гравировкой логотипа, имени,
+      символики или короткой фразы.
+    descriptionUz: Logo, ism, ramz yoki qisqa yozuv tushirilgan qora metall zajigalka.
+    materialRu: Металл, матовое покрытие, лазерная гравировка
+    materialUz: Metall, mat qoplama, lazer gravyura
+    applicationRu: >-
+      Персональные подарки, корпоративные сувениры, подарки с символикой,
+      памятные аксессуары
+    applicationUz: >-
+      Shaxsiy sovg‘alar, korporativ suvenirlar, ramzli sovg‘alar, esdalik
+      aksessuarlar
   - image: /images/portfolio/4/image.jpg
-    categoryRu: Брендированная упаковка
-    categoryUz: Brendlangan qadoqlash
-    titleRu: Корпоративная упаковка
-    titleUz: Korporativ qadoqlash
-    descriptionRu: Элегантная упаковка с логотипом для корпоративных мероприятий
-    descriptionUz: Korporativ tadbirlar uchun logotipli nafis qadoqlash
-    materialRu: Картон, металл
-    materialUz: Karton, metall
-    applicationRu: Корпоративные события
-    applicationUz: Korporativ tadbirlar
+    categoryRu: Брелоки с логотипом
+    categoryUz: Logotipli breloklar
+    titleRu: Корпоративные брелоки с гравировкой
+    titleUz: Gravyurali korporativ breloklar
+    descriptionRu: >-
+      Металлические брелоки с логотипом, названием компании, датой или короткой
+      надписью для корпоративных подарков и сувениров.
+    descriptionUz: >-
+      Korporativ sovg‘alar va suvenirlar uchun logo, kompaniya nomi, sana yoki
+      qisqa yozuv tushirilgan metall breloklar.
+    materialRu: Металл, кожа, глянцевая вставка, лазерная гравировка
+    materialUz: Metall, charm, yaltiroq qoplama, lazer gravyura
+    applicationRu: >-
+      Корпоративные сувениры, подарки клиентам, промо-акции, кафе, рестораны,
+      офисы и мероприятия
+    applicationUz: >-
+      Korporativ suvenirlar, mijozlar uchun sovg‘alar, promo-aksiyalar, kafe,
+      restoranlar, ofislar va tadbirlar
   - image: /images/portfolio/5/image.jpg
-    categoryRu: Награды премиум-класса
-    categoryUz: Premium-sinf mukofotlari
-    titleRu: Премиальная награда
-    titleUz: Premium mukofot
-    descriptionRu: Эксклюзивная награда из стекла и металла с подсветкой
-    descriptionUz: Yoritish bilan shisha va metalldan eksklyuziv mukofot
-    materialRu: Стекло, металл
-    materialUz: Shisha, metall
-    applicationRu: Престижные премии
-    applicationUz: Nufuzli mukofotlar
+    categoryRu: Корпоративные подарочные наборы
+    categoryUz: Korporativ sovg‘a to‘plamlari
+    titleRu: Подарочный набор с часами и гравировкой
+    titleUz: Soat va gravyurali sovg‘a to‘plami
+    descriptionRu: >-
+      Корпоративный подарочный набор с часами, брендированной коробкой и
+      металлической шильдой с логотипом, датой или памятной надписью.
+    descriptionUz: >-
+      Soat, brendlangan quti va logo, sana yoki esdalik yozuvi tushirilgan
+      metall shilda bilan korporativ sovg‘a to‘plami.
+    materialRu: Часы, экокожа, металл, подарочная коробка, лазерная гравировка
+    materialUz: Soat, eko-charm, metall, sovg‘a qutisi, lazer gravyura
+    applicationRu: >-
+      Подарки партнёрам, руководителям, сотрудникам, VIP-клиентам и
+      корпоративным мероприятиям
+    applicationUz: >-
+      Hamkorlar, rahbarlar, xodimlar, VIP-mijozlar va korporativ tadbirlar uchun
+      sovg‘alar
 processSteps:
   - step: '1'
     titleRu: Заявка
     titleUz: Ariza
     descriptionRu: >-
-      Напишите в Telegram или заполните форму расчёта. Отправьте логотип, фото
-      изделия, опишите задачу и тираж.
+      Вы рассказываете, кому нужен подарок, какой тираж, повод, бюджет и что
+      нужно нанести.
     descriptionUz: >-
-      Telegramga yozing yoki hisob formasini to'ldiring. Logotip, mahsulot
-      fotosini yuboring, vazifa va tirajni tasvirlab bering.
+      Sovg‘a kim uchun kerakligini, tiraj, sabab, byudjet va nima tushirish
+      kerakligini aytasiz.
   - step: '2'
     titleRu: Макет
     titleUz: Maket
     descriptionRu: >-
-      Создаём цифровой макет с точным размещением и размерами. Вы видите
-      финальный результат до производства.
+      Готовим макет с логотипом, именем, датой или надписью и показываем, как
+      всё будет выглядеть на изделии.
     descriptionUz: >-
-      Aniq joylashish va o'lchamlar bilan raqamli maket yaratamiz. Ishlab
-      chiqarishdan oldin yakuniy natijani ko'rasiz.
+      Logo, ism, sana yoki yozuv bilan maket tayyorlaymiz va buyumda qanday
+      ko‘rinishini ko‘rsatamiz.
   - step: '3'
     titleRu: Утверждение
     titleUz: Tasdiqlash
     descriptionRu: >-
-      Согласовываете макет, вносите правки при необходимости. Фиксируем сроки и
-      стоимость.
+      Вы согласовываете расположение, текст, размер нанесения и финальный вид
+      перед запуском.
     descriptionUz: >-
-      Maketni kelishtirasiz, kerak bo'lsa tuzatishlar kiritasiz. Muddatlar va
-      narxni belgilaymiz.
+      Ish boshlanishidan oldin joylashuv, matn, o‘lcham va yakuniy ko‘rinishni
+      tasdiqlaysiz.
   - step: '4'
     titleRu: Производство
-    titleUz: Ishlab chiqarish
+    titleUz: Tayyorlash
     descriptionRu: >-
-      Выполняем гравировку согласно утверждённому макету. Контроль качества на
-      каждом этапе.
+      После согласования выполняем гравировку, брендирование, упаковку и готовим
+      заказ к выдаче или доставке.
     descriptionUz: >-
-      Tasdiqlangan maketga muvofiq gravyura qilamiz. Har bir bosqichda sifat
-      nazorati.
+      Kelishuvdan so‘ng gravyura, brendlash, qadoqlash va buyurtmani topshirish
+      yoki yetkazishga tayyorlaymiz.
 faq:
-  - questionRu: Какой минимальный тираж для корпоративного заказа?
-    questionUz: Korporativ buyurtma uchun minimal tiraj qancha?
+  - questionRu: Какие подарки можно заказать в Graver Studio?
+    questionUz: Graver Studio’da qanday sovg‘alar buyurtma qilish mumkin?
     answerRu: >-
-      Минимального тиража нет. Делаем как 1 эксклюзивный подарок, так и серии на
-      тысячи единиц. Цена за единицу снижается при объёмах от 50+ штук.
+      Можно заказать корпоративные подарки, welcome pack, VIP-наборы, сувениры с
+      логотипом, подарки сотрудникам, партнёрам, клиентам и руководителям.
     answerUz: >-
-      Minimal tiraj yo'q. 1 ta eksklyuziv sovg'adan minglab donagacha
-      tayyorlaymiz. 50+ donadan narx pasayadi.
+      Korporativ sovg‘alar, welcome pack, VIP-to‘plamlar, logotipli suvenirlar,
+      xodimlar, hamkorlar, mijozlar va rahbarlar uchun sovg‘alar buyurtma qilish
+      mumkin.
   - questionRu: Можно ли сделать персонализацию для каждого сотрудника?
     questionUz: Har bir xodim uchun personalizatsiya qilish mumkinmi?
     answerRu: >-
-      Да, делаем индивидуальную гравировку имени, должности, даты для каждого
-      изделия в тираже. Пришлите список — подготовим макеты для согласования.
+      Да. Можно нанести имя, инициалы, дату, короткую фразу или другой
+      персональный элемент на каждое изделие.
     answerUz: >-
-      Ha, tirajdagi har bir mahsulot uchun individual ism, lavozim, sana
-      gravyura qilamiz. Ro'yxat yuboring — tasdiqlash uchun maketlar
-      tayyorlaymiz.
+      Ha. Har bir buyumga ism, initsial, sana, qisqa yozuv yoki boshqa shaxsiy
+      element tushirish mumkin.
   - questionRu: Работаете ли с юридическими лицами?
     questionUz: Yuridik shaxslar bilan ishlaysizmi?
     answerRu: >-
-      Да, работаем с юрлицами. Предоставляем все закрывающие документы, счета,
-      акты. По согласованию возможна отсрочка платежа для постоянных клиентов.
+      Да. Мы работаем с B2B-заказами для компаний, HR-отделов, маркетинга,
+      руководителей, закупки и организаторов мероприятий.
     answerUz: >-
-      Ha, yuridik shaxslar bilan ishlaymiz. Barcha yopuvchi hujjatlar,
-      hisob-fakturalar, dalolatnomalar taqdim etamiz. Doimiy mijozlar uchun
-      to'lovni kechiktirish mumkin.
+      Ha. Kompaniyalar, HR, marketing, rahbarlar, xarid bo‘limlari va tadbir
+      tashkilotchilari uchun B2B-buyurtmalar bilan ishlaymiz.
   - questionRu: Сколько времени занимает производство?
     questionUz: Ishlab chiqarish qancha vaqt oladi?
     answerRu: >-
-      Типовые заказы — 1-3 дня после утверждения макета. Крупные тиражи и
-      сложные проекты — обсуждаем индивидуально. Срочное производство — по
-      запросу.
+      Срок зависит от тиража, изделия, сложности макета и вида персонализации.
+      После заявки мы уточняем детали и называем реалистичный срок выполнения.
     answerUz: >-
-      Oddiy buyurtmalar — maketni tasdiqlagandan keyin 1-3 kun. Katta tirajlar
-      va murakkab loyihalar — individual muhokasa qilinadi. Shoshilinch ishlab
-      chiqarish — so'rov bo'yicha.
+      Muddat tiraj, buyum turi, maket murakkabligi va personalizatsiya usuliga
+      bog‘liq. Arizadan keyin tafsilotlarni aniqlab, real muddatni aytamiz.
   - questionRu: Что нужно от нас для начала работы?
     questionUz: Ishni boshlash uchun bizdan nima kerak?
     answerRu: >-
-      Логотип в векторе (AI/SVG/PDF) или качественное фото. Описание: что
-      наносим, на какие предметы, тираж, к какому сроку. Если нет готового
-      макета — создадим сами.
+      Нужны примерный тираж, повод, бюджет, пожелания по изделиям и логотип или
+      текст, который нужно нанести.
     answerUz: >-
-      Vektor formatida logotip (AI/SVG/PDF) yoki sifatli foto. Tavsif: nima
-      qo'yiladi, qaysi buyumlarga, tiraj, qachongacha. Tayyor maket bo'lmasa —
-      o'zimiz yaratamiz.
+      Taxminiy tiraj, sabab, byudjet, buyumlar bo‘yicha istaklar va
+      tushiriladigan logo yoki matn kerak bo‘ladi.
   - questionRu: На каких материалах делаете гравировку?
     questionUz: Qaysi materiallarda gravyura qilasiz?
     answerRu: >-
-      Металл (сталь, алюминий, латунь), анодированный алюминий, дерево, кожа,
-      стекло, акрил, премиальные пластики. Fiber, CO2, MOPA и UV-технологии.
+      Чаще всего гравировку делают на металле, дереве, коже, стекле, акриле и
+      отдельных видах пластика. Точный способ зависит от изделия и задачи.
     answerUz: >-
-      Metall (po'lat, alyuminiy, latun), anodlangan alyuminiy, yog'och, charm,
-      shisha, akril, premium plastmassalar. Fiber, CO2, MOPA va UV
-      texnologiyalari.
+      Ko‘pincha metall, yog‘och, charm, shisha, akril va ayrim plastik turlariga
+      gravyura qilinadi. Aniq usul buyum va vazifaga bog‘liq.
   - questionRu: Можно ли увидеть результат до производства?
     questionUz: Ishlab chiqarishdan oldin natijani ko'rish mumkinmi?
     answerRu: >-
-      Обязательно. Это наш стандарт работы: вы получаете цифровой макет с
-      точными размерами и размещением, утверждаете его, и только потом мы
-      запускаем производство.
+      Да. Перед запуском мы готовим макет и показываем, как логотип, имя, дата
+      или надпись будут выглядеть на изделии.
     answerUz: >-
-      Albatta. Bu bizning standart ishimiz: aniq o'lchamlar va joylashuvga ega
-      raqamli maket olasiz, uni tasdiqlaysiz, va faqat shundan keyin ishlab
-      chiqarishni boshlaymiz.
+      Ha. Ish boshlanishidan oldin maket tayyorlaymiz va logo, ism, sana yoki
+      yozuv buyumda qanday ko‘rinishini ko‘rsatamiz.
   - questionRu: Предоставляете ли подарочную упаковку?
     questionUz: Sovg'a qadoqlash taqdim etasizmi?
     answerRu: >-
-      Да, предлагаем премиальную упаковку под ключ: коробки, пакеты, ленты,
-      открытки — всё под ваш корпоративный стиль.
+      Да. Можно подобрать подарочную коробку, упаковку, открытку или другой
+      формат подачи под стиль компании и повод.
     answerUz: >-
-      Ha, tayyor premium qadoqlash taklif qilamiz: qutichalar, paketlar,
-      lentalar, ochiq xatlar — hammasi sizning korporativ uslubingizga mos.
+      Ha. Kompaniya uslubi va sababiga mos sovg‘a qutisi, qadoqlash, tabrik
+      kartasi yoki boshqa taqdimot formatini tanlash mumkin.
 seo:
-  title: Лазерная гравировка и брендирование для бизнеса в Ташкенте — Graver.uz
+  title: Лазерная гравировка и брендирование подарков для бизнеса | Graver.uz
   description: >-
-    Корпоративные подарки, welcome-паки, VIP-наборы с лазерной гравировкой.
-    Работаем с B2B-клиентами по всему Узбекистану. Ташкент.
+    Корпоративные подарки, welcome pack, VIP-наборы и сувениры с логотипом в
+    Ташкенте. Лазерная гравировка, персонализация, макет и упаковка для
+    B2B-заказов.
   ogImage: /images/og/seo/ogImage.jpg
   noindex: false
