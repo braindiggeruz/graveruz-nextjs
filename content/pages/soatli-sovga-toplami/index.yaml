@@ -1,0 +1,51 @@
+slug: soatli-sovga-toplami
+locale: uz
+status: published
+h1: Kompaniya logotipi tushirilgan premium soatli sovg‘a to‘plami
+intro: >-
+  SLIM soat, charm hamyon va roller ruchka — firma uslubidagi futlyarda.
+  Hamkorlar, xodimlar va VIP-mijozlar uchun logo, emblema, ism yoki qisqa yozuv
+  tushiramiz.
+blocks:
+  - discriminant: cta
+    value:
+      title: Kompaniyangiz logotipi bilan shunday to‘plam kerakmi?
+      subtitle: >-
+        Bizga yozing — gravyura, qadoqlash va to‘plam variantlarini vazifangizga
+        moslab hisoblab beramiz.
+      buttonLabel: Telegram orqali narxni hisoblash
+      buttonHref: https://t.me/GraverAdm
+  - discriminant: faq
+    value:
+      title: Ko‘p so‘raladigan savollar
+      items:
+        - q: Kompaniya logotipini tushirsa bo‘ladimi?
+          a: >-
+            Ha, logo, emblema, ism, sana yoki qisqa yozuvni tushirish mumkin.
+            Ishlab chiqarishdan oldin maketni tayyorlaymiz.
+        - q: To‘plam korporativ sovg‘a uchun mos keladimi?
+          a: >-
+            Ha, to‘plam hamkorlar, xodimlar, rahbarlar, VIP-mijozlar va welcome
+            pack uchun mos keladi.
+        - q: Bir nechta to‘plam buyurtma qilish mumkinmi?
+          a: >-
+            Ha, sahifa korporativ buyurtmalar uchun mo‘ljallangan. Miqdor va
+            tafsilotlarni hisob-kitobdan oldin aniqlashtirish ma’qul.
+        - q: Soat tasmasining rangini tanlash mumkinmi?
+          a: >-
+            Ha, tasma tabiiy buzoq charmidan, rangni buyurtmadan oldin
+            kelishib olish mumkin.
+        - q: Narxni qanday hisoblash mumkin?
+          a: >-
+            Narx miqdor, to‘plam tarkibi, gravyura va qadoqlashga bog‘liq.
+            Ariza qoldiring — sizning vazifangiz uchun hisoblab beramiz.
+alternateSlug:
+  ru: podarochniy-nabor-s-chasami
+previousSlugs: []
+seo:
+  title: Kompaniya logotipi tushirilgan soatli sovg‘a to‘plami | Graver Studio
+  description: >-
+    SLIM soat, charm hamyon va ruchkadan iborat premium korporativ sovg‘a
+    to‘plami. Toshkentda logo, ism yoki emblema tushirish.
+  ogImage: /images/products/gift-set-watch/hero.png
+  noindex: false

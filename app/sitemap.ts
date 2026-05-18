@@ -24,6 +24,13 @@ const STATIC_PAGES = [
   'blog',
 ]
 
+// Pages with different slugs per locale — they need explicit per-locale
+// sitemap entries with cross-language hreflang pairing.
+// { locale, path } pairs that should appear in the sitemap as-is.
+const LOCALIZED_PAIRED_PAGES: Array<{ ru: string; uz: string }> = [
+  { ru: 'podarochniy-nabor-s-chasami', uz: 'soatli-sovga-toplami' },
+]
+
 // Pages that should NOT appear in sitemap
 const EXCLUDED_PAGES = new Set(['thanks'])
 
@@ -62,6 +69,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: pagePath === '' ? 'weekly' : 'monthly',
       priority: pagePath === '' ? 0.9 : 0.7,
+      alternates: { languages },
+    })
+  }
+
+  // ── Locale-paired commercial landings (RU/UZ have different slugs) ──
+  for (const pair of LOCALIZED_PAIRED_PAGES) {
+    const ruUrl = getLocaleUrl('ru', pair.ru)
+    const uzUrl = getLocaleUrl('uz', pair.uz)
+    const languages: Record<string, string> = {
+      ru: ruUrl,
+      uz: uzUrl,
+      'x-default': ruUrl,
+    }
+    entries.push({
+      url: ruUrl,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+      alternates: { languages },
+    })
+    entries.push({
+      url: uzUrl,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
       alternates: { languages },
     })
   }
@@ -143,8 +175,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // ── CMS-managed commercial pages (created via Keystatic admin) ──
-  // Skip noindex pages and reserved slugs (already covered by STATIC_PAGES).
-  const cmsReservedSlugs = new Set(STATIC_PAGES.map((p) => p.split('/')[0]))
+  // Skip noindex pages and reserved slugs (already covered by STATIC_PAGES or
+  // by LOCALIZED_PAIRED_PAGES above).
+  const cmsReservedSlugs = new Set<string>([
+    ...STATIC_PAGES.map((p) => p.split('/')[0]),
+    ...LOCALIZED_PAIRED_PAGES.flatMap((p) => [p.ru, p.uz]),
+  ])
   try {
     const cmsPages = await getAllPages()
     for (const page of cmsPages) {
