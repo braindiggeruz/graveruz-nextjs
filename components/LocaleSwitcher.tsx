@@ -7,62 +7,54 @@ import type { Locale } from '@/lib/i18n'
 
 interface LocaleSwitcherProps {
   locale: Locale
+  /** 'sm' = header pill (h-10), 'lg' = mobile-menu pill (h-12, full width) */
+  size?: 'sm' | 'lg'
+  /** Optional extra wrapper classes (kept for backward compatibility with old call sites) */
   className?: string
+  /** Legacy props (unused by the new pill design, kept so existing imports still compile) */
   activeClassName?: string
   inactiveClassName?: string
 }
 
 /**
- * Computes the target URL when switching to a given locale.
+ * Compute the URL for a given target locale on the current pathname.
  *
- * Priority:
+ * Priority (unchanged from previous version — language switch must never 404):
  * 1. Blog article with alternateSlug in context → use mapped slug
- * 2. Blog article WITHOUT alternateSlug → fallback to /locale/blog (NOT homepage)
- * 3. Any other page with /ru/ or /uz/ prefix → replace locale segment, keep rest of path
+ * 2. Blog article WITHOUT alternateSlug → fallback to /locale/blog
+ * 3. Any other page with /ru/ or /uz/ prefix → replace locale segment
  * 4. Root /ru or /uz → switch root
  * 5. Fallback → target locale root
  */
 function getLocaleUrl(
   pathname: string,
   targetLocale: Locale,
-  alternateSlug: Partial<Record<Locale, string>> | null
+  alternateSlug: Partial<Record<Locale, string>> | null,
 ): string {
   const localePrefix = /^\/(ru|uz)(\/|$)/
   const match = pathname.match(localePrefix)
   const currentLocale = match ? match[1] : null
 
-  // Detect if we're on a blog article page: /ru/blog/some-slug or /uz/blog/some-slug
   const blogArticleMatch = pathname.match(/^\/(ru|uz)\/blog\/([^/]+)$/)
-
   if (blogArticleMatch) {
-    // 1. Has explicit alternateSlug for target locale
     if (alternateSlug && alternateSlug[targetLocale]) {
       return `/${targetLocale}/blog/${alternateSlug[targetLocale]}`
     }
-    // 2. No counterpart — safe fallback to blog index (not homepage)
     return `/${targetLocale}/blog`
   }
-
-  // 3. Any other page with locale prefix — replace locale segment
-  // This also handles the same-locale case (active locale link) — replace /ru with /ru = same path
   if (match && currentLocale) {
     return pathname.replace(`/${currentLocale}`, `/${targetLocale}`)
   }
-
-  // 4. Exact root locale
   if (pathname === '/ru' || pathname === '/uz') {
     return `/${targetLocale}`
   }
-
-  // 5. Fallback
   return `/${targetLocale}`
 }
 
 export default function LocaleSwitcher({
   locale,
+  size = 'sm',
   className,
-  activeClassName = 'text-teal-500',
-  inactiveClassName = 'text-gray-400 hover:text-white',
 }: LocaleSwitcherProps) {
   const pathname = usePathname()
   const { alternateSlug } = useAlternateSlug()
@@ -70,20 +62,39 @@ export default function LocaleSwitcher({
   const ruUrl = getLocaleUrl(pathname, 'ru', alternateSlug)
   const uzUrl = getLocaleUrl(pathname, 'uz', alternateSlug)
 
+  // Pill geometry per size
+  const wrapHeight = size === 'lg' ? 'h-12' : 'h-10'
+  const wrapWidth = size === 'lg' ? 'w-full max-w-[260px]' : 'w-auto'
+  const itemPad = size === 'lg' ? 'px-6 text-base' : 'px-5 text-sm'
+
+  const activeCls =
+    'bg-teal-500 text-black font-bold shadow-[0_0_0_1px_rgba(94,234,212,0.4)]'
+  const inactiveCls = 'text-gray-300 hover:text-white'
+
   return (
-    <div className={className ?? 'flex items-center space-x-2'}>
+    <div
+      role="group"
+      aria-label={locale === 'ru' ? 'Переключатель языка' : 'Til almashtirgich'}
+      className={`inline-flex ${wrapHeight} ${wrapWidth} items-center rounded-full border border-teal-500/30 bg-black/40 p-1 backdrop-blur-sm ${className ?? ''}`}
+      data-testid="locale-switcher"
+    >
       <Link
         href={ruUrl}
-        className={`text-sm font-medium transition ${locale === 'ru' ? activeClassName : inactiveClassName}`}
+        aria-label="Switch to Russian"
+        aria-current={locale === 'ru' ? 'true' : undefined}
+        prefetch={false}
         data-testid="locale-switch-ru"
+        className={`flex h-full ${size === 'lg' ? 'flex-1' : ''} items-center justify-center rounded-full ${itemPad} font-semibold tracking-wide transition-colors duration-150 ${locale === 'ru' ? activeCls : inactiveCls}`}
       >
         RU
       </Link>
-      <span className="text-gray-600">/</span>
       <Link
         href={uzUrl}
-        className={`text-sm font-medium transition ${locale === 'uz' ? activeClassName : inactiveClassName}`}
+        aria-label="Tilni o'zbekchaga o'tkazish"
+        aria-current={locale === 'uz' ? 'true' : undefined}
+        prefetch={false}
         data-testid="locale-switch-uz"
+        className={`flex h-full ${size === 'lg' ? 'flex-1' : ''} items-center justify-center rounded-full ${itemPad} font-semibold tracking-wide transition-colors duration-150 ${locale === 'uz' ? activeCls : inactiveCls}`}
       >
         UZ
       </Link>

@@ -215,13 +215,8 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
           </div>
 
           {/* Mobile locale switcher — always visible between logo and burger */}
-          <div className="lg:hidden flex items-center mr-1">
-            <LocaleSwitcher
-              locale={locale}
-              className="flex items-center space-x-1"
-              activeClassName="text-teal-400 font-bold text-sm"
-              inactiveClassName="text-gray-400 hover:text-white text-sm"
-            />
+          <div className="lg:hidden flex items-center mr-2">
+            <LocaleSwitcher locale={locale} />
           </div>
 
           {/* Mobile menu button */}
@@ -316,12 +311,11 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
                 {nav.contacts}
               </Link>
 
-              <div className="pt-2 border-t border-gray-800 px-2">
-                <LocaleSwitcher
-                  locale={locale}
-                  className="flex items-center space-x-3"
-                  inactiveClassName="text-gray-400"
-                />
+              <div className="pt-3 border-t border-gray-800 px-2">
+                <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">
+                  {locale === 'ru' ? 'Язык / Til' : 'Til / Язык'}
+                </p>
+                <LocaleSwitcher locale={locale} size="lg" />
               </div>
               <div className="flex flex-col space-y-2 pt-2 border-t border-gray-800 px-2">
                 <a href={`tel:${phone1}`} className="text-white font-semibold hover:text-teal-500 transition flex items-center" data-track="tel">
