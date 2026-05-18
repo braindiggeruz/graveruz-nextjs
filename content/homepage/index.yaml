@@ -16,6 +16,12 @@ hero:
     rahbarlar bilan ishlaymiz.
   ctaPrimaryRu: Рассчитать заказ
   ctaPrimaryUz: Buyurtmani hisoblash
+  ctaPrimaryHrefRu: '#contact'
+  ctaPrimaryHrefUz: '#contact'
+  ctaSecondaryRu: Быстрая консультация в Telegram
+  ctaSecondaryUz: Telegramda tezkor konsultatsiya
+  ctaSecondaryHrefRu: 'https://t.me/GraverAdm'
+  ctaSecondaryHrefUz: 'https://t.me/GraverAdm'
   stats:
     - value: B2B-заказы
       valueRu: B2B-заказы
@@ -108,6 +114,8 @@ services:
     descriptionUz: >-
       Sovg‘alar, suvenirlar va biznes aksessuarlarga ism, logo, sana, yozuv va
       firma elementlarini tushiramiz.
+    hrefRu: /ru/lazernaya-gravirovka-tashkent/
+    hrefUz: /uz/toshkentda-lazer-gravyura/
   - icon: gift
     titleRu: Корпоративные подарки
     titleUz: Korporativ sovg‘alar
@@ -117,6 +125,8 @@ services:
     descriptionUz: >-
       Xodimlar, mijozlar, hamkorlar, rahbarlar va korporativ tadbirlar uchun
       sovg‘alar.
+    hrefRu: /ru/korporativnye-podarki/
+    hrefUz: /uz/toshkentda-korporativ-sovgalar/
   - icon: package
     titleRu: Welcome pack
     titleUz: Welcome pack
@@ -126,6 +136,8 @@ services:
     descriptionUz: >-
       Yangi xodimlar uchun to‘plamlar: foydali buyumlar, firma uslubi,
       personalizatsiya va qadoqlash.
+    hrefRu: /ru/welcome-packs/
+    hrefUz: /uz/welcome-packs/
   - icon: briefcase
     titleRu: VIP-подарки
     titleUz: VIP-sovg‘alar
@@ -135,6 +147,8 @@ services:
     descriptionUz: >-
       Rahbarlar, muhim mijozlar, hamkorlar va alohida tadbirlar uchun statusli
       sovg‘alar.
+    hrefRu: /ru/vip-podarki/
+    hrefUz: /uz/vip-podarki/
   - icon: star
     titleRu: Сувениры с логотипом
     titleUz: Logotipli suvenirlar
@@ -144,6 +158,8 @@ services:
     descriptionUz: >-
       Brendlangan ruchkalar, termokrujkalar, powerbank, kundaliklar,
       aksessuarlar va sovg‘a to‘plamlari.
+    hrefRu: /ru/catalog-products/
+    hrefUz: /uz/catalog-products/
   - icon: trophy
     titleRu: Подарки с гравировкой
     titleUz: Gravyurali sovg‘alar
@@ -153,6 +169,8 @@ services:
     descriptionUz: >-
       Ism, sana, yozuv, logo yoki belgi tushirilgan shaxsiy va korporativ
       sovg‘alar.
+    hrefRu: /ru/engraved-gifts/
+    hrefUz: /uz/engraved-gifts/
 portfolio:
   - image: /images/portfolio/0/image.jpg
     categoryRu: Корпоративные часы
@@ -377,5 +395,15 @@ seo:
     Toshkentda korporativ sovg‘alar, welcome pack, VIP-to‘plamlar va logotipli
     suvenirlar. Lazer gravyura, personalizatsiya, maket va qadoqlash
     B2B-buyurtmalar uchun.
+  ogTitleRu: Корпоративные подарки и гравировка для бизнеса — Graver Studio
+  ogTitleUz: Korporativ sovg‘alar va lazer gravyura — Graver Studio
+  ogDescriptionRu: >-
+    Welcome pack, VIP-наборы, сувениры с логотипом и подарки сотрудникам.
+    Макет до запуска, аккуратная лазерная гравировка, доставка по Ташкенту и
+    Узбекистану.
+  ogDescriptionUz: >-
+    Welcome pack, VIP-to‘plamlar, logotipli suvenirlar va xodimlar uchun
+    sovg‘alar. Ish boshlanishidan oldin maket, nafis lazer gravyura, Toshkent
+    va O‘zbekiston bo‘yicha yetkazib berish.
   ogImage: /images/og/seo/ogImage.jpg
   noindex: false

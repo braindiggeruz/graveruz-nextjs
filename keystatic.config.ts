@@ -241,6 +241,32 @@ const homepage = singleton({
           label: 'Кнопка CTA (UZ)',
           defaultValue: "Narx so'rash",
         }),
+        ctaPrimaryHrefRu: fields.text({
+          label: 'Ссылка первой CTA (RU)',
+          description:
+            'Куда ведёт главная кнопка. Можно: «#contact» (форма ниже), «/ru/korporativnye-podarki/», «https://t.me/GraverAdm». Пусто = #contact.',
+        }),
+        ctaPrimaryHrefUz: fields.text({
+          label: 'Ссылка первой CTA (UZ)',
+          description:
+            'То же для /uz/. Пусто = #contact.',
+        }),
+        ctaSecondaryRu: fields.text({
+          label: 'Вторая кнопка CTA (RU)',
+          description:
+            'По умолчанию ведёт в Telegram. Можно поменять текст: «Telegram», «Связаться», «Каталог».',
+        }),
+        ctaSecondaryUz: fields.text({
+          label: 'Вторая кнопка CTA (UZ)',
+        }),
+        ctaSecondaryHrefRu: fields.text({
+          label: 'Ссылка второй CTA (RU)',
+          description:
+            'По умолчанию https://t.me/GraverAdm. Можно поменять на WhatsApp, форму, каталог.',
+        }),
+        ctaSecondaryHrefUz: fields.text({
+          label: 'Ссылка второй CTA (UZ)',
+        }),
         stats: fields.array(
           fields.object({
             value: fields.text({
@@ -295,6 +321,24 @@ const homepage = singleton({
         titleUz: fields.text({ label: 'Заголовок (UZ)' }),
         descriptionRu: fields.text({ label: 'Описание (RU)', multiline: true }),
         descriptionUz: fields.text({ label: 'Описание (UZ)', multiline: true }),
+        hrefRu: fields.text({
+          label: 'Ссылка money-page (RU)',
+          description:
+            'Куда ведёт карточка на /ru/. Только путь, без домена. Пример: /ru/korporativnye-podarki/. Пусто = автоматически по icon.',
+        }),
+        hrefUz: fields.text({
+          label: 'Ссылка money-page (UZ)',
+          description:
+            'То же для /uz/. Пример: /uz/toshkentda-korporativ-sovgalar/. Пусто = автоматически.',
+        }),
+        ctaLabelRu: fields.text({
+          label: 'Текст «Подробнее» (RU, опционально)',
+          description: 'По умолчанию: «Подробнее →». Можно заменить на «Узнать цену», «Смотреть».',
+        }),
+        ctaLabelUz: fields.text({
+          label: 'Текст «Подробнее» (UZ, опционально)',
+          description: 'По умолчанию: «Batafsil →».',
+        }),
       }),
       {
         label: 'Услуги',
@@ -401,6 +445,26 @@ const homepage = singleton({
         descriptionUz: fields.text({
           label: 'Meta Description (UZ)',
           description: 'Узбекский meta. Если пусто — fallback на descriptionRu, затем «description».',
+          multiline: true,
+        }),
+        ogTitleRu: fields.text({
+          label: 'OG Title (RU, опционально)',
+          description:
+            'Заголовок при шеринге в Telegram/Facebook на /ru/. Пусто = берётся titleRu/title.',
+        }),
+        ogTitleUz: fields.text({
+          label: 'OG Title (UZ, опционально)',
+          description:
+            'Заголовок при шеринге в Telegram-каналах на узбекском. Пусто = titleUz.',
+        }),
+        ogDescriptionRu: fields.text({
+          label: 'OG Description (RU, опционально)',
+          description: 'Описание при шеринге. Пусто = берётся descriptionRu/description.',
+          multiline: true,
+        }),
+        ogDescriptionUz: fields.text({
+          label: 'OG Description (UZ, опционально)',
+          description: 'Описание при шеринге для UZ-аудитории. Пусто = descriptionUz.',
           multiline: true,
         }),
         ogImage: fields.image({

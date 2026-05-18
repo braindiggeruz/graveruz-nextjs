@@ -28,6 +28,7 @@ type Action =
 function decideAction(s: ReturnType<typeof getSnapshotStories>[number]): Action {
   if (s.noindex) return { kind: 'critical', label: 'NOINDEX', reason: 'Скрыта от Google. Проверь — точно ли надо?' }
   if (!s.title) return { kind: 'critical', label: 'Нет title', reason: 'Без title статья не ранжируется.' }
+  if (!/^[a-z0-9-]+$/.test(s.slug || '')) return { kind: 'critical', label: 'Slug suspicious', reason: 'Slug содержит кириллицу/пробелы/спецсимволы — Google не индексирует.' }
   if (!s.description) return { kind: 'warn', label: 'Нет description', reason: 'Google возьмёт случайный текст.' }
   const tLen = s.title.length
   if (tLen < SEO_LIMITS.TITLE_MIN || tLen > SEO_LIMITS.TITLE_MAX)
@@ -39,6 +40,10 @@ function decideAction(s: ReturnType<typeof getSnapshotStories>[number]): Action 
   const paired = s.locale === 'ru' ? !!s.alternateUz : !!s.alternateRu
   if (!paired) return { kind: 'warn', label: 'Нет UZ/RU пары', reason: 'hreflang не работает без пары.' }
   if ((s.wordCount || 0) < 200) return { kind: 'warn', label: `Тонкая (${s.wordCount}сл)`, reason: '<200 слов = Google считает дублем/пустышкой.' }
+  if (s.canonicalOverride && !s.canonicalOverride.startsWith('https://'))
+    return { kind: 'warn', label: 'Bad canonical', reason: 'canonicalOverride должен начинаться с https:// и указывать на полный URL.' }
+  if (!s.date || !/^\d{4}-\d{2}-\d{2}$/.test(s.date))
+    return { kind: 'warn', label: 'Нет даты', reason: 'Опубликованная статья без даты в формате YYYY-MM-DD — даты в выдаче не будет.' }
   if (!s.ogImage) return { kind: 'warn', label: 'Нет OG', reason: 'Шаринг в Telegram/Facebook без превью.' }
   return { kind: 'ok', label: '✓ Готово' }
 }
@@ -80,6 +85,11 @@ export default async function StoriesAuditPage({
       }
       if (filter === 'thin') return (r.s.wordCount || 0) < 200
       if (filter === 'no-faq') return !r.s.hasFaq
+      if (filter === 'noindex') return !!r.s.noindex
+      if (filter === 'canonical') return !!r.s.canonicalOverride
+      if (filter === 'has-prev-slug') return Array.isArray((r.s as any).previousSlugs) && (r.s as any).previousSlugs.length > 0
+      if (filter === 'bad-slug') return !/^[a-z0-9-]+$/.test(r.s.slug || '')
+      if (filter === 'no-date') return !r.s.date || !/^\d{4}-\d{2}-\d{2}$/.test(r.s.date)
       return true
     })
     .sort((a, b) => {
@@ -131,6 +141,11 @@ export default async function StoriesAuditPage({
           <option value="orphan">Без языковой пары</option>
           <option value="thin">Тонкий контент (&lt;200 слов)</option>
           <option value="no-faq">Без FAQ</option>
+          <option value="noindex">С noindex=true</option>
+          <option value="canonical">С canonicalOverride</option>
+          <option value="has-prev-slug">С previousSlugs</option>
+          <option value="bad-slug">Подозрительный slug</option>
+          <option value="no-date">Без валидной даты</option>
         </select>
         <button type="submit" style={btnPrimary}>Применить</button>
       </form>
@@ -185,7 +200,14 @@ export default async function StoriesAuditPage({
                 </td>
                 <td style={td}>
                   <a style={link} href={buildKeystaticUrl(s.file || '')} target="_blank" rel="noopener">✎</a>{' '}
-                  <a style={link} href={`${BASE}/${s.locale}/blog/${s.slug}/`} target="_blank" rel="noopener">↗</a>
+                  <a style={link} href={`${BASE}/${s.locale}/blog/${s.slug}/`} target="_blank" rel="noopener">↗</a>{' '}
+                  <a
+                    style={link}
+                    href={`/admin-tools/publish-checklist/?kind=story&loc=${s.locale}&slug=${encodeURIComponent(s.slug)}${sp.token ? `&token=${encodeURIComponent(sp.token)}` : ''}`}
+                    title="Publish Checklist"
+                  >
+                    ✓
+                  </a>
                 </td>
               </tr>
             ))}

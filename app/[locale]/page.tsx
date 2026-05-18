@@ -47,6 +47,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         titleUz?: string
         descriptionRu?: string
         descriptionUz?: string
+        ogTitleRu?: string
+        ogTitleUz?: string
+        ogDescriptionRu?: string
+        ogDescriptionUz?: string
         ogImage?: string
         noindex?: boolean
       }
@@ -59,6 +63,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const seoDescription = isRu
     ? (seoFromCMS?.descriptionRu || seoFromCMS?.description)
     : (seoFromCMS?.descriptionUz || seoFromCMS?.descriptionRu || seoFromCMS?.description)
+  const ogTitle = isRu
+    ? (seoFromCMS?.ogTitleRu || seoFromCMS?.titleRu || seoFromCMS?.title)
+    : (seoFromCMS?.ogTitleUz || seoFromCMS?.titleUz || seoFromCMS?.titleRu || seoFromCMS?.title)
+  const ogDescription = isRu
+    ? (seoFromCMS?.ogDescriptionRu || seoFromCMS?.descriptionRu || seoFromCMS?.description)
+    : (seoFromCMS?.ogDescriptionUz || seoFromCMS?.descriptionUz || seoFromCMS?.descriptionRu || seoFromCMS?.description)
 
   if (isRu) {
     return buildMetadata({
@@ -66,6 +76,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       path: '',
       title: seoTitle || 'Лазерная гравировка и брендирование для бизнеса в Ташкенте — Graver.uz',
       description: seoDescription || 'Корпоративные подарки, welcome-паки, VIP-наборы с лазерной гравировкой. Работаем с B2B-клиентами по всему Узбекистану. Ташкент.',
+      ogTitle,
+      ogDescription,
       ogImage: seoFromCMS?.ogImage || 'https://graver-studio.uz/images/og/og-home.jpg',
       noindex: seoFromCMS?.noindex || false,
     })
@@ -76,6 +88,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     path: '',
     title: seoTitle || "Toshkentda biznes uchun lazer o'ymakorlik va brendlash — Graver.uz",
     description: seoDescription || "Logotip bilan korporativ sovg'alar, welcome-to'plamlar, VIP-to'plamlar. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
+    ogTitle,
+    ogDescription,
     ogImage: seoFromCMS?.ogImage || 'https://graver-studio.uz/images/og/og-home.jpg',
     noindex: seoFromCMS?.noindex || false,
   })
@@ -114,6 +128,28 @@ const SERVICE_HREF_BY_ICON: Record<string, { ru: string; uz: string }> = {
 
 
 export default async function HomePage({ params }: PageProps) {
+  // ─────────────────────────────────────────────────────────────────
+  // ⚠️ HOMEPAGE CONTENT CONTRACT — DO NOT BREAK
+  // -------------------------------------------------------------------
+  // The homepage MUST render its visible content from getHomepage()
+  // (content/homepage/index.yaml), edited by operators in Keystatic.
+  //
+  // Allowed pattern:
+  //   const value = (isRu ? home?.X?.fieldRu : home?.X?.fieldUz)
+  //                  ?? messages.fallback ?? hardcodedFallback
+  //
+  // Forbidden patterns:
+  //   • returning messages.hero.* (or any other JSON-only key) directly
+  //     in JSX without a CMS path in front
+  //   • introducing new hardcoded arrays for benefits / services /
+  //     portfolio / processSteps / FAQ on top of the CMS arrays
+  //   • inlining new copy here that should be operator-editable
+  //
+  // If a new field is needed: add it to keystatic.config.ts schema and
+  // content/homepage/index.yaml, then read it via home.* with a safe
+  // fallback. The owner must be able to change every visible string
+  // and link on the homepage without touching code.
+  // -------------------------------------------------------------------
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
   const locale = resolvedParams.locale as Locale
@@ -131,6 +167,23 @@ export default async function HomePage({ params }: PageProps) {
   const heroTitleAccent = (isRu ? home?.hero?.titleAccentRu : home?.hero?.titleAccentUz) || messages.hero.titleAccent
   const heroSubtitle = (isRu ? home?.hero?.subtitleRu : home?.hero?.subtitleUz) || messages.hero.subtitle
   const heroCtaPrimary = (isRu ? home?.hero?.ctaPrimaryRu : home?.hero?.ctaPrimaryUz) || messages.hero.ctaPrimary
+  // CTA hrefs and secondary CTA — CMS-controllable, with safe fallbacks
+  const heroEx = (home?.hero as
+    | {
+        ctaPrimaryHrefRu?: string
+        ctaPrimaryHrefUz?: string
+        ctaSecondaryRu?: string
+        ctaSecondaryUz?: string
+        ctaSecondaryHrefRu?: string
+        ctaSecondaryHrefUz?: string
+      }
+    | undefined) || {}
+  const heroCtaPrimaryHref =
+    (isRu ? heroEx.ctaPrimaryHrefRu : heroEx.ctaPrimaryHrefUz) || '#contact'
+  const heroCtaSecondary =
+    (isRu ? heroEx.ctaSecondaryRu : heroEx.ctaSecondaryUz) || messages.hero.ctaSecondary
+  const heroCtaSecondaryHref =
+    (isRu ? heroEx.ctaSecondaryHrefRu : heroEx.ctaSecondaryHrefUz) || 'https://t.me/GraverAdm'
 
   // Hero stats from CMS, fallback to old hardcoded 4 stats
   const cmsStats = home?.hero?.stats || []
@@ -179,27 +232,47 @@ export default async function HomePage({ params }: PageProps) {
 
   // ────────────────────────────────────────────────────────────────
   // SERVICES — CMS first, fallback to old hardcoded. SEO links preserved.
+  // Each service can carry its own hrefRu/hrefUz/ctaLabelRu/ctaLabelUz
+  // edited in Keystatic. If empty, SERVICE_HREF_BY_ICON is used.
   // ────────────────────────────────────────────────────────────────
   const cmsServices = home?.services || []
   const servicesList = cmsServices.length > 0
     ? cmsServices.map((s) => {
-        const icon = s.icon || 'gift'
-        const hrefMap = SERVICE_HREF_BY_ICON[icon]
-        const href = hrefMap ? (isRu ? hrefMap.ru : hrefMap.uz) : `/${locale}/catalog-products/`
+        const sx = s as {
+          icon?: string
+          titleRu?: string
+          titleUz?: string
+          descriptionRu?: string
+          descriptionUz?: string
+          hrefRu?: string
+          hrefUz?: string
+          ctaLabelRu?: string
+          ctaLabelUz?: string
+        }
+        const icon = sx.icon || 'gift'
+        const fallbackHrefMap = SERVICE_HREF_BY_ICON[icon]
+        const fallbackHref = fallbackHrefMap
+          ? (isRu ? fallbackHrefMap.ru : fallbackHrefMap.uz)
+          : `/${locale}/catalog-products/`
+        const href = (isRu ? sx.hrefRu : sx.hrefUz) || fallbackHref
+        const ctaLabel =
+          (isRu ? sx.ctaLabelRu : sx.ctaLabelUz) ||
+          (isRu ? 'Подробнее →' : 'Batafsil →')
         return {
           icon,
-          title: (isRu ? s.titleRu : s.titleUz) || s.titleRu || '',
-          desc: (isRu ? s.descriptionRu : s.descriptionUz) || s.descriptionRu || '',
+          title: (isRu ? sx.titleRu : sx.titleUz) || sx.titleRu || '',
+          desc: (isRu ? sx.descriptionRu : sx.descriptionUz) || sx.descriptionRu || '',
           href,
+          ctaLabel,
         }
       })
     : [
-        { icon: 'laser',     title: messages.services.laser_engraving,  desc: isRu ? 'Точная лазерная гравировка на металле, дереве, коже и стекле' : "Metall, yog'och, teri va shishada aniq lazer o'ymakorlik", href: isRu ? '/ru/lazernaya-gravirovka-tashkent/' : '/uz/toshkentda-lazer-gravyura/' },
-        { icon: 'gift',      title: messages.services.corporate_gifts,  desc: isRu ? 'Корпоративные подарки с логотипом для сотрудников и партнёров' : "Xodimlar va hamkorlar uchun logotip bilan korporativ sovg'alar", href: isRu ? '/ru/korporativnye-podarki/' : '/uz/toshkentda-korporativ-sovgalar/' },
-        { icon: 'package',   title: messages.services.welcome_packs,    desc: isRu ? 'Welcome-паки для новых сотрудников с брендированными предметами' : "Brendlangan buyumlar bilan yangi xodimlar uchun welcome-to'plamlar", href: `/${locale}/welcome-packs/` },
-        { icon: 'briefcase', title: messages.services.vip_gifts,        desc: isRu ? 'VIP-подарки для ключевых клиентов и партнёров высшего уровня' : "Asosiy mijozlar va yuqori darajadagi hamkorlar uchun VIP-sovg'alar", href: `/${locale}/vip-podarki/` },
-        { icon: 'star',      title: messages.services.branded_sets,     desc: isRu ? 'Брендированные наборы для корпоративных мероприятий и презентаций' : "Korporativ tadbirlar va taqdimotlar uchun brendlangan to'plamlar", href: `/${locale}/catalog-products/` },
-        { icon: 'trophy',    title: isRu ? 'Подарки с гравировкой' : 'Gravyurali sovg\'alar', desc: isRu ? 'Именные подарки и сувениры с лазерной гравировкой' : "Lazer gravyurali shaxsiy sovg'alar va suvenirlar", href: `/${locale}/engraved-gifts/` },
+        { icon: 'laser',     title: messages.services.laser_engraving,  desc: isRu ? 'Точная лазерная гравировка на металле, дереве, коже и стекле' : "Metall, yog'och, teri va shishada aniq lazer o'ymakorlik", href: isRu ? '/ru/lazernaya-gravirovka-tashkent/' : '/uz/toshkentda-lazer-gravyura/', ctaLabel: isRu ? 'Подробнее →' : 'Batafsil →' },
+        { icon: 'gift',      title: messages.services.corporate_gifts,  desc: isRu ? 'Корпоративные подарки с логотипом для сотрудников и партнёров' : "Xodimlar va hamkorlar uchun logotip bilan korporativ sovg'alar", href: isRu ? '/ru/korporativnye-podarki/' : '/uz/toshkentda-korporativ-sovgalar/', ctaLabel: isRu ? 'Подробнее →' : 'Batafsil →' },
+        { icon: 'package',   title: messages.services.welcome_packs,    desc: isRu ? 'Welcome-паки для новых сотрудников с брендированными предметами' : "Brendlangan buyumlar bilan yangi xodimlar uchun welcome-to'plamlar", href: `/${locale}/welcome-packs/`, ctaLabel: isRu ? 'Подробнее →' : 'Batafsil →' },
+        { icon: 'briefcase', title: messages.services.vip_gifts,        desc: isRu ? 'VIP-подарки для ключевых клиентов и партнёров высшего уровня' : "Asosiy mijozlar va yuqori darajadagi hamkorlar uchun VIP-sovg'alar", href: `/${locale}/vip-podarki/`, ctaLabel: isRu ? 'Подробнее →' : 'Batafsil →' },
+        { icon: 'star',      title: messages.services.branded_sets,     desc: isRu ? 'Брендированные наборы для корпоративных мероприятий и презентаций' : "Korporativ tadbirlar va taqdimotlar uchun brendlangan to'plamlar", href: `/${locale}/catalog-products/`, ctaLabel: isRu ? 'Подробнее →' : 'Batafsil →' },
+        { icon: 'trophy',    title: isRu ? 'Подарки с гравировкой' : 'Gravyurali sovg\'alar', desc: isRu ? 'Именные подарки и сувениры с лазерной гравировкой' : "Lazer gravyurali shaxsiy sovg'alar va suvenirlar", href: `/${locale}/engraved-gifts/`, ctaLabel: isRu ? 'Подробнее →' : 'Batafsil →' },
       ]
 
   // ────────────────────────────────────────────────────────────────
@@ -293,7 +366,7 @@ export default async function HomePage({ params }: PageProps) {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
               <a
-                href="#contact"
+                href={heroCtaPrimaryHref}
                 className="w-full sm:w-auto bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-10 py-5 rounded-lg font-bold text-lg hover:from-teal-600 hover:to-cyan-700 transition shadow-lg shadow-teal-500/50 min-h-[56px] text-center"
                 data-track="cta"
                 data-placement="hero-primary"
@@ -301,7 +374,7 @@ export default async function HomePage({ params }: PageProps) {
                 {heroCtaPrimary}
               </a>
               <a
-                href="https://t.me/GraverAdm"
+                href={heroCtaSecondaryHref}
                 data-track="tg"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -309,7 +382,7 @@ export default async function HomePage({ params }: PageProps) {
                 data-placement="hero-secondary"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
-                {messages.hero.ctaSecondary}
+                {heroCtaSecondary}
               </a>
             </div>
             {/* Trust indicators — driven by home.hero.stats */}
@@ -383,7 +456,7 @@ export default async function HomePage({ params }: PageProps) {
                 <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-teal-400 transition">{service.title}</h3>
                 <p className="text-gray-400">{service.desc}</p>
                 <span className="inline-block mt-4 text-teal-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition">
-                  {isRu ? 'Подробнее →' : "Batafsil →"}
+                  {service.ctaLabel}
                 </span>
               </a>
             ))}

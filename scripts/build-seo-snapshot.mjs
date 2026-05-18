@@ -83,6 +83,7 @@ function listStories(absDir) {
           canonicalOverride: fm.canonicalOverride || '',
           alternateRu: alt.ru || '',
           alternateUz: alt.uz || '',
+          previousSlugs: Array.isArray(fm.previousSlugs) ? fm.previousSlugs : [],
           hasFaq: Array.isArray(fm.faq) && fm.faq.length > 0,
           wordCount,
           file: file.slice(ROOT.length + 1),

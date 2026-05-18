@@ -41,6 +41,8 @@ export default function AdminToolsLayout({ children }: { children: React.ReactNo
           <a href="/admin-tools/" style={navLink}>Home</a>
           <a href="/admin-tools/seo-cockpit/" style={navLink}>SEO Cockpit</a>
           <a href="/admin-tools/stories/" style={navLink}>Stories Audit</a>
+          <a href="/admin-tools/publish-checklist/" style={navLink}>Publish Checklist</a>
+          <a href="/admin-tools/redirects/" style={navLink}>Redirects</a>
           <a href="/admin-tools/cannibalization/" style={navLink}>Cannibalization</a>
           <a href="/admin-tools/coverage/" style={navLink}>RU↔UZ Coverage</a>
           <a href="/admin-tools/translate/" style={navLink}>Translate RU→UZ</a>
