@@ -18,6 +18,8 @@ hero:
   ctaPrimaryUz: Buyurtmani hisoblash
   stats:
     - value: B2B-заказы
+      valueRu: B2B-заказы
+      valueUz: B2B-buyurtmalar
       labelRu: >-
         Готовим подарки для сотрудников, клиентов, партнёров, руководителей и
         мероприятий.
@@ -25,12 +27,18 @@ hero:
         Xodimlar, mijozlar, hamkorlar, rahbarlar va tadbirlar uchun sovg‘alar
         tayyorlaymiz.
     - value: Персонализация
+      valueRu: Персонализация
+      valueUz: Personalizatsiya
       labelRu: Наносим логотип, имя, дату, короткую фразу или элемент фирменного стиля.
       labelUz: Logo, ism, sana, qisqa yozuv yoki firma uslubi elementini tushiramiz.
     - value: Макет перед запуском
+      valueRu: Макет перед запуском
+      valueUz: Maket oldindan
       labelRu: Показываем расположение логотипа, имени или надписи до начала работы.
       labelUz: Logo, ism yoki yozuv joylashuvini ish boshlanishidan oldin ko‘rsatamiz.
     - value: Ташкент и Узбекистан
+      valueRu: Ташкент и Узбекистан
+      valueUz: Toshkent va O‘zbekiston
       labelRu: >-
         Работаем с локальными и корпоративными заказами по Ташкенту и всему
         Узбекистану.
@@ -359,5 +367,15 @@ seo:
     Корпоративные подарки, welcome pack, VIP-наборы и сувениры с логотипом в
     Ташкенте. Лазерная гравировка, персонализация, макет и упаковка для
     B2B-заказов.
+  titleRu: Лазерная гравировка и брендирование подарков для бизнеса | Graver.uz
+  titleUz: Biznes sovg‘alari uchun lazer gravyura va brendlash | Graver.uz
+  descriptionRu: >-
+    Корпоративные подарки, welcome pack, VIP-наборы и сувениры с логотипом в
+    Ташкенте. Лазерная гравировка, персонализация, макет и упаковка для
+    B2B-заказов.
+  descriptionUz: >-
+    Toshkentda korporativ sovg‘alar, welcome pack, VIP-to‘plamlar va logotipli
+    suvenirlar. Lazer gravyura, personalizatsiya, maket va qadoqlash
+    B2B-buyurtmalar uchun.
   ogImage: /images/og/seo/ogImage.jpg
   noindex: false

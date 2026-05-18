@@ -244,8 +244,19 @@ const homepage = singleton({
         stats: fields.array(
           fields.object({
             value: fields.text({
-              label: 'Цифра',
-              description: 'Например: 7+, 1000+, 24/7',
+              label: 'Цифра (legacy/общая)',
+              description:
+                'Старое общее поле. Если заполнены valueRu/valueUz — используется как fallback. Можно оставить пустым.',
+            }),
+            valueRu: fields.text({
+              label: 'Цифра / подпись-факт (RU)',
+              description:
+                'Локализованное значение для RU. Например: «B2B-заказы», «7+ лет», «1000+ компаний».',
+            }),
+            valueUz: fields.text({
+              label: 'Цифра / подпись-факт (UZ)',
+              description:
+                'Локализованное значение для UZ. Пример: «B2B-buyurtmalar», «7+ yil».',
             }),
             labelRu: fields.text({ label: 'Подпись (RU)' }),
             labelUz: fields.text({ label: 'Подпись (UZ)' }),
@@ -254,7 +265,8 @@ const homepage = singleton({
             label: 'Цифры под героем',
             description:
               '3–4 цифры, показывающие масштаб. Например: «7+ лет», «1000+ компаний», «24/7».',
-            itemLabel: (p) => `${p.fields.value.value} — ${p.fields.labelRu.value}`,
+            itemLabel: (p) =>
+              `${p.fields.valueRu.value || p.fields.value.value || '—'} — ${p.fields.labelRu.value || ''}`,
           }
         ),
       },
@@ -356,7 +368,61 @@ const homepage = singleton({
       }
     ),
 
-    seo: seoFields,
+    seo: fields.object(
+      {
+        title: fields.text({
+          label: 'SEO Title (legacy/общий)',
+          description:
+            'Старое общее поле. Если заполнены titleRu/titleUz — используется как fallback. Не удаляй, чтобы не сломать старый YAML.',
+          validation: { length: { min: 1, max: 120 } },
+        }),
+        description: fields.text({
+          label: 'Meta Description (legacy/общий)',
+          description:
+            'Старое общее поле. Если заполнены descriptionRu/descriptionUz — используется как fallback.',
+          multiline: true,
+          validation: { length: { min: 1, max: 320 } },
+        }),
+        titleRu: fields.text({
+          label: 'SEO Title (RU)',
+          description:
+            'Заголовок для /ru/. 50–60 символов идеально, до 70 ок. Если пусто — берётся «title».',
+        }),
+        titleUz: fields.text({
+          label: 'SEO Title (UZ)',
+          description:
+            'Заголовок для /uz/. Если пусто — берётся titleRu, затем «title».',
+        }),
+        descriptionRu: fields.text({
+          label: 'Meta Description (RU)',
+          description: '140–160 символов. Если пусто — fallback на «description».',
+          multiline: true,
+        }),
+        descriptionUz: fields.text({
+          label: 'Meta Description (UZ)',
+          description: 'Узбекский meta. Если пусто — fallback на descriptionRu, затем «description».',
+          multiline: true,
+        }),
+        ogImage: fields.image({
+          label: 'Картинка для соцсетей (1200×630)',
+          description:
+            'Превью при шеринге в Telegram, Facebook, LinkedIn. Если пусто — используется дефолтная картинка из Настроек.',
+          directory: 'public/images/og',
+          publicPath: '/images/og/',
+        }),
+        noindex: fields.checkbox({
+          label: '⚠ Скрыть от Google (noindex)',
+          description:
+            'ОПАСНО: страница исчезнет из Google. Никогда не включай для главной.',
+          defaultValue: false,
+        }),
+      },
+      {
+        label: 'SEO',
+        description:
+          'Главная страница RU и UZ. Заполни titleRu/titleUz и descriptionRu/descriptionUz — каждая локаль получит свой meta. Старые title/description оставлены как страховка.',
+      }
+    ),
   },
 })
 

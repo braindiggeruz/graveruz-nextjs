@@ -39,14 +39,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!isValidLocale(resolvedParams.locale)) return {}
   const locale = resolvedParams.locale as Locale
   const home = await getHomepage().catch(() => null)
-  const seoFromCMS = home?.seo
+  const seoFromCMS = home?.seo as
+    | {
+        title?: string
+        description?: string
+        titleRu?: string
+        titleUz?: string
+        descriptionRu?: string
+        descriptionUz?: string
+        ogImage?: string
+        noindex?: boolean
+      }
+    | undefined
 
-  if (locale === 'ru') {
+  const isRu = locale === 'ru'
+  const seoTitle = isRu
+    ? (seoFromCMS?.titleRu || seoFromCMS?.title)
+    : (seoFromCMS?.titleUz || seoFromCMS?.titleRu || seoFromCMS?.title)
+  const seoDescription = isRu
+    ? (seoFromCMS?.descriptionRu || seoFromCMS?.description)
+    : (seoFromCMS?.descriptionUz || seoFromCMS?.descriptionRu || seoFromCMS?.description)
+
+  if (isRu) {
     return buildMetadata({
       locale,
       path: '',
-      title: seoFromCMS?.title || 'Лазерная гравировка и брендирование для бизнеса в Ташкенте — Graver.uz',
-      description: seoFromCMS?.description || 'Корпоративные подарки, welcome-паки, VIP-наборы с лазерной гравировкой. Работаем с B2B-клиентами по всему Узбекистану. Ташкент.',
+      title: seoTitle || 'Лазерная гравировка и брендирование для бизнеса в Ташкенте — Graver.uz',
+      description: seoDescription || 'Корпоративные подарки, welcome-паки, VIP-наборы с лазерной гравировкой. Работаем с B2B-клиентами по всему Узбекистану. Ташкент.',
       ogImage: seoFromCMS?.ogImage || 'https://graver-studio.uz/images/og/og-home.jpg',
       noindex: seoFromCMS?.noindex || false,
     })
@@ -55,8 +74,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return buildMetadata({
     locale,
     path: '',
-    title: seoFromCMS?.title || "Toshkentda biznes uchun lazer o'ymakorlik va brendlash — Graver.uz",
-    description: seoFromCMS?.description || "Logotip bilan korporativ sovg'alar, welcome-to'plamlar, VIP-to'plamlar. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
+    title: seoTitle || "Toshkentda biznes uchun lazer o'ymakorlik va brendlash — Graver.uz",
+    description: seoDescription || "Logotip bilan korporativ sovg'alar, welcome-to'plamlar, VIP-to'plamlar. O'zbekiston bo'ylab B2B-mijozlar bilan ishlaymiz.",
     ogImage: seoFromCMS?.ogImage || 'https://graver-studio.uz/images/og/og-home.jpg',
     noindex: seoFromCMS?.noindex || false,
   })
@@ -116,10 +135,22 @@ export default async function HomePage({ params }: PageProps) {
   // Hero stats from CMS, fallback to old hardcoded 4 stats
   const cmsStats = home?.hero?.stats || []
   const heroStats = cmsStats.length > 0
-    ? cmsStats.map((s) => ({
-        value: s.value || '',
-        label: (isRu ? s.labelRu : s.labelUz) || s.labelRu || '',
-      }))
+    ? cmsStats.map((s) => {
+        const sx = s as {
+          value?: string
+          valueRu?: string
+          valueUz?: string
+          labelRu?: string
+          labelUz?: string
+        }
+        const value = isRu
+          ? (sx.valueRu || sx.value || '')
+          : (sx.valueUz || sx.valueRu || sx.value || '')
+        return {
+          value,
+          label: (isRu ? sx.labelRu : sx.labelUz) || sx.labelRu || '',
+        }
+      })
     : [
         { value: '100%', label: messages.hero.stats.approval },
         { value: '1-3', label: messages.hero.stats.days },
