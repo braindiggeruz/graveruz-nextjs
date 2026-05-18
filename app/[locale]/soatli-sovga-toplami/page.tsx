@@ -5,9 +5,14 @@ import { buildMetadata } from '@/lib/seo'
 import { getPage } from '@/lib/cms'
 import WatchGiftSetLanding from '@/components/WatchGiftSetLanding'
 import SchemaOrg, { breadcrumbSchema, faqSchema } from '@/components/SchemaOrg'
+import AlternateSlugSetter from '@/components/AlternateSlugSetter'
 
 const SLUG = 'soatli-sovga-toplami'
 const PAGE_LOCALE: Locale = 'uz'
+const ALT_SLUG: Partial<Record<Locale, string>> = {
+  ru: 'podarochniy-nabor-s-chasami',
+  uz: 'soatli-sovga-toplami',
+}
 
 interface PageProps {
   params: Promise<{ locale: string }>
@@ -94,6 +99,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <SchemaOrg schema={schemas} />
+      <AlternateSlugSetter alternateSlug={ALT_SLUG} />
       <WatchGiftSetLanding
         locale={locale}
         h1={h1}

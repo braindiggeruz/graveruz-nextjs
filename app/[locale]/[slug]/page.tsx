@@ -5,6 +5,7 @@ import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { breadcrumbSchema, faqSchema } from '@/components/SchemaOrg'
 import { getAllPages, getPage } from '@/lib/cms'
 import PageBlocks from '@/components/PageBlocks'
+import AlternateSlugSetter from '@/components/AlternateSlugSetter'
 
 /**
  * Reserved top-level URL segments that already exist as static routes under
@@ -105,9 +106,18 @@ export default async function CommercialPage({ params }: PageProps) {
     ...(faqItems.length > 0 ? [faqSchema(faqItems)] : []),
   ]
 
+  // Build alternateSlug map for LocaleSwitcher (so /ru/<slug>/ ↔ /uz/<other-slug>/
+  // works for CMS pages that have different slugs per locale).
+  const altSlugMap: Partial<Record<Locale, string>> = {
+    [locale]: slug,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ...((page as any).alternateSlug || {}),
+  }
+
   return (
     <>
       <SchemaOrg schema={schemas} />
+      <AlternateSlugSetter alternateSlug={altSlugMap} />
       <main data-testid="cms-commercial-page" className="min-h-screen bg-black">
         {page.h1 && (!page.blocks || page.blocks.length === 0 || page.blocks[0]?.discriminant !== 'hero') && (
           <header className="border-b border-gray-900 px-4 py-16">

@@ -19,12 +19,17 @@ interface LocaleSwitcherProps {
 /**
  * Compute the URL for a given target locale on the current pathname.
  *
- * Priority (unchanged from previous version — language switch must never 404):
+ * Priority (unchanged contract — language switch must never 404):
  * 1. Blog article with alternateSlug in context → use mapped slug
  * 2. Blog article WITHOUT alternateSlug → fallback to /locale/blog
- * 3. Any other page with /ru/ or /uz/ prefix → replace locale segment
- * 4. Root /ru or /uz → switch root
- * 5. Fallback → target locale root
+ * 3. Any single-segment slug page (/ru/<slug>/) with alternateSlug in
+ *    context → swap the slug for the locale-specific mapping
+ *    (covers landings whose RU/UZ slugs differ — e.g. the watch gift
+ *    set lives at /ru/podarochniy-nabor-s-chasami/ and
+ *    /uz/soatli-sovga-toplami/).
+ * 4. Any other page with /ru/ or /uz/ prefix → replace locale segment
+ * 5. Root /ru or /uz → switch root
+ * 6. Fallback → target locale root
  */
 function getLocaleUrl(
   pathname: string,
@@ -42,6 +47,14 @@ function getLocaleUrl(
     }
     return `/${targetLocale}/blog`
   }
+
+  // Single-segment slug page with alternateSlug in context (CMS pages or
+  // dedicated landings whose slug differs per locale).
+  const slugPageMatch = pathname.match(/^\/(ru|uz)\/([^/]+)\/?$/)
+  if (slugPageMatch && alternateSlug && alternateSlug[targetLocale]) {
+    return `/${targetLocale}/${alternateSlug[targetLocale]}/`
+  }
+
   if (match && currentLocale) {
     return pathname.replace(`/${currentLocale}`, `/${targetLocale}`)
   }

@@ -3,18 +3,45 @@ import type { NextRequest } from 'next/server'
 import { DEFAULT_LOCALE, isValidLocale } from './lib/i18n'
 
 /**
+ * Cross-locale slug pairs for landings whose RU/UZ slugs differ.
+ * If a user lands on the wrong-locale variant of one of these slugs,
+ * we 301 them to the correct locale-specific slug. This guarantees a
+ * 200 language switch even when the LocaleSwitcher's SSR-rendered
+ * href is stale (alternateSlug context only hydrates on the client).
+ *
+ * Format: each pair lists slug-by-locale. Extend as new landings are added.
+ */
+const LOCALE_SLUG_PAIRS: Array<Record<'ru' | 'uz', string>> = [
+  { ru: 'podarochniy-nabor-s-chasami', uz: 'soatli-sovga-toplami' },
+]
+const SLUG_TO_LOCALE = new Map<string, 'ru' | 'uz'>()
+for (const pair of LOCALE_SLUG_PAIRS) {
+  SLUG_TO_LOCALE.set(pair.ru, 'ru')
+  SLUG_TO_LOCALE.set(pair.uz, 'uz')
+}
+const SLUG_PAIR_BY_SLUG = new Map<string, Record<'ru' | 'uz', string>>()
+for (const pair of LOCALE_SLUG_PAIRS) {
+  SLUG_PAIR_BY_SLUG.set(pair.ru, pair)
+  SLUG_PAIR_BY_SLUG.set(pair.uz, pair)
+}
+
+/**
  * Middleware responsibilities:
  *
  * 1. Keystatic admin (`/keystatic/*`): strip trailing slash so the
  *    client-side Keystatic router matches (trailing slash breaks it and
  *    shows "Not found" for collection / singleton list views).
  *
- * 2. Public pages: enforce trailing slash (canonical form) for SEO.
+ * 2. Cross-locale slug redirect: /uz/<ru-slug>/ → /uz/<uz-slug>/ (and vice
+ *    versa) for landings that have different slugs per locale. Prevents
+ *    language-switcher 404s on dedicated landings.
+ *
+ * 3. Public pages: enforce trailing slash (canonical form) for SEO.
  *    This used to be handled by Next.js automatic redirect from
  *    `trailingSlash: true`, but we disabled that via
  *    `skipTrailingSlashRedirect: true` so we can opt-out Keystatic.
  *
- * 3. Root `/` → `/ru/` locale redirect (unchanged).
+ * 4. Root `/` → `/ru/` locale redirect (unchanged).
  */
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -43,7 +70,31 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // ── 3. Locale prefix check ──────────────────────────────────────────────
+  // ── 3. Cross-locale slug redirect ───────────────────────────────────────
+  // /(ru|uz)/<slug>/ where slug exists in another locale: rewrite to the
+  // current locale's variant of that slug.
+  const slugMatch = pathname.match(/^\/(ru|uz)\/([^/]+)\/?$/)
+  if (slugMatch) {
+    const reqLocale = slugMatch[1] as 'ru' | 'uz'
+    const reqSlug = slugMatch[2]
+    const pair = SLUG_PAIR_BY_SLUG.get(reqSlug)
+    if (pair && pair[reqLocale] !== reqSlug) {
+      const correctSlug = pair[reqLocale]
+      const target = new URL(
+        `/${reqLocale}/${correctSlug}/` + request.nextUrl.search,
+        request.url,
+      )
+      return new Response(null, {
+        status: 301,
+        headers: {
+          Location: target.toString(),
+          'Cache-Control': 'public, max-age=31536000',
+        },
+      })
+    }
+  }
+
+  // ── 4. Locale prefix check ──────────────────────────────────────────────
   const segments = pathname.split('/')
   const firstSegment = segments[1]
 
@@ -59,7 +110,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // ── 4. No locale prefix — redirect to default locale WITH trailing slash ─
+  // ── 5. No locale prefix — redirect to default locale WITH trailing slash ─
   let targetPath = `/${DEFAULT_LOCALE}${pathname === '/' ? '' : pathname}`
   if (!targetPath.endsWith('/')) targetPath += '/'
   const target = new URL(targetPath + request.nextUrl.search, request.url)
