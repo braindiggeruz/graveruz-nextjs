@@ -9,6 +9,20 @@ import { getAllPostsMeta } from '@/lib/blog'
 import FAQSection from '@/components/FAQSection'
 import ContactForm from '@/components/ContactForm'
 import { getHomepage } from '@/lib/cms'
+import {
+  Check,
+  Clock,
+  Zap,
+  Sparkles,
+  Users,
+  Gift,
+  Package,
+  Briefcase,
+  Star,
+  Trophy,
+  Grid,
+  Flame,
+} from 'lucide-react'
 
 export async function generateStaticParams() {
   return [{ locale: 'ru' }, { locale: 'uz' }]
@@ -48,6 +62,37 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
+// Map CMS icon string -> lucide icon component
+function IconByName({ name, className }: { name?: string; className?: string }) {
+  const cls = className || 'w-7 h-7 text-teal-500'
+  switch (name) {
+    case 'check': return <Check className={cls} />
+    case 'clock': return <Clock className={cls} />
+    case 'zap': return <Zap className={cls} />
+    case 'sparkles': return <Sparkles className={cls} />
+    case 'users': return <Users className={cls} />
+    case 'gift': return <Gift className={cls} />
+    case 'package': return <Package className={cls} />
+    case 'briefcase': return <Briefcase className={cls} />
+    case 'star': return <Star className={cls} />
+    case 'trophy': return <Trophy className={cls} />
+    case 'grid': return <Grid className={cls} />
+    case 'laser': return <Flame className={cls} />
+    default: return <Check className={cls} />
+  }
+}
+
+// SEO money-page link map for services. Keyed by CMS icon value, then by locale.
+const SERVICE_HREF_BY_ICON: Record<string, { ru: string; uz: string }> = {
+  laser:     { ru: '/ru/lazernaya-gravirovka-tashkent/', uz: '/uz/toshkentda-lazer-gravyura/' },
+  gift:      { ru: '/ru/korporativnye-podarki/',         uz: '/uz/toshkentda-korporativ-sovgalar/' },
+  package:   { ru: '/ru/welcome-packs/',                 uz: '/uz/welcome-packs/' },
+  briefcase: { ru: '/ru/vip-podarki/',                   uz: '/uz/vip-podarki/' },
+  trophy:    { ru: '/ru/engraved-gifts/',                uz: '/uz/engraved-gifts/' },
+  // star (Сувениры с логотипом) → safe link to catalog
+  star:      { ru: '/ru/catalog-products/',              uz: '/uz/catalog-products/' },
+}
+
 
 export default async function HomePage({ params }: PageProps) {
   const resolvedParams = await params
@@ -59,14 +104,112 @@ export default async function HomePage({ params }: PageProps) {
 
   const isRu = locale === 'ru'
 
-  // ── Hero: CMS → fallback to messages JSON
+  // ────────────────────────────────────────────────────────────────
+  // HERO — CMS first, with fallback to messages JSON
+  // ────────────────────────────────────────────────────────────────
   const heroBadge = (isRu ? home?.hero?.badgeRu : home?.hero?.badgeUz) || messages.hero.badge
   const heroTitle = (isRu ? home?.hero?.titleRu : home?.hero?.titleUz) || messages.hero.title
   const heroTitleAccent = (isRu ? home?.hero?.titleAccentRu : home?.hero?.titleAccentUz) || messages.hero.titleAccent
   const heroSubtitle = (isRu ? home?.hero?.subtitleRu : home?.hero?.subtitleUz) || messages.hero.subtitle
   const heroCtaPrimary = (isRu ? home?.hero?.ctaPrimaryRu : home?.hero?.ctaPrimaryUz) || messages.hero.ctaPrimary
 
-  // ── FAQ from CMS (fallback to hardcoded)
+  // Hero stats from CMS, fallback to old hardcoded 4 stats
+  const cmsStats = home?.hero?.stats || []
+  const heroStats = cmsStats.length > 0
+    ? cmsStats.map((s) => ({
+        value: s.value || '',
+        label: (isRu ? s.labelRu : s.labelUz) || s.labelRu || '',
+      }))
+    : [
+        { value: '100%', label: messages.hero.stats.approval },
+        { value: '1-3', label: messages.hero.stats.days },
+        { value: '∞', label: messages.hero.stats.volume },
+        { value: '✓', label: messages.hero.stats.guarantee },
+      ]
+
+  // ────────────────────────────────────────────────────────────────
+  // BENEFITS — CMS first, fallback to old hardcoded 6 cards
+  // ────────────────────────────────────────────────────────────────
+  const cmsBenefits = home?.benefits || []
+  const benefitsList = cmsBenefits.length > 0
+    ? cmsBenefits.map((b) => ({
+        icon: b.icon || 'check',
+        title: (isRu ? b.titleRu : b.titleUz) || b.titleRu || '',
+        desc: (isRu ? b.descriptionRu : b.descriptionUz) || b.descriptionRu || '',
+      }))
+    : [
+        { icon: 'check',     title: isRu ? 'Макет до производства' : 'Ishlab chiqarishdan oldin maket', desc: isRu ? 'Вы видите результат до запуска. Утверждаете — запускаем. Без сюрпризов.' : "Natijani ishga tushirishdan oldin ko'rasiz. Tasdiqlaysiz — ishga tushiramiz." },
+        { icon: 'package',   title: isRu ? 'Любые тиражи' : 'Istalgan tiraj', desc: isRu ? 'От 1 штуки до тысяч. Единичный VIP-подарок или серия для всей команды с персонализацией.' : "1 donadan minglab donagacha. Yagona VIP-sovg'a yoki butun jamoa uchun seriya." },
+        { icon: 'clock',     title: isRu ? 'Точные сроки' : 'Aniq muddatlar', desc: isRu ? 'Типовые заказы 1-3 дня. Срочное производство по запросу.' : "Oddiy buyurtmalar 1-3 kun. So'rov bo'yicha shoshilinch ishlab chiqarish." },
+        { icon: 'zap',       title: isRu ? 'Любые материалы' : 'Har qanday materiallar', desc: isRu ? 'Металл, дерево, стекло, кожа, акрил, премиальные пластики.' : "Metall, yog'och, shisha, charm, akril, premium plastmassalar." },
+        { icon: 'sparkles',  title: isRu ? 'Работаем с вашими файлами' : 'Sizning fayllaringiz bilan ishlaymiz', desc: isRu ? 'Логотипы, брендбуки, вектор, фото. Нет макета — создадим в корпоративном стиле.' : "Logotiplar, vektor, foto. Maket bo'lmasa — yaratamiz." },
+        { icon: 'users',     title: isRu ? 'B2B-сервис' : 'B2B xizmat', desc: isRu ? 'Работа с юрлицами, закрывающие документы, отсрочка платежа по согласованию.' : "Yuridik shaxslar bilan ishlash, yopuvchi hujjatlar." },
+      ]
+
+  // ────────────────────────────────────────────────────────────────
+  // SERVICES — CMS first, fallback to old hardcoded. SEO links preserved.
+  // ────────────────────────────────────────────────────────────────
+  const cmsServices = home?.services || []
+  const servicesList = cmsServices.length > 0
+    ? cmsServices.map((s) => {
+        const icon = s.icon || 'gift'
+        const hrefMap = SERVICE_HREF_BY_ICON[icon]
+        const href = hrefMap ? (isRu ? hrefMap.ru : hrefMap.uz) : `/${locale}/catalog-products/`
+        return {
+          icon,
+          title: (isRu ? s.titleRu : s.titleUz) || s.titleRu || '',
+          desc: (isRu ? s.descriptionRu : s.descriptionUz) || s.descriptionRu || '',
+          href,
+        }
+      })
+    : [
+        { icon: 'laser',     title: messages.services.laser_engraving,  desc: isRu ? 'Точная лазерная гравировка на металле, дереве, коже и стекле' : "Metall, yog'och, teri va shishada aniq lazer o'ymakorlik", href: isRu ? '/ru/lazernaya-gravirovka-tashkent/' : '/uz/toshkentda-lazer-gravyura/' },
+        { icon: 'gift',      title: messages.services.corporate_gifts,  desc: isRu ? 'Корпоративные подарки с логотипом для сотрудников и партнёров' : "Xodimlar va hamkorlar uchun logotip bilan korporativ sovg'alar", href: isRu ? '/ru/korporativnye-podarki/' : '/uz/toshkentda-korporativ-sovgalar/' },
+        { icon: 'package',   title: messages.services.welcome_packs,    desc: isRu ? 'Welcome-паки для новых сотрудников с брендированными предметами' : "Brendlangan buyumlar bilan yangi xodimlar uchun welcome-to'plamlar", href: `/${locale}/welcome-packs/` },
+        { icon: 'briefcase', title: messages.services.vip_gifts,        desc: isRu ? 'VIP-подарки для ключевых клиентов и партнёров высшего уровня' : "Asosiy mijozlar va yuqori darajadagi hamkorlar uchun VIP-sovg'alar", href: `/${locale}/vip-podarki/` },
+        { icon: 'star',      title: messages.services.branded_sets,     desc: isRu ? 'Брендированные наборы для корпоративных мероприятий и презентаций' : "Korporativ tadbirlar va taqdimotlar uchun brendlangan to'plamlar", href: `/${locale}/catalog-products/` },
+        { icon: 'trophy',    title: isRu ? 'Подарки с гравировкой' : 'Gravyurali sovg\'alar', desc: isRu ? 'Именные подарки и сувениры с лазерной гравировкой' : "Lazer gravyurali shaxsiy sovg'alar va suvenirlar", href: `/${locale}/engraved-gifts/` },
+      ]
+
+  // ────────────────────────────────────────────────────────────────
+  // PORTFOLIO — CMS first, fallback to old hardcoded
+  // ────────────────────────────────────────────────────────────────
+  const cmsPortfolio = home?.portfolio || []
+  const portfolioList = cmsPortfolio.length > 0
+    ? cmsPortfolio.map((p) => ({
+        img: p.image || '/images/og/og-home.jpg',
+        category: (isRu ? p.categoryRu : p.categoryUz) || p.categoryRu || '',
+        title: (isRu ? p.titleRu : p.titleUz) || p.titleRu || '',
+        desc: (isRu ? p.descriptionRu : p.descriptionUz) || p.descriptionRu || '',
+        material: (isRu ? p.materialRu : p.materialUz) || p.materialRu || '',
+        application: (isRu ? p.applicationRu : p.applicationUz) || p.applicationRu || '',
+      }))
+    : [
+        { img: '/images/products/neo/1.jpg', category: isRu ? 'Награды и признание' : 'Mukofotlar va tan olish', title: isRu ? 'Корпоративные награды' : 'Korporativ mukofotlar', desc: isRu ? 'Премиальные награды с гравировкой для сотрудников и партнёров' : 'Xodimlar va hamkorlar uchun gravyurali premium mukofotlar', material: isRu ? 'Металл, дерево' : "Metall, yog'och", application: isRu ? 'Награждение персонала' : 'Xodimlarni mukofotlash' },
+        { img: '/images/products/neo/2.jpg', category: isRu ? 'Премиальные подарки' : "Premium sovg'alar", title: isRu ? 'Часы с персональной гравировкой' : 'Shaxsiy gravyurali soatlar', desc: isRu ? 'Элитные часы с индивидуальной гравировкой для топ-менеджмента' : 'Top-menejerlar uchun individual gravyurali elit soatlar', material: isRu ? 'Металл, стекло' : 'Metall, shisha', application: isRu ? 'Подарки руководителям' : "Rahbarlarga sovg'alar" },
+        { img: '/images/products/neo/3.jpg', category: isRu ? 'Корпоративная продукция' : 'Korporativ mahsulotlar', title: isRu ? 'Брендированные термосы' : 'Brendlangan termoslar', desc: isRu ? 'Качественные термосы с логотипом компании для команды' : 'Jamoa uchun kompaniya logotipi bilan sifatli termoslar', material: isRu ? 'Анодированный алюминий' : 'Anodlangan alyuminiy', application: isRu ? 'Подарки сотрудникам' : "Xodimlarga sovg'alar" },
+      ]
+
+  // ────────────────────────────────────────────────────────────────
+  // PROCESS STEPS — CMS first, fallback to old hardcoded
+  // ────────────────────────────────────────────────────────────────
+  const cmsSteps = home?.processSteps || []
+  const stepsList = cmsSteps.length > 0
+    ? cmsSteps.map((s) => ({
+        step: s.step || '',
+        title: (isRu ? s.titleRu : s.titleUz) || s.titleRu || '',
+        desc: (isRu ? s.descriptionRu : s.descriptionUz) || s.descriptionRu || '',
+      }))
+    : [
+        { step: '1', title: isRu ? 'Заявка' : 'Ariza', desc: isRu ? 'Напишите в Telegram или заполните форму расчёта.' : "Telegramga yozing yoki hisob formasini to'ldiring." },
+        { step: '2', title: isRu ? 'Макет' : 'Maket', desc: isRu ? 'Создаём цифровой макет с точным размещением и размерами.' : "Aniq joylashish va o'lchamlar bilan raqamli maket yaratamiz." },
+        { step: '3', title: isRu ? 'Утверждение' : 'Tasdiqlash', desc: isRu ? 'Согласовываете макет, фиксируем сроки и стоимость.' : "Maketni kelishtirasiz, muddatlar va narxni belgilaymiz." },
+        { step: '4', title: isRu ? 'Производство' : 'Ishlab chiqarish', desc: isRu ? 'Выполняем гравировку согласно утверждённому макету.' : "Tasdiqlangan maketga muvofiq gravyura qilamiz." },
+      ]
+
+  // ────────────────────────────────────────────────────────────────
+  // FAQ — CMS first, fallback to hardcoded
+  // ────────────────────────────────────────────────────────────────
   const cmsFaq = home?.faq || []
   const faqItems = cmsFaq.length > 0
     ? cmsFaq.map((f) => ({
@@ -86,7 +229,7 @@ export default async function HomePage({ params }: PageProps) {
           { q: 'Korporativ buyurtma uchun minimal tiraj qancha?', a: "Minimal tiraj yo'q. 1 ta eksklyuziv sovg'adan minglab donagacha tayyorlaymiz. 50+ donadan narx pasayadi." },
           { q: 'Har bir xodim uchun personalizatsiya qilish mumkinmi?', a: "Ha, tirajdagi har bir mahsulot uchun individual ism, lavozim, sana gravyura qilamiz. Ro'yxat yuboring — tasdiqlash uchun maketlar tayyorlaymiz." },
           { q: 'Yuridik shaxslar bilan ishlaysizmi?', a: "Ha, yuridik shaxslar bilan ishlaymiz. Barcha yopuvchi hujjatlar, hisob-fakturalar, dalolatnomalar taqdim etamiz. Doimiy mijozlar uchun to'lovni kechiktirish mumkin." },
-          { q: 'Ishlab chiqarish qancha vaqt oladi?', a: "Oddiy buyurtmalar — maketni tasdiqlagandan keyin 1-3 kun. Katta tirajlar va murakkab loyihalar — individual muhokasa qilinadi. Shoshilinch ishlab chiqarish — so'rov bo'yicha." },
+          { q: 'Ishlab chiqarish qancha vaqt oladi?', a: "Oddiy buyurtmalar — maketni tasdiqlagandan keyin 1-3 kun. Katta tirajlar va murakkab loyihalar — individual muhokama qilinadi. Shoshilinch ishlab chiqarish — so'rov bo'yicha." },
           { q: 'Ishni boshlash uchun bizdan nima kerak?', a: "Vektor formatida logotip (AI/SVG/PDF) yoki sifatli foto. Tavsif: nima qo'yiladi, qaysi buyumlarga, tiraj, qachongacha. Tayyor maket bo'lmasa — o'zimiz yaratamiz." },
           { q: 'Qaysi materiallarda gravyura qilasiz?', a: "Metall (po'lat, alyuminiy, latun), anodlangan alyuminiy, yog'och, charm, shisha, akril, premium plastmassalar. Fiber, CO2, MOPA va UV texnologiyalari." },
           { q: "Ishlab chiqarishdan oldin natijani ko'rish mumkinmi?", a: "Albatta. Bu bizning standart ishimiz: aniq o'lchamlar va joylashuvga ega raqamli maket olasiz, uni tasdiqlaysiz, va faqat shundan keyin ishlab chiqarishni boshlaymiz." },
@@ -98,7 +241,7 @@ export default async function HomePage({ params }: PageProps) {
       <SchemaOrg schema={[organizationSchema(), websiteSchema(locale), localBusinessSchema(), breadcrumbSchema([{ name: 'Graver.uz', url: `https://graver-studio.uz/${locale}/` }]), faqSchema(faqItems)]} />
 
       {/* ═══════════════════════════════════════════════════════════
-          HERO SECTION — exact transplant from CRA App.js
+          HERO SECTION — driven by CMS (content/homepage/index.yaml)
       ═══════════════════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black pt-20" id="hero">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(20,184,166,0.1),transparent_50%)]" />
@@ -107,17 +250,15 @@ export default async function HomePage({ params }: PageProps) {
           <div className="text-center space-y-8">
             <div className="inline-block">
               <span className="bg-teal-500/10 border border-teal-500/30 text-teal-400 text-sm font-medium px-4 py-2 rounded-full">
-                {messages.hero.badge}
+                {heroBadge}
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-              {messages.hero.title}<br />
-              <span className="bg-gradient-to-r from-teal-500 to-cyan-400 bg-clip-text text-transparent">{messages.hero.titleAccent}</span>
+              {heroTitle}<br />
+              <span className="bg-gradient-to-r from-teal-500 to-cyan-400 bg-clip-text text-transparent">{heroTitleAccent}</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              {messages.hero.subtitle}<br className="hidden sm:block" />
-              {messages.hero.subtitleLine2}<br className="hidden sm:block" />
-              <span className="text-teal-500 font-semibold">{messages.hero.subtitleAccent}</span>
+              {heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
               <a
@@ -140,31 +281,21 @@ export default async function HomePage({ params }: PageProps) {
                 {messages.hero.ctaSecondary}
               </a>
             </div>
-            {/* Trust indicators — exact from CRA */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 max-w-4xl mx-auto">
-              <div className="text-center space-y-2">
-                <div className="text-3xl font-bold text-teal-500">100%</div>
-                <div className="text-sm text-gray-300">{messages.hero.stats.approval}</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-3xl font-bold text-teal-500">1-3</div>
-                <div className="text-sm text-gray-300">{messages.hero.stats.days}</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-3xl font-bold text-teal-500">∞</div>
-                <div className="text-sm text-gray-300">{messages.hero.stats.volume}</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-3xl font-bold text-teal-500">✓</div>
-                <div className="text-sm text-gray-300">{messages.hero.stats.guarantee}</div>
-              </div>
+            {/* Trust indicators — driven by home.hero.stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 max-w-5xl mx-auto">
+              {heroStats.map((s, i) => (
+                <div key={i} className="text-center space-y-2">
+                  <div className="text-2xl md:text-3xl font-bold text-teal-500">{s.value}</div>
+                  <div className="text-sm text-gray-300">{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          B2B BENEFITS SECTION (ported from CRA)
+          B2B BENEFITS SECTION — driven by home.benefits
       ═══════════════════════════════════════════════════════════ */}
       <section id="benefits" className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -182,80 +313,13 @@ export default async function HomePage({ params }: PageProps) {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: (
-                  <svg className="w-7 h-7 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                ),
-                title: isRu ? 'Макет до производства' : 'Ishlab chiqarishdan oldin maket',
-                desc: isRu
-                  ? 'Вы видите результат до запуска. Утверждаете — запускаем. Без сюрпризов.'
-                  : "Natijani ishga tushirishdan oldin ko'rasiz. Tasdiqlaysiz — ishga tushiramiz. Kutilmagan holatlar bo'lmaydi.",
-              },
-              {
-                icon: (
-                  <svg className="w-7 h-7 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                  </svg>
-                ),
-                title: isRu ? 'Любые тиражи' : 'Istalgan tiraj',
-                desc: isRu
-                  ? 'От 1 штуки до тысяч. Единичный VIP-подарок или серия для всей команды с персонализацией.'
-                  : "1 donadan minglab donagacha. Yagona VIP-sovg'a yoki butun jamoa uchun seriya bilan personalizatsiya qilish.",
-              },
-              {
-                icon: (
-                  <svg className="w-7 h-7 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                ),
-                title: isRu ? 'Точные сроки' : 'Aniq muddatlar',
-                desc: isRu
-                  ? 'Типовые заказы 1-3 дня. Срочное производство по запросу. Прозрачное планирование под ваш корпоративный календарь и мероприятия.'
-                  : "Oddiy buyurtmalar 1-3 kun. So'rov bo'yicha shoshilinch ishlab chiqarish. Korporativ taqvimingiz va tadbirlaringiz uchun shaffof rejalashtirish.",
-              },
-              {
-                icon: (
-                  <svg className="w-7 h-7 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                ),
-                title: isRu ? 'Любые материалы' : 'Har qanday materiallar',
-                desc: isRu
-                  ? 'Металл, анодированный алюминий, дерево, стекло, кожа, премиальные пластики. Fiber, CO2, MOPA, UV-технологии под каждую задачу.'
-                  : "Metall, anodlangan alyuminiy, yog'och, shisha, charm, premium plastmassalar. Har bir vazifa uchun Fiber, CO2, MOPA, UV texnologiyalari.",
-              },
-              {
-                icon: (
-                  <svg className="w-7 h-7 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                ),
-                title: isRu ? 'Работаем с вашими файлами' : 'Sizning fayllaringiz bilan ishlaymiz',
-                desc: isRu
-                  ? 'Логотипы, брендбуки, вектор, фото. Нет макета — создадим в корпоративном стиле. Соблюдаем требования брендбука.'
-                  : "Logotiplar, brend-gaydlar, vektor, foto. Maket bo'lmasa — korporativ uslubingizga mos yaratamiz. Brendbuk talablariga rioya qilamiz.",
-              },
-              {
-                icon: (
-                  <svg className="w-7 h-7 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                ),
-                title: isRu ? 'B2B-сервис' : 'B2B xizmat',
-                desc: isRu
-                  ? 'Работа с юрлицами, закрывающие документы, отсрочка платежа по согласованию. Персональный менеджер для крупных заказов.'
-                  : "Yuridik shaxslar bilan ishlash, yopuvchi hujjatlar, kelishuv bo'yicha to'lovni kechiktirish. Yirik buyurtmalar uchun shaxsiy menejer.",
-              },
-            ].map((benefit, i) => (
+            {benefitsList.map((benefit, i) => (
               <div
                 key={i}
                 className="bg-black/50 border border-gray-800 rounded-2xl p-8 hover:border-teal-500/50 transition group"
               >
                 <div className="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-teal-500/20 transition">
-                  {benefit.icon}
+                  <IconByName name={benefit.icon} />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">{benefit.title}</h3>
                 <p className="text-gray-400 leading-relaxed">{benefit.desc}</p>
@@ -266,7 +330,7 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SERVICES SECTION (existing, preserved)
+          SERVICES SECTION — driven by home.services, SEO links preserved
       ═══════════════════════════════════════════════════════════ */}
       <section id="services" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -274,56 +338,7 @@ export default async function HomePage({ params }: PageProps) {
             {messages.services.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: '✦',
-                title: messages.services.laser_engraving,
-                href: isRu ? '/ru/lazernaya-gravirovka-tashkent/' : '/uz/toshkentda-lazer-gravyura/',
-                desc: isRu
-                  ? 'Точная лазерная гравировка на металле, дереве, коже и стекле'
-                  : "Metall, yog'och, teri va shishada aniq lazer o'ymakorlik",
-              },
-              {
-                icon: '🎁',
-                title: messages.services.corporate_gifts,
-                href: isRu ? '/ru/korporativnye-podarki/' : '/uz/toshkentda-korporativ-sovgalar/',
-                desc: isRu
-                  ? 'Корпоративные подарки с логотипом для сотрудников и партнёров'
-                  : "Xodimlar va hamkorlar uchun logotip bilan korporativ sovg'alar",
-              },
-              {
-                icon: '📦',
-                title: messages.services.welcome_packs,
-                href: `/${locale}/welcome-packs/`,
-                desc: isRu
-                  ? 'Welcome-паки для новых сотрудников с брендированными предметами'
-                  : "Brendlangan buyumlar bilan yangi xodimlar uchun welcome-to'plamlar",
-              },
-              {
-                icon: '💼',
-                title: messages.services.branded_sets,
-                href: `/${locale}/catalog-products/`,
-                desc: isRu
-                  ? 'Брендированные наборы для корпоративных мероприятий и презентаций'
-                  : "Korporativ tadbirlar va taqdimotlar uchun brendlangan to'plamlar",
-              },
-              {
-                icon: '⭐',
-                title: messages.services.vip_gifts,
-                href: `/${locale}/vip-podarki/`,
-                desc: isRu
-                  ? 'VIP-подарки для ключевых клиентов и партнёров высшего уровня'
-                  : "Asosiy mijozlar va yuqori darajadagi hamkorlar uchun VIP-sovg'alar",
-              },
-              {
-                icon: '🏆',
-                title: isRu ? 'Награды и сертификаты' : 'Mukofotlar va sertifikatlar',
-                href: `/${locale}/engraved-gifts/`,
-                desc: isRu
-                  ? 'Именные награды, кубки и сертификаты с гравировкой'
-                  : "O'ymakorlik bilan shaxsiy mukofotlar, kuboklar va sertifikatlar",
-              },
-            ].map((service, i) => (
+            {servicesList.map((service, i) => (
               <a
                 key={i}
                 href={service.href}
@@ -331,7 +346,9 @@ export default async function HomePage({ params }: PageProps) {
                 data-track="service-card"
                 data-placement={`service-${i}`}
               >
-                <div className="text-3xl mb-4">{service.icon}</div>
+                <div className="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center mb-4">
+                  <IconByName name={service.icon} className="w-6 h-6 text-teal-500" />
+                </div>
                 <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-teal-400 transition">{service.title}</h3>
                 <p className="text-gray-400">{service.desc}</p>
                 <span className="inline-block mt-4 text-teal-500 text-sm font-medium opacity-0 group-hover:opacity-100 transition">
@@ -344,7 +361,7 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          PRODUCTS SECTION — Lighters Catalog (ported from CRA)
+          PRODUCTS SECTION — Lighters Catalog (preserved)
       ═══════════════════════════════════════════════════════════ */}
       <section id="products" className="py-20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -406,7 +423,7 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          NEO WATCHES SECTION (ported from CRA)
+          NEO WATCHES SECTION (preserved)
       ═══════════════════════════════════════════════════════════ */}
       <section id="neo-watches" className="py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -503,7 +520,7 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          PORTFOLIO SECTION (ported from CRA)
+          PORTFOLIO SECTION — driven by home.portfolio
       ═══════════════════════════════════════════════════════════ */}
       <section id="portfolio" className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -518,56 +535,7 @@ export default async function HomePage({ params }: PageProps) {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                img: '/images/products/neo/1.jpg',
-                category: isRu ? 'Награды и признание' : 'Mukofotlar va tan olish',
-                title: isRu ? 'Корпоративные награды' : 'Korporativ mukofotlar',
-                desc: isRu ? 'Премиальные награды с гравировкой для сотрудников и партнёров' : 'Xodimlar va hamkorlar uchun gravyurali premium mukofotlar',
-                material: isRu ? 'Металл, дерево' : "Metall, yog'och",
-                application: isRu ? 'Награждение персонала' : 'Xodimlarni mukofotlash',
-              },
-              {
-                img: '/images/products/neo/2.jpg',
-                category: isRu ? 'Премиальные подарки' : "Premium sovg'alar",
-                title: isRu ? 'Часы с персональной гравировкой' : 'Shaxsiy gravyurali soatlar',
-                desc: isRu ? 'Элитные часы с индивидуальной гравировкой для топ-менеджмента' : 'Top-menejerlar uchun individual gravyurali elit soatlar',
-                material: isRu ? 'Металл, стекло' : 'Metall, shisha',
-                application: isRu ? 'Подарки руководителям' : 'Rahbarlarga sovg\'alar',
-              },
-              {
-                img: '/images/products/neo/3.jpg',
-                category: isRu ? 'Корпоративная продукция' : 'Korporativ mahsulotlar',
-                title: isRu ? 'Брендированные термосы' : 'Brendlangan termoslar',
-                desc: isRu ? 'Качественные термосы с логотипом компании для команды' : 'Jamoa uchun kompaniya logotipi bilan sifatli termoslar',
-                material: isRu ? 'Анодированный алюминий' : 'Anodlangan alyuminiy',
-                application: isRu ? 'Подарки сотрудникам' : "Xodimlarga sovg'alar",
-              },
-              {
-                img: '/images/products/neo/4.jpg',
-                category: isRu ? 'Корпоративные подарки' : "Korporativ sovg'alar",
-                title: isRu ? 'Премиальный подарочный набор' : "Premium sovg'a to'plami",
-                desc: isRu ? 'Эксклюзивный набор с брендированием для VIP-клиентов' : "VIP-mijozlar uchun brendlangan eksklyuziv to'plam",
-                material: isRu ? 'Комбинированные материалы' : 'Aralash materiallar',
-                application: isRu ? 'Подарки клиентам' : "Mijozlarga sovg'alar",
-              },
-              {
-                img: '/images/products/neo/5.jpg',
-                category: isRu ? 'Брендированная упаковка' : 'Brendlangan qadoqlash',
-                title: isRu ? 'Корпоративная упаковка' : 'Korporativ qadoqlash',
-                desc: isRu ? 'Элегантная упаковка с логотипом для корпоративных мероприятий' : 'Korporativ tadbirlar uchun logotipli nafis qadoqlash',
-                material: isRu ? 'Картон, металл' : 'Karton, metall',
-                application: isRu ? 'Корпоративные события' : 'Korporativ tadbirlar',
-              },
-              {
-                img: '/images/products/neo/6.jpg',
-                category: isRu ? 'Награды премиум-класса' : 'Premium-sinf mukofotlari',
-                title: isRu ? 'Премиальная награда' : 'Premium mukofot',
-                desc: isRu ? 'Эксклюзивная награда из стекла и металла с подсветкой' : 'Yoritish bilan shisha va metalldan eksklyuziv mukofot',
-                material: isRu ? 'Стекло, металл' : 'Shisha, metall',
-                application: isRu ? 'Престижные премии' : 'Nufuzli mukofotlar',
-              },
-            ].map((item, i) => (
+            {portfolioList.map((item, i) => (
               <div key={i} className="group relative bg-black/50 border border-gray-800 rounded-2xl overflow-hidden hover:border-teal-500/50 transition">
                 <div className="aspect-square overflow-hidden bg-gray-800 relative">
                   <Image
@@ -608,7 +576,7 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          PROCESS SECTION (ported from CRA)
+          PROCESS SECTION — driven by home.processSteps
       ═══════════════════════════════════════════════════════════ */}
       <section id="process" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -623,36 +591,7 @@ export default async function HomePage({ params }: PageProps) {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                step: '1',
-                title: isRu ? 'Заявка' : 'Ariza',
-                desc: isRu
-                  ? 'Напишите в Telegram или заполните форму расчёта. Отправьте логотип, фото изделия, опишите задачу и тираж.'
-                  : "Telegramga yozing yoki hisob formasini to'ldiring. Logotip, mahsulot fotosini yuboring, vazifa va tirajni tasvirlab bering.",
-              },
-              {
-                step: '2',
-                title: isRu ? 'Макет' : 'Maket',
-                desc: isRu
-                  ? 'Создаём цифровой макет с точным размещением и размерами. Вы видите финальный результат до производства.'
-                  : "Aniq joylashish va o'lchamlar bilan raqamli maket yaratamiz. Ishlab chiqarishdan oldin yakuniy natijani ko'rasiz.",
-              },
-              {
-                step: '3',
-                title: isRu ? 'Утверждение' : 'Tasdiqlash',
-                desc: isRu
-                  ? 'Согласовываете макет, вносите правки при необходимости. Фиксируем сроки и стоимость.'
-                  : "Maketni kelishtirasiz, kerak bo'lsa tuzatishlar kiritasiz. Muddatlar va narxni belgilaymiz.",
-              },
-              {
-                step: '4',
-                title: isRu ? 'Производство' : 'Ishlab chiqarish',
-                desc: isRu
-                  ? 'Выполняем гравировку согласно утверждённому макету. Контроль качества на каждом этапе.'
-                  : "Tasdiqlangan maketga muvofiq gravyura qilamiz. Har bir bosqichda sifat nazorati.",
-              },
-            ].map((item, i) => (
+            {stepsList.map((item, i) => (
               <div key={i} className="relative">
                 <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 hover:border-teal-500/50 transition">
                   <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mb-6 text-white font-bold text-xl">
@@ -661,7 +600,7 @@ export default async function HomePage({ params }: PageProps) {
                   <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
                   <p className="text-gray-400">{item.desc}</p>
                 </div>
-                {i < 3 && (
+                {i < stepsList.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-teal-500 to-transparent" />
                 )}
               </div>
@@ -681,7 +620,7 @@ export default async function HomePage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          BLOG PREVIEW (existing, preserved)
+          BLOG PREVIEW (preserved)
       ═══════════════════════════════════════════════════════════ */}
       {recentPosts.length > 0 && (
         <section id="blog-preview" className="py-20 bg-gray-900/50">
@@ -739,12 +678,12 @@ export default async function HomePage({ params }: PageProps) {
       )}
 
       {/* ═══════════════════════════════════════════════════════════
-          FAQ SECTION (ported from CRA, client component)
+          FAQ SECTION — passes CMS-derived items to the client component
       ═══════════════════════════════════════════════════════════ */}
-      <FAQSection locale={locale} />
+      <FAQSection locale={locale} items={faqItems} />
 
       {/* ═══════════════════════════════════════════════════════════
-          CONTACT SECTION (existing, enhanced with tracking)
+          CONTACT SECTION (preserved)
       ═══════════════════════════════════════════════════════════ */}
       <section id="contact" className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

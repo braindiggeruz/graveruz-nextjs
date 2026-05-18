@@ -7,6 +7,7 @@ interface FAQItem {
 
 interface FAQSectionProps {
   locale: string
+  items?: FAQItem[]
 }
 
 const faqItemsRu: FAQItem[] = [
@@ -79,9 +80,11 @@ const faqItemsUz: FAQItem[] = [
   },
 ]
 
-export default function FAQSection({ locale }: FAQSectionProps) {
+export default function FAQSection({ locale, items: itemsFromProps }: FAQSectionProps) {
   const isRu = locale === 'ru'
-  const items = isRu ? faqItemsRu : faqItemsUz
+  const items = itemsFromProps && itemsFromProps.length > 0
+    ? itemsFromProps
+    : (isRu ? faqItemsRu : faqItemsUz)
 
   return (
     <section id="faq" className="py-20 bg-black">
