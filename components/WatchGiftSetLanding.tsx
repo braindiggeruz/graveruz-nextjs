@@ -71,12 +71,41 @@ const PERSONALIZATION_UZ = [
 ]
 
 const AUDIENCE = [
-  { img: '/images/products/gift-set-watch/executive-gift.webp', titleRu: 'Партнёрам и VIP-клиентам', titleUz: 'Hamkorlar va VIP-mijozlarga' },
-  { img: '/images/products/gift-set-watch/executive-gift.webp', titleRu: 'Руководителям и топ-менеджерам', titleUz: 'Rahbarlar va top-menejerlarga' },
-  { img: '/images/products/gift-set-watch/welcome-pack.webp', titleRu: 'Новым сотрудникам в welcome pack', titleUz: 'Yangi xodimlarga welcome pack' },
-  { img: '/images/products/gift-set-watch/cta.webp', titleRu: 'Команде на корпоративные праздники', titleUz: 'Jamoaga korporativ bayramlarda' },
-  { img: '/images/products/gift-set-watch/packaging.webp', titleRu: 'Спикерам и гостям мероприятий', titleUz: 'Spiker va tadbir mehmonlariga' },
-  { img: '/images/products/gift-set-watch/composition.webp', titleRu: 'Клиентам после сделки', titleUz: 'Bitim yakuniga yetgan mijozlarga' },
+  {
+    img: '/images/products/gift-set-watch/audience/vip-partners.webp',
+    titleRu: 'Партнёрам и VIP-клиентам',
+    titleUz: 'Hamkorlar va VIP-mijozlarga',
+    altRu: 'Премиальный подарочный набор с часами для партнёров и VIP-клиентов',
+    altUz: 'Hamkorlar va VIP-mijozlar uchun premium soatli sovg‘a to‘plami',
+  },
+  {
+    img: '/images/products/gift-set-watch/audience/executives.webp',
+    titleRu: 'Руководителям и топ-менеджерам',
+    titleUz: 'Rahbarlar va top-menejerlarga',
+    altRu: 'Корпоративный подарочный набор с часами для руководителей и топ-менеджеров',
+    altUz: 'Rahbarlar va top-menejerlar uchun korporativ soatli sovg‘a to‘plami',
+  },
+  {
+    img: '/images/products/gift-set-watch/audience/welcome-pack.webp',
+    titleRu: 'Новым сотрудникам в welcome pack',
+    titleUz: 'Yangi xodimlar uchun welcome pack',
+    altRu: 'Подарочный набор с часами и портмоне для welcome pack новых сотрудников',
+    altUz: 'Yangi xodimlar welcome pack uchun soat va hamyonli sovg‘a to‘plami',
+  },
+  {
+    img: '/images/products/gift-set-watch/audience/corporate-holidays.webp',
+    titleRu: 'Команде на корпоративные праздники',
+    titleUz: 'Korporativ bayramlarda jamoaga',
+    altRu: 'Корпоративные подарочные наборы для команды на праздники',
+    altUz: 'Jamoa uchun korporativ bayram sovg‘a to‘plamlari',
+  },
+  {
+    img: '/images/products/gift-set-watch/audience/events-and-clients.webp',
+    titleRu: 'Спикерам, гостям мероприятий и клиентам после сделки',
+    titleUz: 'Spikerlar, tadbir mehmonlari va mijozlarga',
+    altRu: 'Подарочный набор с часами для спикеров, гостей мероприятий и клиентов после сделки',
+    altUz: 'Spikerlar, tadbir mehmonlari va mijozlar uchun soatli sovg‘a to‘plami',
+  },
 ]
 
 const WHY_RU = [
@@ -276,7 +305,9 @@ export default function WatchGiftSetLanding({
         .gs-pers-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: rgba(240,237,232,0.85); line-height: 1.45; }
         .gs-pers-list li::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: #14b8a6; margin-top: 8px; flex-shrink: 0; }
         .gs-pers-note { margin-top: 20px; padding: 14px 18px; border-left: 2px solid #14b8a6; background: rgba(20, 184, 166, 0.06); font-size: 0.92rem; color: rgba(240,237,232,0.78); line-height: 1.55; border-radius: 0 8px 8px 0; }
-        .gs-audience { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .gs-audience { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+        .gs-aud-card:nth-child(1), .gs-aud-card:nth-child(2), .gs-aud-card:nth-child(3) { grid-column: span 2; }
+        .gs-aud-card:nth-child(4), .gs-aud-card:nth-child(5) { grid-column: span 3; }
         .gs-aud-card { padding: 0; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
         .gs-aud-card:hover { border-color: rgba(20, 184, 166, 0.35); transform: translateY(-3px); }
         .gs-aud-photo { position: relative; aspect-ratio: 4/3; background: #0a0a0b; }
@@ -315,6 +346,8 @@ export default function WatchGiftSetLanding({
         @media (max-width: 1024px) {
           .gs-composition { grid-template-columns: repeat(2, 1fr); }
           .gs-audience { grid-template-columns: repeat(2, 1fr); }
+          .gs-audience .gs-aud-card:nth-child(n) { grid-column: span 1; }
+          .gs-audience .gs-aud-card:nth-child(5) { grid-column: span 2; }
           .gs-steps { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
@@ -344,6 +377,7 @@ export default function WatchGiftSetLanding({
           .gs-comp-body h3 { font-size: 0.95rem; }
           .gs-comp-body p { font-size: 0.78rem; }
           .gs-audience { grid-template-columns: 1fr; }
+          .gs-audience .gs-aud-card:nth-child(n) { grid-column: span 1; }
           .gs-steps { grid-template-columns: 1fr; }
         }
       `}</style>
@@ -475,9 +509,9 @@ export default function WatchGiftSetLanding({
                 <div className="gs-aud-photo">
                   <Image
                     src={a.img}
-                    alt={isRu ? a.titleRu : a.titleUz}
+                    alt={isRu ? a.altRu : a.altUz}
                     fill
-                    sizes="(max-width: 768px) 50vw, 380px"
+                    sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 380px"
                     style={{ objectFit: 'cover' }}
                   />
                 </div>
