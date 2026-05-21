@@ -333,10 +333,10 @@ export default async function KorporativnyePodarkiPage({ params }: PageProps) {
                   { href: `/${locale}/blog/podarki-8-marta-20-idej`, label: '20 идей подарков на 8 марта' },
                 ]
               : [
-                  { href: `/${locale}/blog/korporativ-sovgalar-uzbekiston`, label: "O'zbekistonda korporativ sovg'alar bo'yicha qo'llanma" },
-                  { href: `/${locale}/blog/xodimlar-uchun-welcome-pak`, label: "Yangi xodimlar uchun welcome-pak: to'liq qo'llanma" },
-                  { href: `/${locale}/blog/vip-sovga-goyalari`, label: 'Top-menejerlar uchun VIP sovg\'a g\'oyalari' },
-                  { href: `/${locale}/blog/8-mart-sovgalari-20-goya`, label: '8 Mart uchun 20 ta sovg\'a g\'oyasi' },
+                  { href: `/${locale}/blog/korporativ-sovgalar-ozbekiston`, label: "O'zbekistonda korporativ sovg'alar bo'yicha qo'llanma" },
+                  { href: `/${locale}/blog/xodimlar-uchun-welcome-pack`, label: "Yangi xodimlar uchun welcome-pak: to'liq qo'llanma" },
+                  { href: `/${locale}/blog/vip-sovga-goyalari`, label: "Top-menejerlar uchun VIP sovg'a g'oyalari" },
+                  { href: `/${locale}/blog/8-mart-uchun-korporativ-sovgalar-goyalari`, label: "8 Mart uchun korporativ sovg'a g'oyalari" },
                 ]
             ).map((link, i) => (
               <Link

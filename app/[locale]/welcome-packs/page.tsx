@@ -244,10 +244,10 @@ export default async function WelcomePacksPage({ params }: PageProps) {
                   { href: `/${locale}/blog/korporativnye-podarki-uzbekistan`, label: 'Гид по корпоративным подаркам в Узбекистане' },
                 ]
               : [
-                  { href: `/${locale}/blog/xodimlar-uchun-welcome-pak`, label: "Xodimlar uchun welcome-pak: to'liq qo'llanma 2025" },
-                  { href: `/${locale}/blog/keys-welcome-pack-enps-uzbekiston`, label: "Keys: welcome-pak IT kompaniyada eNPS ni oshirdi" },
+                  { href: `/${locale}/blog/xodimlar-uchun-welcome-pack`, label: "Xodimlar uchun welcome-pak: to'liq qo'llanma 2025" },
+                  { href: `/${locale}/blog/keys-welcome-pak-it-kompaniya-toshkent`, label: "Keys: welcome-pak IT kompaniyada eNPS ni oshirdi" },
                   { href: `/${locale}/korporativnye-podarki`, label: "Gravyura bilan barcha korporativ sovg'alar" },
-                  { href: `/${locale}/blog/korporativ-sovgalar-uzbekiston`, label: "O'zbekistonda korporativ sovg'alar bo'yicha qo'llanma" },
+                  { href: `/${locale}/blog/korporativ-sovgalar-ozbekiston`, label: "O'zbekistonda korporativ sovg'alar bo'yicha qo'llanma" },
                 ]
             ).map((link, i) => (
               <Link

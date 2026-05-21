@@ -219,6 +219,9 @@ export default async function CMSProductPage({ locale, slug }: Props) {
         </section>
       )}
 
+      {/* ── Useful articles & related money pages (internal-link booster) ── */}
+      <RelatedArticlesBlock locale={locale} slug={slug} />
+
       <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">{isRu ? 'Готовы сделать заказ?' : 'Buyurtma berishga tayyormisiz?'}</h2>
@@ -234,5 +237,137 @@ export default async function CMSProductPage({ locale, slug }: Props) {
         </div>
       </section>
     </>
+  )
+}
+
+// ── Per-product internal link map ────────────────────────────────────────────
+// Each product gets 2-3 blog links + 1-2 money page links per locale.
+// All slugs verified to exist in content/blog/{ru,uz}/ at time of editing.
+type ProductLink = { href: string; label: string }
+
+const PRODUCT_BLOG_LINKS: Record<string, { ru: ProductLink[]; uz: ProductLink[] }> = {
+  notebooks: {
+    ru: [
+      { href: '/ru/blog/welcome-pack-dlya-sotrudnikov', label: 'Welcome-пак для сотрудников: полный гид' },
+      { href: '/ru/blog/brendirovanie-suvenirov', label: 'Брендирование сувениров: гравировка, УФ-печать, тампопечать' },
+      { href: '/ru/blog/korporativnye-podarki-uzbekistan', label: 'Корпоративные подарки в Узбекистане' },
+    ],
+    uz: [
+      { href: '/uz/blog/xodimlar-uchun-welcome-pack', label: "Xodimlar uchun welcome-pak: to'liq qo'llanma" },
+      { href: '/uz/blog/suvenir-brendlash', label: 'Suvenirlarni brendlash: gravyura, UF va tampo-pechat' },
+      { href: '/uz/blog/korporativ-sovgalar-ozbekiston', label: "O'zbekistonda korporativ sovg'alar" },
+    ],
+  },
+  pens: {
+    ru: [
+      { href: '/ru/blog/welcome-pack-dlya-sotrudnikov', label: 'Welcome-пак для сотрудников: полный гид' },
+      { href: '/ru/blog/brendirovanie-suvenirov', label: 'Брендирование сувениров: гравировка, УФ-печать, тампопечать' },
+      { href: '/ru/blog/podarochnye-nabory-s-logotipom', label: 'Подарочные наборы с логотипом' },
+    ],
+    uz: [
+      { href: '/uz/blog/xodimlar-uchun-welcome-pack', label: "Xodimlar uchun welcome-pak: to'liq qo'llanma" },
+      { href: '/uz/blog/suvenir-brendlash', label: 'Suvenirlarni brendlash' },
+      { href: '/uz/blog/logotipli-sovga-setlari', label: "Logotipli sovg'a setlari" },
+    ],
+  },
+  'neo-watches': {
+    ru: [
+      { href: '/ru/blog/idei-vip-podarkov', label: 'Идеи VIP-подарков для топ-менеджмента' },
+      { href: '/ru/blog/kak-vybrat-vip-podarok-partneru-uzbekistan', label: 'Как выбрать VIP-подарок партнёру в Узбекистане' },
+      { href: '/ru/blog/korporativnye-podarki-uzbekistan', label: 'Корпоративные подарки в Узбекистане' },
+    ],
+    uz: [
+      { href: '/uz/blog/vip-sovga-goyalari', label: "VIP sovg'a g'oyalari" },
+      { href: '/uz/blog/vip-hamkor-uchun-sovgani-qanday-tanlash-ozbekiston', label: "VIP hamkor uchun sovg'ani qanday tanlash" },
+      { href: '/uz/blog/korporativ-sovgalar-ozbekiston', label: "O'zbekistonda korporativ sovg'alar" },
+    ],
+  },
+  lighters: {
+    ru: [
+      { href: '/ru/blog/brendirovannye-zazhigalki-i-chasy-s-logotipom', label: 'Брендированные зажигалки и часы с логотипом' },
+      { href: '/ru/blog/idei-vip-podarkov', label: 'Идеи VIP-подарков для бизнес-партнёров' },
+      { href: '/ru/blog/korporativnye-podarki-uzbekistan', label: 'Корпоративные подарки в Узбекистане' },
+    ],
+    uz: [
+      { href: '/uz/blog/logotipli-zajigalka-va-soat', label: "Logotipli zajigalka va soat" },
+      { href: '/uz/blog/vip-sovga-goyalari', label: "VIP sovg'a g'oyalari" },
+      { href: '/uz/blog/korporativ-sovgalar-ozbekiston', label: "O'zbekistonda korporativ sovg'alar" },
+    ],
+  },
+  powerbanks: {
+    ru: [
+      { href: '/ru/blog/welcome-pack-dlya-sotrudnikov', label: 'Welcome-пак для сотрудников: полный гид' },
+      { href: '/ru/blog/brendirovanie-suvenirov', label: 'Брендирование сувениров: гравировка, УФ-печать, тампопечать' },
+      { href: '/ru/blog/korporativnye-podarki-uzbekistan', label: 'Корпоративные подарки в Узбекистане' },
+    ],
+    uz: [
+      { href: '/uz/blog/xodimlar-uchun-welcome-pack', label: "Xodimlar uchun welcome-pak: to'liq qo'llanma" },
+      { href: '/uz/blog/suvenir-brendlash', label: 'Suvenirlarni brendlash' },
+      { href: '/uz/blog/korporativ-sovgalar-ozbekiston', label: "O'zbekistonda korporativ sovg'alar" },
+    ],
+  },
+}
+
+const PRODUCT_MONEY_LINKS: Record<Locale, ProductLink[]> = {
+  ru: [
+    { href: '/ru/korporativnye-podarki', label: 'Все корпоративные подарки с гравировкой' },
+    { href: '/ru/welcome-packs', label: 'Welcome-паки для новых сотрудников' },
+    { href: '/ru/lazernaya-gravirovka-tashkent', label: 'Лазерная гравировка в Ташкенте' },
+  ],
+  uz: [
+    { href: '/uz/korporativnye-podarki', label: "Barcha korporativ sovg'alar (gravyura bilan)" },
+    { href: '/uz/welcome-packs', label: 'Yangi xodimlar uchun welcome-pak' },
+    { href: '/uz/toshkentda-lazer-gravyura', label: 'Toshkentda lazer gravyura' },
+  ],
+}
+
+function RelatedArticlesBlock({ locale, slug }: { locale: Locale; slug: string }) {
+  const isRu = locale === 'ru'
+  const blogLinks = PRODUCT_BLOG_LINKS[slug]?.[locale] || []
+  const moneyLinks = PRODUCT_MONEY_LINKS[locale] || []
+  if (blogLinks.length === 0 && moneyLinks.length === 0) return null
+
+  return (
+    <section className="py-16 bg-black" data-testid="product-related-articles">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold text-white mb-8 text-center">
+          {isRu ? 'Полезные статьи' : 'Foydali maqolalar'}
+        </h2>
+        {blogLinks.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            {blogLinks.map((link, i) => (
+              <Link
+                key={i}
+                href={link.href}
+                className="flex items-center p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-teal-500 transition text-gray-300 hover:text-teal-500 text-sm"
+                data-testid={`product-blog-link-${i}`}
+              >
+                <span className="text-teal-500 mr-3">→</span>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        )}
+        {moneyLinks.length > 0 && (
+          <>
+            <h3 className="text-lg font-semibold text-white mb-4 text-center">
+              {isRu ? 'Связанные услуги' : 'Bog\u2018liq xizmatlar'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {moneyLinks.map((link, i) => (
+                <Link
+                  key={i}
+                  href={link.href}
+                  className="flex items-center justify-center p-3 bg-teal-500/10 rounded-lg border border-teal-500/30 hover:border-teal-500 hover:bg-teal-500/20 transition text-teal-400 hover:text-teal-300 text-sm text-center"
+                  data-testid={`product-money-link-${i}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </section>
   )
 }

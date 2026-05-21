@@ -223,6 +223,127 @@ export default async function EngravedGiftsPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-20 bg-gray-900/50" data-testid="engraved-gifts-faq">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-white text-center mb-10">
+            {isRu ? 'Частые вопросы' : "Ko'p so'raladigan savollar"}
+          </h2>
+          <div className="space-y-4">
+            {(isRu
+              ? [
+                  { q: 'Сколько стоит гравировка подарка в Ташкенте?', a: 'Стоимость зависит от материала, размера изделия и тиража. Гравировка имени или короткой фразы обычно входит в цену продукта. Точную цену рассчитаем после уточнения деталей.' },
+                  { q: 'За какой срок можно сделать подарок с гравировкой?', a: 'Срочный заказ — за 1 рабочий день в Ташкенте. Стандартный срок — 2-3 дня. На большой тираж планируем 5-7 дней. Сроки согласовываем заранее, без сюрпризов.' },
+                  { q: 'Что можно гравировать?', a: 'Имя, инициалы, дату, короткую фразу, логотип компании, монограмму, символ или QR-код. Если нужна сложная графика — подготовим макет под лазер.' },
+                  { q: 'На каких материалах вы делаете гравировку?', a: 'Металл, дерево, кожа, акрил, стекло. Лучше всего смотрится на металле и дереве — гравировка получается чёткой и долговечной.' },
+                  { q: 'Можно ли заказать гравировку без логотипа, только для частного подарка?', a: 'Да. Делаем именную гравировку на часах, зажигалках, ручках, блокнотах, powerbank — для дня рождения, юбилея, свадьбы, корпоратива.' },
+                  { q: 'Как сделать заказ?', a: 'Напишите в Telegram @GraverAdm или позвоните +998 77 080 22 88. Уточним подарок, материал, текст гравировки и тираж — после этого подготовим макет и счёт.' },
+                  { q: 'Есть ли доставка по Узбекистану?', a: 'Да. По Ташкенту доставляем в день готовности заказа. По Узбекистану — через курьерские службы за 1-3 дня.' },
+                ]
+              : [
+                  { q: "Toshkentda gravyurali sovg'a qancha turadi?", a: "Narx materialga, buyum o'lchami va tirajga bog'liq. Ism yoki qisqa ibora gravyurasi odatda mahsulot narxiga kiradi. Aniq narxni tafsilotlar aniqlangach hisoblab beramiz." },
+                  { q: "Gravyurali sovg'ani qancha vaqtda tayyorlash mumkin?", a: "Shoshilinch buyurtma — Toshkentda 1 ish kunida. Standart muddat — 2-3 kun. Katta tirajga 5-7 kun rejalashtiramiz. Muddatlarni oldindan kelishib olamiz." },
+                  { q: "Nimani gravyura qilish mumkin?", a: "Ism, bosh harflar, sana, qisqa ibora, kompaniya logotipi, monogramma, ramz yoki QR-kod. Murakkab grafika kerak bo'lsa, lazerga mos maket tayyorlaymiz." },
+                  { q: "Qaysi materiallarda gravyura qilasiz?", a: "Metall, yog'och, charm, akril, shisha. Metall va yog'ochda eng yaxshi ko'rinadi — gravyura aniq va uzoq saqlanadi." },
+                  { q: "Faqat shaxsiy sovg'a uchun (logotipsiz) buyurtma qilish mumkinmi?", a: "Ha. Tug'ilgan kun, yubiley, to'y, korporativ tadbir uchun soat, zajigalka, ruchka, kundalik, powerbankga shaxsiy gravyura qilamiz." },
+                  { q: "Buyurtmani qanday qilish mumkin?", a: "Telegram @GraverAdm ga yozing yoki +998 77 080 22 88 raqamiga qo'ng'iroq qiling. Sovg'a, material, gravyura matni va tirajni aniqlaymiz — keyin maket va hisob-faktura tayyorlaymiz." },
+                  { q: "O'zbekiston bo'ylab yetkazib berasizmi?", a: "Ha. Toshkent bo'ylab buyurtma tayyor bo'lgan kuni yetkazamiz. O'zbekiston bo'ylab kuryerlik xizmatlari orqali 1-3 kunda." },
+                ]
+            ).map((item, i) => (
+              <details key={i} className="bg-gray-800/50 rounded-xl border border-gray-700">
+                <summary className="px-6 py-5 cursor-pointer text-white font-medium hover:text-teal-500 transition list-none flex justify-between items-center">
+                  {item.q}
+                  <span className="text-teal-500 ml-4 flex-shrink-0 text-xl">+</span>
+                </summary>
+                <div className="px-6 pb-5 text-gray-400 leading-relaxed">{item.a}</div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ schema */}
+      <SchemaOrg schema={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: (isRu
+          ? [
+              { q: 'Сколько стоит гравировка подарка в Ташкенте?', a: 'Стоимость зависит от материала, размера изделия и тиража. Гравировка имени или короткой фразы обычно входит в цену продукта.' },
+              { q: 'За какой срок можно сделать подарок с гравировкой?', a: 'Срочный заказ — за 1 рабочий день в Ташкенте. Стандартный срок — 2-3 дня. На большой тираж — 5-7 дней.' },
+              { q: 'Что можно гравировать?', a: 'Имя, инициалы, дату, короткую фразу, логотип компании, монограмму, символ или QR-код.' },
+              { q: 'На каких материалах вы делаете гравировку?', a: 'Металл, дерево, кожа, акрил, стекло. Лучше всего смотрится на металле и дереве.' },
+              { q: 'Можно ли заказать гравировку без логотипа, только для частного подарка?', a: 'Да. Делаем именную гравировку на часах, зажигалках, ручках, блокнотах, powerbank.' },
+              { q: 'Как сделать заказ?', a: 'Напишите в Telegram @GraverAdm или позвоните +998 77 080 22 88.' },
+              { q: 'Есть ли доставка по Узбекистану?', a: 'Да. По Ташкенту в день готовности. По Узбекистану — за 1-3 дня курьерскими службами.' },
+            ]
+          : [
+              { q: "Toshkentda gravyurali sovg'a qancha turadi?", a: "Narx materialga, buyum o'lchami va tirajga bog'liq." },
+              { q: "Gravyurali sovg'ani qancha vaqtda tayyorlash mumkin?", a: "Shoshilinch buyurtma — Toshkentda 1 ish kunida." },
+              { q: "Nimani gravyura qilish mumkin?", a: "Ism, bosh harflar, sana, qisqa ibora, kompaniya logotipi, monogramma, ramz yoki QR-kod." },
+              { q: "Qaysi materiallarda gravyura qilasiz?", a: "Metall, yog'och, charm, akril, shisha." },
+              { q: "Faqat shaxsiy sovg'a uchun buyurtma qilish mumkinmi?", a: "Ha. Tug'ilgan kun, yubiley, to'y, korporativ tadbir uchun shaxsiy gravyura qilamiz." },
+              { q: "Buyurtmani qanday qilish mumkin?", a: "Telegram @GraverAdm ga yozing yoki +998 77 080 22 88 raqamiga qo'ng'iroq qiling." },
+              { q: "O'zbekiston bo'ylab yetkazib berasizmi?", a: "Ha. Toshkent bo'ylab buyurtma tayyor bo'lgan kuni yetkazamiz." },
+            ]
+        ).map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+      }} />
+
+      {/* Internal links to blog + product/money pages */}
+      <section className="py-16 bg-black" data-testid="engraved-gifts-related">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">
+            {isRu ? 'Полезные материалы и категории' : 'Foydali materiallar va kategoriyalar'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            {(isRu
+              ? [
+                  { href: '/ru/blog/chto-podarit-na-den-rozhdeniya', label: 'Что подарить на день рождения' },
+                  { href: '/ru/blog/originalnye-podarki', label: 'Оригинальные подарки с гравировкой' },
+                  { href: '/ru/blog/lazernaya-gravirovka-podarkov', label: 'Лазерная гравировка подарков' },
+                  { href: '/ru/blog/brendirovanie-suvenirov', label: 'Брендирование сувениров: способы' },
+                ]
+              : [
+                  { href: '/uz/blog/tugilgan-kunga-sovgalar', label: "Tug'ilgan kunga sovg'alar" },
+                  { href: '/uz/blog/noyob-sovgalar', label: "Noyob sovg'alar (gravyura bilan)" },
+                  { href: '/uz/blog/lazer-gravirovka-sovgalar', label: "Sovg'alarga lazer gravyura" },
+                  { href: '/uz/blog/suvenir-brendlash', label: 'Suvenirlarni brendlash' },
+                ]
+            ).map((link, i) => (
+              <Link
+                key={i}
+                href={link.href}
+                className="flex items-center p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-teal-500 transition text-gray-300 hover:text-teal-500 text-sm"
+              >
+                <span className="text-teal-500 mr-3">→</span>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {(isRu
+              ? [
+                  { href: '/ru/korporativnye-podarki', label: 'Корпоративные подарки' },
+                  { href: '/ru/lazernaya-gravirovka-tashkent', label: 'Лазерная гравировка в Ташкенте' },
+                  { href: '/ru/welcome-packs', label: 'Welcome-паки для сотрудников' },
+                ]
+              : [
+                  { href: '/uz/korporativnye-podarki', label: "Korporativ sovg'alar" },
+                  { href: '/uz/toshkentda-lazer-gravyura', label: 'Toshkentda lazer gravyura' },
+                  { href: '/uz/welcome-packs', label: 'Welcome-paklar' },
+                ]
+            ).map((link, i) => (
+              <Link
+                key={i}
+                href={link.href}
+                className="flex items-center justify-center p-3 bg-teal-500/10 rounded-lg border border-teal-500/30 hover:border-teal-500 hover:bg-teal-500/20 transition text-teal-400 hover:text-teal-300 text-sm text-center"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20">
         <div className="max-w-2xl mx-auto px-4 text-center">
