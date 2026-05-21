@@ -42,6 +42,35 @@ const REDIRECTED_RU_SLUGS = new Set([
   'podarki-na-8-marta-sotrudnicam',               // -> podarki-8-marta-20-idej
 ])
 
+// UZ blog slugs that are permanently redirected or otherwise should not appear in sitemap.
+const REDIRECTED_UZ_SLUGS = new Set<string>([])
+
+/**
+ * Safely parse a date string. Returns a valid Date or `new Date()` if parsing fails.
+ * Prevents RangeError: Invalid time value from breaking the sitemap build.
+ */
+function safeDate(input?: string): Date {
+  if (!input) return new Date()
+  const d = new Date(input)
+  if (isNaN(d.getTime())) {
+    console.warn(`[sitemap] invalid date "${input}", falling back to now`)
+    return new Date()
+  }
+  return d
+}
+
+/**
+ * Determines whether a post's canonicalOverride points to itself (safe) or to
+ * another URL (means this post is a duplicate that should not be in sitemap).
+ */
+function canonicalPointsElsewhere(locale: Locale, slug: string, canonicalOverride?: string): boolean {
+  if (!canonicalOverride) return false
+  const selfUrl = getLocaleUrl(locale, `blog/${slug}`)
+  // Normalize trailing slash for comparison
+  const normalize = (u: string) => u.replace(/\/+$/, '')
+  return normalize(canonicalOverride) !== normalize(selfUrl)
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = []
 
@@ -104,6 +133,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Build RU slug set for existence checks (prevents fake hreflang pointing to 404)
   const ruSlugSet = new Set(ruPosts.map((p) => p.slug))
+  const uzSlugSet = new Set(uzPosts.map((p) => p.slug))
 
   // Build UZ slug lookup for cross-referencing
   const uzSlugByRu: Record<string, string> = {}
@@ -121,22 +151,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const post of ruPosts) {
     // Skip noindex posts — they should not appear in sitemap
     if (post.noindex) continue
+    // Skip posts whose canonicalOverride points to a different URL — sitemap must only
+    // contain canonical (self-referencing) URLs.
+    if (canonicalPointsElsewhere('ru', post.slug, post.canonicalOverride)) continue
     // Skip slugs that are permanently redirected to a different canonical — sitemap must only
     // contain final 200 URLs. Redirecting URLs in sitemap waste crawl budget and confuse Google.
     if (REDIRECTED_RU_SLUGS.has(post.slug)) continue
 
     const ruUrl = getLocaleUrl('ru', `blog/${post.slug}`)
-    const uzSlug = uzSlugByRu[post.slug] || post.alternateSlug?.uz
+    // Resolve UZ counterpart: prefer the value declared on the RU post; fall back to
+    // a UZ post that points back via alternateSlug.ru.
+    const declaredUzSlug = post.alternateSlug?.uz
+    const inferredUzSlug = uzSlugByRu[post.slug]
+    const candidateUzSlug = declaredUzSlug || inferredUzSlug
+    const confirmedUzSlug = candidateUzSlug && uzSlugSet.has(candidateUzSlug) ? candidateUzSlug : null
 
     // Only include UZ hreflang if a real UZ counterpart exists
     const languages: Record<string, string> = { ru: ruUrl, 'x-default': ruUrl }
-    if (uzSlug) {
-      languages['uz'] = getLocaleUrl('uz', `blog/${uzSlug}`)
+    if (confirmedUzSlug) {
+      languages['uz'] = getLocaleUrl('uz', `blog/${confirmedUzSlug}`)
     }
 
     entries.push({
       url: ruUrl,
-      lastModified: post.date ? new Date(post.date) : new Date(),
+      lastModified: safeDate(post.date),
       changeFrequency: 'monthly',
       priority: 0.7,
       alternates: { languages },
@@ -144,6 +182,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   for (const post of uzPosts) {
+    // Skip noindex posts — they should not appear in sitemap
+    if (post.noindex) continue
+    // Skip posts whose canonicalOverride points to a different URL
+    if (canonicalPointsElsewhere('uz', post.slug, post.canonicalOverride)) continue
+    if (REDIRECTED_UZ_SLUGS.has(post.slug)) continue
+
     const uzUrl = getLocaleUrl('uz', `blog/${post.slug}`)
 
     // Determine the RU counterpart slug:
@@ -167,7 +211,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: uzUrl,
-      lastModified: post.date ? new Date(post.date) : new Date(),
+      lastModified: safeDate(post.date),
       changeFrequency: 'monthly',
       priority: 0.6,
       alternates: { languages },

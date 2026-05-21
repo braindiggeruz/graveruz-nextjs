@@ -112,6 +112,21 @@ export default function BlogIndexClient({ locale, posts }: Props) {
   // ── Latest 3 posts (exact from CRA) ──────────────────────────────────────
   const latestPosts = [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3)
 
+  // ── Popular gift guides (broad gift cluster — internal linking hub) ──────
+  const giftGuides = isRu
+    ? [
+        { slug: 'chto-podarit-na-den-rozhdeniya', label: 'Что подарить на день рождения' },
+        { slug: 'chto-podarit-muzhchine',         label: 'Что подарить мужчине' },
+        { slug: 'chto-podarit-zhenshchine',       label: 'Что подарить женщине' },
+        { slug: 'originalnye-podarki',            label: 'Оригинальные подарки с гравировкой' },
+      ]
+    : [
+        { slug: 'tugilgan-kunga-sovgalar', label: "Tug‘ilgan kunga sovg‘alar" },
+        { slug: 'erkak-sovgalari',         label: "Erkak uchun sovg‘alar" },
+        { slug: 'ayol-sovgalari',          label: "Ayol uchun sovg‘alar" },
+        { slug: 'noyob-sovgalar',          label: "Noyob sovg‘alar (gravyura bilan)" },
+      ]
+
   // ── Money hub links (exact from CRA) ─────────────────────────────────────
   const moneyHubLinks = isRu
     ? [
@@ -269,6 +284,31 @@ export default function BlogIndexClient({ locale, posts }: Props) {
                     day: 'numeric',
                   })}
                 </time>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Popular gift guides (broad gift cluster hub) ─────────────── */}
+        <div
+          className="mb-12 p-6 bg-gradient-to-r from-purple-900/20 to-teal-900/20 border border-teal-700/30 rounded-xl"
+          data-testid="blog-gift-guides-section"
+        >
+          <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <StarIcon size={18} />
+            <span className="text-teal-400">
+              {isRu ? 'Популярные гиды по подаркам' : "Mashhur sovg‘a gidlari"}
+            </span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {giftGuides.map((g, idx) => (
+              <Link
+                key={idx}
+                href={`/${locale}/blog/${g.slug}`}
+                className="text-teal-400 hover:text-teal-300 transition hover:underline text-sm"
+                data-testid={`gift-guide-link-${g.slug}`}
+              >
+                → {g.label}
               </Link>
             ))}
           </div>
