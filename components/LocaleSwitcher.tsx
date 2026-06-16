@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useAlternateSlug } from '@/components/AlternateSlugContext'
+import alternateManifest from '@/lib/alternate-slug-manifest.generated.json'
 import type { Locale } from '@/lib/i18n'
 
 interface LocaleSwitcherProps {
@@ -17,51 +18,105 @@ interface LocaleSwitcherProps {
 }
 
 /**
+ * Build-time manifest map: stripped pathname (no trailing slash) →
+ * { ru?: '/ru/...', uz?: '/uz/...' }.
+ *
+ * Populated by scripts/generate-alternate-slug-manifest.mjs which reads:
+ *  • content/blog/{ru,uz}/*.mdx (frontmatter alternateSlug)
+ *  • content/pages/<slug>/index.yaml (CMS alternateSlug)
+ *  • hardcoded landing-pair safety net
+ *
+ * This is imported statically so SSR (server render of this client
+ * component) and the client bundle both see the *same* data, ensuring the
+ * `<a href="…">` in raw HTML/View-Source is already correct without waiting
+ * for hydration. Googlebot follows that link, no more cross-locale 404s.
+ */
+const MANIFEST = alternateManifest as Record<string, Partial<Record<Locale, string>>>
+
+function stripTrailingSlash(pathname: string): string {
+  if (pathname.length > 1 && pathname.endsWith('/')) return pathname.slice(0, -1)
+  return pathname
+}
+
+/**
  * Compute the URL for a given target locale on the current pathname.
  *
- * Priority (unchanged contract — language switch must never 404):
- * 1. Blog article with alternateSlug in context → use mapped slug
- * 2. Blog article WITHOUT alternateSlug → fallback to /locale/blog
- * 3. Any single-segment slug page (/ru/<slug>/) with alternateSlug in
- *    context → swap the slug for the locale-specific mapping
- *    (covers landings whose RU/UZ slugs differ — e.g. the watch gift
- *    set lives at /ru/podarochniy-nabor-s-chasami/ and
- *    /uz/soatli-sovga-toplami/).
- * 4. Any other page with /ru/ or /uz/ prefix → replace locale segment
- * 5. Root /ru or /uz → switch root
- * 6. Fallback → target locale root
+ * Priority (alternate-link contract — must NEVER 404):
+ * 1. Build-time manifest hit                 → use mapped URL (SSR-correct).
+ * 2. AlternateSlugProvider context (client)  → late override, e.g. CMS pages
+ *    whose alternateSlug pair was added after the last build.
+ * 3. Blog article without any mapping        → fallback to /<locale>/blog
+ *    (never blind-swap blog slugs — they differ per locale).
+ * 4. Same locale already                     → swap segment safely.
+ * 5. Single-segment slug page WITHOUT a known alternate → fallback to
+ *    /<locale>/ (never blind-swap landing slugs — they differ per locale
+ *    and a blind swap is the exact bug that produced GSC 404s).
+ * 6. Multi-segment non-blog page             → safe locale-segment swap
+ *    (covers /<locale>/products/<slug>, /<locale>/about, /<locale>/blog,
+ *    etc. — slugs in these branches are locale-agnostic).
+ * 7. Root /<locale>                          → switch locale root.
+ * 8. Anything else                           → /<locale>/ home.
  */
 function getLocaleUrl(
   pathname: string,
   targetLocale: Locale,
   alternateSlug: Partial<Record<Locale, string>> | null,
 ): string {
+  const stripped = stripTrailingSlash(pathname)
+
+  // 1) Build-time manifest hit — the SSR-correct answer.
+  const manifestEntry = MANIFEST[stripped]
+  if (manifestEntry && manifestEntry[targetLocale]) {
+    return manifestEntry[targetLocale] as string
+  }
+
   const localePrefix = /^\/(ru|uz)(\/|$)/
-  const match = pathname.match(localePrefix)
-  const currentLocale = match ? match[1] : null
+  const match = stripped.match(localePrefix)
+  const currentLocale = match ? (match[1] as Locale) : null
+  const blogArticleMatch = stripped.match(/^\/(ru|uz)\/blog\/([^/]+)$/)
+  const singleSegmentMatch = stripped.match(/^\/(ru|uz)\/([^/]+)$/)
 
-  const blogArticleMatch = pathname.match(/^\/(ru|uz)\/blog\/([^/]+)$/)
-  if (blogArticleMatch) {
-    if (alternateSlug && alternateSlug[targetLocale]) {
-      return `/${targetLocale}/blog/${alternateSlug[targetLocale]}`
+  // 2) Late context override (post-hydration only; SSR has null context).
+  if (alternateSlug && alternateSlug[targetLocale]) {
+    if (blogArticleMatch) {
+      return `/${targetLocale}/blog/${alternateSlug[targetLocale]}/`
     }
-    return `/${targetLocale}/blog`
+    if (singleSegmentMatch) {
+      return `/${targetLocale}/${alternateSlug[targetLocale]}/`
+    }
   }
 
-  // Single-segment slug page with alternateSlug in context (CMS pages or
-  // dedicated landings whose slug differs per locale).
-  const slugPageMatch = pathname.match(/^\/(ru|uz)\/([^/]+)\/?$/)
-  if (slugPageMatch && alternateSlug && alternateSlug[targetLocale]) {
-    return `/${targetLocale}/${alternateSlug[targetLocale]}/`
+  // 3) Blog article without a known alternate → safe fallback to blog index.
+  //    Never blind-swap the slug — RU/UZ blog slugs differ.
+  if (blogArticleMatch) {
+    return `/${targetLocale}/blog/`
   }
 
+  // 4) Already on the target locale (defensive — no-op switch).
+  if (currentLocale === targetLocale) {
+    return stripped + '/'
+  }
+
+  // 5) Single-segment landing /<locale>/<slug>/ without a known alternate →
+  //    locale home (avoid producing /<targetLocale>/<same-ru-or-uz-slug>/
+  //    which is the exact 404 generator we are fixing).
+  if (singleSegmentMatch) {
+    return `/${targetLocale}/`
+  }
+
+  // 6) Multi-segment paths where slugs are locale-agnostic
+  //    (products/*, blog index, about, contacts, guarantees, …).
   if (match && currentLocale) {
-    return pathname.replace(`/${currentLocale}`, `/${targetLocale}`)
+    return stripped.replace(`/${currentLocale}`, `/${targetLocale}`) + '/'
   }
-  if (pathname === '/ru' || pathname === '/uz') {
-    return `/${targetLocale}`
+
+  // 7) /ru or /uz root.
+  if (stripped === '/ru' || stripped === '/uz') {
+    return `/${targetLocale}/`
   }
-  return `/${targetLocale}`
+
+  // 8) Last-resort fallback.
+  return `/${targetLocale}/`
 }
 
 export default function LocaleSwitcher({

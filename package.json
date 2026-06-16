@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/verify-homepage-cms.mjs && node scripts/generate-redirects.mjs && node scripts/build-seo-snapshot.mjs",
+    "prebuild": "node scripts/verify-homepage-cms.mjs && node scripts/generate-redirects.mjs && node scripts/build-seo-snapshot.mjs && node scripts/generate-alternate-slug-manifest.mjs",
     "build": "next build",
     "start": "next start",
     "migrate-blog": "node scripts/migrate-blog.js",
