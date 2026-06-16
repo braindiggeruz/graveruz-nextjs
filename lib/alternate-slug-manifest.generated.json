@@ -146,7 +146,7 @@
   "/ru/blog/welcome-pack-dlya-sotrudnikov": {
     "uz": "/uz/blog/xodimlar-uchun-welcome-pack"
   },
-  "/ru/korporativnye-podarki-tashkent": {
+  "/ru/korporativnye-podarki": {
     "uz": "/uz/toshkentda-korporativ-sovgalar"
   },
   "/ru/lazernaya-gravirovka-tashkent": {
@@ -321,7 +321,7 @@
     "ru": "/ru/podarochniy-nabor-s-chasami"
   },
   "/uz/toshkentda-korporativ-sovgalar": {
-    "ru": "/ru/korporativnye-podarki-tashkent"
+    "ru": "/ru/korporativnye-podarki"
   },
   "/uz/toshkentda-lazer-gravyura": {
     "ru": "/ru/lazernaya-gravirovka-tashkent"

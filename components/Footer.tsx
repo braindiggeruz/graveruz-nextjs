@@ -55,7 +55,7 @@ export default function Footer({ locale, messages, recentPosts = [], settings }:
         <div className="grid md:grid-cols-5 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <Link href={`/${locale}`} className="flex items-center space-x-2 mb-4">
+            <Link href={`/${locale}/`} className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">G</span>
               </div>
@@ -100,14 +100,14 @@ export default function Footer({ locale, messages, recentPosts = [], settings }:
               {recentPosts.map((post, index) => (
                 <Link
                   key={index}
-                  href={`/${locale}/blog/${post.slug}`}
+                  href={`/${locale}/blog/${post.slug}/`}
                   className="block hover:text-teal-500 transition line-clamp-1"
                 >
                   {post.title}
                 </Link>
               ))}
               <Link
-                href={`/${locale}/blog`}
+                href={`/${locale}/blog/`}
                 className="block text-teal-500 hover:text-teal-400 font-medium mt-3"
               >
                 {isRu ? 'Все статьи' : 'Barcha maqolalar'} →
@@ -134,7 +134,7 @@ export default function Footer({ locale, messages, recentPosts = [], settings }:
               {isRu ? 'Быстрые ссылки' : 'Tez havolalar'}
             </h3>
             <div className="space-y-2 text-gray-300 text-sm">
-              <Link href={`/${locale}/blog`} className="block hover:text-teal-500 transition">
+              <Link href={`/${locale}/blog/`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Блог' : 'Blog'}
               </Link>
               <Link
@@ -147,13 +147,13 @@ export default function Footer({ locale, messages, recentPosts = [], settings }:
               <Link href={`/${locale}#services`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Услуги' : 'Xizmatlar'}
               </Link>
-              <Link href={`/${locale}/engraved-gifts`} className="block hover:text-teal-500 transition">
+              <Link href={`/${locale}/engraved-gifts/`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Гравированные подарки' : "O'ymakor sovg'alar"}
               </Link>
-              <Link href={`/${locale}/guarantees`} className="block hover:text-teal-500 transition">
+              <Link href={`/${locale}/guarantees/`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Гарантии' : 'Kafolatlar'}
               </Link>
-              <Link href={`/${locale}/about`} className="block hover:text-teal-500 transition">
+              <Link href={`/${locale}/about/`} className="block hover:text-teal-500 transition">
                 {isRu ? 'О нас' : 'Biz haqimizda'}
               </Link>
               <Link href={`/${locale}#portfolio`} className="block hover:text-teal-500 transition">
@@ -169,22 +169,22 @@ export default function Footer({ locale, messages, recentPosts = [], settings }:
           <div>
             <h3 className="text-white font-bold mb-4">{nav.products}</h3>
             <div className="space-y-2 text-gray-300 text-sm">
-              <Link href={`/${locale}/products/neo-watches`} className="block hover:text-teal-500 transition">
+              <Link href={`/${locale}/products/neo-watches/`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Часы NEO' : 'NEO soatlar'}
               </Link>
-              <Link href={`/${locale}/products/lighters`} className="block hover:text-teal-500 transition">
+              <Link href={`/${locale}/products/lighters/`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Зажигалки' : 'Zazhigalkalar'}
               </Link>
-              <Link href={`/${locale}/products/pens`} className="block hover:text-teal-500 transition">
+              <Link href={`/${locale}/products/pens/`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Ручки' : 'Ruchkalar'}
               </Link>
-              <Link href={`/${locale}/products/powerbanks`} className="block hover:text-teal-500 transition">
+              <Link href={`/${locale}/products/powerbanks/`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Повербанки' : 'Powerbanklar'}
               </Link>
-              <Link href={`/${locale}/products/notebooks`} className="block hover:text-teal-500 transition">
+              <Link href={`/${locale}/products/notebooks/`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Ежедневники' : 'Kundaliklar'}
               </Link>
-              <Link href={`/${locale}/catalog-products`} className="block text-teal-500 hover:text-teal-400 font-medium mt-3">
+              <Link href={`/${locale}/catalog-products/`} className="block text-teal-500 hover:text-teal-400 font-medium mt-3">
                 {isRu ? 'Весь каталог' : "To'liq katalog"} →
               </Link>
             </div>

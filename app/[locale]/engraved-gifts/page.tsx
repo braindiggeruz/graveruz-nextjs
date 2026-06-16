@@ -97,7 +97,7 @@ export default async function EngravedGiftsPage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <nav aria-label="breadcrumb" className="mb-6">
             <ol className="flex justify-center items-center space-x-2 text-sm text-gray-400">
-              <li><Link href={`/${locale}`} className="hover:text-teal-500">Graver.uz</Link></li>
+              <li><Link href={`/${locale}/`} className="hover:text-teal-500">Graver.uz</Link></li>
               <li className="text-gray-600">/</li>
               <li className="text-gray-300">{isRu ? 'Гравированные подарки' : "O'ymakor sovg'alar"}</li>
             </ol>
@@ -297,16 +297,16 @@ export default async function EngravedGiftsPage({ params }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {(isRu
               ? [
-                  { href: '/ru/blog/chto-podarit-na-den-rozhdeniya', label: 'Что подарить на день рождения' },
-                  { href: '/ru/blog/originalnye-podarki', label: 'Оригинальные подарки с гравировкой' },
-                  { href: '/ru/blog/lazernaya-gravirovka-podarkov', label: 'Лазерная гравировка подарков' },
-                  { href: '/ru/blog/brendirovanie-suvenirov', label: 'Брендирование сувениров: способы' },
+                  { href: '/ru/blog/chto-podarit-na-den-rozhdeniya/', label: 'Что подарить на день рождения' },
+                  { href: '/ru/blog/originalnye-podarki/', label: 'Оригинальные подарки с гравировкой' },
+                  { href: '/ru/blog/lazernaya-gravirovka-podarkov/', label: 'Лазерная гравировка подарков' },
+                  { href: '/ru/blog/brendirovanie-suvenirov/', label: 'Брендирование сувениров: способы' },
                 ]
               : [
-                  { href: '/uz/blog/tugilgan-kunga-sovgalar', label: "Tug'ilgan kunga sovg'alar" },
-                  { href: '/uz/blog/noyob-sovgalar', label: "Noyob sovg'alar (gravyura bilan)" },
-                  { href: '/uz/blog/lazer-gravirovka-sovgalar', label: "Sovg'alarga lazer gravyura" },
-                  { href: '/uz/blog/suvenir-brendlash', label: 'Suvenirlarni brendlash' },
+                  { href: '/uz/blog/tugilgan-kunga-sovgalar/', label: "Tug'ilgan kunga sovg'alar" },
+                  { href: '/uz/blog/noyob-sovgalar/', label: "Noyob sovg'alar (gravyura bilan)" },
+                  { href: '/uz/blog/lazer-gravirovka-sovgalar/', label: "Sovg'alarga lazer gravyura" },
+                  { href: '/uz/blog/suvenir-brendlash/', label: 'Suvenirlarni brendlash' },
                 ]
             ).map((link, i) => (
               <Link
@@ -322,14 +322,14 @@ export default async function EngravedGiftsPage({ params }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {(isRu
               ? [
-                  { href: '/ru/korporativnye-podarki', label: 'Корпоративные подарки' },
-                  { href: '/ru/lazernaya-gravirovka-tashkent', label: 'Лазерная гравировка в Ташкенте' },
-                  { href: '/ru/welcome-packs', label: 'Welcome-паки для сотрудников' },
+                  { href: '/ru/korporativnye-podarki/', label: 'Корпоративные подарки' },
+                  { href: '/ru/lazernaya-gravirovka-tashkent/', label: 'Лазерная гравировка в Ташкенте' },
+                  { href: '/ru/welcome-packs/', label: 'Welcome-паки для сотрудников' },
                 ]
               : [
-                  { href: '/uz/korporativnye-podarki', label: "Korporativ sovg'alar" },
-                  { href: '/uz/toshkentda-lazer-gravyura', label: 'Toshkentda lazer gravyura' },
-                  { href: '/uz/welcome-packs', label: 'Welcome-paklar' },
+                  { href: '/uz/korporativnye-podarki/', label: "Korporativ sovg'alar" },
+                  { href: '/uz/toshkentda-lazer-gravyura/', label: 'Toshkentda lazer gravyura' },
+                  { href: '/uz/welcome-packs/', label: 'Welcome-paklar' },
                 ]
             ).map((link, i) => (
               <Link

@@ -64,9 +64,9 @@ export default function ProductPage({ locale, product }: ProductPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav aria-label="breadcrumb" className="mb-8">
             <ol className="flex items-center space-x-2 text-sm text-gray-400 flex-wrap gap-y-1">
-              <li><Link href={`/${locale}`} className="hover:text-teal-500 transition">Graver.uz</Link></li>
+              <li><Link href={`/${locale}/`} className="hover:text-teal-500 transition">Graver.uz</Link></li>
               <li className="text-gray-600">/</li>
-              <li><Link href={`/${locale}/catalog-products`} className="hover:text-teal-500 transition">{isRu ? 'Каталог' : 'Katalog'}</Link></li>
+              <li><Link href={`/${locale}/catalog-products/`} className="hover:text-teal-500 transition">{isRu ? 'Каталог' : 'Katalog'}</Link></li>
               <li className="text-gray-600">/</li>
               <li className="text-gray-300">{name}</li>
             </ol>
@@ -276,7 +276,7 @@ export default function ProductPage({ locale, product }: ProductPageProps) {
               {isRu ? 'Написать в Telegram' : "Telegramga yozish"}
             </a>
             <Link
-              href={`/${locale}/catalog-products`}
+              href={`/${locale}/catalog-products/`}
               className="border border-gray-600 text-gray-300 px-8 py-4 rounded-lg font-semibold hover:border-teal-500 hover:text-white transition"
             >
               {isRu ? '← Весь каталог' : '← Butun katalog'}

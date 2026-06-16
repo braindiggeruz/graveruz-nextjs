@@ -34,6 +34,19 @@ const LOCALIZED_PAIRED_PAGES: Array<{ ru: string; uz: string }> = [
 // Pages that should NOT appear in sitemap
 const EXCLUDED_PAGES = new Set(['thanks'])
 
+// CMS-managed slugs whose page route is redirected elsewhere (next.config.mjs
+// /redirects or middleware). They must NOT appear in the sitemap.
+const REDIRECTED_CMS_SLUGS = new Set<string>([
+  'korporativnye-podarki-tashkent', // → /ru/korporativnye-podarki/ (intentional, owner config)
+])
+
+// Final-canonical mapping for CMS slugs referenced by *other* pages'
+// alternateSlug field. Without this, sitemap hreflang/alternate entries
+// would point at a redirected URL (308) instead of the live canonical.
+const CMS_ALT_SLUG_REWRITES: Record<string, string> = {
+  'korporativnye-podarki-tashkent': 'korporativnye-podarki',
+}
+
 // RU blog slugs that are permanently redirected to a different canonical slug.
 // These must NOT appear in the sitemap — they would send Googlebot to a 308 redirect.
 const REDIRECTED_RU_SLUGS = new Set([
@@ -231,11 +244,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       if (page.status !== 'published') continue
       if (page.seo?.noindex) continue
       if (cmsReservedSlugs.has(page.slug)) continue
+      if (REDIRECTED_CMS_SLUGS.has(page.slug)) continue
       const locale = (page.locale as Locale) || 'ru'
 
       const altSlugs: Partial<Record<Locale, string>> = {}
-      if (page.alternateSlug?.ru) altSlugs.ru = page.alternateSlug.ru
-      if (page.alternateSlug?.uz) altSlugs.uz = page.alternateSlug.uz
+      if (page.alternateSlug?.ru) {
+        const s = page.alternateSlug.ru
+        altSlugs.ru = CMS_ALT_SLUG_REWRITES[s] ?? s
+      }
+      if (page.alternateSlug?.uz) {
+        const s = page.alternateSlug.uz
+        altSlugs.uz = CMS_ALT_SLUG_REWRITES[s] ?? s
+      }
 
       const languages: Record<string, string> = {
         [locale]: getLocaleUrl(locale, page.slug),

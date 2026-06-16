@@ -55,9 +55,9 @@ export default async function CMSProductPage({ locale, slug }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav aria-label="breadcrumb" className="mb-8">
             <ol className="flex items-center space-x-2 text-sm text-gray-400 flex-wrap gap-y-1">
-              <li><Link href={`/${locale}`} className="hover:text-teal-500 transition">Graver.uz</Link></li>
+              <li><Link href={`/${locale}/`} className="hover:text-teal-500 transition">Graver.uz</Link></li>
               <li className="text-gray-600">/</li>
-              <li><Link href={`/${locale}/catalog-products`} className="hover:text-teal-500 transition">{isRu ? 'Каталог' : 'Katalog'}</Link></li>
+              <li><Link href={`/${locale}/catalog-products/`} className="hover:text-teal-500 transition">{isRu ? 'Каталог' : 'Katalog'}</Link></li>
               <li className="text-gray-600">/</li>
               <li className="text-gray-300">{name}</li>
             </ol>
@@ -230,7 +230,7 @@ export default async function CMSProductPage({ locale, slug }: Props) {
             <a href={telegramUrl} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition">
               {isRu ? 'Написать в Telegram' : 'Telegramga yozish'}
             </a>
-            <Link href={`/${locale}/catalog-products`} className="border border-gray-600 text-gray-300 px-8 py-4 rounded-lg font-semibold hover:border-teal-500 hover:text-white transition">
+            <Link href={`/${locale}/catalog-products/`} className="border border-gray-600 text-gray-300 px-8 py-4 rounded-lg font-semibold hover:border-teal-500 hover:text-white transition">
               {isRu ? '← Весь каталог' : '← Butun katalog'}
             </Link>
           </div>
@@ -248,76 +248,76 @@ type ProductLink = { href: string; label: string }
 const PRODUCT_BLOG_LINKS: Record<string, { ru: ProductLink[]; uz: ProductLink[] }> = {
   notebooks: {
     ru: [
-      { href: '/ru/blog/welcome-pack-dlya-sotrudnikov', label: 'Welcome-пак для сотрудников: полный гид' },
-      { href: '/ru/blog/brendirovanie-suvenirov', label: 'Брендирование сувениров: гравировка, УФ-печать, тампопечать' },
-      { href: '/ru/blog/korporativnye-podarki-uzbekistan', label: 'Корпоративные подарки в Узбекистане' },
+      { href: '/ru/blog/welcome-pack-dlya-sotrudnikov/', label: 'Welcome-пак для сотрудников: полный гид' },
+      { href: '/ru/blog/brendirovanie-suvenirov/', label: 'Брендирование сувениров: гравировка, УФ-печать, тампопечать' },
+      { href: '/ru/blog/korporativnye-podarki-uzbekistan/', label: 'Корпоративные подарки в Узбекистане' },
     ],
     uz: [
-      { href: '/uz/blog/xodimlar-uchun-welcome-pack', label: "Xodimlar uchun welcome-pak: to'liq qo'llanma" },
-      { href: '/uz/blog/suvenir-brendlash', label: 'Suvenirlarni brendlash: gravyura, UF va tampo-pechat' },
-      { href: '/uz/blog/korporativ-sovgalar-ozbekiston', label: "O'zbekistonda korporativ sovg'alar" },
+      { href: '/uz/blog/xodimlar-uchun-welcome-pack/', label: "Xodimlar uchun welcome-pak: to'liq qo'llanma" },
+      { href: '/uz/blog/suvenir-brendlash/', label: 'Suvenirlarni brendlash: gravyura, UF va tampo-pechat' },
+      { href: '/uz/blog/korporativ-sovgalar-ozbekiston/', label: "O'zbekistonda korporativ sovg'alar" },
     ],
   },
   pens: {
     ru: [
-      { href: '/ru/blog/welcome-pack-dlya-sotrudnikov', label: 'Welcome-пак для сотрудников: полный гид' },
-      { href: '/ru/blog/brendirovanie-suvenirov', label: 'Брендирование сувениров: гравировка, УФ-печать, тампопечать' },
-      { href: '/ru/blog/podarochnye-nabory-s-logotipom', label: 'Подарочные наборы с логотипом' },
+      { href: '/ru/blog/welcome-pack-dlya-sotrudnikov/', label: 'Welcome-пак для сотрудников: полный гид' },
+      { href: '/ru/blog/brendirovanie-suvenirov/', label: 'Брендирование сувениров: гравировка, УФ-печать, тампопечать' },
+      { href: '/ru/blog/podarochnye-nabory-s-logotipom/', label: 'Подарочные наборы с логотипом' },
     ],
     uz: [
-      { href: '/uz/blog/xodimlar-uchun-welcome-pack', label: "Xodimlar uchun welcome-pak: to'liq qo'llanma" },
-      { href: '/uz/blog/suvenir-brendlash', label: 'Suvenirlarni brendlash' },
-      { href: '/uz/blog/logotipli-sovga-setlari', label: "Logotipli sovg'a setlari" },
+      { href: '/uz/blog/xodimlar-uchun-welcome-pack/', label: "Xodimlar uchun welcome-pak: to'liq qo'llanma" },
+      { href: '/uz/blog/suvenir-brendlash/', label: 'Suvenirlarni brendlash' },
+      { href: '/uz/blog/logotipli-sovga-setlari/', label: "Logotipli sovg'a setlari" },
     ],
   },
   'neo-watches': {
     ru: [
-      { href: '/ru/blog/idei-vip-podarkov', label: 'Идеи VIP-подарков для топ-менеджмента' },
-      { href: '/ru/blog/kak-vybrat-vip-podarok-partneru-uzbekistan', label: 'Как выбрать VIP-подарок партнёру в Узбекистане' },
-      { href: '/ru/blog/korporativnye-podarki-uzbekistan', label: 'Корпоративные подарки в Узбекистане' },
+      { href: '/ru/blog/idei-vip-podarkov/', label: 'Идеи VIP-подарков для топ-менеджмента' },
+      { href: '/ru/blog/kak-vybrat-vip-podarok-partneru-uzbekistan/', label: 'Как выбрать VIP-подарок партнёру в Узбекистане' },
+      { href: '/ru/blog/korporativnye-podarki-uzbekistan/', label: 'Корпоративные подарки в Узбекистане' },
     ],
     uz: [
-      { href: '/uz/blog/vip-sovga-goyalari', label: "VIP sovg'a g'oyalari" },
-      { href: '/uz/blog/vip-hamkor-uchun-sovgani-qanday-tanlash-ozbekiston', label: "VIP hamkor uchun sovg'ani qanday tanlash" },
-      { href: '/uz/blog/korporativ-sovgalar-ozbekiston', label: "O'zbekistonda korporativ sovg'alar" },
+      { href: '/uz/blog/vip-sovga-goyalari/', label: "VIP sovg'a g'oyalari" },
+      { href: '/uz/blog/vip-hamkor-uchun-sovgani-qanday-tanlash-ozbekiston/', label: "VIP hamkor uchun sovg'ani qanday tanlash" },
+      { href: '/uz/blog/korporativ-sovgalar-ozbekiston/', label: "O'zbekistonda korporativ sovg'alar" },
     ],
   },
   lighters: {
     ru: [
-      { href: '/ru/blog/brendirovannye-zazhigalki-i-chasy-s-logotipom', label: 'Брендированные зажигалки и часы с логотипом' },
-      { href: '/ru/blog/idei-vip-podarkov', label: 'Идеи VIP-подарков для бизнес-партнёров' },
-      { href: '/ru/blog/korporativnye-podarki-uzbekistan', label: 'Корпоративные подарки в Узбекистане' },
+      { href: '/ru/blog/brendirovannye-zazhigalki-i-chasy-s-logotipom/', label: 'Брендированные зажигалки и часы с логотипом' },
+      { href: '/ru/blog/idei-vip-podarkov/', label: 'Идеи VIP-подарков для бизнес-партнёров' },
+      { href: '/ru/blog/korporativnye-podarki-uzbekistan/', label: 'Корпоративные подарки в Узбекистане' },
     ],
     uz: [
-      { href: '/uz/blog/logotipli-zajigalka-va-soat', label: "Logotipli zajigalka va soat" },
-      { href: '/uz/blog/vip-sovga-goyalari', label: "VIP sovg'a g'oyalari" },
-      { href: '/uz/blog/korporativ-sovgalar-ozbekiston', label: "O'zbekistonda korporativ sovg'alar" },
+      { href: '/uz/blog/logotipli-zajigalka-va-soat/', label: "Logotipli zajigalka va soat" },
+      { href: '/uz/blog/vip-sovga-goyalari/', label: "VIP sovg'a g'oyalari" },
+      { href: '/uz/blog/korporativ-sovgalar-ozbekiston/', label: "O'zbekistonda korporativ sovg'alar" },
     ],
   },
   powerbanks: {
     ru: [
-      { href: '/ru/blog/welcome-pack-dlya-sotrudnikov', label: 'Welcome-пак для сотрудников: полный гид' },
-      { href: '/ru/blog/brendirovanie-suvenirov', label: 'Брендирование сувениров: гравировка, УФ-печать, тампопечать' },
-      { href: '/ru/blog/korporativnye-podarki-uzbekistan', label: 'Корпоративные подарки в Узбекистане' },
+      { href: '/ru/blog/welcome-pack-dlya-sotrudnikov/', label: 'Welcome-пак для сотрудников: полный гид' },
+      { href: '/ru/blog/brendirovanie-suvenirov/', label: 'Брендирование сувениров: гравировка, УФ-печать, тампопечать' },
+      { href: '/ru/blog/korporativnye-podarki-uzbekistan/', label: 'Корпоративные подарки в Узбекистане' },
     ],
     uz: [
-      { href: '/uz/blog/xodimlar-uchun-welcome-pack', label: "Xodimlar uchun welcome-pak: to'liq qo'llanma" },
-      { href: '/uz/blog/suvenir-brendlash', label: 'Suvenirlarni brendlash' },
-      { href: '/uz/blog/korporativ-sovgalar-ozbekiston', label: "O'zbekistonda korporativ sovg'alar" },
+      { href: '/uz/blog/xodimlar-uchun-welcome-pack/', label: "Xodimlar uchun welcome-pak: to'liq qo'llanma" },
+      { href: '/uz/blog/suvenir-brendlash/', label: 'Suvenirlarni brendlash' },
+      { href: '/uz/blog/korporativ-sovgalar-ozbekiston/', label: "O'zbekistonda korporativ sovg'alar" },
     ],
   },
 }
 
 const PRODUCT_MONEY_LINKS: Record<Locale, ProductLink[]> = {
   ru: [
-    { href: '/ru/korporativnye-podarki', label: 'Все корпоративные подарки с гравировкой' },
-    { href: '/ru/welcome-packs', label: 'Welcome-паки для новых сотрудников' },
-    { href: '/ru/lazernaya-gravirovka-tashkent', label: 'Лазерная гравировка в Ташкенте' },
+    { href: '/ru/korporativnye-podarki/', label: 'Все корпоративные подарки с гравировкой' },
+    { href: '/ru/welcome-packs/', label: 'Welcome-паки для новых сотрудников' },
+    { href: '/ru/lazernaya-gravirovka-tashkent/', label: 'Лазерная гравировка в Ташкенте' },
   ],
   uz: [
-    { href: '/uz/korporativnye-podarki', label: "Barcha korporativ sovg'alar (gravyura bilan)" },
-    { href: '/uz/welcome-packs', label: 'Yangi xodimlar uchun welcome-pak' },
-    { href: '/uz/toshkentda-lazer-gravyura', label: 'Toshkentda lazer gravyura' },
+    { href: '/uz/korporativnye-podarki/', label: "Barcha korporativ sovg'alar (gravyura bilan)" },
+    { href: '/uz/welcome-packs/', label: 'Yangi xodimlar uchun welcome-pak' },
+    { href: '/uz/toshkentda-lazer-gravyura/', label: 'Toshkentda lazer gravyura' },
   ],
 }
 

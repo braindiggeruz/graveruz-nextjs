@@ -103,9 +103,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Breadcrumb */}
         <nav aria-label="breadcrumb" className="mb-8">
           <ol className="flex items-center space-x-2 text-sm text-gray-400 flex-wrap gap-y-1">
-            <li><Link href={`/${locale}`} className="hover:text-teal-500">Graver.uz</Link></li>
+            <li><Link href={`/${locale}/`} className="hover:text-teal-500">Graver.uz</Link></li>
             <li className="text-gray-600">/</li>
-            <li><Link href={`/${locale}/blog`} className="hover:text-teal-500">{messages.blog.title}</Link></li>
+            <li><Link href={`/${locale}/blog/`} className="hover:text-teal-500">{messages.blog.title}</Link></li>
             <li className="text-gray-600">/</li>
             <li className="text-gray-300 truncate max-w-xs">{post.title}</li>
           </ol>
@@ -180,7 +180,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               {relatedPosts.map((related) => (
                 <article key={related.slug} className="bg-gray-800/50 rounded-xl p-5 border border-gray-700 hover:border-teal-500 transition">
                   <h3 className="text-base font-semibold text-white mb-2 line-clamp-2">
-                    <Link href={`/${locale}/blog/${related.slug}`} className="hover:text-teal-500 transition">
+                    <Link href={`/${locale}/blog/${related.slug}/`} className="hover:text-teal-500 transition">
                       {related.title}
                     </Link>
                   </h3>
@@ -193,7 +193,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Back to blog */}
         <div className="mt-12 border-t border-gray-800 pt-8">
-          <Link href={`/${locale}/blog`} className="text-teal-500 hover:text-teal-400 transition flex items-center">
+          <Link href={`/${locale}/blog/`} className="text-teal-500 hover:text-teal-400 transition flex items-center">
             ← {messages.blog.back}
           </Link>
         </div>

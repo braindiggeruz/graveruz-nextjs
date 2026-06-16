@@ -123,7 +123,7 @@ export default async function WelcomePacksPage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <nav aria-label="breadcrumb" className="mb-6">
             <ol className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-              <li><Link href={`/${locale}`} className="hover:text-teal-500">Graver.uz</Link></li>
+              <li><Link href={`/${locale}/`} className="hover:text-teal-500">Graver.uz</Link></li>
               <li className="text-gray-700">/</li>
               <li className="text-gray-400">{isRu ? 'Welcome-паки' : 'Welcome-paklar'}</li>
             </ol>
@@ -238,16 +238,16 @@ export default async function WelcomePacksPage({ params }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {(isRu
               ? [
-                  { href: `/${locale}/blog/welcome-pack-dlya-sotrudnikov`, label: 'Welcome-пак для сотрудников: полный гид 2025' },
-                  { href: `/${locale}/blog/keys-welcome-pack-enps-uzbekistan`, label: 'Кейс: welcome-пак повысил eNPS в IT-компании' },
-                  { href: `/${locale}/korporativnye-podarki`, label: 'Все корпоративные подарки с гравировкой' },
-                  { href: `/${locale}/blog/korporativnye-podarki-uzbekistan`, label: 'Гид по корпоративным подаркам в Узбекистане' },
+                  { href: `/${locale}/blog/welcome-pack-dlya-sotrudnikov/`, label: 'Welcome-пак для сотрудников: полный гид 2025' },
+                  { href: `/${locale}/blog/keys-welcome-pack-enps-uzbekistan/`, label: 'Кейс: welcome-пак повысил eNPS в IT-компании' },
+                  { href: `/${locale}/korporativnye-podarki/`, label: 'Все корпоративные подарки с гравировкой' },
+                  { href: `/${locale}/blog/korporativnye-podarki-uzbekistan/`, label: 'Гид по корпоративным подаркам в Узбекистане' },
                 ]
               : [
-                  { href: `/${locale}/blog/xodimlar-uchun-welcome-pack`, label: "Xodimlar uchun welcome-pak: to'liq qo'llanma 2025" },
-                  { href: `/${locale}/blog/keys-welcome-pak-it-kompaniya-toshkent`, label: "Keys: welcome-pak IT kompaniyada eNPS ni oshirdi" },
-                  { href: `/${locale}/korporativnye-podarki`, label: "Gravyura bilan barcha korporativ sovg'alar" },
-                  { href: `/${locale}/blog/korporativ-sovgalar-ozbekiston`, label: "O'zbekistonda korporativ sovg'alar bo'yicha qo'llanma" },
+                  { href: `/${locale}/blog/xodimlar-uchun-welcome-pack/`, label: "Xodimlar uchun welcome-pak: to'liq qo'llanma 2025" },
+                  { href: `/${locale}/blog/keys-welcome-pak-it-kompaniya-toshkent/`, label: "Keys: welcome-pak IT kompaniyada eNPS ni oshirdi" },
+                  { href: `/${locale}/korporativnye-podarki/`, label: "Gravyura bilan barcha korporativ sovg'alar" },
+                  { href: `/${locale}/blog/korporativ-sovgalar-ozbekiston/`, label: "O'zbekistonda korporativ sovg'alar bo'yicha qo'llanma" },
                 ]
             ).map((link, i) => (
               <Link

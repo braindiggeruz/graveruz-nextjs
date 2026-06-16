@@ -60,11 +60,11 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
   }
 
   const productLinks = [
-    { href: `/${locale}/products/neo-watches`, label: nav.watches },
-    { href: `/${locale}/products/lighters`, label: nav.lighters },
-    { href: `/${locale}/products/pens`, label: nav.pens },
-    { href: `/${locale}/products/powerbanks`, label: nav.powerbanks },
-    { href: `/${locale}/products/notebooks`, label: nav.notebooks },
+    { href: `/${locale}/products/neo-watches/`, label: nav.watches },
+    { href: `/${locale}/products/lighters/`, label: nav.lighters },
+    { href: `/${locale}/products/pens/`, label: nav.pens },
+    { href: `/${locale}/products/powerbanks/`, label: nav.powerbanks },
+    { href: `/${locale}/products/notebooks/`, label: nav.notebooks },
   ]
 
   return (
@@ -72,7 +72,7 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center space-x-2">
+          <Link href={`/${locale}/`} className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">G</span>
             </div>
@@ -128,35 +128,35 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
                     ))}
                     <div className="border-t border-gray-800">
                       <Link
-                        href={`/${locale}/catalog-products`}
+                        href={`/${locale}/catalog-products/`}
                         className="block px-4 py-3 text-teal-500 hover:bg-gray-800 hover:text-teal-400 transition text-sm font-medium"
                         onClick={() => setProductsOpen(false)}
                       >
                         {locale === 'ru' ? 'Весь каталог →' : "To'liq katalog →"}
                       </Link>
                       <Link
-                        href={`/${locale}/engraved-gifts`}
+                        href={`/${locale}/engraved-gifts/`}
                         className="block px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-teal-500 transition text-sm"
                         onClick={() => setProductsOpen(false)}
                       >
                         {locale === 'ru' ? 'Гравированные подарки' : "O'ymakor sovg'alar"}
                       </Link>
                       <Link
-                        href={`/${locale}/korporativnye-podarki`}
+                        href={`/${locale}/korporativnye-podarki/`}
                         className="block px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-teal-500 transition text-sm"
                         onClick={() => setProductsOpen(false)}
                       >
                         {locale === 'ru' ? 'Корпоративные подарки' : "Korporativ sovg'alar"}
                       </Link>
                       <Link
-                        href={`/${locale}/welcome-packs`}
+                        href={`/${locale}/welcome-packs/`}
                         className="block px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-teal-500 transition text-sm"
                         onClick={() => setProductsOpen(false)}
                       >
                         {locale === 'ru' ? 'Welcome-паки' : 'Welcome-paklar'}
                       </Link>
                       <Link
-                        href={`/${locale}/vip-podarki`}
+                        href={`/${locale}/vip-podarki/`}
                         className="block px-4 py-3 text-gray-300 hover:bg-gray-800 hover:text-teal-500 transition text-sm"
                         onClick={() => setProductsOpen(false)}
                       >
@@ -168,7 +168,7 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
               )}
             </div>
 
-            <Link href={`/${locale}/catalog-products`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-catalog">
+            <Link href={`/${locale}/catalog-products/`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-catalog">
               {nav.catalog || (locale === 'ru' ? 'Каталог' : 'Katalog')}
             </Link>
 
@@ -181,18 +181,18 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
             <Link href={`/${locale}#faq`} className="text-gray-300 hover:text-teal-500 transition">
               {nav.faq}
             </Link>
-            <Link href={`/${locale}/guarantees`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-guarantees">
+            <Link href={`/${locale}/guarantees/`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-guarantees">
               {nav.guarantees || (locale === 'ru' ? 'Гарантии' : 'Kafolatlar')}
             </Link>
-            <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-blog">
+            <Link href={`/${locale}/blog/`} className="text-gray-300 hover:text-teal-500 transition" data-testid="nav-blog">
               {nav.blog}
             </Link>
             {nav.about && (
-              <Link href={`/${locale}/about`} className="text-gray-300 hover:text-teal-500 transition">
+              <Link href={`/${locale}/about/`} className="text-gray-300 hover:text-teal-500 transition">
                 {nav.about}
               </Link>
             )}
-            <Link href={`/${locale}/contacts`} className="text-gray-300 hover:text-teal-500 transition">
+            <Link href={`/${locale}/contacts/`} className="text-gray-300 hover:text-teal-500 transition">
               {nav.contacts}
             </Link>
 
@@ -264,26 +264,26 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
                         {label}
                       </Link>
                     ))}
-                    <Link href={`/${locale}/catalog-products`} className="text-teal-500 hover:text-teal-400 transition text-sm font-medium" onClick={() => setMobileOpen(false)}>
+                    <Link href={`/${locale}/catalog-products/`} className="text-teal-500 hover:text-teal-400 transition text-sm font-medium" onClick={() => setMobileOpen(false)}>
                       {locale === 'ru' ? 'Весь каталог →' : "To'liq katalog →"}
                     </Link>
-                    <Link href={`/${locale}/engraved-gifts`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
+                    <Link href={`/${locale}/engraved-gifts/`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
                       {locale === 'ru' ? 'Гравированные подарки' : "O'ymakor sovg'alar"}
                     </Link>
-                    <Link href={`/${locale}/korporativnye-podarki`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
+                    <Link href={`/${locale}/korporativnye-podarki/`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
                       {locale === 'ru' ? 'Корпоративные подарки' : "Korporativ sovg'alar"}
                     </Link>
-                    <Link href={`/${locale}/welcome-packs`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
+                    <Link href={`/${locale}/welcome-packs/`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
                       {locale === 'ru' ? 'Welcome-паки' : 'Welcome-paklar'}
                     </Link>
-                    <Link href={`/${locale}/vip-podarki`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
+                    <Link href={`/${locale}/vip-podarki/`} className="text-gray-400 hover:text-teal-500 transition text-sm" onClick={() => setMobileOpen(false)}>
                       {locale === 'ru' ? 'VIP-подарки' : "VIP sovg'alar"}
                     </Link>
                   </div>
                 )}
               </div>
 
-              <Link href={`/${locale}/catalog-products`} className="text-gray-300 hover:text-teal-500 transition text-left px-2 font-medium" onClick={() => setMobileOpen(false)}>
+              <Link href={`/${locale}/catalog-products/`} className="text-gray-300 hover:text-teal-500 transition text-left px-2 font-medium" onClick={() => setMobileOpen(false)}>
                 {nav.catalog || (locale === 'ru' ? 'Каталог' : 'Katalog')}
               </Link>
 
@@ -296,18 +296,18 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
               <Link href={`/${locale}#faq`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                 {nav.faq}
               </Link>
-              <Link href={`/${locale}/guarantees`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
+              <Link href={`/${locale}/guarantees/`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                 {nav.guarantees || (locale === 'ru' ? 'Гарантии' : 'Kafolatlar')}
               </Link>
-              <Link href={`/${locale}/blog`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
+              <Link href={`/${locale}/blog/`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                 {nav.blog}
               </Link>
               {nav.about && (
-                <Link href={`/${locale}/about`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
+                <Link href={`/${locale}/about/`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                   {nav.about}
                 </Link>
               )}
-              <Link href={`/${locale}/contacts`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
+              <Link href={`/${locale}/contacts/`} className="text-gray-300 hover:text-teal-500 transition text-left px-2" onClick={() => setMobileOpen(false)}>
                 {nav.contacts}
               </Link>
 

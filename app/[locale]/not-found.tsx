@@ -8,7 +8,7 @@ export default async function LocaleNotFound() {
         <h2 className="text-2xl font-semibold text-white mb-4">Страница не найдена</h2>
         <p className="text-gray-400 mb-8">Запрошенная страница не существует.</p>
         <Link
-          href="/ru"
+          href="/ru/"
           className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition"
         >
           На главную

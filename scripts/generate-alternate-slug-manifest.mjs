@@ -88,9 +88,32 @@ function listPageYamls(dir) {
     .filter((p) => fs.existsSync(p))
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+// Known-redirected slugs: when a CMS page exists but its route is
+// permanently redirected (next.config.mjs / middleware), point all alternate
+// hrefs to the *final canonical* slug instead. Otherwise LocaleSwitcher would
+// generate a link that immediately returns 308 → final, costing one
+// unnecessary redirect hop for crawlers and humans.
+// Keys are the *original* slug from MDX/YAML; values are the canonical slug.
+// ─────────────────────────────────────────────────────────────────────────
+const KNOWN_REDIRECTS = {
+  ru: {
+    'korporativnye-podarki-tashkent': 'korporativnye-podarki',
+  },
+  uz: {},
+}
+
+function resolveCanonical(locale, slug) {
+  const t = (KNOWN_REDIRECTS[locale] || {})[slug]
+  return t || slug
+}
+
 const manifest = {}
 
 function addPair(currentLocale, currentSlug, alt, scope) {
+  // Skip whose own URL is a known-redirect source (we don't want to register
+  // a forward pair from the redirected URL; it never gets served).
+  if ((KNOWN_REDIRECTS[currentLocale] || {})[currentSlug]) return
   // scope: '' for landings, 'blog/' for blog posts
   const fromKey = `/${currentLocale}/${scope}${currentSlug}`
   const targets = {}
@@ -98,7 +121,8 @@ function addPair(currentLocale, currentSlug, alt, scope) {
     if (targetLocale === currentLocale) continue
     const targetSlug = alt[targetLocale]
     if (!targetSlug) continue
-    targets[targetLocale] = `/${targetLocale}/${scope}${targetSlug}`
+    const finalSlug = resolveCanonical(targetLocale, targetSlug)
+    targets[targetLocale] = `/${targetLocale}/${scope}${finalSlug}`
   }
   if (Object.keys(targets).length === 0) return
   // Merge with whatever a previous source already produced — never overwrite
@@ -145,7 +169,10 @@ for (const yamlPath of listPageYamls(PAGES_DIR)) {
 const HARDCODED_PAIRS = [
   { ru: 'podarochniy-nabor-s-chasami', uz: 'soatli-sovga-toplami' },
   { ru: 'lazernaya-gravirovka-tashkent', uz: 'toshkentda-lazer-gravyura' },
-  { ru: 'korporativnye-podarki-tashkent', uz: 'toshkentda-korporativ-sovgalar' },
+  // NOTE: `korporativnye-podarki-tashkent` (RU) is permanently redirected to
+  // `/ru/korporativnye-podarki/` by next.config.mjs. Pair it with the UZ
+  // landing via KNOWN_REDIRECTS so LocaleSwitcher emits the canonical RU URL.
+  { ru: 'korporativnye-podarki', uz: 'toshkentda-korporativ-sovgalar' },
 ]
 for (const pair of HARDCODED_PAIRS) {
   addPair('ru', pair.ru, { uz: pair.uz }, '')

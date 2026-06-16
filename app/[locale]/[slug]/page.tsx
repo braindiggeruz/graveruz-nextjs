@@ -55,10 +55,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = seo?.title || page.h1 || ''
   const description = seo?.description || page.intro || ''
 
-  // Build hreflang alternateSlug from page.alternateSlug
+  // Build hreflang alternateSlug from page.alternateSlug.
+  // CMS_ALT_SLUG_REWRITES: when an alternate slug points at a permanently
+  // redirected URL (e.g. korporativnye-podarki-tashkent → korporativnye-podarki),
+  // emit the final canonical so hreflang signals never point at a 308.
+  const CMS_ALT_SLUG_REWRITES: Record<string, string> = {
+    'korporativnye-podarki-tashkent': 'korporativnye-podarki',
+  }
   const altSlug: Partial<Record<Locale, string>> = {}
-  if (page.alternateSlug?.ru) altSlug.ru = page.alternateSlug.ru
-  if (page.alternateSlug?.uz) altSlug.uz = page.alternateSlug.uz
+  if (page.alternateSlug?.ru) {
+    const s = page.alternateSlug.ru
+    altSlug.ru = CMS_ALT_SLUG_REWRITES[s] ?? s
+  }
+  if (page.alternateSlug?.uz) {
+    const s = page.alternateSlug.uz
+    altSlug.uz = CMS_ALT_SLUG_REWRITES[s] ?? s
+  }
 
   return buildMetadata({
     locale,

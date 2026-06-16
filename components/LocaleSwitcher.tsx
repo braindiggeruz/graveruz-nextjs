@@ -19,7 +19,7 @@ interface LocaleSwitcherProps {
 
 /**
  * Build-time manifest map: stripped pathname (no trailing slash) →
- * { ru?: '/ru/...', uz?: '/uz/...' }.
+ * { ru?: '/ru/.../', uz?: '/uz/.../' }.
  *
  * Populated by scripts/generate-alternate-slug-manifest.mjs which reads:
  *  • content/blog/{ru,uz}/*.mdx (frontmatter alternateSlug)
@@ -67,7 +67,10 @@ function getLocaleUrl(
   // 1) Build-time manifest hit — the SSR-correct answer.
   const manifestEntry = MANIFEST[stripped]
   if (manifestEntry && manifestEntry[targetLocale]) {
-    return manifestEntry[targetLocale] as string
+    // Always emit canonical trailing slash to avoid 308 redirect hops in
+    // crawler eyes (next.config.mjs uses trailingSlash: true).
+    const u = manifestEntry[targetLocale] as string
+    return u.endsWith('/') ? u : u + '/'
   }
 
   const localePrefix = /^\/(ru|uz)(\/|$)/

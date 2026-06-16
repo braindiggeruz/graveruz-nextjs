@@ -75,28 +75,28 @@ export default async function VipPodarkiPage({ params }: PageProps) {
           icon: '⌚',
           title: 'Часы NEO с гравировкой',
           desc: 'Брендированные наручные часы с гравировкой имени или логотипа на задней крышке. Поставляются в фирменной коробке с сертификатом.',
-          href: `/${locale}/products/neo-watches`,
+          href: `/${locale}/products/neo-watches/`,
           tag: 'Топ выбор',
         },
         {
           icon: '✒️',
           title: 'Ручки Parker-класса',
           desc: 'Металлические ручки премиум-сегмента с именной гравировкой. Идеальны для подписания договоров и деловых встреч.',
-          href: `/${locale}/products/pens`,
+          href: `/${locale}/products/pens/`,
           tag: null,
         },
         {
           icon: '🔥',
           title: 'Зажигалки Zippo с гравировкой',
           desc: 'Классические зажигалки с гравировкой монограммы или логотипа. Вечный подарок, который передают по наследству.',
-          href: `/${locale}/products/lighters`,
+          href: `/${locale}/products/lighters/`,
           tag: null,
         },
         {
           icon: '📓',
           title: 'Кожаные ежедневники',
           desc: 'Ежедневники из натуральной кожи с тиснением логотипа или имени. Формат A5, 365 страниц, ляссе.',
-          href: `/${locale}/products/notebooks`,
+          href: `/${locale}/products/notebooks/`,
           tag: null,
         },
       ]
@@ -105,28 +105,28 @@ export default async function VipPodarkiPage({ params }: PageProps) {
           icon: '⌚',
           title: 'Gravyurali NEO soatlar',
           desc: "Orqa qopqoqda ism yoki logotip gravyurasi bilan brendlangan qo'l soatlari. Sertifikat bilan firma qutisida yetkaziladi.",
-          href: `/${locale}/products/neo-watches`,
+          href: `/${locale}/products/neo-watches/`,
           tag: 'Top tanlov',
         },
         {
           icon: '✒️',
           title: 'Parker sinfidagi ruchkalar',
           desc: "Shaxsiy gravyurali premium segmentdagi metall ruchkalar. Shartnoma imzolash va biznes uchrashuvlar uchun ideal.",
-          href: `/${locale}/products/pens`,
+          href: `/${locale}/products/pens/`,
           tag: null,
         },
         {
           icon: '🔥',
           title: 'Gravyurali Zippo zajigilkalari',
           desc: "Monogramma yoki logotip gravyurasi bilan klassik zajigilkalar. Avloddan avlodga o'tadigan abadiy sovg'a.",
-          href: `/${locale}/products/lighters`,
+          href: `/${locale}/products/lighters/`,
           tag: null,
         },
         {
           icon: '📓',
           title: 'Charm kundaliklar',
           desc: "Logotip yoki ism bosma bilan tabiiy charm kundaliklar. A5 format, 365 sahifa, lasse.",
-          href: `/${locale}/products/notebooks`,
+          href: `/${locale}/products/notebooks/`,
           tag: null,
         },
       ]
@@ -141,7 +141,7 @@ export default async function VipPodarkiPage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <nav aria-label="breadcrumb" className="mb-6">
             <ol className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-              <li><Link href={`/${locale}`} className="hover:text-teal-500">Graver.uz</Link></li>
+              <li><Link href={`/${locale}/`} className="hover:text-teal-500">Graver.uz</Link></li>
               <li className="text-gray-700">/</li>
               <li className="text-gray-400">{isRu ? 'VIP-подарки' : "VIP sovg'alar"}</li>
             </ol>
@@ -288,16 +288,16 @@ export default async function VipPodarkiPage({ params }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {(isRu
               ? [
-                  { href: `/${locale}/blog/idei-vip-podarkov`, label: 'Идеи VIP-подарков для топ-менеджмента' },
-                  { href: `/${locale}/blog/korporativnye-podarki-uzbekistan`, label: 'Корпоративные подарки в Узбекистане: полный гид' },
-                  { href: `/${locale}/korporativnye-podarki`, label: 'Все корпоративные подарки с гравировкой' },
-                  { href: `/${locale}/products/neo-watches`, label: 'Часы NEO — флагманский VIP-подарок' },
+                  { href: `/${locale}/blog/idei-vip-podarkov/`, label: 'Идеи VIP-подарков для топ-менеджмента' },
+                  { href: `/${locale}/blog/korporativnye-podarki-uzbekistan/`, label: 'Корпоративные подарки в Узбекистане: полный гид' },
+                  { href: `/${locale}/korporativnye-podarki/`, label: 'Все корпоративные подарки с гравировкой' },
+                  { href: `/${locale}/products/neo-watches/`, label: 'Часы NEO — флагманский VIP-подарок' },
                 ]
               : [
-                  { href: `/${locale}/blog/vip-sovga-goyalari`, label: 'Top-menejerlar uchun VIP sovg\'a g\'oyalari' },
-                  { href: `/${locale}/blog/korporativ-sovgalar-uzbekiston`, label: "O'zbekistonda korporativ sovg'alar: to'liq qo'llanma" },
-                  { href: `/${locale}/korporativnye-podarki`, label: "Gravyura bilan barcha korporativ sovg'alar" },
-                  { href: `/${locale}/products/neo-watches`, label: "NEO soatlar — flagman VIP sovg'a" },
+                  { href: `/${locale}/blog/vip-sovga-goyalari/`, label: 'Top-menejerlar uchun VIP sovg\'a g\'oyalari' },
+                  { href: `/${locale}/blog/korporativ-sovgalar-uzbekiston/`, label: "O'zbekistonda korporativ sovg'alar: to'liq qo'llanma" },
+                  { href: `/${locale}/korporativnye-podarki/`, label: "Gravyura bilan barcha korporativ sovg'alar" },
+                  { href: `/${locale}/products/neo-watches/`, label: "NEO soatlar — flagman VIP sovg'a" },
                 ]
             ).map((link, i) => (
               <Link

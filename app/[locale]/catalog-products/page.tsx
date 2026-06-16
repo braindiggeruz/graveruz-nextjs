@@ -83,7 +83,7 @@ export default async function CatalogProductsPage({ params }: PageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <nav aria-label="breadcrumb" className="mb-8">
           <ol className="flex items-center space-x-2 text-sm text-gray-400">
-            <li><Link href={`/${locale}`} className="hover:text-teal-500">Graver.uz</Link></li>
+            <li><Link href={`/${locale}/`} className="hover:text-teal-500">Graver.uz</Link></li>
             <li className="text-gray-600">/</li>
             <li className="text-gray-300">{messages.nav.products}</li>
           </ol>
@@ -104,7 +104,7 @@ export default async function CatalogProductsPage({ params }: PageProps) {
             return (
               <Link
                 key={product.slug}
-                href={`/${locale}/products/${product.slug}`}
+                href={`/${locale}/products/${product.slug}/`}
                 className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-teal-500 transition group"
               >
                 <div className="text-4xl mb-4">{product.icon}</div>

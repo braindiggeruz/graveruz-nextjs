@@ -55,7 +55,7 @@ export default async function ContactsPage({ params }: PageProps) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <nav aria-label="breadcrumb" className="mb-8">
           <ol className="flex items-center space-x-2 text-sm text-gray-400">
-            <li><Link href={`/${locale}`} className="hover:text-teal-500">Graver.uz</Link></li>
+            <li><Link href={`/${locale}/`} className="hover:text-teal-500">Graver.uz</Link></li>
             <li className="text-gray-600">/</li>
             <li className="text-gray-300">{messages.contact.title}</li>
           </ol>

@@ -47,7 +47,7 @@ export default async function ThanksPage({ params }: PageProps) {
         <h1 className="text-3xl font-bold text-white mb-4">{messages.thanks.title}</h1>
         <p className="text-gray-400 mb-8">{messages.thanks.description}</p>
         <Link
-          href={`/${locale}`}
+          href={`/${locale}/`}
           className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition"
         >
           {messages.thanks.back_home}

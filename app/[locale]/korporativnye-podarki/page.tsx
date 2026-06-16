@@ -87,42 +87,42 @@ export default async function KorporativnyePodarkiPage({ params }: PageProps) {
           icon: '⌚',
           title: 'Часы с логотипом',
           desc: 'Брендированные часы NEO — премиальный корпоративный подарок. Гравировка логотипа на задней крышке или циферблате.',
-          href: `/${locale}/products/neo-watches`,
+          href: `/${locale}/products/neo-watches/`,
           cta: 'Смотреть часы',
         },
         {
           icon: '✒️',
           title: 'Ручки с гравировкой',
           desc: 'Металлические ручки Parker-класса с именной гравировкой. Идеальны для топ-менеджмента и деловых партнёров.',
-          href: `/${locale}/products/pens`,
+          href: `/${locale}/products/pens/`,
           cta: 'Смотреть ручки',
         },
         {
           icon: '🔥',
           title: 'Зажигалки с логотипом',
           desc: 'Зажигалки Zippo с гравировкой логотипа. Долговечный и запоминающийся корпоративный сувенир.',
-          href: `/${locale}/products/lighters`,
+          href: `/${locale}/products/lighters/`,
           cta: 'Смотреть зажигалки',
         },
         {
           icon: '📓',
           title: 'Блокноты и ежедневники',
           desc: 'Кожаные и экокожаные блокноты с тиснением логотипа. Практичный подарок для сотрудников и клиентов.',
-          href: `/${locale}/products/notebooks`,
+          href: `/${locale}/products/notebooks/`,
           cta: 'Смотреть блокноты',
         },
         {
           icon: '🔋',
           title: 'Повербанки с брендингом',
           desc: 'Портативные зарядные устройства с логотипом компании. Технологичный подарок, который используют каждый день.',
-          href: `/${locale}/products/powerbanks`,
+          href: `/${locale}/products/powerbanks/`,
           cta: 'Смотреть повербанки',
         },
         {
           icon: '🎁',
           title: 'Welcome-паки для сотрудников',
           desc: 'Готовые наборы для новых сотрудников: ручка + блокнот + повербанк с единым брендингом компании.',
-          href: `/${locale}/welcome-packs`,
+          href: `/${locale}/welcome-packs/`,
           cta: 'Узнать о welcome-паках',
         },
       ]
@@ -138,42 +138,42 @@ export default async function KorporativnyePodarkiPage({ params }: PageProps) {
           icon: '⌚',
           title: 'Logotipli soatlar',
           desc: "NEO brendlangan soatlar — premium korporativ sovg'a. Orqa qopqoq yoki tsiferblatda logotip gravyurasi.",
-          href: `/${locale}/products/neo-watches`,
+          href: `/${locale}/products/neo-watches/`,
           cta: 'Soatlarni ko\'rish',
         },
         {
           icon: '✒️',
           title: 'Gravyurali ruchkalar',
           desc: "Parker sinfidagi metall ruchkalar shaxsiy gravyura bilan. Top-menejerlar va biznes hamkorlar uchun ideal.",
-          href: `/${locale}/products/pens`,
+          href: `/${locale}/products/pens/`,
           cta: 'Ruchkalarni ko\'rish',
         },
         {
           icon: '🔥',
           title: 'Logotipli zajigilkalar',
           desc: "Logotip gravyurasi bilan Zippo zajigilkalari. Uzoq muddatli va yodda qoladigan korporativ sovenir.",
-          href: `/${locale}/products/lighters`,
+          href: `/${locale}/products/lighters/`,
           cta: 'Zajigilkalarni ko\'rish',
         },
         {
           icon: '📓',
           title: 'Daftarlar va kundaliklar',
           desc: "Logotip bosma bilan charm va eko-charm daftarlar. Xodimlar va mijozlar uchun amaliy sovg'a.",
-          href: `/${locale}/products/notebooks`,
+          href: `/${locale}/products/notebooks/`,
           cta: 'Daftarlarni ko\'rish',
         },
         {
           icon: '🔋',
           title: 'Brendlangan powerbank\'lar',
           desc: "Kompaniya logotipi bilan ko'chma zaryadlovchi qurilmalar. Har kuni ishlatiladigan texnologik sovg'a.",
-          href: `/${locale}/products/powerbanks`,
+          href: `/${locale}/products/powerbanks/`,
           cta: 'Powerbankni ko\'rish',
         },
         {
           icon: '🎁',
           title: 'Xodimlar uchun welcome-paklar',
           desc: "Yangi xodimlar uchun tayyor to'plamlar: ruchka + daftar + powerbank yagona kompaniya brendingi bilan.",
-          href: `/${locale}/welcome-packs`,
+          href: `/${locale}/welcome-packs/`,
           cta: 'Welcome-paklar haqida',
         },
       ]
@@ -202,7 +202,7 @@ export default async function KorporativnyePodarkiPage({ params }: PageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <nav aria-label="breadcrumb" className="mb-6">
             <ol className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-              <li><Link href={`/${locale}`} className="hover:text-teal-500">Graver.uz</Link></li>
+              <li><Link href={`/${locale}/`} className="hover:text-teal-500">Graver.uz</Link></li>
               <li className="text-gray-700">/</li>
               <li className="text-gray-400">{isRu ? 'Корпоративные подарки' : "Korporativ sovg'alar"}</li>
             </ol>
@@ -327,16 +327,16 @@ export default async function KorporativnyePodarkiPage({ params }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {(isRu
               ? [
-                  { href: `/${locale}/blog/korporativnye-podarki-uzbekistan`, label: 'Гид по корпоративным подаркам в Узбекистане' },
-                  { href: `/${locale}/blog/welcome-pack-dlya-sotrudnikov`, label: 'Welcome-пак для новых сотрудников: полный гид' },
-                  { href: `/${locale}/blog/idei-vip-podarkov`, label: 'Идеи VIP-подарков для топ-менеджмента' },
-                  { href: `/${locale}/blog/podarki-8-marta-20-idej`, label: '20 идей подарков на 8 марта' },
+                  { href: `/${locale}/blog/korporativnye-podarki-uzbekistan/`, label: 'Гид по корпоративным подаркам в Узбекистане' },
+                  { href: `/${locale}/blog/welcome-pack-dlya-sotrudnikov/`, label: 'Welcome-пак для новых сотрудников: полный гид' },
+                  { href: `/${locale}/blog/idei-vip-podarkov/`, label: 'Идеи VIP-подарков для топ-менеджмента' },
+                  { href: `/${locale}/blog/podarki-8-marta-20-idej/`, label: '20 идей подарков на 8 марта' },
                 ]
               : [
-                  { href: `/${locale}/blog/korporativ-sovgalar-ozbekiston`, label: "O'zbekistonda korporativ sovg'alar bo'yicha qo'llanma" },
-                  { href: `/${locale}/blog/xodimlar-uchun-welcome-pack`, label: "Yangi xodimlar uchun welcome-pak: to'liq qo'llanma" },
-                  { href: `/${locale}/blog/vip-sovga-goyalari`, label: "Top-menejerlar uchun VIP sovg'a g'oyalari" },
-                  { href: `/${locale}/blog/8-mart-uchun-korporativ-sovgalar-goyalari`, label: "8 Mart uchun korporativ sovg'a g'oyalari" },
+                  { href: `/${locale}/blog/korporativ-sovgalar-ozbekiston/`, label: "O'zbekistonda korporativ sovg'alar bo'yicha qo'llanma" },
+                  { href: `/${locale}/blog/xodimlar-uchun-welcome-pack/`, label: "Yangi xodimlar uchun welcome-pak: to'liq qo'llanma" },
+                  { href: `/${locale}/blog/vip-sovga-goyalari/`, label: "Top-menejerlar uchun VIP sovg'a g'oyalari" },
+                  { href: `/${locale}/blog/8-mart-uchun-korporativ-sovgalar-goyalari/`, label: "8 Mart uchun korporativ sovg'a g'oyalari" },
                 ]
             ).map((link, i) => (
               <Link

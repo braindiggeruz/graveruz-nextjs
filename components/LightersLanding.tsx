@@ -99,7 +99,7 @@ export default function LightersLanding({ locale }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8">
-            <Link href={`/${locale}`} className="hover:text-teal-500 transition">{isRu ? 'Главная' : 'Bosh sahifa'}</Link>
+            <Link href={`/${locale}/`} className="hover:text-teal-500 transition">{isRu ? 'Главная' : 'Bosh sahifa'}</Link>
             <span>/</span>
             <span className="text-gray-300">{isRu ? 'Зажигалки' : 'Zajigalkalar'}</span>
           </nav>
@@ -361,13 +361,13 @@ export default function LightersLanding({ locale }: Props) {
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              href={`/${locale}/products/neo-watches`}
+              href={`/${locale}/products/neo-watches/`}
               className="bg-gray-900 border border-gray-800 rounded-lg px-6 py-3 text-gray-300 hover:text-teal-400 hover:border-teal-500/50 transition"
             >
               {isRu ? '⌚ Часы NEO с логотипом' : "⌚ NEO logotipli soat"}
             </Link>
             <Link
-              href={`/${locale}/blog`}
+              href={`/${locale}/blog/`}
               className="bg-gray-900 border border-gray-800 rounded-lg px-6 py-3 text-gray-300 hover:text-teal-400 hover:border-teal-500/50 transition"
             >
               {isRu ? '📖 Блог о гравировке' : "📖 Gravyura haqida blog"}

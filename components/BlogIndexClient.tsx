@@ -130,14 +130,14 @@ export default function BlogIndexClient({ locale, posts }: Props) {
   // ── Money hub links (exact from CRA) ─────────────────────────────────────
   const moneyHubLinks = isRu
     ? [
-        { href: `/${locale}/products/lighters`, label: 'Зажигалки с логотипом и гравировкой' },
-        { href: `/${locale}/products/neo-watches`, label: 'Часы NEO с логотипом компании' },
+        { href: `/${locale}/products/lighters/`, label: 'Зажигалки с логотипом и гравировкой' },
+        { href: `/${locale}/products/neo-watches/`, label: 'Часы NEO с логотипом компании' },
         { href: `/${locale}#contact`, label: 'Заказать гравировку — связаться с нами' },
         { href: `/${locale}#services`, label: 'Все услуги лазерной гравировки' },
       ]
     : [
-        { href: `/${locale}/products/lighters`, label: 'Logotip va gravyurali zajigalkalar' },
-        { href: `/${locale}/products/neo-watches`, label: 'Kompaniya logotipi bilan NEO soatlar' },
+        { href: `/${locale}/products/lighters/`, label: 'Logotip va gravyurali zajigalkalar' },
+        { href: `/${locale}/products/neo-watches/`, label: 'Kompaniya logotipi bilan NEO soatlar' },
         { href: `/${locale}#contact`, label: "Gravyura buyurtma berish — biz bilan bog'lanish" },
         { href: `/${locale}#services`, label: 'Barcha lazer gravyura xizmatlari' },
       ]
@@ -171,7 +171,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
         <nav aria-label="breadcrumb" className="mb-8">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li>
-              <Link href={`/${locale}`} className="hover:text-teal-500 transition">
+              <Link href={`/${locale}/`} className="hover:text-teal-500 transition">
                 {isRu ? 'Главная' : 'Bosh sahifa'}
               </Link>
             </li>
@@ -208,7 +208,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
               {featuredPosts.map((fp, idx) => (
                 <Link
                   key={idx}
-                  href={`/${locale}/blog/${fp.slug}`}
+                  href={`/${locale}/blog/${fp.slug}/`}
                   className="text-teal-400 hover:text-teal-300 transition hover:underline text-sm"
                 >
                   → {fp.title}
@@ -233,7 +233,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
               {featuredPosts.slice(0, 6).map((fp, idx) => (
                 <Link
                   key={idx}
-                  href={`/${locale}/blog/${fp.slug}`}
+                  href={`/${locale}/blog/${fp.slug}/`}
                   className="text-teal-400 hover:text-teal-300 transition hover:underline text-sm"
                 >
                   → {fp.title}
@@ -274,7 +274,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
             {latestPosts.map((post, idx) => (
               <Link
                 key={idx}
-                href={`/${locale}/blog/${post.slug}`}
+                href={`/${locale}/blog/${post.slug}/`}
                 className="flex justify-between items-center group"
               >
                 <span className="text-teal-400 group-hover:text-teal-300 transition text-sm">→ {post.title}</span>
@@ -304,7 +304,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
             {giftGuides.map((g, idx) => (
               <Link
                 key={idx}
-                href={`/${locale}/blog/${g.slug}`}
+                href={`/${locale}/blog/${g.slug}/`}
                 className="text-teal-400 hover:text-teal-300 transition hover:underline text-sm"
                 data-testid={`gift-guide-link-${g.slug}`}
               >
@@ -365,7 +365,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
             {paginatedPosts.map((post, index) => (
               <Link
                 key={post.slug}
-                href={`/${locale}/blog/${post.slug}`}
+                href={`/${locale}/blog/${post.slug}/`}
                 className="block bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-teal-500/50 transition group"
                 data-testid={`blog-post-card-${startIndex + index + 1}`}
               >

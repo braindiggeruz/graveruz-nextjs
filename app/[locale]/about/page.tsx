@@ -255,13 +255,13 @@ export default async function AboutPage({ params }: PageProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href={`/${locale}/contacts`}
+              href={`/${locale}/contacts/`}
               className="inline-flex items-center justify-center px-8 py-3 bg-teal-500 text-white font-semibold rounded-xl hover:bg-teal-600 transition"
             >
               {isRu ? 'Связаться с нами' : "Biz bilan bog'lanish"}
             </Link>
             <Link
-              href={`/${locale}/catalog-products`}
+              href={`/${locale}/catalog-products/`}
               className="inline-flex items-center justify-center px-8 py-3 border border-gray-600 text-gray-300 font-semibold rounded-xl hover:border-teal-500 hover:text-teal-400 transition"
             >
               {isRu ? 'Смотреть каталог' : "Katalogni ko'rish"}

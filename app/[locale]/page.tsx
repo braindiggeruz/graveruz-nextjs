@@ -487,7 +487,7 @@ export default async function HomePage({ params }: PageProps) {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href={`/${locale}/products/lighters`}
+                  href={`/${locale}/products/lighters/`}
                   className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-700 transition"
                 >
                   {isRu ? 'Смотреть все модели' : "Barcha modellarni ko'rish"}
@@ -567,7 +567,7 @@ export default async function HomePage({ params }: PageProps) {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href={`/${locale}/products/neo-watches`}
+                  href={`/${locale}/products/neo-watches/`}
                   className="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-cyan-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-700 transition"
                 >
                   {isRu ? 'Смотреть все модели' : "Barcha modellarni ko'rish"}
@@ -576,7 +576,7 @@ export default async function HomePage({ params }: PageProps) {
                   </svg>
                 </Link>
                 <Link
-                  href={`/${locale}/catalog-products`}
+                  href={`/${locale}/catalog-products/`}
                   className="inline-flex items-center justify-center bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition border border-gray-700"
                 >
                   {isRu ? 'Перейти в каталог' : "Katalogga o'tish"}
@@ -605,7 +605,7 @@ export default async function HomePage({ params }: PageProps) {
                       </p>
                     </div>
                     <Link
-                      href={`/${locale}/products/neo-watches`}
+                      href={`/${locale}/products/neo-watches/`}
                       className="bg-teal-500 hover:bg-teal-400 text-white px-4 py-2 rounded-xl font-semibold text-sm transition flex items-center gap-2"
                     >
                       {isRu ? 'Смотреть' : "Ko'rish"}
@@ -731,7 +731,7 @@ export default async function HomePage({ params }: PageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center mb-12">
               <h2 className="text-3xl font-bold text-white">{messages.blog.title}</h2>
-              <Link href={`/${locale}/blog`} className="text-teal-500 hover:text-teal-400 transition">
+              <Link href={`/${locale}/blog/`} className="text-teal-500 hover:text-teal-400 transition">
                 {isRu ? 'Все статьи →' : "Barcha maqolalar →"}
               </Link>
             </div>
@@ -760,13 +760,13 @@ export default async function HomePage({ params }: PageProps) {
                       )}
                     </div>
                     <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2 flex-1">
-                      <Link href={`/${locale}/blog/${post.slug}`} className="hover:text-teal-500 transition">
+                      <Link href={`/${locale}/blog/${post.slug}/`} className="hover:text-teal-500 transition">
                         {post.title}
                       </Link>
                     </h3>
                     <p className="text-gray-400 text-sm line-clamp-3 mb-4">{post.description}</p>
                     <div className="flex items-center justify-between mt-auto">
-                      <Link href={`/${locale}/blog/${post.slug}`} className="text-teal-500 text-sm hover:text-teal-400 transition">
+                      <Link href={`/${locale}/blog/${post.slug}/`} className="text-teal-500 text-sm hover:text-teal-400 transition">
                         {messages.blog.read_more} →
                       </Link>
                       {post.readingTime && (
