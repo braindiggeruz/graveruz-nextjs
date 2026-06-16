@@ -31,17 +31,59 @@ export function organizationSchema() {
     '@type': 'Organization',
     '@id': 'https://graver-studio.uz/#organization',
     name: 'Graver.uz',
-    alternateName: 'Graver Studio',
+    alternateName: ['Graver Studio', 'ГраверСтудио', 'Graver Studio Tashkent'],
     url: 'https://graver-studio.uz',
-    logo: 'https://graver-studio.uz/logo192.png',
-    description: 'Премиальная лазерная гравировка и брендирование для бизнеса в Ташкенте',
-    sameAs: ['https://t.me/GraverAdm'],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+998770802288',
-      contactType: 'customer service',
-      availableLanguage: ['Russian', 'Uzbek'],
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://graver-studio.uz/logo192.png',
+      width: 192,
+      height: 192,
     },
+    image: 'https://graver-studio.uz/images/og/og-home.jpg',
+    description:
+      'Премиальная лазерная гравировка, корпоративные подарки и welcome-packs в Ташкенте. Брендирование на металле, дереве, коже, стекле и акриле. Полный цикл B2B-подарков под ключ.',
+    foundingDate: '2018',
+    foundingLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Tashkent',
+        addressCountry: 'UZ',
+      },
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Uzbekistan' },
+      { '@type': 'City', name: 'Tashkent' },
+    ],
+    knowsAbout: [
+      'Laser engraving',
+      'Corporate gifts',
+      'Branded merchandise',
+      'Welcome packs',
+      'Onboarding kits',
+      'Premium personalised gifts',
+      'B2B gifting Uzbekistan',
+    ],
+    sameAs: [
+      'https://t.me/GraverAdm',
+      'https://wa.me/998770802288',
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+998770802288',
+        contactType: 'customer service',
+        availableLanguage: ['Russian', 'Uzbek'],
+        areaServed: 'UZ',
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+998974802288',
+        contactType: 'sales',
+        availableLanguage: ['Russian', 'Uzbek'],
+        areaServed: 'UZ',
+      },
+    ],
   }
 }
 
