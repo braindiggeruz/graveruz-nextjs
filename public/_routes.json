@@ -10,6 +10,8 @@
     "/apple-touch-icon-precomposed.png",
     "/logo192.png",
     "/logo512.png",
-    "/robots-static.txt"
+    "/robots-static.txt",
+    "/llms.txt",
+    "/llms-full.txt"
   ]
 }
