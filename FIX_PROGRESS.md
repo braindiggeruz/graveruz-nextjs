@@ -16,3 +16,8 @@
 - All 12 verified NOT noindex. Image optimization pass: header PNGs -> optimized JPGs + product images recompressed + ogImage frontmatter repointed.
 - npx tsc --noEmit = exit 0. bun run build = exit 0.
 - C-01 deliverable updated: canonical UZ corporate = /uz/toshkentda-korporativ-sovgalar/ (RU route RU-only + redirect).
+
+## SHIP — session 2 final verify (2026-06-26)
+- UZ blog: 81 total. noindex now 40 (10 pre-existing + 30 new stubs). 12 rewrites indexable. No stray body H1.
+- Gates GREEN: npx tsc --noEmit = exit 0; bun run build = exit 0.
+- Pushed seo-fixes-full -> main. Cloudflare Pages auto-deploys.
