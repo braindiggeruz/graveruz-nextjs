@@ -4,6 +4,38 @@ import { type Locale, getLocaleUrl, getHreflang, SUPPORTED_LOCALES } from './i18
 const SITE_NAME = 'Graver.uz'
 const BASE_URL = 'https://graver-studio.uz'
 
+/**
+ * Resolve locale-aware SEO title/description from a CMS `seo` object that may
+ * carry both RU (title/description) and UZ (titleUz/descriptionUz) variants.
+ *
+ * Fixes T-030/031: previously UZ product pages rendered the RU `seo.title`
+ * because the CMS stored a single-locale value, producing duplicate titles and
+ * Russian metadata on Uzbek pages. Now UZ pages use UZ values (or a UZ fallback)
+ * and never fall back to Russian.
+ */
+export function resolveLocalizedSeo(
+  seo:
+    | {
+        title?: string | null
+        titleUz?: string | null
+        description?: string | null
+        descriptionUz?: string | null
+      }
+    | null
+    | undefined,
+  locale: Locale,
+  fallback: { title: string; description?: string },
+): { title: string; description: string } {
+  const isUz = locale === 'uz'
+  const title = isUz
+    ? seo?.titleUz?.trim() || fallback.title
+    : seo?.title?.trim() || fallback.title
+  const description = isUz
+    ? seo?.descriptionUz?.trim() || fallback.description || ''
+    : seo?.description?.trim() || fallback.description || ''
+  return { title, description }
+}
+
 interface SeoParams {
   locale: Locale
   path?: string           // e.g. '' for homepage, 'blog/my-slug' for article

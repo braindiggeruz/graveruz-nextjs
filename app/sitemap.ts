@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import type { MetadataRoute } from 'next'
 import { getAllPostsMeta } from '@/lib/blog'
 import { SUPPORTED_LOCALES, getLocaleUrl, type Locale } from '@/lib/i18n'
@@ -5,11 +7,49 @@ import { getAllPages } from '@/lib/cms'
 
 const BASE_URL = 'https://graver-studio.uz'
 
+/**
+ * Parse public/_redirects and return the set of blog slugs that are
+ * permanently redirected away (i.e. they are the SOURCE of a 301).
+ *
+ * Single source of truth: instead of hand-maintaining REDIRECTED_*_SLUGS
+ * (which drifted — only 3 of ~44 redirected duplicates were listed), we
+ * derive the exclusion set directly from the redirect file so the sitemap
+ * can never emit a URL that 301s to another canonical. Prevents wasted crawl
+ * budget and cannibalization signals from duplicate/merged blog posts.
+ */
+function parseRedirectedBlogSlugs(): { ru: Set<string>; uz: Set<string> } {
+  const ru = new Set<string>()
+  const uz = new Set<string>()
+  try {
+    const file = path.join(process.cwd(), 'public', '_redirects')
+    const text = fs.readFileSync(file, 'utf8')
+    for (const raw of text.split('\n')) {
+      const line = raw.trim()
+      if (!line || line.startsWith('#')) continue
+      const [source, , status] = line.split(/\s+/)
+      if (!source) continue
+      if (status && status !== '301' && status !== '308') continue
+      const m = source.match(/^\/(ru|uz)\/blog\/([a-z0-9-]+)\/?$/)
+      if (!m) continue
+      const [, locale, slug] = m
+      if (locale === 'ru') ru.add(slug)
+      else uz.add(slug)
+    }
+  } catch (err) {
+    console.warn('[sitemap] could not parse _redirects:', err)
+  }
+  return { ru, uz }
+}
+
+const REDIRECTED_FROM_FILE = parseRedirectedBlogSlugs()
+
 // Static pages (non-blog) with their paths
 const STATIC_PAGES = [
   '',                          // homepage
   'engraved-gifts',
-  'korporativnye-podarki',
+  // 'korporativnye-podarki' moved to LOCALIZED_PAIRED_PAGES — its UZ money page
+  // uses a localized slug (toshkentda-korporativ-sovgalar). Emitting it here
+  // wrongly produced /uz/korporativnye-podarki/ which now 301-redirects.
   'welcome-packs',
   'vip-podarki',
   'catalog-products',
@@ -29,6 +69,8 @@ const STATIC_PAGES = [
 // { locale, path } pairs that should appear in the sitemap as-is.
 const LOCALIZED_PAIRED_PAGES: Array<{ ru: string; uz: string }> = [
   { ru: 'podarochniy-nabor-s-chasami', uz: 'soatli-sovga-toplami' },
+  // RU corporate landing (static route) ↔ UZ corporate money page (CMS, localized slug).
+  { ru: 'korporativnye-podarki', uz: 'toshkentda-korporativ-sovgalar' },
 ]
 
 // Pages that should NOT appear in sitemap
@@ -49,14 +91,19 @@ const CMS_ALT_SLUG_REWRITES: Record<string, string> = {
 
 // RU blog slugs that are permanently redirected to a different canonical slug.
 // These must NOT appear in the sitemap — they would send Googlebot to a 308 redirect.
-const REDIRECTED_RU_SLUGS = new Set([
+// Hand-listed legacy entries are kept for clarity; the authoritative set is
+// merged from _redirects (parseRedirectedBlogSlugs) so this can never drift.
+const REDIRECTED_RU_SLUGS = new Set<string>([
   'chto-podarit-kollege-na-8-marta',             // -> podarki-8-marta-20-idej
   'keys-welcome-pak-it-kompaniya-tashkent',       // -> keys-welcome-pack-enps-uzbekistan
   'podarki-na-8-marta-sotrudnicam',               // -> podarki-8-marta-20-idej
+  ...REDIRECTED_FROM_FILE.ru,
 ])
 
 // UZ blog slugs that are permanently redirected or otherwise should not appear in sitemap.
-const REDIRECTED_UZ_SLUGS = new Set<string>([])
+const REDIRECTED_UZ_SLUGS = new Set<string>([
+  ...REDIRECTED_FROM_FILE.uz,
+])
 
 /**
  * Safely parse a date string. Returns a valid Date or `new Date()` if parsing fails.
@@ -177,7 +224,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const declaredUzSlug = post.alternateSlug?.uz
     const inferredUzSlug = uzSlugByRu[post.slug]
     const candidateUzSlug = declaredUzSlug || inferredUzSlug
-    const confirmedUzSlug = candidateUzSlug && uzSlugSet.has(candidateUzSlug) ? candidateUzSlug : null
+    // Counterpart is valid only if the file exists AND it is not itself
+    // permanently redirected (else hreflang would point at a 301).
+    const confirmedUzSlug =
+      candidateUzSlug && uzSlugSet.has(candidateUzSlug) && !REDIRECTED_UZ_SLUGS.has(candidateUzSlug)
+        ? candidateUzSlug
+        : null
 
     // Only include UZ hreflang if a real UZ counterpart exists
     const languages: Record<string, string> = { ru: ruUrl, 'x-default': ruUrl }
@@ -210,7 +262,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const candidateRuSlug = post.alternateSlug?.ru ?? (
       post.slug.endsWith('-uz') ? post.slug.replace(/-uz$/, '') : null
     )
-    const confirmedRuSlug = candidateRuSlug && ruSlugSet.has(candidateRuSlug) ? candidateRuSlug : null
+    // Counterpart is valid only if the file exists AND is not itself redirected
+    // (else hreflang would point at a 301).
+    const confirmedRuSlug =
+      candidateRuSlug && ruSlugSet.has(candidateRuSlug) && !REDIRECTED_RU_SLUGS.has(candidateRuSlug)
+        ? candidateRuSlug
+        : null
 
     const languages: Record<string, string> = { uz: uzUrl }
     if (confirmedRuSlug) {

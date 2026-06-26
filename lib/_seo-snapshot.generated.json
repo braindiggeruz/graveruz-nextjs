@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T17:13:52.931Z",
+  "generatedAt": "2026-06-26T07:13:37.610Z",
   "pages": [
     {
       "slug": "korporativnye-podarki-tashkent",
@@ -14,7 +14,7 @@
             "badge": "Корпоративные подарки в Ташкенте",
             "title": "Корпоративные подарки с гравировкой для бизнеса",
             "subtitle": "Подберём и оформим подарки для сотрудников, клиентов, партнёров и руководителей: зажигалки, ручки, блокноты, powerbank, часы и премиальные наборы с логотипом или персональной надписью.",
-            "image": "/images/pages/korporativnye-podarki-tashkent/blocks/0/value/image.png",
+            "image": "/images/pages/korporativnye-podarki-tashkent/blocks/0/value/image.jpg",
             "ctaLabel": "Получить подборку",
             "ctaHref": "https://t.me/GraverAdm"
           }
@@ -64,7 +64,7 @@
         {
           "discriminant": "imageText",
           "value": {
-            "image": "/images/pages/korporativnye-podarki-tashkent/blocks/3/value/image.png",
+            "image": "/images/pages/korporativnye-podarki-tashkent/blocks/3/value/image.jpg",
             "imageSide": "right",
             "title": "Подарки с логотипом и персональной гравировкой",
             "body": "Корпоративный подарок становится сильнее, когда он связан с брендом и человеком. На изделие можно нанести логотип компании, имя сотрудника, должность, дату, короткое пожелание или символичный элемент фирменного стиля.\n\nТакой формат подходит для welcome pack, подарков партнёрам, клиентских сувениров, подарков руководителям и наборов для мероприятий. Гравировка делает предмет более аккуратным, статусным и запоминающимся.\n\nВ Graver Studio можно подобрать изделие под задачу: зажигалку, ручку, блокнот, powerbank, часы или подарочный набор. Стоимость зависит от изделия, тиража, сложности нанесения и подготовки макета."
@@ -123,7 +123,7 @@
       "seo": {
         "title": "Корпоративные подарки в Ташкенте | Graver.uz",
         "description": "Корпоративные подарки с гравировкой в Ташкенте: зажигалки, ручки, блокноты, powerbank, часы и наборы с логотипом.",
-        "ogImage": "/images/og/korporativnye-podarki-tashkent/seo/ogImage.png",
+        "ogImage": "/images/og/korporativnye-podarki-tashkent/seo/ogImage.jpg",
         "noindex": false
       }
     },
@@ -133,7 +133,7 @@
       "status": "published",
       "h1": "Лазерная гравировка в Ташкенте",
       "intro": "Персональная и корпоративная лазерная гравировка на подарках, сувенирах и бизнес-аксессуарах. Поможем подобрать изделие, подготовить макет и сделать подарок запоминающимся.",
-      "heroImage": "/images/pages/lazernaya-gravirovka-tashkent/heroImage.png",
+      "heroImage": "/images/pages/lazernaya-gravirovka-tashkent/heroImage.jpg",
       "blocks": [
         {
           "discriminant": "hero",
@@ -190,7 +190,7 @@
         {
           "discriminant": "imageText",
           "value": {
-            "image": "/images/pages/lazernaya-gravirovka-tashkent/blocks/3/value/image.png",
+            "image": "/images/pages/lazernaya-gravirovka-tashkent/blocks/3/value/image.jpg",
             "imageSide": "right",
             "title": "Корпоративная гравировка для подарков и бизнес-сувениров",
             "body": "Лазерная гравировка помогает превратить обычный подарок в персональный бизнес-аксессуар. На изделие можно нанести логотип компании, имя получателя, дату, короткую фразу или элемент фирменного стиля.\n\nТакой формат хорошо подходит для корпоративных подарков, welcome pack, сувениров с логотипом, подарков сотрудникам, клиентам, партнёрам и руководителям. Гравировка делает изделие более аккуратным, статусным и запоминающимся.\n\nВ Graver Studio можно подобрать подарок под задачу: зажигалку, ручку, блокнот, powerbank, часы или подарочный набор. Если вы не знаете, что выбрать, мы подскажем подходящий вариант под повод, стиль и формат заказа."
@@ -246,7 +246,7 @@
       "seo": {
         "title": "Лазерная гравировка в Ташкенте | Graver.uz",
         "description": "Лазерная гравировка подарков, сувениров и бизнес-аксессуаров в Ташкенте. Поможем подобрать изделие и подготовить макет.",
-        "ogImage": "/images/og/lazernaya-gravirovka-tashkent/seo/ogImage.png",
+        "ogImage": "/images/og/lazernaya-gravirovka-tashkent/seo/ogImage.jpg",
         "noindex": false
       }
     },
@@ -368,7 +368,7 @@
       "status": "published",
       "h1": "Biznes uchun gravyurali korporativ sovg‘alar",
       "intro": "Xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarni tanlaymiz va bezaymiz: zajigalkalar, ruchkalar, bloknotlar, powerbank, soatlar va logotipli premium to‘plamlar.",
-      "heroImage": "/images/pages/toshkentda-korporativ-sovgalar/heroImage.png",
+      "heroImage": "/images/pages/toshkentda-korporativ-sovgalar/heroImage.jpg",
       "blocks": [
         {
           "discriminant": "hero",
@@ -376,7 +376,7 @@
             "badge": "Toshkentda korporativ sovg‘alar",
             "title": "Biznes uchun gravyurali korporativ sovg‘alar",
             "subtitle": "Xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarni tanlaymiz va bezaymiz: zajigalkalar, ruchkalar, bloknotlar, powerbank, soatlar va logotipli premium to‘plamlar.",
-            "image": "/images/pages/toshkentda-korporativ-sovgalar/blocks/0/value/image.png",
+            "image": "/images/pages/toshkentda-korporativ-sovgalar/blocks/0/value/image.jpg",
             "ctaLabel": "Sovg‘a tanlash",
             "ctaHref": "https://t.me/GraverAdm"
           }
@@ -426,7 +426,7 @@
         {
           "discriminant": "imageText",
           "value": {
-            "image": "/images/pages/toshkentda-korporativ-sovgalar/blocks/3/value/image.png",
+            "image": "/images/pages/toshkentda-korporativ-sovgalar/blocks/3/value/image.jpg",
             "imageSide": "right",
             "title": "Logotipli va shaxsiy gravyurali sovg‘alar",
             "body": "Korporativ sovg‘a brend va inson bilan bog‘langanda kuchliroq ishlaydi. Buyumga kompaniya logotipi, xodim ismi, lavozim, sana, qisqa tilak yoki firma uslubi elementini tushirish mumkin.\n\nBunday format welcome pack, hamkorlar uchun sovg‘alar, mijozlar uchun suvenirlar, rahbarlar uchun sovg‘alar va tadbirlar uchun to‘plamlarga mos keladi. Gravyura buyumni yanada chiroyli, nufuzli va esda qolarli qiladi.\n\nGraver Studio’da vazifaga mos buyumni tanlash mumkin: zajigalka, ruchka, bloknot, powerbank, soat yoki sovg‘a to‘plami. Narx buyum, tiraj, gravyura murakkabligi va maket tayyorlashga bog‘liq."
@@ -482,7 +482,7 @@
       "seo": {
         "title": "Toshkentda korporativ sovg‘alar | Graver.uz",
         "description": "Toshkentda gravyurali korporativ sovg‘alar: zajigalkalar, ruchkalar, bloknotlar, powerbank, soatlar va logotipli to‘plamlar.",
-        "ogImage": "/images/og/toshkentda-korporativ-sovgalar/seo/ogImage.png",
+        "ogImage": "/images/og/toshkentda-korporativ-sovgalar/seo/ogImage.jpg",
         "noindex": false
       }
     },
@@ -492,7 +492,7 @@
       "status": "published",
       "h1": "Toshkentda lazer gravyura",
       "intro": "Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va qisqa yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va sovg‘ani esda qolarli qilishga yordam beramiz.",
-      "heroImage": "/images/pages/toshkentda-lazer-gravyura/heroImage.png",
+      "heroImage": "/images/pages/toshkentda-lazer-gravyura/heroImage.jpg",
       "blocks": [
         {
           "discriminant": "hero",
@@ -500,7 +500,7 @@
             "badge": "Toshkentda lazer gravyura",
             "title": "Toshkentda sovg‘alar va suvenirlarga lazer gravyura",
             "subtitle": "Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va qisqa yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va sovg‘ani esda qolarli qilishga yordam beramiz.",
-            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/0/value/image.png",
+            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/0/value/image.jpg",
             "ctaLabel": "Hisob-kitob olish",
             "ctaHref": "https://t.me/GraverAdm"
           }
@@ -545,7 +545,7 @@
         {
           "discriminant": "imageText",
           "value": {
-            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/3/value/image.png",
+            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/3/value/image.jpg",
             "imageSide": "right",
             "title": "Sovg‘alar va biznes suvenirlar uchun korporativ gravyura",
             "body": "Lazer gravyura oddiy sovg‘ani shaxsiy biznes aksessuariga aylantirishga yordam beradi. Buyumga kompaniya logotipi, oluvchining ismi, sana, qisqa ibora yoki firma uslubi elementini tushirish mumkin.\n\nBunday format korporativ sovg‘alar, welcome pack, logotipli suvenirlar, xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarga mos keladi. Gravyura buyumni yanada nafis, nufuzli va esda qolarli qiladi.\n\nGraver Studio’da vazifaga mos sovg‘ani tanlash mumkin: zajigalka, ruchka, bloknot, powerbank, soat yoki sovg‘a to‘plami. Agar nima tanlashni bilmasangiz, biz holat, uslub va buyurtma formatiga mos variantni tavsiya qilamiz."
@@ -601,7 +601,7 @@
       "seo": {
         "title": "Toshkentda lazer gravyura | Graver.uz",
         "description": "Toshkentda sovg‘alar, suvenirlar va biznes aksessuarlariga lazer gravyura. Buyumni tanlash va maket tayyorlashga yordam beramiz.",
-        "ogImage": "/images/og/toshkentda-lazer-gravyura/seo/ogImage.png",
+        "ogImage": "/images/og/toshkentda-lazer-gravyura/seo/ogImage.jpg",
         "noindex": false
       }
     }
@@ -678,7 +678,9 @@
       ],
       "seo": {
         "title": "Металлические зажигалки с лазерной гравировкой — Graver.uz",
+        "titleUz": "Lazer gravyurali metall zajigalkalar — Graver.uz",
         "description": "Зажигалки с гравировкой логотипа, имени или фото. 4 модели: Silver Gloss, Black Matte, Brushed Steel, Black Texture. От 1 штуки. Доставка по Ташкенту.",
+        "descriptionUz": "Logotip, ism yoki rasm gravyurali zajigalkalar. 4 model: Silver Gloss, Black Matte, Brushed Steel, Black Texture. 1 donadan. Toshkent bo'ylab yetkazib berish.",
         "ogImage": "/images/products/lighters/r109_silver_gloss.jpg",
         "noindex": false
       }
@@ -714,24 +716,6 @@
           "highlight": true
         }
       ],
-      "aggregateRating": {
-        "value": "4.9",
-        "count": "47"
-      },
-      "reviews": [
-        {
-          "authorName": "Uzum",
-          "rating": 5,
-          "textRu": "Заказали 50 часов NEO для команды. Качество гравировки отличное, сроки соблюдены.",
-          "textUz": "50 dona NEO soatlar buyurtma berdik. Gravyura sifati a'lo, muddatlarga rioya qilindi."
-        },
-        {
-          "authorName": "Humans",
-          "rating": 5,
-          "textRu": "Используем часы NEO в welcome-паках. Сотрудники в восторге.",
-          "textUz": "Welcome-paklarda NEO soatlardan foydalanamiz. Xodimlar juda mamnun."
-        }
-      ],
       "faq": [
         {
           "qRu": "Какой минимальный тираж для часов NEO?",
@@ -760,7 +744,9 @@
       ],
       "seo": {
         "title": "Часы NEO с гравировкой на заказ | Премиум подарок | Graver.uz",
+        "titleUz": "NEO soatlar gravyura bilan | Premium sovg'a | Graver.uz",
         "description": "Часы NEO с персональной гравировкой — кварцевые и механические. Бесплатный макет перед нанесением. Идеальный подарок для себя, близких и партнёров.",
+        "descriptionUz": "Shaxsiy gravyurali NEO soatlar — kvarts va mexanik. Gravyuradan oldin bepul maket. O'zingiz, yaqinlaringiz va hamkorlar uchun ideal sovg'a.",
         "ogImage": "/images/products/neo/neo-watch-black-gold.jpg",
         "noindex": false
       }
@@ -805,8 +791,10 @@
       ],
       "seo": {
         "title": "Ежедневники с гравировкой логотипа — корпоративные | Graver.uz",
+        "titleUz": "Logotip gravyurali kundaliklar — korporativ | Graver.uz",
         "description": "Кожаные и комбинированные ежедневники А5 с лазерной гравировкой. Welcome-пак, партнёрский подарок, корпоративный сувенир. От 10 штук.",
-        "ogImage": "/images/og/og-home.jpg",
+        "descriptionUz": "Lazer gravyurali charm va kombinatsiyalangan A5 kundaliklar. Welcome-pak, hamkor sovg'asi, korporativ suvenir. 10 donadan.",
+        "ogImage": "/images/og/og-products.jpg",
         "noindex": false
       }
     },
@@ -856,8 +844,10 @@
       ],
       "seo": {
         "title": "Ручки с гравировкой логотипа — корпоративные подарки | Graver.uz",
+        "titleUz": "Logotip gravyurali ruchkalar — korporativ sovg'alar | Graver.uz",
         "description": "Металлические ручки с лазерной гравировкой. Welcome-пак, конференц-подарок, VIP-набор. Тираж от 10 штук. Ташкент.",
-        "ogImage": "/images/og/og-home.jpg",
+        "descriptionUz": "Lazer gravyurali metall ruchkalar. Welcome-pak, konferensiya sovg'asi, VIP-to'plam. Tiraj 10 donadan. Toshkent.",
+        "ogImage": "/images/og/og-products.jpg",
         "noindex": false
       }
     },
@@ -910,8 +900,10 @@
       ],
       "seo": {
         "title": "Повербанки с гравировкой логотипа — корпоративные | Graver.uz",
+        "titleUz": "Logotip gravyurali powerbanklar — korporativ | Graver.uz",
         "description": "Брендированные повербанки 5k–20k мАч с лазерной гравировкой логотипа. Алюминиевый корпус, USB-C + USB-A. От 10 штук. Ташкент.",
-        "ogImage": "/images/og/og-home.jpg",
+        "descriptionUz": "Logotip lazer gravyurali brendlangan powerbanklar 5k–20k mAh. Alyumin korpus, USB-C + USB-A. 10 donadan. Toshkent.",
+        "ogImage": "/images/og/og-products.jpg",
         "noindex": false
       }
     }
@@ -931,7 +923,7 @@
         "kak-vybrat-korporativnyj-podarok",
         "lazernaya-gravirovka-podarkov"
       ],
-      "ogImage": "/images/blog/brendirovanie-suvenirov-header.png",
+      "ogImage": "/images/blog/brendirovanie-suvenirov-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "brendirovanie-suvenirov",
@@ -940,7 +932,7 @@
       "hasFaq": true,
       "wordCount": 42,
       "file": "content/blog/ru/brendirovanie-suvenirov.mdx",
-      "mtime": "2026-05-21T17:13:52.401Z"
+      "mtime": "2026-06-26T06:31:21.412Z"
     },
     {
       "slug": "brendirovannye-zazhigalki-i-chasy-s-logotipom",
@@ -956,7 +948,7 @@
         "korporativnye-podarki-s-gravirovkoy-metody",
         "kak-podgotovit-maket-logotipa"
       ],
-      "ogImage": "/images/blog/brendirovannye-zazhigalki-i-chasy-header.png",
+      "ogImage": "/images/blog/brendirovannye-zazhigalki-i-chasy-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -965,7 +957,7 @@
       "hasFaq": true,
       "wordCount": 36,
       "file": "content/blog/ru/brendirovannye-zazhigalki-i-chasy-s-logotipom.mdx",
-      "mtime": "2026-05-21T16:21:56.414Z"
+      "mtime": "2026-06-26T06:31:21.412Z"
     },
     {
       "slug": "byudzhet-na-korporativnye-podarki",
@@ -987,9 +979,9 @@
       "alternateUz": "korporativ-sovgalar-byudjeti",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 80,
+      "wordCount": 61,
       "file": "content/blog/ru/byudzhet-na-korporativnye-podarki.mdx",
-      "mtime": "2026-05-21T16:21:56.414Z"
+      "mtime": "2026-06-26T06:01:25.432Z"
     },
     {
       "slug": "case-study-welcome-pack-enps",
@@ -1014,7 +1006,7 @@
         "merch-dlya-it-kompaniy-tashkent",
         "korporativnye-podarki-b2b-etiket"
       ],
-      "ogImage": "/images/blog/case-study-welcome-pack-enps-header.png",
+      "ogImage": "/images/blog/case-study-welcome-pack-enps-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "case-study-welcome-pack-enps",
@@ -1025,7 +1017,7 @@
       "hasFaq": true,
       "wordCount": 90,
       "file": "content/blog/ru/case-study-welcome-pack-enps.mdx",
-      "mtime": "2026-05-21T16:21:56.414Z"
+      "mtime": "2026-06-26T06:31:21.416Z"
     },
     {
       "slug": "chasy-s-logotipom-korporativnye-podarki-tashkent",
@@ -1041,7 +1033,7 @@
         "merch-dlya-it-kompaniy-tashkent",
         "podarki-dlya-bankov-i-finteha-tashkent"
       ],
-      "ogImage": "/images/blog/chasy-s-logotipom-header.png",
+      "ogImage": "/images/blog/chasy-s-logotipom-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -1050,7 +1042,7 @@
       "hasFaq": true,
       "wordCount": 52,
       "file": "content/blog/ru/chasy-s-logotipom-korporativnye-podarki-tashkent.mdx",
-      "mtime": "2026-05-21T16:21:56.414Z"
+      "mtime": "2026-06-26T06:31:21.416Z"
     },
     {
       "slug": "chek-list-zakupshchika-podarkov",
@@ -1066,16 +1058,16 @@
         "podarochnye-nabory-s-logotipom",
         "welcome-pack-dlya-sotrudnikov"
       ],
-      "ogImage": "/images/blog/chek-list-zakupshchika-header.png",
+      "ogImage": "/images/blog/chek-list-zakupshchika-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "korporativ-sovgalar-zakupshchik-chek-listi",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 63,
+      "wordCount": 62,
       "file": "content/blog/ru/chek-list-zakupshchika-podarkov.mdx",
-      "mtime": "2026-05-21T16:21:56.414Z"
+      "mtime": "2026-06-26T06:31:21.416Z"
     },
     {
       "slug": "chto-podarit-devushke-na-8-marta",
@@ -1090,7 +1082,7 @@
         "chto-podarit-mame-na-8-marta",
         "podarki-8-marta-20-idej"
       ],
-      "ogImage": "/images/blog/chto-podarit-devushke-header.png",
+      "ogImage": "/images/blog/chto-podarit-devushke-header.jpg",
       "noindex": true,
       "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-8-marta-20-idej/",
       "alternateRu": "",
@@ -1099,7 +1091,7 @@
       "hasFaq": true,
       "wordCount": 63,
       "file": "content/blog/ru/chto-podarit-devushke-na-8-marta.mdx",
-      "mtime": "2026-05-21T16:39:33.372Z"
+      "mtime": "2026-06-26T06:31:21.420Z"
     },
     {
       "slug": "chto-podarit-kollege-na-8-marta",
@@ -1115,7 +1107,7 @@
         "chto-podarit-rukovoditelyu-na-8-marta",
         "podarki-8-marta-20-idej"
       ],
-      "ogImage": "/images/blog/chto-podarit-kollege-header.png",
+      "ogImage": "/images/blog/chto-podarit-kollege-header.jpg",
       "noindex": true,
       "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-8-marta-20-idej/",
       "alternateRu": "",
@@ -1124,7 +1116,42 @@
       "hasFaq": true,
       "wordCount": 50,
       "file": "content/blog/ru/chto-podarit-kollege-na-8-marta.mdx",
-      "mtime": "2026-05-21T16:21:56.414Z"
+      "mtime": "2026-06-26T06:31:21.420Z"
+    },
+    {
+      "slug": "chto-podarit-kollege",
+      "locale": "ru",
+      "title": "Что подарить коллеге: нейтральные, полезные и запоминающиеся идеи",
+      "description": "Гид по подаркам для коллеги: что выбрать мужчине, женщине, руководителю или сотруднику, какие подарки уместны в офисе и когда добавить гравировку.",
+      "date": "2026-05-21",
+      "category": "",
+      "tags": [
+        "chto-podarit-kollege",
+        "podarok-kollege",
+        "podarok-sotrudniku",
+        "ofisnye-podarki",
+        "delovye-podarki",
+        "podarki-s-gravirovkoy",
+        "korporativnye-podarki",
+        "tashkent"
+      ],
+      "relatedSlugs": [
+        "chto-podarit-na-den-rozhdeniya",
+        "originalnye-podarki",
+        "kak-vybrat-korporativnyj-podarok",
+        "podarki-sotrudnikam-hr-gayd",
+        "brendirovanie-suvenirov"
+      ],
+      "ogImage": "",
+      "noindex": false,
+      "canonicalOverride": "",
+      "alternateRu": "chto-podarit-kollege",
+      "alternateUz": "hamkasbga-sovgalar",
+      "previousSlugs": [],
+      "hasFaq": true,
+      "wordCount": 75,
+      "file": "content/blog/ru/chto-podarit-kollege.mdx",
+      "mtime": "2026-06-26T06:33:08.248Z"
     },
     {
       "slug": "chto-podarit-mame-na-8-marta",
@@ -1139,7 +1166,7 @@
         "chto-podarit-devushke-na-8-marta",
         "podarki-8-marta-20-idej"
       ],
-      "ogImage": "/images/blog/chto-podarit-mame-header.png",
+      "ogImage": "/images/blog/chto-podarit-mame-header.jpg",
       "noindex": true,
       "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-8-marta-20-idej/",
       "alternateRu": "",
@@ -1148,7 +1175,7 @@
       "hasFaq": true,
       "wordCount": 79,
       "file": "content/blog/ru/chto-podarit-mame-na-8-marta.mdx",
-      "mtime": "2026-05-21T16:39:33.374Z"
+      "mtime": "2026-06-26T06:31:21.424Z"
     },
     {
       "slug": "chto-podarit-muzhchine",
@@ -1183,7 +1210,7 @@
       "hasFaq": true,
       "wordCount": 52,
       "file": "content/blog/ru/chto-podarit-muzhchine.mdx",
-      "mtime": "2026-05-21T17:13:52.398Z"
+      "mtime": "2026-06-26T06:33:08.248Z"
     },
     {
       "slug": "chto-podarit-na-8-marta-devushke-mame-kollege",
@@ -1198,7 +1225,7 @@
         "chto-podarit-mame-na-8-marta",
         "chto-podarit-devushke-na-8-marta"
       ],
-      "ogImage": "/images/blog/chto-podarit-na-8-marta-header.png",
+      "ogImage": "/images/blog/chto-podarit-na-8-marta-header.jpg",
       "noindex": true,
       "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-8-marta-20-idej/",
       "alternateRu": "",
@@ -1207,7 +1234,7 @@
       "hasFaq": true,
       "wordCount": 74,
       "file": "content/blog/ru/chto-podarit-na-8-marta-devushke-mame-kollege.mdx",
-      "mtime": "2026-05-21T16:39:33.375Z"
+      "mtime": "2026-06-26T06:31:21.424Z"
     },
     {
       "slug": "chto-podarit-na-den-rozhdeniya",
@@ -1245,7 +1272,44 @@
       "hasFaq": true,
       "wordCount": 44,
       "file": "content/blog/ru/chto-podarit-na-den-rozhdeniya.mdx",
-      "mtime": "2026-05-21T17:13:52.395Z"
+      "mtime": "2026-06-26T06:01:25.432Z"
+    },
+    {
+      "slug": "chto-podarit-nachalniku",
+      "locale": "ru",
+      "title": "Что подарить начальнику: статусные, уместные и полезные идеи",
+      "description": "Гид по подаркам для начальника, руководителя или босса: деловые аксессуары, подарки от коллектива, идеи с гравировкой и советы, чего лучше избегать.",
+      "date": "2026-05-21",
+      "category": "Подарки",
+      "tags": [
+        "chto-podarit-nachalniku",
+        "podarok-nachalniku",
+        "podarok-rukovoditelyu",
+        "podarok-bossu",
+        "delovye-podarki",
+        "statusnye-podarki",
+        "podarki-s-gravirovkoy",
+        "korporativnye-podarki",
+        "tashkent"
+      ],
+      "relatedSlugs": [
+        "chto-podarit-kollege",
+        "kak-vybrat-korporativnyj-podarok",
+        "brendirovanie-suvenirov",
+        "originalnye-podarki",
+        "chto-podarit-muzhchine",
+        "podarki-sotrudnikam-hr-gayd"
+      ],
+      "ogImage": "",
+      "noindex": false,
+      "canonicalOverride": "",
+      "alternateRu": "chto-podarit-nachalniku",
+      "alternateUz": "rahbarga-sovgalar",
+      "previousSlugs": [],
+      "hasFaq": true,
+      "wordCount": 72,
+      "file": "content/blog/ru/chto-podarit-nachalniku.mdx",
+      "mtime": "2026-06-26T06:33:08.252Z"
     },
     {
       "slug": "chto-podarit-rukovoditelyu-na-8-marta",
@@ -1260,7 +1324,7 @@
         "idei-vip-podarkov",
         "podarki-8-marta-20-idej"
       ],
-      "ogImage": "/images/blog/chto-podarit-rukovoditelyu-header.png",
+      "ogImage": "/images/blog/chto-podarit-rukovoditelyu-header.jpg",
       "noindex": true,
       "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-8-marta-20-idej/",
       "alternateRu": "",
@@ -1269,7 +1333,7 @@
       "hasFaq": true,
       "wordCount": 51,
       "file": "content/blog/ru/chto-podarit-rukovoditelyu-na-8-marta.mdx",
-      "mtime": "2026-05-21T16:39:33.375Z"
+      "mtime": "2026-06-26T06:31:21.428Z"
     },
     {
       "slug": "chto-podarit-zhenshchine",
@@ -1305,7 +1369,7 @@
       "hasFaq": true,
       "wordCount": 52,
       "file": "content/blog/ru/chto-podarit-zhenshchine.mdx",
-      "mtime": "2026-05-21T17:13:52.398Z"
+      "mtime": "2026-06-26T06:33:08.252Z"
     },
     {
       "slug": "delovoy-etiket-biznes-podarki-uzbekistan",
@@ -1321,7 +1385,7 @@
         "podarochnye-nabory-s-logotipom",
         "korporativnye-podarki-b2b-etiket"
       ],
-      "ogImage": "/images/blog/delovoy-etiket-header.png",
+      "ogImage": "/images/blog/delovoy-etiket-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -1330,7 +1394,7 @@
       "hasFaq": true,
       "wordCount": 21,
       "file": "content/blog/ru/delovoy-etiket-biznes-podarki-uzbekistan.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:31:21.428Z"
     },
     {
       "slug": "eko-podarki-dlya-biznesa",
@@ -1352,9 +1416,9 @@
       "alternateUz": "biznes-uchun-eko-sovgalar",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 61,
+      "wordCount": 34,
       "file": "content/blog/ru/eko-podarki-dlya-biznesa.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:01:25.432Z"
     },
     {
       "slug": "ekonomiya-na-korporativnyh-suvenirax",
@@ -1370,16 +1434,16 @@
         "kak-vybrat-korporativnyj-podarok",
         "lazernaya-gravirovka-podarkov"
       ],
-      "ogImage": "/images/blog/ekonomiya-suveniry-header.png",
+      "ogImage": "/images/blog/ekonomiya-suveniry-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "suvenir-byudjetini-tejash",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 78,
+      "wordCount": 75,
       "file": "content/blog/ru/ekonomiya-na-korporativnyh-suvenirax.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:31:21.432Z"
     },
     {
       "slug": "gastronomicheskie-nabory-na-navruz-tashkent",
@@ -1403,7 +1467,7 @@
       "hasFaq": false,
       "wordCount": 16,
       "file": "content/blog/ru/gastronomicheskie-nabory-na-navruz-tashkent.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:01:25.432Z"
     },
     {
       "slug": "godovoy-plan-korporativnyh-prazdnikov",
@@ -1418,7 +1482,7 @@
         "lazernaya-gravirovka-podarkov",
         "podarochnye-nabory-s-logotipom"
       ],
-      "ogImage": "/images/blog/godovoy-plan-header.png",
+      "ogImage": "/images/blog/godovoy-plan-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -1427,7 +1491,7 @@
       "hasFaq": true,
       "wordCount": 31,
       "file": "content/blog/ru/godovoy-plan-korporativnyh-prazdnikov.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:31:21.432Z"
     },
     {
       "slug": "gravirovka-na-biznes-podarkah",
@@ -1449,9 +1513,9 @@
       "alternateUz": "biznes-sovgalarda-gravyura",
       "previousSlugs": [],
       "hasFaq": false,
-      "wordCount": 30,
+      "wordCount": 20,
       "file": "content/blog/ru/gravirovka-na-biznes-podarkah.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:01:25.432Z"
     },
     {
       "slug": "gravirovka-v-tashkente-na-8-marta",
@@ -1468,14 +1532,14 @@
       ],
       "ogImage": "/images/og/og-blog.jpg",
       "noindex": true,
-      "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-na-8-marta-sotrudnicam",
+      "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-na-8-marta-sotrudnitsam/",
       "alternateRu": "",
       "alternateUz": "gravirovka-v-tashkente-na-8-marta-uz",
       "previousSlugs": [],
       "hasFaq": false,
       "wordCount": 1458,
       "file": "content/blog/ru/gravirovka-v-tashkente-na-8-marta.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T07:00:24.132Z"
     },
     {
       "slug": "idei-vip-podarkov",
@@ -1497,9 +1561,9 @@
       "alternateUz": "vip-sovga-goyalari",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 95,
+      "wordCount": 68,
       "file": "content/blog/ru/idei-vip-podarkov.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:01:25.432Z"
     },
     {
       "slug": "kak-podgotovit-maket-logotipa",
@@ -1515,7 +1579,7 @@
         "korporativnye-podarki-s-gravirovkoy-metody",
         "brendirovannye-zazhigalki-i-chasy-s-logotipom"
       ],
-      "ogImage": "/images/blog/kak-podgotovit-maket-header.png",
+      "ogImage": "/images/blog/kak-podgotovit-maket-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -1524,7 +1588,7 @@
       "hasFaq": true,
       "wordCount": 49,
       "file": "content/blog/ru/kak-podgotovit-maket-logotipa.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:31:21.436Z"
     },
     {
       "slug": "kak-vybrat-korporativnyj-podarok-b2b",
@@ -1540,7 +1604,7 @@
         "podarochnye-nabory-s-logotipom",
         "korporativnye-podarki-b2b-etiket"
       ],
-      "ogImage": "/images/blog/kak-vybrat-b2b-header.png",
+      "ogImage": "/images/blog/kak-vybrat-b2b-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -1549,7 +1613,7 @@
       "hasFaq": true,
       "wordCount": 56,
       "file": "content/blog/ru/kak-vybrat-korporativnyj-podarok-b2b.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:31:21.436Z"
     },
     {
       "slug": "kak-vybrat-korporativnyj-podarok",
@@ -1574,7 +1638,7 @@
         "welcome-pack-dlya-sotrudnikov",
         "korporativnye-podarki-b2b-etiket"
       ],
-      "ogImage": "/images/blog/kak-vybrat-korporativnyj-header.png",
+      "ogImage": "/images/blog/kak-vybrat-korporativnyj-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "kak-vybrat-korporativnyj-podarok",
@@ -1586,7 +1650,7 @@
       "hasFaq": true,
       "wordCount": 59,
       "file": "content/blog/ru/kak-vybrat-korporativnyj-podarok.mdx",
-      "mtime": "2026-05-21T17:13:52.401Z"
+      "mtime": "2026-06-26T06:31:21.440Z"
     },
     {
       "slug": "kak-vybrat-podarki-dlya-sotrudnikov",
@@ -1609,9 +1673,9 @@
       "alternateUz": "xodimlar-uchun-sovga-tanlash-chek-list",
       "previousSlugs": [],
       "hasFaq": false,
-      "wordCount": 37,
+      "wordCount": 27,
       "file": "content/blog/ru/kak-vybrat-podarki-dlya-sotrudnikov.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "kak-vybrat-vip-podarok-partneru-uzbekistan",
@@ -1626,7 +1690,7 @@
         "gastronomicheskie-nabory-na-navruz-tashkent",
         "podarochnye-nabory-s-logotipom"
       ],
-      "ogImage": "/images/blog/kak-vybrat-vip-header.png",
+      "ogImage": "/images/blog/kak-vybrat-vip-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -1635,7 +1699,7 @@
       "hasFaq": true,
       "wordCount": 35,
       "file": "content/blog/ru/kak-vybrat-vip-podarok-partneru-uzbekistan.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:31:21.440Z"
     },
     {
       "slug": "keys-brendirovannye-podarki-dlya-it",
@@ -1657,9 +1721,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": false,
-      "wordCount": 70,
+      "wordCount": 53,
       "file": "content/blog/ru/keys-brendirovannye-podarki-dlya-it.mdx",
-      "mtime": "2026-05-21T16:21:56.415Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "keys-welcome-pack-enps-uzbekistan",
@@ -1674,16 +1738,16 @@
         "podarki-sotrudnikam-hr-gayd",
         "merch-dlya-kompanii-brendirovanie"
       ],
-      "ogImage": "/images/blog/keys-welcome-pack-enps-uzbekistan-header.png",
+      "ogImage": "/images/blog/keys-welcome-pack-enps-uzbekistan-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 122,
+      "wordCount": 123,
       "file": "content/blog/ru/keys-welcome-pack-enps-uzbekistan.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:31:21.444Z"
     },
     {
       "slug": "keys-welcome-pak-it-kompaniya-tashkent",
@@ -1708,7 +1772,7 @@
       "hasFaq": true,
       "wordCount": 73,
       "file": "content/blog/ru/keys-welcome-pak-it-kompaniya-tashkent.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "korporativniy-merch-kak-instrument-marketinga",
@@ -1730,9 +1794,9 @@
       "alternateUz": "korporativ-merch-marketing-vositasi",
       "previousSlugs": [],
       "hasFaq": false,
-      "wordCount": 46,
+      "wordCount": 28,
       "file": "content/blog/ru/korporativniy-merch-kak-instrument-marketinga.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "korporativnye-podarki-b2b-etiket",
@@ -1747,16 +1811,16 @@
         "idei-vip-podarkov",
         "korporativnye-podarki-uzbekistan"
       ],
-      "ogImage": "/images/blog/korporativnye-podarki-b2b-etiket-header.png",
+      "ogImage": "/images/blog/korporativnye-podarki-b2b-etiket-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "b2b-hamkorlar-uchun-sovgalar-etiket-gid",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 38,
+      "wordCount": 39,
       "file": "content/blog/ru/korporativnye-podarki-b2b-etiket.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:31:21.444Z"
     },
     {
       "slug": "korporativnye-podarki-na-8-marta-v-tashkente",
@@ -1772,7 +1836,7 @@
         "podarochnye-nabory-s-logotipom",
         "podarki-8-marta-20-idej"
       ],
-      "ogImage": "/images/blog/korporativnye-8-marta-header.png",
+      "ogImage": "/images/blog/korporativnye-8-marta-header.jpg",
       "noindex": true,
       "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-na-8-marta-sotrudnitsam/",
       "alternateRu": "",
@@ -1781,7 +1845,7 @@
       "hasFaq": true,
       "wordCount": 1619,
       "file": "content/blog/ru/korporativnye-podarki-na-8-marta-v-tashkente.mdx",
-      "mtime": "2026-05-21T16:39:33.377Z"
+      "mtime": "2026-06-26T06:31:21.448Z"
     },
     {
       "slug": "korporativnye-podarki-na-navruz",
@@ -1796,16 +1860,16 @@
         "podarochnye-nabory-s-logotipom",
         "kak-vybrat-korporativnyj-podarok"
       ],
-      "ogImage": "/images/blog/korporativnye-podarki-na-navruz-header.png",
+      "ogImage": "/images/blog/korporativnye-podarki-na-navruz-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
-      "alternateUz": "",
+      "alternateUz": "navruz-sovgalari",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 38,
+      "wordCount": 41,
       "file": "content/blog/ru/korporativnye-podarki-na-navruz.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T07:01:03.756Z"
     },
     {
       "slug": "korporativnye-podarki-s-gravirovkoy-metody",
@@ -1830,7 +1894,7 @@
       "hasFaq": true,
       "wordCount": 12,
       "file": "content/blog/ru/korporativnye-podarki-s-gravirovkoy-metody.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "korporativnye-podarki-s-logotipom-polnyy-gayd",
@@ -1855,7 +1919,7 @@
       "hasFaq": false,
       "wordCount": 3,
       "file": "content/blog/ru/korporativnye-podarki-s-logotipom-polnyy-gayd.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "korporativnye-podarki-uzbekistan",
@@ -1871,16 +1935,16 @@
         "merch-dlya-kompanii-brendirovanie",
         "podarki-sotrudnikam-hr-gayd"
       ],
-      "ogImage": "/images/blog/korporativnye-podarki-uzbekistan-header.png",
+      "ogImage": "/images/blog/korporativnye-podarki-uzbekistan-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "korporativ-sovgalar-ozbekiston",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 73,
+      "wordCount": 74,
       "file": "content/blog/ru/korporativnye-podarki-uzbekistan.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:31:21.452Z"
     },
     {
       "slug": "korporativnye-podarochnye-nabory",
@@ -1896,7 +1960,7 @@
         "podarochnye-nabory-s-logotipom",
         "podarki-klientam-partneram-vip"
       ],
-      "ogImage": "/images/blog/korporativnye-nabory-header.png",
+      "ogImage": "/images/blog/korporativnye-nabory-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -1905,7 +1969,7 @@
       "hasFaq": true,
       "wordCount": 58,
       "file": "content/blog/ru/korporativnye-podarochnye-nabory.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:31:21.452Z"
     },
     {
       "slug": "lazernaya-gravirovka-podarkov-tehnologiya",
@@ -1930,7 +1994,7 @@
       "hasFaq": true,
       "wordCount": 30,
       "file": "content/blog/ru/lazernaya-gravirovka-podarkov-tehnologiya.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "lazernaya-gravirovka-podarkov",
@@ -1945,7 +2009,7 @@
         "podarki-8-marta-20-idej",
         "merch-dlya-kompanii-brendirovanie"
       ],
-      "ogImage": "/images/blog/lazernaya-gravirovka-podarkov-header.png",
+      "ogImage": "/images/blog/lazernaya-gravirovka-podarkov-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -1954,7 +2018,7 @@
       "hasFaq": true,
       "wordCount": 46,
       "file": "content/blog/ru/lazernaya-gravirovka-podarkov.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:31:21.456Z"
     },
     {
       "slug": "lazernaya-gravirovka-protiv-uf-pechati-chto-vybrat",
@@ -1969,7 +2033,7 @@
         "lazernaya-gravirovka-podarkov",
         "kak-vybrat-korporativnyj-podarok"
       ],
-      "ogImage": "/images/blog/lazernaya-vs-uf-header.png",
+      "ogImage": "/images/blog/lazernaya-vs-uf-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -1978,7 +2042,7 @@
       "hasFaq": true,
       "wordCount": 23,
       "file": "content/blog/ru/lazernaya-gravirovka-protiv-uf-pechati-chto-vybrat.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:31:21.456Z"
     },
     {
       "slug": "loyalnost-sotrudnikov-korporativnye-podarki",
@@ -1993,16 +2057,16 @@
         "lazernaya-gravirovka-podarkov",
         "podarochnye-nabory-s-logotipom"
       ],
-      "ogImage": "/images/blog/loyalnost-sotrudnikov-header.png",
+      "ogImage": "/images/blog/loyalnost-sotrudnikov-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 51,
+      "wordCount": 49,
       "file": "content/blog/ru/loyalnost-sotrudnikov-korporativnye-podarki.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:31:21.460Z"
     },
     {
       "slug": "merch-dlya-it-kompaniy-tashkent",
@@ -2027,7 +2091,7 @@
       "hasFaq": false,
       "wordCount": 6,
       "file": "content/blog/ru/merch-dlya-it-kompaniy-tashkent.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "merch-dlya-kompanii-brendirovanie",
@@ -2042,7 +2106,7 @@
         "korporativnye-podarki-uzbekistan",
         "lazernaya-gravirovka-podarkov"
       ],
-      "ogImage": "/images/blog/merch-dlya-kompanii-brendirovanie-header.png",
+      "ogImage": "/images/blog/merch-dlya-kompanii-brendirovanie-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2051,7 +2115,7 @@
       "hasFaq": true,
       "wordCount": 66,
       "file": "content/blog/ru/merch-dlya-kompanii-brendirovanie.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T06:31:21.460Z"
     },
     {
       "slug": "nedorogie-podarki-na-8-marta",
@@ -2068,14 +2132,14 @@
       ],
       "ogImage": "/images/og/og-blog.jpg",
       "noindex": true,
-      "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-na-8-marta-sotrudnicam",
+      "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-na-8-marta-sotrudnitsam/",
       "alternateRu": "",
       "alternateUz": "nedorogie-podarki-na-8-marta-uz",
       "previousSlugs": [],
       "hasFaq": false,
       "wordCount": 1531,
       "file": "content/blog/ru/nedorogie-podarki-na-8-marta.mdx",
-      "mtime": "2026-05-21T16:21:56.416Z"
+      "mtime": "2026-06-26T07:00:24.136Z"
     },
     {
       "slug": "originalnye-podarki-na-8-marta",
@@ -2093,14 +2157,14 @@
       ],
       "ogImage": "/images/og/og-blog.jpg",
       "noindex": true,
-      "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-na-8-marta-sotrudnicam",
+      "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-na-8-marta-sotrudnitsam/",
       "alternateRu": "",
       "alternateUz": "originalnye-podarki-na-8-marta-uz",
       "previousSlugs": [],
       "hasFaq": false,
       "wordCount": 1411,
       "file": "content/blog/ru/originalnye-podarki-na-8-marta.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T07:00:24.136Z"
     },
     {
       "slug": "originalnye-podarki",
@@ -2135,7 +2199,7 @@
       "hasFaq": true,
       "wordCount": 72,
       "file": "content/blog/ru/originalnye-podarki.mdx",
-      "mtime": "2026-05-21T17:13:52.399Z"
+      "mtime": "2026-06-26T06:33:08.252Z"
     },
     {
       "slug": "personalizatsiya-novyy-standart-gravirovka",
@@ -2150,7 +2214,7 @@
         "lazernaya-gravirovka-podarkov",
         "podarochnye-nabory-s-logotipom"
       ],
-      "ogImage": "/images/blog/personalizatsiya-header.png",
+      "ogImage": "/images/blog/personalizatsiya-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2159,7 +2223,7 @@
       "hasFaq": true,
       "wordCount": 27,
       "file": "content/blog/ru/personalizatsiya-novyy-standart-gravirovka.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.460Z"
     },
     {
       "slug": "podarki-8-marta-20-idej",
@@ -2174,7 +2238,7 @@
         "podarki-sotrudnikam-loyalnost",
         "korporativnye-podarki-uzbekistan"
       ],
-      "ogImage": "/images/blog/podarki-8-marta-20-idej-header.png",
+      "ogImage": "/images/blog/podarki-8-marta-20-idej-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2183,7 +2247,7 @@
       "hasFaq": true,
       "wordCount": 86,
       "file": "content/blog/ru/podarki-8-marta-20-idej.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.464Z"
     },
     {
       "slug": "podarki-dlya-bankov-i-finteha-tashkent",
@@ -2199,7 +2263,7 @@
         "merch-dlya-it-kompaniy-tashkent",
         "chasy-s-logotipom-korporativnye-podarki-tashkent"
       ],
-      "ogImage": "/images/blog/podarki-banki-finteh-header.png",
+      "ogImage": "/images/blog/podarki-banki-finteh-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2208,7 +2272,7 @@
       "hasFaq": true,
       "wordCount": 45,
       "file": "content/blog/ru/podarki-dlya-bankov-i-finteha-tashkent.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.464Z"
     },
     {
       "slug": "podarki-dlya-horeca-i-restoranov-tashkent",
@@ -2224,7 +2288,7 @@
         "merch-dlya-it-kompaniy-tashkent",
         "podarki-dlya-bankov-i-finteha-tashkent"
       ],
-      "ogImage": "/images/blog/podarki-horeca-header.png",
+      "ogImage": "/images/blog/podarki-horeca-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2233,7 +2297,7 @@
       "hasFaq": true,
       "wordCount": 35,
       "file": "content/blog/ru/podarki-dlya-horeca-i-restoranov-tashkent.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.468Z"
     },
     {
       "slug": "podarki-klientam-partneram-vip",
@@ -2249,7 +2313,7 @@
         "podarochnye-nabory-s-logotipom",
         "korporativnye-podarochnye-nabory"
       ],
-      "ogImage": "/images/blog/podarki-klientam-vip-header.png",
+      "ogImage": "/images/blog/podarki-klientam-vip-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2258,7 +2322,7 @@
       "hasFaq": true,
       "wordCount": 62,
       "file": "content/blog/ru/podarki-klientam-partneram-vip.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.468Z"
     },
     {
       "slug": "podarki-na-8-marta-sotrudnicam",
@@ -2274,7 +2338,7 @@
         "lazernaya-gravirovka-podarkov",
         "podarki-sotrudnikam-hr-gayd"
       ],
-      "ogImage": "/images/blog/podarki-na-8-marta-sotrudnicam-header.png",
+      "ogImage": "/images/blog/podarki-na-8-marta-sotrudnicam-header.jpg",
       "noindex": true,
       "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-8-marta-20-idej/",
       "alternateRu": "",
@@ -2283,7 +2347,7 @@
       "hasFaq": true,
       "wordCount": 120,
       "file": "content/blog/ru/podarki-na-8-marta-sotrudnicam.mdx",
-      "mtime": "2026-05-21T16:24:56.604Z"
+      "mtime": "2026-06-26T06:31:21.472Z"
     },
     {
       "slug": "podarki-na-8-marta-sotrudnitsam",
@@ -2308,7 +2372,7 @@
         "brendirovanie-suvenirov",
         "korporativnye-podarki-b2b-etiket"
       ],
-      "ogImage": "/images/blog/podarki-8-marta-20-idej-header.png",
+      "ogImage": "/images/blog/podarki-8-marta-20-idej-header.jpg",
       "noindex": false,
       "canonicalOverride": "https://graver-studio.uz/uz/blog/8-martda-xodimalarga-sovgalar/",
       "alternateRu": "podarki-na-8-marta-sotrudnitsam",
@@ -2320,7 +2384,7 @@
       "hasFaq": true,
       "wordCount": 56,
       "file": "content/blog/ru/podarki-na-8-marta-sotrudnitsam.mdx",
-      "mtime": "2026-05-21T17:13:52.402Z"
+      "mtime": "2026-06-26T06:31:21.472Z"
     },
     {
       "slug": "podarki-na-den-rozhdeniya-sotrudnika",
@@ -2335,16 +2399,16 @@
         "welcome-pack-dlya-sotrudnikov-gid",
         "korporativnye-podarki-uzbekistan"
       ],
-      "ogImage": "/images/blog/podarki-na-den-rozhdeniya-sotrudnika-header.png",
+      "ogImage": "/images/blog/podarki-na-den-rozhdeniya-sotrudnika-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 30,
+      "wordCount": 31,
       "file": "content/blog/ru/podarki-na-den-rozhdeniya-sotrudnika.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.476Z"
     },
     {
       "slug": "podarki-na-korporativnye-sobytiya-tashkent",
@@ -2360,7 +2424,7 @@
         "welcome-pack-novym-sotrudnikam",
         "merch-dlya-it-kompaniy-tashkent"
       ],
-      "ogImage": "/images/blog/podarki-sobytiya-header.png",
+      "ogImage": "/images/blog/podarki-sobytiya-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2369,7 +2433,7 @@
       "hasFaq": true,
       "wordCount": 23,
       "file": "content/blog/ru/podarki-na-korporativnye-sobytiya-tashkent.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.476Z"
     },
     {
       "slug": "podarki-na-navruz",
@@ -2394,7 +2458,7 @@
       "hasFaq": false,
       "wordCount": 3,
       "file": "content/blog/ru/podarki-na-navruz.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "podarki-sotrudnikam-hr-gayd",
@@ -2418,7 +2482,7 @@
         "kak-vybrat-korporativnyj-podarok",
         "brendirovanie-suvenirov"
       ],
-      "ogImage": "/images/blog/podarki-sotrudnikam-hr-gayd-header.png",
+      "ogImage": "/images/blog/podarki-sotrudnikam-hr-gayd-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "podarki-sotrudnikam-hr-gayd",
@@ -2427,7 +2491,7 @@
       "hasFaq": true,
       "wordCount": 44,
       "file": "content/blog/ru/podarki-sotrudnikam-hr-gayd.mdx",
-      "mtime": "2026-05-21T17:13:52.401Z"
+      "mtime": "2026-06-26T06:31:21.480Z"
     },
     {
       "slug": "podarki-sotrudnikam-loyalnost",
@@ -2442,16 +2506,16 @@
         "welcome-pack-dlya-sotrudnikov-gid",
         "podarki-na-den-rozhdeniya-sotrudnika"
       ],
-      "ogImage": "/images/blog/podarki-sotrudnikam-loyalnost-header.png",
+      "ogImage": "/images/blog/podarki-sotrudnikam-loyalnost-header.jpg",
       "noindex": true,
       "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-sotrudnikam-hr-gayd",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": false,
-      "wordCount": 23,
+      "wordCount": 24,
       "file": "content/blog/ru/podarki-sotrudnikam-loyalnost.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.480Z"
     },
     {
       "slug": "podarochnye-nabory-s-logotipom",
@@ -2467,7 +2531,7 @@
         "korporativnye-podarochnye-nabory",
         "podarki-klientam-partneram-vip"
       ],
-      "ogImage": "/images/blog/podarochnye-nabory-logotip-header.png",
+      "ogImage": "/images/blog/podarochnye-nabory-logotip-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2476,7 +2540,7 @@
       "hasFaq": true,
       "wordCount": 39,
       "file": "content/blog/ru/podarochnye-nabory-s-logotipom.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.484Z"
     },
     {
       "slug": "polniy-gid-po-korporativnym-podarkam",
@@ -2499,9 +2563,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": false,
-      "wordCount": 84,
+      "wordCount": 101,
       "file": "content/blog/ru/polniy-gid-po-korporativnym-podarkam.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "process-zakaza-korporativnyh-podarkov",
@@ -2516,16 +2580,16 @@
         "lazernaya-gravirovka-podarkov",
         "podarochnye-nabory-s-logotipom"
       ],
-      "ogImage": "/images/blog/process-zakaza-header.png",
+      "ogImage": "/images/blog/process-zakaza-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 39,
+      "wordCount": 38,
       "file": "content/blog/ru/process-zakaza-korporativnyh-podarkov.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:31:21.484Z"
     },
     {
       "slug": "srochniy-zakaz-korporativnyh-podarkov",
@@ -2547,9 +2611,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 28,
+      "wordCount": 31,
       "file": "content/blog/ru/srochniy-zakaz-korporativnyh-podarkov.mdx",
-      "mtime": "2026-05-21T16:21:56.417Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "top-idei-podarkov-na-novyj-god",
@@ -2565,7 +2629,7 @@
         "lazernaya-gravirovka-podarkov",
         "korporativnye-podarochnye-nabory"
       ],
-      "ogImage": "/images/blog/top-novyj-god-header.png",
+      "ogImage": "/images/blog/top-novyj-god-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2574,7 +2638,7 @@
       "hasFaq": true,
       "wordCount": 20,
       "file": "content/blog/ru/top-idei-podarkov-na-novyj-god.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T06:31:21.488Z"
     },
     {
       "slug": "welcome-pack-dlya-it-kompanii-tashkent",
@@ -2589,7 +2653,7 @@
         "keys-welcome-pack-enps-uzbekistan",
         "podarochnye-nabory-s-logotipom"
       ],
-      "ogImage": "/images/blog/welcome-pack-it-header.png",
+      "ogImage": "/images/blog/welcome-pack-it-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "",
@@ -2598,7 +2662,7 @@
       "hasFaq": true,
       "wordCount": 49,
       "file": "content/blog/ru/welcome-pack-dlya-it-kompanii-tashkent.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T06:31:21.488Z"
     },
     {
       "slug": "welcome-pack-dlya-sotrudnikov-gid",
@@ -2613,16 +2677,16 @@
         "keys-welcome-pack-enps-uzbekistan",
         "podarki-sotrudnikam-loyalnost"
       ],
-      "ogImage": "/images/blog/welcome-pack-dlya-sotrudnikov-gid-header.png",
+      "ogImage": "/images/blog/welcome-pack-dlya-sotrudnikov-gid-header.jpg",
       "noindex": true,
       "canonicalOverride": "https://graver-studio.uz/ru/blog/welcome-pack-dlya-sotrudnikov",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": false,
-      "wordCount": 87,
+      "wordCount": 88,
       "file": "content/blog/ru/welcome-pack-dlya-sotrudnikov-gid.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T06:31:21.488Z"
     },
     {
       "slug": "welcome-pack-dlya-sotrudnikov",
@@ -2645,7 +2709,7 @@
         "kak-vybrat-korporativnyj-podarok",
         "brendirovanie-suvenirov"
       ],
-      "ogImage": "/images/blog/welcome-pack-dlya-sotrudnikov-gid-header.png",
+      "ogImage": "/images/blog/welcome-pack-dlya-sotrudnikov-gid-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "welcome-pack-dlya-sotrudnikov",
@@ -2654,7 +2718,7 @@
       "hasFaq": true,
       "wordCount": 82,
       "file": "content/blog/ru/welcome-pack-dlya-sotrudnikov.mdx",
-      "mtime": "2026-05-21T17:13:52.400Z"
+      "mtime": "2026-06-26T06:31:21.492Z"
     },
     {
       "slug": "welcome-pack-novym-sotrudnikam",
@@ -2679,7 +2743,7 @@
       "hasFaq": false,
       "wordCount": 3,
       "file": "content/blog/ru/welcome-pack-novym-sotrudnikam.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "8-mart-uchun-korporativ-sovgalar-goyalari",
@@ -2702,7 +2766,7 @@
       "hasFaq": true,
       "wordCount": 338,
       "file": "content/blog/uz/8-mart-uchun-korporativ-sovgalar-goyalari.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "8-martda-xodimalarga-sovgalar",
@@ -2735,7 +2799,7 @@
       "hasFaq": true,
       "wordCount": 1023,
       "file": "content/blog/uz/8-martda-xodimalarga-sovgalar.mdx",
-      "mtime": "2026-05-21T17:13:52.403Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "ayol-sovgalari",
@@ -2771,7 +2835,7 @@
       "hasFaq": true,
       "wordCount": 1794,
       "file": "content/blog/uz/ayol-sovgalari.mdx",
-      "mtime": "2026-05-21T17:13:52.400Z"
+      "mtime": "2026-06-26T06:33:08.252Z"
     },
     {
       "slug": "b2b-hamkorlar-uchun-sovgalar-etiket-gid",
@@ -2792,9 +2856,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 257,
+      "wordCount": 348,
       "file": "content/blog/uz/b2b-hamkorlar-uchun-sovgalar-etiket-gid.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "b2b-korporativ-sovga-tanlash",
@@ -2810,7 +2874,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "kak-vybrat-korporativnyj-podarok-b2b",
       "alternateUz": "",
@@ -2818,7 +2882,7 @@
       "hasFaq": true,
       "wordCount": 84,
       "file": "content/blog/uz/b2b-korporativ-sovga-tanlash.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T07:04:03.359Z"
     },
     {
       "slug": "banklar-va-fintex-uchun-sovgalar-toshkent",
@@ -2841,9 +2905,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 110,
+      "wordCount": 349,
       "file": "content/blog/uz/banklar-va-fintex-uchun-sovgalar-toshkent.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "biznes-hamkorlar-uchun-vip-sovgalar",
@@ -2866,7 +2930,7 @@
       "hasFaq": true,
       "wordCount": 307,
       "file": "content/blog/uz/biznes-hamkorlar-uchun-vip-sovgalar.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "biznes-sovgalarda-gravyura",
@@ -2882,7 +2946,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "gravirovka-na-biznes-podarkah",
       "alternateUz": "",
@@ -2890,7 +2954,7 @@
       "hasFaq": true,
       "wordCount": 84,
       "file": "content/blog/uz/biznes-sovgalarda-gravyura.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T07:04:03.359Z"
     },
     {
       "slug": "biznes-uchun-eko-sovgalar",
@@ -2906,7 +2970,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "eko-podarki-dlya-biznesa",
       "alternateUz": "",
@@ -2914,7 +2978,7 @@
       "hasFaq": true,
       "wordCount": 84,
       "file": "content/blog/uz/biznes-uchun-eko-sovgalar.mdx",
-      "mtime": "2026-05-21T16:21:56.418Z"
+      "mtime": "2026-06-26T07:04:03.359Z"
     },
     {
       "slug": "chto-podarit-devushke-na-8-marta-uz",
@@ -2938,7 +3002,7 @@
       "hasFaq": true,
       "wordCount": 238,
       "file": "content/blog/uz/chto-podarit-devushke-na-8-marta-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.377Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "chto-podarit-kollege-na-8-marta-uz",
@@ -2962,7 +3026,7 @@
       "hasFaq": true,
       "wordCount": 209,
       "file": "content/blog/uz/chto-podarit-kollege-na-8-marta-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.377Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "chto-podarit-mame-na-8-marta-uz",
@@ -2986,7 +3050,7 @@
       "hasFaq": true,
       "wordCount": 228,
       "file": "content/blog/uz/chto-podarit-mame-na-8-marta-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.377Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "chto-podarit-na-8-marta-devushke-mame-kollege-uz",
@@ -3010,7 +3074,7 @@
       "hasFaq": true,
       "wordCount": 298,
       "file": "content/blog/uz/chto-podarit-na-8-marta-devushke-mame-kollege-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.378Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "chto-podarit-rukovoditelyu-na-8-marta-uz",
@@ -3034,7 +3098,7 @@
       "hasFaq": true,
       "wordCount": 243,
       "file": "content/blog/uz/chto-podarit-rukovoditelyu-na-8-marta-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.377Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "erkak-sovgalari",
@@ -3070,7 +3134,7 @@
       "hasFaq": true,
       "wordCount": 1582,
       "file": "content/blog/uz/erkak-sovgalari.mdx",
-      "mtime": "2026-05-21T17:13:52.399Z"
+      "mtime": "2026-06-26T06:33:08.252Z"
     },
     {
       "slug": "gastronomic-toplamlar-navruzga-toshkent",
@@ -3094,7 +3158,7 @@
       "hasFaq": true,
       "wordCount": 658,
       "file": "content/blog/uz/gastronomic-toplamlar-navruzga-toshkent.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T06:01:25.436Z"
     },
     {
       "slug": "gravirovka-v-tashkente-na-8-marta-uz",
@@ -3118,7 +3182,42 @@
       "hasFaq": true,
       "wordCount": 266,
       "file": "content/blog/uz/gravirovka-v-tashkente-na-8-marta-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.378Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
+    },
+    {
+      "slug": "hamkasbga-sovgalar",
+      "locale": "uz",
+      "title": "Hamkasbga nima sovg‘a qilish mumkin: neytral, foydali va esda qoladigan g‘oyalar",
+      "description": "Hamkasbga sovg‘a tanlash bo‘yicha qo‘llanma: erkak, ayol, rahbar yoki xodim uchun ofisga mos, foydali va shaxsiylashtirilgan sovg‘a g‘oyalari.",
+      "date": "2026-05-21",
+      "category": "Sovg‘alar",
+      "tags": [
+        "hamkasbga-sovgalar",
+        "xodimga-sovga",
+        "ofis-sovgalari",
+        "ishbilarmon-sovgalar",
+        "gravyurali-sovgalar",
+        "korporativ-sovgalar",
+        "toshkent"
+      ],
+      "relatedSlugs": [
+        "tugilgan-kunga-sovgalar",
+        "noyob-sovgalar",
+        "erkak-sovgalari",
+        "ayol-sovgalari",
+        "korporativ-sovgani-qanday-tanlash",
+        "suvenir-brendlash"
+      ],
+      "ogImage": "",
+      "noindex": false,
+      "canonicalOverride": "",
+      "alternateRu": "chto-podarit-kollege",
+      "alternateUz": "hamkasbga-sovgalar",
+      "previousSlugs": [],
+      "hasFaq": true,
+      "wordCount": 1818,
+      "file": "content/blog/uz/hamkasbga-sovgalar.mdx",
+      "mtime": "2026-06-26T06:33:08.252Z"
     },
     {
       "slug": "horeca-va-restoranlar-uchun-sovgalar-toshkent",
@@ -3135,15 +3234,15 @@
         "banklar-va-fintex-uchun-sovgalar-toshkent"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 110,
+      "wordCount": 124,
       "file": "content/blog/uz/horeca-va-restoranlar-uchun-sovgalar-toshkent.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.359Z"
     },
     {
       "slug": "ishbilarmonlik-odobi-biznes-sovgalar-ozbekiston",
@@ -3159,7 +3258,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "delovoy-etiket-biznes-podarki-uzbekistan",
       "alternateUz": "",
@@ -3167,7 +3266,7 @@
       "hasFaq": true,
       "wordCount": 79,
       "file": "content/blog/uz/ishbilarmonlik-odobi-biznes-sovgalar-ozbekiston.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.359Z"
     },
     {
       "slug": "it-kompaniya-uchun-welcome-pack-chek-listi",
@@ -3190,7 +3289,7 @@
       "hasFaq": true,
       "wordCount": 437,
       "file": "content/blog/uz/it-kompaniya-uchun-welcome-pack-chek-listi.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "it-kompaniya-uchun-welcome-pack-toshkent",
@@ -3214,7 +3313,7 @@
       "hasFaq": true,
       "wordCount": 662,
       "file": "content/blog/uz/it-kompaniya-uchun-welcome-pack-toshkent.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "it-kompaniyalar-uchun-merch-toshkent",
@@ -3237,9 +3336,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 117,
+      "wordCount": 349,
       "file": "content/blog/uz/it-kompaniyalar-uchun-merch-toshkent.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "keys-brendlangan-sovgalar-it-kompaniya",
@@ -3255,7 +3354,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "case-study-welcome-pack-enps",
       "alternateUz": "",
@@ -3263,7 +3362,7 @@
       "hasFaq": true,
       "wordCount": 83,
       "file": "content/blog/uz/keys-brendlangan-sovgalar-it-kompaniya.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "keys-welcome-pack-povysil-enps-v-it-kompanii-uz",
@@ -3297,7 +3396,7 @@
       "hasFaq": true,
       "wordCount": 1144,
       "file": "content/blog/uz/keys-welcome-pack-povysil-enps-v-it-kompanii-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.379Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "keys-welcome-pak-it-kompaniya-toshkent",
@@ -3313,7 +3412,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
@@ -3321,7 +3420,7 @@
       "hasFaq": true,
       "wordCount": 78,
       "file": "content/blog/uz/keys-welcome-pak-it-kompaniya-toshkent.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "kompaniya-merchi-brendlash",
@@ -3338,15 +3437,15 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/kompaniya-merchi-brendlash.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "kompaniya-uchun-merch-brendlash",
@@ -3361,7 +3460,7 @@
         "korporativnye-podarki-uzbekistan",
         "lazernaya-gravirovka-podarkov"
       ],
-      "ogImage": "/images/blog/merch-dlya-kompanii-brendirovanie-header.png",
+      "ogImage": "/images/blog/merch-dlya-kompanii-brendirovanie-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "merch-dlya-kompanii-brendirovanie",
@@ -3370,7 +3469,7 @@
       "hasFaq": true,
       "wordCount": 1131,
       "file": "content/blog/uz/kompaniya-uchun-merch-brendlash.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T06:31:21.492Z"
     },
     {
       "slug": "korporativ-bayramlar-yillik-rejasi",
@@ -3386,7 +3485,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "godovoy-plan-korporativnyh-prazdnikov",
       "alternateUz": "",
@@ -3394,7 +3493,7 @@
       "hasFaq": true,
       "wordCount": 83,
       "file": "content/blog/uz/korporativ-bayramlar-yillik-rejasi.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "korporativ-merch-marketing-vositasi",
@@ -3410,7 +3509,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "korporativniy-merch-kak-instrument-marketinga",
       "alternateUz": "",
@@ -3418,7 +3517,7 @@
       "hasFaq": true,
       "wordCount": 84,
       "file": "content/blog/uz/korporativ-merch-marketing-vositasi.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "korporativ-sovga-buyurtma-jarayoni",
@@ -3434,7 +3533,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
@@ -3442,7 +3541,7 @@
       "hasFaq": true,
       "wordCount": 82,
       "file": "content/blog/uz/korporativ-sovga-buyurtma-jarayoni.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "korporativ-sovga-toplamlari",
@@ -3459,15 +3558,15 @@
         "mijoz-hamkorlar-uchun-sovgalar-vip"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "korporativnye-podarochnye-nabory",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/korporativ-sovga-toplamlari.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "korporativ-sovgalar-boyicha-toliq-qollanma",
@@ -3488,9 +3587,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 84,
+      "wordCount": 405,
       "file": "content/blog/uz/korporativ-sovgalar-boyicha-toliq-qollanma.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "korporativ-sovgalar-byudjeti",
@@ -3506,7 +3605,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "byudzhet-na-korporativnye-podarki",
       "alternateUz": "",
@@ -3514,7 +3613,7 @@
       "hasFaq": true,
       "wordCount": 80,
       "file": "content/blog/uz/korporativ-sovgalar-byudjeti.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "korporativ-sovgalar-gravyurasi-usullari",
@@ -3537,7 +3636,7 @@
       "hasFaq": true,
       "wordCount": 517,
       "file": "content/blog/uz/korporativ-sovgalar-gravyurasi-usullari.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "korporativ-sovgalar-logotip-bilan-to-liq-qollanma",
@@ -3554,15 +3653,15 @@
         "mijoz-hamkorlar-uchun-sovgalar-vip"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "korporativnye-podarki-s-logotipom-polnyy-gayd",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/korporativ-sovgalar-logotip-bilan-to-liq-qollanma.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "korporativ-sovgalar-ozbekiston",
@@ -3578,16 +3677,16 @@
         "merch-dlya-kompanii-brendirovanie",
         "podarki-sotrudnikam-hr-gayd"
       ],
-      "ogImage": "/images/blog/korporativnye-podarki-uzbekistan-header.png",
+      "ogImage": "/images/blog/korporativnye-podarki-uzbekistan-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "korporativnye-podarki-uzbekistan",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 1166,
+      "wordCount": 1167,
       "file": "content/blog/uz/korporativ-sovgalar-ozbekiston.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T06:31:21.496Z"
     },
     {
       "slug": "korporativ-sovgalar-toliq-gid-2025-uzbekistan",
@@ -3610,7 +3709,7 @@
       "hasFaq": true,
       "wordCount": 307,
       "file": "content/blog/uz/korporativ-sovgalar-toliq-gid-2025-uzbekistan.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "korporativ-sovgalar-zakupshchik-chek-listi",
@@ -3625,7 +3724,7 @@
         "b2b-hamkorlar-uchun-sovgalar-etiket-gid"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "chek-list-zakupshchika-podarkov",
       "alternateUz": "",
@@ -3633,7 +3732,7 @@
       "hasFaq": true,
       "wordCount": 230,
       "file": "content/blog/uz/korporativ-sovgalar-zakupshchik-chek-listi.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "korporativ-sovgani-qanday-tanlash",
@@ -3669,7 +3768,7 @@
       "hasFaq": true,
       "wordCount": 1512,
       "file": "content/blog/uz/korporativ-sovgani-qanday-tanlash.mdx",
-      "mtime": "2026-05-21T17:13:52.402Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "korporativ-tadbirlar-sovgalari-toshkent",
@@ -3692,7 +3791,7 @@
       "hasFaq": true,
       "wordCount": 705,
       "file": "content/blog/uz/korporativ-tadbirlar-sovgalari-toshkent.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "korporativ-tadbirlar-uchun-sovgalar-toshkent",
@@ -3709,15 +3808,15 @@
         "it-kompaniyalar-uchun-merch-toshkent"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 115,
+      "wordCount": 132,
       "file": "content/blog/uz/korporativ-tadbirlar-uchun-sovgalar-toshkent.mdx",
-      "mtime": "2026-05-21T16:21:56.419Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "korporativnye-podarki-na-8-marta-v-tashkente-uz",
@@ -3734,14 +3833,14 @@
       ],
       "ogImage": "/images/og/og-blog.jpg",
       "noindex": true,
-      "canonicalOverride": "https://graver-studio.uz/ru/blog/podarki-na-8-marta-sotrudnitsam/",
+      "canonicalOverride": "https://graver-studio.uz/uz/blog/8-martda-xodimalarga-sovgalar/",
       "alternateRu": "korporativnye-podarki-na-8-marta-v-tashkente",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
       "wordCount": 288,
       "file": "content/blog/uz/korporativnye-podarki-na-8-marta-v-tashkente-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.378Z"
+      "mtime": "2026-06-26T07:00:01.915Z"
     },
     {
       "slug": "lazer-gravirovka-sovgalar-tehnologiyasi",
@@ -3764,7 +3863,7 @@
       "hasFaq": true,
       "wordCount": 644,
       "file": "content/blog/uz/lazer-gravirovka-sovgalar-tehnologiyasi.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "lazer-gravirovka-sovgalar",
@@ -3787,9 +3886,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 684,
       "file": "content/blog/uz/lazer-gravirovka-sovgalar.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "lazer-oymakorlik-sovgalar",
@@ -3803,7 +3902,7 @@
         "korporativ-sovgalar-qanday-tanlash"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "lazernaya-gravirovka-podarkov",
       "alternateUz": "",
@@ -3811,7 +3910,7 @@
       "hasFaq": true,
       "wordCount": 209,
       "file": "content/blog/uz/lazer-oymakorlik-sovgalar.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "lazerli-oyma-va-uf-pechat-nimani-tanlash",
@@ -3835,7 +3934,7 @@
       "hasFaq": true,
       "wordCount": 623,
       "file": "content/blog/uz/lazerli-oyma-va-uf-pechat-nimani-tanlash.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "logotip-maketi-tayyorlash",
@@ -3858,9 +3957,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 381,
       "file": "content/blog/uz/logotip-maketi-tayyorlash.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "logotipli-soat-korporativ-sovgalar-toshkent",
@@ -3883,9 +3982,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 117,
+      "wordCount": 325,
       "file": "content/blog/uz/logotipli-soat-korporativ-sovgalar-toshkent.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "logotipli-sovga-setlari",
@@ -3908,7 +4007,7 @@
       "hasFaq": true,
       "wordCount": 710,
       "file": "content/blog/uz/logotipli-sovga-setlari.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "logotipli-sovga-toplami",
@@ -3931,9 +4030,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 347,
       "file": "content/blog/uz/logotipli-sovga-toplami.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "logotipli-zajigalka-va-soat",
@@ -3950,15 +4049,15 @@
         "korporativ-sovgani-qanday-tanlash"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "brendirovannye-zazhigalki-i-chasy-s-logotipom",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/logotipli-zajigalka-va-soat.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "mijoz-hamkorlar-uchun-sovgalar-vip",
@@ -3981,9 +4080,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 385,
       "file": "content/blog/uz/mijoz-hamkorlar-uchun-sovgalar-vip.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "navruz-sovgalari",
@@ -4000,15 +4099,15 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "korporativnye-podarki-na-navruz",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/navruz-sovgalari.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "navruz-uchun-korporativ-sovgalar",
@@ -4025,15 +4124,15 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/navruz-uchun-korporativ-sovgalar.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "nedorogie-podarki-na-8-marta-uz",
@@ -4057,7 +4156,7 @@
       "hasFaq": true,
       "wordCount": 321,
       "file": "content/blog/uz/nedorogie-podarki-na-8-marta-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.378Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "noyob-sovgalar",
@@ -4092,7 +4191,7 @@
       "hasFaq": true,
       "wordCount": 1707,
       "file": "content/blog/uz/noyob-sovgalar.mdx",
-      "mtime": "2026-05-21T17:13:52.400Z"
+      "mtime": "2026-06-26T06:33:08.252Z"
     },
     {
       "slug": "originalnye-podarki-na-8-marta-uz",
@@ -4116,7 +4215,7 @@
       "hasFaq": true,
       "wordCount": 271,
       "file": "content/blog/uz/originalnye-podarki-na-8-marta-uz.mdx",
-      "mtime": "2026-05-21T16:39:33.378Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "rahbar-uchun-8-mart-vip-goya",
@@ -4131,7 +4230,7 @@
         "b2b-hamkorlar-uchun-sovgalar-etiket-gid"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
@@ -4139,7 +4238,44 @@
       "hasFaq": true,
       "wordCount": 283,
       "file": "content/blog/uz/rahbar-uchun-8-mart-vip-goya.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
+    },
+    {
+      "slug": "rahbarga-sovgalar",
+      "locale": "uz",
+      "title": "Rahbarga nima sovg‘a qilish mumkin: statusli, o‘rinli va foydali g‘oyalar",
+      "description": "Rahbar, direktor yoki boshliq uchun sovg‘a tanlash bo‘yicha qo‘llanma: ishbilarmon aksessuarlar, jamoa nomidan sovg‘alar, gravyura va nimalardan qochish kerakligi.",
+      "date": "2026-05-21",
+      "category": "Sovg‘alar",
+      "tags": [
+        "rahbarga-sovgalar",
+        "rahbarga-sovga",
+        "boshliqqa-sovga",
+        "direktorga-sovga",
+        "ishbilarmon-sovgalar",
+        "statusli-sovgalar",
+        "gravyurali-sovgalar",
+        "korporativ-sovgalar",
+        "toshkent"
+      ],
+      "relatedSlugs": [
+        "hamkasbga-sovgalar",
+        "korporativ-sovgani-qanday-tanlash",
+        "suvenir-brendlash",
+        "noyob-sovgalar",
+        "erkak-sovgalari",
+        "xodimlarga-sovgalar-hr-gayd"
+      ],
+      "ogImage": "",
+      "noindex": false,
+      "canonicalOverride": "",
+      "alternateRu": "chto-podarit-nachalniku",
+      "alternateUz": "rahbarga-sovgalar",
+      "previousSlugs": [],
+      "hasFaq": true,
+      "wordCount": 1792,
+      "file": "content/blog/uz/rahbarga-sovgalar.mdx",
+      "mtime": "2026-06-26T06:33:08.252Z"
     },
     {
       "slug": "shaxsiylashtirish-yangi-standart-gravyura",
@@ -4161,9 +4297,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 82,
+      "wordCount": 331,
       "file": "content/blog/uz/shaxsiylashtirish-yangi-standart-gravyura.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "shoshilinch-korporativ-sovga-buyurtmasi",
@@ -4179,7 +4315,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
@@ -4187,7 +4323,7 @@
       "hasFaq": true,
       "wordCount": 84,
       "file": "content/blog/uz/shoshilinch-korporativ-sovga-buyurtmasi.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "sovgalarga-lazer-gravyurasi",
@@ -4199,10 +4335,10 @@
       "tags": [],
       "relatedSlugs": [
         "korporativnye-podarki-uzbekistan",
-        "podarki-na-8-marta-sotrudnicam",
+        "8-martda-xodimalarga-sovgalar",
         "merch-dlya-kompanii-brendirovanie"
       ],
-      "ogImage": "/images/blog/lazernaya-gravirovka-podarkov-header.png",
+      "ogImage": "/images/blog/lazernaya-gravirovka-podarkov-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "lazernaya-gravirovka-podarkov",
@@ -4211,7 +4347,7 @@
       "hasFaq": true,
       "wordCount": 1021,
       "file": "content/blog/uz/sovgalarga-lazer-gravyurasi.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:00:13.328Z"
     },
     {
       "slug": "suvenir-brendlash",
@@ -4242,7 +4378,7 @@
       "hasFaq": true,
       "wordCount": 1346,
       "file": "content/blog/uz/suvenir-brendlash.mdx",
-      "mtime": "2026-05-21T17:13:52.402Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "suvenir-byudjetini-tejash",
@@ -4259,15 +4395,15 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "ekonomiya-na-korporativnyh-suvenirax",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/suvenir-byudjetini-tejash.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:04:03.363Z"
     },
     {
       "slug": "tugilgan-kunga-sovgalar",
@@ -4304,7 +4440,7 @@
       "hasFaq": true,
       "wordCount": 1590,
       "file": "content/blog/uz/tugilgan-kunga-sovgalar.mdx",
-      "mtime": "2026-05-21T17:13:52.399Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "uzbekistonda-biznes-sovga-etiketi",
@@ -4319,7 +4455,7 @@
         "vip-sovga-goyalari"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
@@ -4327,7 +4463,7 @@
       "hasFaq": true,
       "wordCount": 204,
       "file": "content/blog/uz/uzbekistonda-biznes-sovga-etiketi.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T07:04:03.367Z"
     },
     {
       "slug": "vip-hamkor-uchun-sovgani-qanday-tanlash-ozbekiston",
@@ -4351,7 +4487,7 @@
       "hasFaq": true,
       "wordCount": 672,
       "file": "content/blog/uz/vip-hamkor-uchun-sovgani-qanday-tanlash-ozbekiston.mdx",
-      "mtime": "2026-05-21T16:21:56.420Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "vip-sovga-goyalari",
@@ -4373,9 +4509,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 87,
+      "wordCount": 486,
       "file": "content/blog/uz/vip-sovga-goyalari.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "welcome-pack-hr-uchun-toliq-gid",
@@ -4398,7 +4534,7 @@
       "hasFaq": true,
       "wordCount": 345,
       "file": "content/blog/uz/welcome-pack-hr-uchun-toliq-gid.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "welcome-pack-yangi-xodimlar",
@@ -4415,15 +4551,15 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/welcome-pack-yangi-xodimlar.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T07:04:03.367Z"
     },
     {
       "slug": "xaridor-chek-listi-b2b",
@@ -4440,15 +4576,15 @@
         "welcome-pack-yangi-xodimlar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/xaridor-chek-listi-b2b.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T07:04:03.367Z"
     },
     {
       "slug": "xodimlar-sadoqati-korporativ-sovgalar",
@@ -4464,7 +4600,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
@@ -4472,7 +4608,7 @@
       "hasFaq": true,
       "wordCount": 81,
       "file": "content/blog/uz/xodimlar-sadoqati-korporativ-sovgalar.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T07:04:03.367Z"
     },
     {
       "slug": "xodimlar-uchun-sovga-tanlash-chek-list",
@@ -4488,7 +4624,7 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "kak-vybrat-podarki-dlya-sotrudnikov",
       "alternateUz": "",
@@ -4496,7 +4632,7 @@
       "hasFaq": true,
       "wordCount": 83,
       "file": "content/blog/uz/xodimlar-uchun-sovga-tanlash-chek-list.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T07:04:03.367Z"
     },
     {
       "slug": "xodimlar-uchun-sovgalar-hr-qollanma",
@@ -4528,7 +4664,7 @@
       "hasFaq": true,
       "wordCount": 912,
       "file": "content/blog/uz/xodimlar-uchun-sovgalar-hr-qollanma.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "xodimlar-uchun-welcome-pack",
@@ -4544,7 +4680,7 @@
         "kak-vybrat-korporativnyj-podarok",
         "lazernaya-gravirovka-podarkov"
       ],
-      "ogImage": "/images/blog/welcome-pack-dlya-sotrudnikov-gid-header.png",
+      "ogImage": "/images/blog/welcome-pack-dlya-sotrudnikov-gid-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "welcome-pack-dlya-sotrudnikov",
@@ -4553,7 +4689,7 @@
       "hasFaq": true,
       "wordCount": 855,
       "file": "content/blog/uz/xodimlar-uchun-welcome-pack.mdx",
-      "mtime": "2026-05-21T17:13:52.402Z"
+      "mtime": "2026-06-26T06:31:21.500Z"
     },
     {
       "slug": "xodimlarga-sovga-loyalikni-oshirish",
@@ -4568,7 +4704,7 @@
         "korporativ-sovgalar-toliq-gid-2025-uzbekistan"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
@@ -4576,7 +4712,7 @@
       "hasFaq": true,
       "wordCount": 214,
       "file": "content/blog/uz/xodimlarga-sovga-loyalikni-oshirish.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T07:04:03.367Z"
     },
     {
       "slug": "xodimlarga-sovgalar-hr-gayd",
@@ -4591,7 +4727,7 @@
         "korporativnye-podarki-uzbekistan",
         "kak-vybrat-korporativnyj-podarok"
       ],
-      "ogImage": "/images/blog/podarki-sotrudnikam-hr-gayd-header.png",
+      "ogImage": "/images/blog/podarki-sotrudnikam-hr-gayd-header.jpg",
       "noindex": false,
       "canonicalOverride": "",
       "alternateRu": "podarki-sotrudnikam-hr-gayd",
@@ -4600,7 +4736,7 @@
       "hasFaq": true,
       "wordCount": 1109,
       "file": "content/blog/uz/xodimlarga-sovgalar-hr-gayd.mdx",
-      "mtime": "2026-05-21T17:13:52.402Z"
+      "mtime": "2026-06-26T06:31:21.500Z"
     },
     {
       "slug": "yangi-xodimlar-uchun-welcome-pack",
@@ -4623,9 +4759,9 @@
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 139,
+      "wordCount": 339,
       "file": "content/blog/uz/yangi-xodimlar-uchun-welcome-pack.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T07:13:19.658Z"
     },
     {
       "slug": "yangi-yil-korporativ-sovgalari",
@@ -4648,7 +4784,7 @@
       "hasFaq": true,
       "wordCount": 580,
       "file": "content/blog/uz/yangi-yil-korporativ-sovgalari.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T06:01:25.440Z"
     },
     {
       "slug": "yangi-yil-sovga-goyalari",
@@ -4665,15 +4801,15 @@
         "lazer-gravirovka-sovgalar"
       ],
       "ogImage": "/images/og/og-blog.jpg",
-      "noindex": false,
+      "noindex": true,
       "canonicalOverride": "",
       "alternateRu": "",
       "alternateUz": "",
       "previousSlugs": [],
       "hasFaq": true,
-      "wordCount": 144,
+      "wordCount": 162,
       "file": "content/blog/uz/yangi-yil-sovga-goyalari.mdx",
-      "mtime": "2026-05-21T16:21:56.421Z"
+      "mtime": "2026-06-26T07:04:03.367Z"
     }
   ]
 }

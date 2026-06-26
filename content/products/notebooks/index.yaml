@@ -35,6 +35,8 @@ faq:
     aUz: "Ha, xodimlar ismlarini individual qo'yamiz. Tasdiqlash uchun maketlar tayyorlaymiz."
 seo:
   title: "Ежедневники с гравировкой логотипа — корпоративные | Graver.uz"
+  titleUz: "Logotip gravyurali kundaliklar — korporativ | Graver.uz"
   description: "Кожаные и комбинированные ежедневники А5 с лазерной гравировкой. Welcome-пак, партнёрский подарок, корпоративный сувенир. От 10 штук."
-  ogImage: /images/og/og-home.jpg
+  descriptionUz: "Lazer gravyurali charm va kombinatsiyalangan A5 kundaliklar. Welcome-pak, hamkor sovg'asi, korporativ suvenir. 10 donadan."
+  ogImage: /images/og/og-products.jpg
   noindex: false

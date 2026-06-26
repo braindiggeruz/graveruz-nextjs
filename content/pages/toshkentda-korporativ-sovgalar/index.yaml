@@ -6,7 +6,7 @@ intro: >-
   Xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarni tanlaymiz va
   bezaymiz: zajigalkalar, ruchkalar, bloknotlar, powerbank, soatlar va logotipli
   premium to‘plamlar.
-heroImage: /images/pages/toshkentda-korporativ-sovgalar/heroImage.png
+heroImage: /images/pages/toshkentda-korporativ-sovgalar/heroImage.jpg
 blocks:
   - discriminant: hero
     value:
@@ -16,7 +16,7 @@ blocks:
         Xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarni tanlaymiz
         va bezaymiz: zajigalkalar, ruchkalar, bloknotlar, powerbank, soatlar va
         logotipli premium to‘plamlar.
-      image: /images/pages/toshkentda-korporativ-sovgalar/blocks/0/value/image.png
+      image: /images/pages/toshkentda-korporativ-sovgalar/blocks/0/value/image.jpg
       ctaLabel: Sovg‘a tanlash
       ctaHref: https://t.me/GraverAdm
   - discriminant: features
@@ -55,7 +55,7 @@ blocks:
     value: {}
   - discriminant: imageText
     value:
-      image: /images/pages/toshkentda-korporativ-sovgalar/blocks/3/value/image.png
+      image: /images/pages/toshkentda-korporativ-sovgalar/blocks/3/value/image.jpg
       imageSide: right
       title: Logotipli va shaxsiy gravyurali sovg‘alar
       body: >-
@@ -122,5 +122,5 @@ seo:
   description: >-
     Toshkentda gravyurali korporativ sovg‘alar: zajigalkalar, ruchkalar,
     bloknotlar, powerbank, soatlar va logotipli to‘plamlar.
-  ogImage: /images/og/toshkentda-korporativ-sovgalar/seo/ogImage.png
+  ogImage: /images/og/toshkentda-korporativ-sovgalar/seo/ogImage.jpg
   noindex: false

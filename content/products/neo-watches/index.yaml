@@ -29,18 +29,9 @@ pricingTiers:
     descRu: Автоматический механизм
     descUz: Avtomatik mexanizm
     highlight: true
-aggregateRating:
-  value: "4.9"
-  count: "47"
-reviews:
-  - authorName: Uzum
-    rating: 5
-    textRu: "Заказали 50 часов NEO для команды. Качество гравировки отличное, сроки соблюдены."
-    textUz: "50 dona NEO soatlar buyurtma berdik. Gravyura sifati a'lo, muddatlarga rioya qilindi."
-  - authorName: Humans
-    rating: 5
-    textRu: "Используем часы NEO в welcome-паках. Сотрудники в восторге."
-    textUz: "Welcome-paklarda NEO soatlardan foydalanamiz. Xodimlar juda mamnun."
+# Review/AggregateRating schema removed (T-001/002): values were not backed by
+# verifiable on-page customer reviews → Google review-spam policy risk.
+# Re-add ONLY when real, displayed, verifiable customer reviews exist.
 faq:
   - qRu: "Какой минимальный тираж для часов NEO?"
     qUz: "NEO soatlar uchun minimal tiraj qancha?"
@@ -60,6 +51,8 @@ faq:
     aUz: "Ha, har bir soat firma sovg'a qutisida yetkaziladi. Kompaniyangiz logotipi bilan brendlangan qadoqlash ham mumkin."
 seo:
   title: "Часы NEO с гравировкой на заказ | Премиум подарок | Graver.uz"
+  titleUz: "NEO soatlar gravyura bilan | Premium sovg'a | Graver.uz"
   description: "Часы NEO с персональной гравировкой — кварцевые и механические. Бесплатный макет перед нанесением. Идеальный подарок для себя, близких и партнёров."
+  descriptionUz: "Shaxsiy gravyurali NEO soatlar — kvarts va mexanik. Gravyuradan oldin bepul maket. O'zingiz, yaqinlaringiz va hamkorlar uchun ideal sovg'a."
   ogImage: /images/products/neo/neo-watch-black-gold.jpg
   noindex: false

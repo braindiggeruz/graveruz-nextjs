@@ -32,17 +32,30 @@ const STATUS_OPTIONS = [
 const seoFields = fields.object(
   {
     title: fields.text({
-      label: 'SEO Title',
+      label: 'SEO Title (RU)',
       description:
-        'Этот заголовок видит пользователь в Google. Цель: 50–60 символов. До 60 — идеально, 60–70 — допустимо, дальше Google обрежет.',
+        'Этот заголовок видит пользователь в Google (русская версия). Цель: 50–60 символов. До 60 — идеально, 60–70 — допустимо, дальше Google обрежет.',
       validation: { length: { min: 1, max: 120 } },
     }),
-    description: fields.text({
-      label: 'Meta Description',
+    titleUz: fields.text({
+      label: 'SEO Title (UZ)',
       description:
-        'Краткая «продающая» строка под заголовком в Google. Цель: 140–160 символов. Должна содержать ключевое преимущество и CTA.',
+        'Заголовок для узбекской версии страницы. Если пусто — узбекская страница покажет дефолтный UZ-заголовок, НЕ русский. Цель: 50–60 символов.',
+      validation: { length: { min: 0, max: 120 } },
+    }),
+    description: fields.text({
+      label: 'Meta Description (RU)',
+      description:
+        'Краткая «продающая» строка под заголовком в Google (русская версия). Цель: 140–160 символов.',
       multiline: true,
       validation: { length: { min: 1, max: 320 } },
+    }),
+    descriptionUz: fields.text({
+      label: 'Meta Description (UZ)',
+      description:
+        'Мета-описание для узбекской версии. Если пусто — UZ-страница покажет дефолтное UZ-описание, НЕ русское.',
+      multiline: true,
+      validation: { length: { min: 0, max: 320 } },
     }),
     ogImage: fields.image({
       label: 'Картинка для соцсетей (1200×630)',

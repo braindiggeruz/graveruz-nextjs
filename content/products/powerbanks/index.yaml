@@ -42,6 +42,8 @@ faq:
     aUz: "10 dona. 100+ tirajlar uchun alohida shartlar."
 seo:
   title: "Повербанки с гравировкой логотипа — корпоративные | Graver.uz"
+  titleUz: "Logotip gravyurali powerbanklar — korporativ | Graver.uz"
   description: "Брендированные повербанки 5k–20k мАч с лазерной гравировкой логотипа. Алюминиевый корпус, USB-C + USB-A. От 10 штук. Ташкент."
-  ogImage: /images/og/og-home.jpg
+  descriptionUz: "Logotip lazer gravyurali brendlangan powerbanklar 5k–20k mAh. Alyumin korpus, USB-C + USB-A. 10 donadan. Toshkent."
+  ogImage: /images/og/og-products.jpg
   noindex: false

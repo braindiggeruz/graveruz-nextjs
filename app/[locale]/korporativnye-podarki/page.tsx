@@ -1,13 +1,18 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/seo'
 import SchemaOrg, { localBusinessSchema, breadcrumbSchema } from '@/components/SchemaOrg'
 import ViewCategoryTracker from '@/components/ViewCategoryTracker'
 
+// SEO (cannibalization fix, June 2026): the RU-slug "korporativnye-podarki"
+// landing is RU-only. The Uzbek corporate money page lives at the localized
+// slug /uz/toshkentda-korporativ-sovgalar/ (CMS). /uz/korporativnye-podarki/
+// is permanently 301-redirected there (see public/_redirects), so we never
+// pre-render a UZ variant of this static route.
 export async function generateStaticParams() {
-  return [{ locale: 'ru' }, { locale: 'uz' }]
+  return [{ locale: 'ru' }]
 }
 
 interface PageProps {
@@ -19,23 +24,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!isValidLocale(resolvedParams.locale)) return {}
   const locale = resolvedParams.locale as Locale
 
-  if (locale === 'ru') {
-    return buildMetadata({
-      locale,
-      path: 'korporativnye-podarki',
-      title: 'Корпоративные подарки с гравировкой в Ташкенте — Graver.uz',
-      description:
-        'Корпоративные подарки с логотипом и гравировкой для бизнеса в Ташкенте. Часы, ручки, зажигалки, блокноты. Тираж от 10 штук. Доставка по всему Узбекистану.',
-      ogImage: 'https://graver-studio.uz/images/og/og-engraved-gifts.jpg',
-    })
-  }
+  // UZ variant is canonicalized to the localized CMS slug.
+  if (locale !== 'ru') return {}
+
   return buildMetadata({
     locale,
     path: 'korporativnye-podarki',
-    title: "Toshkentda korporativ sovg'alar — Graver.uz",
+    title: 'Корпоративные подарки с гравировкой в Ташкенте — Graver.uz',
     description:
-      "Toshkentdagi biznes uchun logotip va gravyura bilan korporativ sovg'alar. Soatlar, ruchkalar, zajigilkalar, daftarlar. 10 donadan boshlab.",
+      'Корпоративные подарки с логотипом и гравировкой для бизнеса в Ташкенте. Часы, ручки, зажигалки, блокноты. Тираж от 10 штук. Доставка по всему Узбекистану.',
     ogImage: 'https://graver-studio.uz/images/og/og-engraved-gifts.jpg',
+    // Cross-locale counterpart lives at a localized UZ slug (CMS page).
+    alternateSlug: { uz: 'toshkentda-korporativ-sovgalar' },
   })
 }
 
@@ -43,6 +43,8 @@ export default async function KorporativnyePodarkiPage({ params }: PageProps) {
   const resolvedParams = await params
   if (!isValidLocale(resolvedParams.locale)) notFound()
   const locale = resolvedParams.locale as Locale
+  // UZ corporate money page = localized CMS slug; 301 away from RU-slug dup.
+  if (locale !== 'ru') redirect(`/uz/toshkentda-korporativ-sovgalar/`)
   const isRu = locale === 'ru'
 
   const breadcrumbs = [

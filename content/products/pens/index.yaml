@@ -39,6 +39,8 @@ faq:
     aUz: "Ha, har bir ruchkaga individual ism va lavozim gravyura qilamiz. Ro'yxatni yuboring."
 seo:
   title: "Ручки с гравировкой логотипа — корпоративные подарки | Graver.uz"
+  titleUz: "Logotip gravyurali ruchkalar — korporativ sovg'alar | Graver.uz"
   description: "Металлические ручки с лазерной гравировкой. Welcome-пак, конференц-подарок, VIP-набор. Тираж от 10 штук. Ташкент."
-  ogImage: /images/og/og-home.jpg
+  descriptionUz: "Lazer gravyurali metall ruchkalar. Welcome-pak, konferensiya sovg'asi, VIP-to'plam. Tiraj 10 donadan. Toshkent."
+  ogImage: /images/og/og-products.jpg
   noindex: false

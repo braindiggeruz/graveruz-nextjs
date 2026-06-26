@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { isValidLocale, type Locale } from '@/lib/i18n'
-import { buildMetadata } from '@/lib/seo'
+import { buildMetadata, resolveLocalizedSeo } from '@/lib/seo'
 import CMSProductPage from '@/components/CMSProductPage'
 import { getProduct } from '@/lib/cms'
 
@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const seo = product?.seo
   return buildMetadata({
     locale, path: `products/${SLUG}`,
-    title: seo?.title || (locale === 'ru' ? 'Ручки с гравировкой | Graver.uz' : 'Gravyurali ruchkalar | Graver.uz'),
-    description: seo?.description || '',
+    title: resolveLocalizedSeo(seo, locale, { title: locale === 'ru' ? 'Ручки с гравировкой | Graver.uz' : 'Gravyurali ruchkalar | Graver.uz' }).title,
+    description: resolveLocalizedSeo(seo, locale, { title: '', description: '' }).description,
     ogImage: seo?.ogImage || undefined,
     noindex: seo?.noindex || product?.status !== 'published',
   })
