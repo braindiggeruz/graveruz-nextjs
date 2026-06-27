@@ -162,6 +162,12 @@ export default function Footer({ locale, messages, recentPosts = [], settings }:
               <Link href={`/${locale}#contact`} className="block hover:text-teal-500 transition">
                 {isRu ? 'Контакты' : 'Aloqa'}
               </Link>
+              <Link
+                href={isRu ? '/ru/politika-konfidentsialnosti/' : '/uz/maxfiylik-siyosati/'}
+                className="block hover:text-teal-500 transition"
+              >
+                {isRu ? 'Политика конфиденциальности' : 'Maxfiylik siyosati'}
+              </Link>
             </div>
           </div>
 
