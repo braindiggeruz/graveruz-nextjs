@@ -13,3 +13,9 @@
 # Images cache
 /images/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# HTML pages — short edge cache + stale-while-revalidate so content stays
+# fresh after deploys (was effectively s-maxage=1yr, risky for live edits).
+# 1h fresh, serve stale up to 24h while revalidating in the background.
+/*/
+  Cache-Control: public, max-age=0, s-maxage=3600, stale-while-revalidate=86400
