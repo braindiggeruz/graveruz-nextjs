@@ -74,10 +74,13 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           }}
         />
 
-        {/* ── Analytics deferred to lazyOnload (perf: ~480ms off TBT/LCP) ──
-            gtag()/fbq() stubs are defined inline (afterInteractive) so any
-            early event calls queue safely; the heavy SDKs (gtag.js,
-            fbevents.js) load only after the page is fully loaded. */}
+        {/* ── Analytics: stubs now, heavy SDKs after first interaction ──
+            gtag()/fbq() stubs queue events immediately; the heavy SDKs
+            (gtag.js → also loads GTM/Google Ads, fbevents.js) load only
+            after the user's first interaction (pointer/key/scroll/touch)
+            or a 6s fallback. This keeps the main thread free during load
+            (TBT↓) and delays third-party cookies (Google Ads test_cookie)
+            until the visitor actually engages (BP↑). */}
 
         {/* GA4 + Meta Pixel command stubs (tiny, define queues immediately) */}
         <Script
@@ -98,16 +101,28 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           }}
         />
 
-        {/* Heavy SDKs — load only after full page load (lazyOnload) */}
+        {/* Interaction-gated loader for heavy analytics SDKs */}
         <Script
-          id="ga4-gtag"
-          strategy="lazyOnload"
-          src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
-        />
-        <Script
-          id="meta-pixel-sdk"
-          strategy="lazyOnload"
-          src="https://connect.facebook.net/en_US/fbevents.js"
+          id="analytics-loader"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){if(window.__aLoaded)return;
+            function load(){if(window.__aLoaded)return;window.__aLoaded=1;
+              cleanup();
+              var s=document.createElement('script');s.async=true;
+              s.src='https://www.googletagmanager.com/gtag/js?id=${ga4Id}';
+              document.head.appendChild(s);
+              var f=document.createElement('script');f.async=true;
+              f.src='https://connect.facebook.net/en_US/fbevents.js';
+              document.head.appendChild(f);
+            }
+            var evs=['pointerdown','keydown','touchstart','scroll','mousemove'];
+            function cleanup(){evs.forEach(function(e){window.removeEventListener(e,load,{passive:true,capture:true});});}
+            evs.forEach(function(e){window.addEventListener(e,load,{passive:true,capture:true,once:true});});
+            // Fallback: load after 6s of inactivity so bots / quick bounces still track.
+            setTimeout(load,6000);
+            })();`,
+          }}
         />
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
