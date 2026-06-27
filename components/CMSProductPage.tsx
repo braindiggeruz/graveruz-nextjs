@@ -177,7 +177,7 @@ export default async function CMSProductPage({ locale, slug }: Props) {
                     </div>
                   ))}
                 </div>
-                <p className="text-gray-500 text-sm mt-4">{isRu ? '* Цены за единицу. Скидки от 10+ штук.' : '* Narxlar birlik uchun. 10+ donadan chegirmalar.'}</p>
+                <p className="text-gray-400 text-sm mt-4">{isRu ? '* Цены за единицу. Скидки от 10+ штук.' : '* Narxlar birlik uchun. 10+ donadan chegirmalar.'}</p>
               </div>
             )}
           </div>
@@ -191,7 +191,7 @@ export default async function CMSProductPage({ locale, slug }: Props) {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {processSteps.map((step, i) => (
                 <div key={i} className="relative bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                  <div className="w-10 h-10 bg-teal-500 rounded-xl flex items-center justify-center mb-4 text-white font-bold text-lg">{i + 1}</div>
+                  <div className="w-10 h-10 bg-teal-700 rounded-xl flex items-center justify-center mb-4 text-white font-bold text-lg">{i + 1}</div>
                   <p className="text-gray-300 text-sm leading-relaxed">{step}</p>
                 </div>
               ))}

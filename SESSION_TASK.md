@@ -8,11 +8,9 @@ Verify deploy: `curl -sI https://graver-studio.uz/ru/?cb=$RANDOM | grep -i <head
 
 ## Order (from handoff): CSP → A11y → Privacy/Team → Performance → cleanup
 
-### PR1 — CSP  [IN PROGRESS]
-- [x] Added CSP Report-Only in next.config.mjs headers() (commit 7c0004d, deployed)
-- [x] Validated on prod via playwright → found GA4 Ads/doubleclick domains missing
-- [x] Added doubleclick/googleads/analytics.google.com/google.com to whitelist
-- [ ] Re-deploy, re-validate clean → then promote Report-Only → enforced
+### PR1 — CSP  [DONE ✅ enforced, 0 blocks, 0 JS errors on prod]
+- [x] Report-Only → validate → add GA4 Ads/doubleclick → enforce (commits 7c0004d, dfbe242, 717eca9)
+- [x] Prod verified: enforced CSP live, all pages render, analytics loads clean
 - Whitelist domains: GA4 (googletagmanager, *.google-analytics, analytics.google.com),
   Google Ads (*.g.doubleclick.net, googleads, googleadservices, www.google.com),
   Meta Pixel (connect.facebook.net, facebook.com), CF beacon (static.cloudflareinsights),

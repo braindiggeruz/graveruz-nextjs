@@ -122,7 +122,7 @@ export default async function WelcomePacksPage({ params }: PageProps) {
       <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <nav aria-label="breadcrumb" className="mb-6">
-            <ol className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+            <ol className="flex items-center justify-center space-x-2 text-sm text-gray-400">
               <li><Link href={`/${locale}/`} className="hover:text-teal-500">Graver.uz</Link></li>
               <li className="text-gray-700">/</li>
               <li className="text-gray-400">{isRu ? 'Welcome-паки' : 'Welcome-paklar'}</li>
@@ -149,7 +149,7 @@ export default async function WelcomePacksPage({ params }: PageProps) {
             </a>
             <a
               href="tel:+998770802288"
-              className="border border-teal-500 text-teal-500 px-8 py-4 rounded-lg font-semibold hover:bg-teal-500 hover:text-white transition"
+              className="border border-teal-500 text-teal-500 px-8 py-4 rounded-lg font-semibold hover:bg-teal-700 hover:text-white transition"
             >
               +998 77 080 22 88
             </a>
@@ -285,7 +285,7 @@ export default async function WelcomePacksPage({ params }: PageProps) {
             </a>
             <a
               href="tel:+998770802288"
-              className="border border-teal-500 text-teal-500 px-8 py-4 rounded-lg font-semibold hover:bg-teal-500 hover:text-white transition"
+              className="border border-teal-500 text-teal-500 px-8 py-4 rounded-lg font-semibold hover:bg-teal-700 hover:text-white transition"
             >
               +998 77 080 22 88
             </a>

@@ -98,7 +98,7 @@ export default function LightersLanding({ locale }: Props) {
         <div className="absolute inset-0 bg-gradient-to-b from-orange-900/20 via-black to-black" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8">
+          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
             <Link href={`/${locale}/`} className="hover:text-teal-500 transition">{isRu ? 'Главная' : 'Bosh sahifa'}</Link>
             <span>/</span>
             <span className="text-gray-300">{isRu ? 'Зажигалки' : 'Zajigalkalar'}</span>
@@ -186,7 +186,7 @@ export default function LightersLanding({ locale }: Props) {
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-orange-400">
                       {formatPrice(product.price)}{' '}
-                      <span className="text-sm text-gray-500">{isRu ? 'сум' : "so'm"}</span>
+                      <span className="text-sm text-gray-400">{isRu ? 'сум' : "so'm"}</span>
                     </span>
                   </div>
                 </div>
@@ -311,7 +311,7 @@ export default function LightersLanding({ locale }: Props) {
                 <p className="text-gray-300 text-sm mb-4 italic">«{isRu ? r.textRu : r.textUz}»</p>
                 <div>
                   <p className="text-white font-semibold text-sm">{isRu ? r.nameRu : r.nameUz}</p>
-                  <p className="text-gray-500 text-xs">{isRu ? r.roleRu : r.roleUz}</p>
+                  <p className="text-gray-400 text-xs">{isRu ? r.roleRu : r.roleUz}</p>
                 </div>
               </div>
             ))}

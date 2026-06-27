@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
             {post.title}
           </h1>
-          <div className="flex items-center space-x-4 text-sm text-gray-500">
+          <div className="flex items-center space-x-4 text-sm text-gray-400">
             {post.date && (
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'uz-UZ', {

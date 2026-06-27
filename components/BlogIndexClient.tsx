@@ -169,7 +169,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
 
         {/* ── Breadcrumb (exact from CRA) ──────────────────────────────── */}
         <nav aria-label="breadcrumb" className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
+          <ol className="flex items-center gap-2 text-sm text-gray-400">
             <li>
               <Link href={`/${locale}/`} className="hover:text-teal-500 transition">
                 {isRu ? 'Главная' : 'Bosh sahifa'}
@@ -254,7 +254,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
               {categories.map((cat, idx) => (
                 <li key={idx} className="flex justify-between items-center text-sm">
                   <span className="text-gray-300">{cat.name}</span>
-                  <span className="text-gray-500 bg-gray-800 px-2 py-0.5 rounded text-xs">{cat.count}</span>
+                  <span className="text-gray-400 bg-gray-800 px-2 py-0.5 rounded text-xs">{cat.count}</span>
                 </li>
               ))}
             </ul>
@@ -278,7 +278,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
                 className="flex justify-between items-center group"
               >
                 <span className="text-teal-400 group-hover:text-teal-300 transition text-sm">→ {post.title}</span>
-                <time className="text-gray-500 text-xs">
+                <time className="text-gray-400 text-xs">
                   {new Date(post.date).toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'uz-UZ', {
                     month: 'short',
                     day: 'numeric',
@@ -337,7 +337,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
 
         {/* Search bar */}
         <div className="relative mb-6">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
             <SearchIcon size={18} />
           </span>
           <input
@@ -382,7 +382,7 @@ export default function BlogIndexClient({ locale, posts }: Props) {
                   </div>
                 )}
                 <div className="p-6">
-                  <div className="flex items-center text-sm text-gray-500 mb-3">
+                  <div className="flex items-center text-sm text-gray-400 mb-3">
                     <span className="mr-2"><CalendarIcon size={14} /></span>
                     {new Date(post.date).toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'uz-UZ', {
                       year: 'numeric',

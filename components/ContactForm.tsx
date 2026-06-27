@@ -235,7 +235,7 @@ ${formData.message}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-teal-500 hover:bg-teal-600 disabled:bg-gray-600 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
+          className="w-full bg-teal-700 hover:bg-teal-600 disabled:bg-gray-600 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
           data-track="contact-submit"
         >
           <span>→</span>

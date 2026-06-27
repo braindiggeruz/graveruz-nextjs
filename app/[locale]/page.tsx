@@ -606,7 +606,7 @@ export default async function HomePage({ params }: PageProps) {
                     </div>
                     <Link
                       href={`/${locale}/products/neo-watches/`}
-                      className="bg-teal-500 hover:bg-teal-400 text-white px-4 py-2 rounded-xl font-semibold text-sm transition flex items-center gap-2"
+                      className="bg-teal-700 hover:bg-teal-600 text-white px-4 py-2 rounded-xl font-semibold text-sm transition flex items-center gap-2"
                     >
                       {isRu ? 'Смотреть' : "Ko'rish"}
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -657,10 +657,10 @@ export default async function HomePage({ params }: PageProps) {
                   <p className="text-gray-400 text-sm mb-4">{item.desc}</p>
                   <div className="space-y-2 text-xs text-gray-300">
                     <div>
-                      <span className="text-gray-500">{isRu ? 'Материал' : 'Material'}:</span> {item.material}
+                      <span className="text-gray-400">{isRu ? 'Материал' : 'Material'}:</span> {item.material}
                     </div>
                     <div>
-                      <span className="text-gray-500">{isRu ? 'Применение' : "Qo'llanilishi"}:</span> {item.application}
+                      <span className="text-gray-400">{isRu ? 'Применение' : "Qo'llanilishi"}:</span> {item.application}
                     </div>
                   </div>
                   <a
@@ -698,7 +698,7 @@ export default async function HomePage({ params }: PageProps) {
             {stepsList.map((item, i) => (
               <div key={i} className="relative">
                 <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 hover:border-teal-500/50 transition">
-                  <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mb-6 text-white font-bold text-xl">
+                  <div className="w-12 h-12 bg-teal-700 rounded-xl flex items-center justify-center mb-6 text-white font-bold text-xl">
                     {item.step}
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
@@ -754,7 +754,7 @@ export default async function HomePage({ params }: PageProps) {
                         <span className="bg-teal-500/20 text-teal-400 text-xs px-2 py-1 rounded-full">{post.category}</span>
                       )}
                       {post.date && (
-                        <time dateTime={post.date} className="text-gray-500 text-xs">
+                        <time dateTime={post.date} className="text-gray-400 text-xs">
                           {new Date(post.date).toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'uz-UZ', { year: 'numeric', month: 'short', day: 'numeric' })}
                         </time>
                       )}
@@ -770,7 +770,7 @@ export default async function HomePage({ params }: PageProps) {
                         {messages.blog.read_more} →
                       </Link>
                       {post.readingTime && (
-                        <span className="text-gray-500 text-xs">{post.readingTime} {isRu ? 'мин' : 'daq'}</span>
+                        <span className="text-gray-400 text-xs">{post.readingTime} {isRu ? 'мин' : 'daq'}</span>
                       )}
                     </div>
                   </div>

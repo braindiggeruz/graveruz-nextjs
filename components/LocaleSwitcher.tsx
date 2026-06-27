@@ -151,7 +151,7 @@ export default function LocaleSwitcher({
     >
       <Link
         href={ruUrl}
-        aria-label="Switch to Russian"
+        aria-label="RU — Переключить на русский"
         aria-current={locale === 'ru' ? 'true' : undefined}
         prefetch={false}
         data-testid="locale-switch-ru"
@@ -161,7 +161,7 @@ export default function LocaleSwitcher({
       </Link>
       <Link
         href={uzUrl}
-        aria-label="Tilni o'zbekchaga o'tkazish"
+        aria-label="UZ — Tilni o'zbekchaga o'tkazish"
         aria-current={locale === 'uz' ? 'true' : undefined}
         prefetch={false}
         data-testid="locale-switch-uz"

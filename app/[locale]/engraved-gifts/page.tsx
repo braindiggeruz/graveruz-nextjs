@@ -366,7 +366,7 @@ export default async function EngravedGiftsPage({ params }: PageProps) {
               href="https://t.me/GraverAdm"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-teal-500 text-teal-500 px-8 py-4 rounded-lg font-semibold hover:bg-teal-500 hover:text-white transition"
+              className="border border-teal-500 text-teal-500 px-8 py-4 rounded-lg font-semibold hover:bg-teal-700 hover:text-white transition"
             >
               Telegram
             </a>

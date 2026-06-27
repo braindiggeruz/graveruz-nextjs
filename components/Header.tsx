@@ -312,7 +312,7 @@ export default function Header({ locale, messages, settings }: HeaderProps) {
               </Link>
 
               <div className="pt-3 border-t border-gray-800 px-2">
-                <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">
+                <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
                   {locale === 'ru' ? 'Язык / Til' : 'Til / Язык'}
                 </p>
                 <LocaleSwitcher locale={locale} size="lg" />

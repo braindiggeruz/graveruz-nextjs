@@ -256,7 +256,7 @@ export default async function AboutPage({ params }: PageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={`/${locale}/contacts/`}
-              className="inline-flex items-center justify-center px-8 py-3 bg-teal-500 text-white font-semibold rounded-xl hover:bg-teal-600 transition"
+              className="inline-flex items-center justify-center px-8 py-3 bg-teal-700 text-white font-semibold rounded-xl hover:bg-teal-600 transition"
             >
               {isRu ? 'Связаться с нами' : "Biz bilan bog'lanish"}
             </Link>
