@@ -27,12 +27,12 @@ function r(source, destination) {
 // 'unsafe-inline' on style-src required: Tailwind injects inline styles.
 const cspDirectives = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://static.cloudflareinsights.com",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://static.cloudflareinsights.com https://googleads.g.doubleclick.net https://www.googleadservices.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "img-src 'self' data: blob: https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com",
+  "img-src 'self' data: blob: https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.google.com https://www.google.com.uz https://*.g.doubleclick.net https://www.googleadservices.com",
   "font-src 'self' https://fonts.gstatic.com data:",
-  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://connect.facebook.net https://www.facebook.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://api.telegram.org",
-  "frame-src 'self' https://www.google.com https://www.facebook.com",
+  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.g.doubleclick.net https://www.google.com https://www.google.com.uz https://connect.facebook.net https://www.facebook.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://api.telegram.org",
+  "frame-src 'self' https://www.google.com https://www.facebook.com https://td.doubleclick.net",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
