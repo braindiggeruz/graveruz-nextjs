@@ -29,9 +29,9 @@ const cspDirectives = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://static.cloudflareinsights.com https://googleads.g.doubleclick.net https://www.googleadservices.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "img-src 'self' data: blob: https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.google.com https://www.google.com.uz https://*.g.doubleclick.net https://www.googleadservices.com",
+  "img-src 'self' data: blob: https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://www.google.com https://www.google.com.uz https://*.g.doubleclick.net https://*.doubleclick.net https://www.googleadservices.com",
   "font-src 'self' https://fonts.gstatic.com data:",
-  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.g.doubleclick.net https://www.google.com https://www.google.com.uz https://connect.facebook.net https://www.facebook.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://api.telegram.org",
+  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.g.doubleclick.net https://*.doubleclick.net https://www.google.com https://www.google.com.uz https://connect.facebook.net https://www.facebook.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://api.telegram.org",
   "frame-src 'self' https://www.google.com https://www.facebook.com https://td.doubleclick.net",
   "object-src 'none'",
   "base-uri 'self'",
@@ -78,9 +78,11 @@ const nextConfig = {
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'X-XSS-Protection', value: '1; mode=block' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          // CSP: ship Report-Only first to validate on prod with zero breakage,
-          // then promote to enforced 'Content-Security-Policy' once console is clean.
-          { key: 'Content-Security-Policy-Report-Only', value: cspDirectives },
+          // CSP: ENFORCED. Whitelist validated on prod via headless Chrome —
+          // all third parties (GA4, Google Ads/DoubleClick, Meta Pixel, CF beacon,
+          // fonts, Maps iframe, Telegram) load clean. upgrade-insecure-requests
+          // now active (was a no-op under Report-Only).
+          { key: 'Content-Security-Policy', value: cspDirectives },
         ],
       },
       {
