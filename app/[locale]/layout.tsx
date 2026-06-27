@@ -56,6 +56,24 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://connect.facebook.net" />
 
+        {/* Silence unwanted GTM-injected consent-proxy beacons (*.on.aws /
+            *.run.app /events?cee=...) that CSP blocks — short-circuit them
+            so no console error / Issues-panel entry is logged. Must run
+            before GTM, hence beforeInteractive + inline. */}
+        <Script
+          id="tp-guard"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(window.__tpGuard)return;window.__tpGuard=1;
+            function blk(u){if(!u)return false;if(!/\\/events\\?cee=/i.test(u))return false;return /\\.on\\.aws\\//i.test(u)||/\\.run\\.app\\//i.test(u);}
+            var of=window.fetch&&window.fetch.bind(window);
+            if(of){window.fetch=function(i,n){var u=typeof i==='string'?i:(i&&i.url)||(i&&i.href)||'';if(blk(u))return Promise.resolve(new Response(null,{status:204}));return of(i,n);};}
+            var nb=navigator.sendBeacon&&navigator.sendBeacon.bind(navigator);
+            if(nb){navigator.sendBeacon=function(u,d){var s=typeof u==='string'?u:(u&&u.href)||'';if(blk(s))return true;return nb(u,d);};}
+            }catch(e){}})();`,
+          }}
+        />
+
         {/* ── Analytics deferred to lazyOnload (perf: ~480ms off TBT/LCP) ──
             gtag()/fbq() stubs are defined inline (afterInteractive) so any
             early event calls queue safely; the heavy SDKs (gtag.js,
