@@ -14,6 +14,32 @@ function r(source, destination) {
   ]
 }
 
+// ── Content-Security-Policy ───────────────────────────────────────────────────
+// Whitelist built from actual third parties loaded by the app:
+//  • GA4            → www.googletagmanager.com + *.google-analytics.com
+//  • Meta Pixel     → connect.facebook.net + www.facebook.com
+//  • Cloudflare     → static.cloudflareinsights.com (beacon auto-injected by CF Pages)
+//  • Google Fonts   → fonts.googleapis.com (CSS) + fonts.gstatic.com (woff2)
+//  • Google Maps    → www.google.com (iframe embed on /contacts)
+//  • Telegram API   → api.telegram.org (contact form route)
+// 'unsafe-inline' on script-src required: GA4 config + Meta Pixel are inline
+// (dangerouslySetInnerHTML) and OpenNext static export can't attach a nonce.
+// 'unsafe-inline' on style-src required: Tailwind injects inline styles.
+const cspDirectives = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://static.cloudflareinsights.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "img-src 'self' data: blob: https://www.facebook.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com",
+  "font-src 'self' https://fonts.gstatic.com data:",
+  "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://connect.facebook.net https://www.facebook.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://api.telegram.org",
+  "frame-src 'self' https://www.google.com https://www.facebook.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+  "upgrade-insecure-requests",
+].join('; ')
+
 const nextConfig = {
   // ── Trailing slash ──────────────────────────────────────────────────────────
   // trailingSlash: true ensures all URLs end with / (canonical form) for public pages.
@@ -52,6 +78,9 @@ const nextConfig = {
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'X-XSS-Protection', value: '1; mode=block' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          // CSP: ship Report-Only first to validate on prod with zero breakage,
+          // then promote to enforced 'Content-Security-Policy' once console is clean.
+          { key: 'Content-Security-Policy-Report-Only', value: cspDirectives },
         ],
       },
       {
