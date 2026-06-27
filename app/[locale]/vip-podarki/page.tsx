@@ -295,7 +295,7 @@ export default async function VipPodarkiPage({ params }: PageProps) {
                 ]
               : [
                   { href: `/${locale}/blog/vip-sovga-goyalari/`, label: 'Top-menejerlar uchun VIP sovg\'a g\'oyalari' },
-                  { href: `/${locale}/blog/korporativ-sovgalar-uzbekiston/`, label: "O'zbekistonda korporativ sovg'alar: to'liq qo'llanma" },
+                  { href: `/${locale}/blog/korporativ-sovgalar-ozbekiston/`, label: "O'zbekistonda korporativ sovg'alar: to'liq qo'llanma" },
                   { href: `/${locale}/korporativnye-podarki/`, label: "Gravyura bilan barcha korporativ sovg'alar" },
                   { href: `/${locale}/products/neo-watches/`, label: "NEO soatlar — flagman VIP sovg'a" },
                 ]
