@@ -12,7 +12,7 @@ blocks:
         Подберём и оформим подарки для сотрудников, клиентов, партнёров и
         руководителей: зажигалки, ручки, блокноты, powerbank, часы и премиальные
         наборы с логотипом или персональной надписью.
-      image: /images/pages/korporativnye-podarki-tashkent/blocks/0/value/image.jpg
+      image: /images/pages/korporativnye-podarki-tashkent/blocks/0/value/image.webp
       ctaLabel: Получить подборку
       ctaHref: https://t.me/GraverAdm
   - discriminant: features
@@ -53,7 +53,7 @@ blocks:
     value: {}
   - discriminant: imageText
     value:
-      image: /images/pages/korporativnye-podarki-tashkent/blocks/3/value/image.jpg
+      image: /images/pages/korporativnye-podarki-tashkent/blocks/3/value/image.webp
       imageSide: right
       title: Подарки с логотипом и персональной гравировкой
       body: >-

@@ -6,7 +6,7 @@ intro: >-
   Персональная и корпоративная лазерная гравировка на подарках, сувенирах и
   бизнес-аксессуарах. Поможем подобрать изделие, подготовить макет и сделать
   подарок запоминающимся.
-heroImage: /images/pages/lazernaya-gravirovka-tashkent/heroImage.jpg
+heroImage: /images/pages/lazernaya-gravirovka-tashkent/heroImage.webp
 blocks:
   - discriminant: hero
     value:
@@ -56,7 +56,7 @@ blocks:
     value: {}
   - discriminant: imageText
     value:
-      image: /images/pages/lazernaya-gravirovka-tashkent/blocks/3/value/image.jpg
+      image: /images/pages/lazernaya-gravirovka-tashkent/blocks/3/value/image.webp
       imageSide: right
       title: Корпоративная гравировка для подарков и бизнес-сувениров
       body: >-

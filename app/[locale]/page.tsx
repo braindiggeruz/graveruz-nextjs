@@ -499,10 +499,10 @@ export default async function HomePage({ params }: PageProps) {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { name: 'Silver Gloss', price: '140,000', bg: 'from-gray-300 to-gray-100', text: 'text-gray-700', priceColor: 'text-orange-600', img: '/images/products/lighters/r109_silver_gloss.jpg' },
-                { name: 'Black Matte', price: '150,000', bg: 'from-gray-800 to-gray-900', text: 'text-white', priceColor: 'text-orange-400', img: '/images/products/lighters/r110_black_matte.jpg' },
+                { name: 'Silver Gloss', price: '140,000', bg: 'from-gray-300 to-gray-100', text: 'text-gray-700', priceColor: 'text-orange-600', img: '/images/products/lighters/r109_silver_gloss.webp' },
+                { name: 'Black Matte', price: '150,000', bg: 'from-gray-800 to-gray-900', text: 'text-white', priceColor: 'text-orange-400', img: '/images/products/lighters/r110_black_matte.webp' },
                 { name: 'Black Texture', price: '170,000', bg: 'from-gray-700 to-black', text: 'text-white', priceColor: 'text-orange-400', img: '/images/products/lighters/r111_black_texture.jpg' },
-                { name: 'Brushed Steel', price: '160,000', bg: 'from-gray-500 to-gray-400', text: 'text-gray-800', priceColor: 'text-orange-600', img: '/images/products/lighters/r112_brushed_steel.jpg' },
+                { name: 'Brushed Steel', price: '160,000', bg: 'from-gray-500 to-gray-400', text: 'text-gray-800', priceColor: 'text-orange-600', img: '/images/products/lighters/r112_brushed_steel.webp' },
               ].map((product, i) => (
                 <div key={i} className={`bg-gradient-to-br ${product.bg} aspect-square rounded-2xl overflow-hidden relative group`}>
                   <Image
@@ -586,7 +586,7 @@ export default async function HomePage({ params }: PageProps) {
             <div className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-teal-500/20 aspect-[16/9]">
                 <Image
-                  src="/images/products/neo-watch-hero.jpg"
+                  src="/images/products/neo-watch-hero.webp"
                   alt={isRu ? 'Часы NEO с гравировкой' : 'NEO soatlar gravyura bilan'}
                   fill
                   className="object-cover"

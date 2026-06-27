@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T01:38:27.791Z",
+  "generatedAt": "2026-06-27T02:00:05.395Z",
   "pages": [
     {
       "slug": "korporativnye-podarki-tashkent",
@@ -14,7 +14,7 @@
             "badge": "Корпоративные подарки в Ташкенте",
             "title": "Корпоративные подарки с гравировкой для бизнеса",
             "subtitle": "Подберём и оформим подарки для сотрудников, клиентов, партнёров и руководителей: зажигалки, ручки, блокноты, powerbank, часы и премиальные наборы с логотипом или персональной надписью.",
-            "image": "/images/pages/korporativnye-podarki-tashkent/blocks/0/value/image.jpg",
+            "image": "/images/pages/korporativnye-podarki-tashkent/blocks/0/value/image.webp",
             "ctaLabel": "Получить подборку",
             "ctaHref": "https://t.me/GraverAdm"
           }
@@ -64,7 +64,7 @@
         {
           "discriminant": "imageText",
           "value": {
-            "image": "/images/pages/korporativnye-podarki-tashkent/blocks/3/value/image.jpg",
+            "image": "/images/pages/korporativnye-podarki-tashkent/blocks/3/value/image.webp",
             "imageSide": "right",
             "title": "Подарки с логотипом и персональной гравировкой",
             "body": "Корпоративный подарок становится сильнее, когда он связан с брендом и человеком. На изделие можно нанести логотип компании, имя сотрудника, должность, дату, короткое пожелание или символичный элемент фирменного стиля.\n\nТакой формат подходит для welcome pack, подарков партнёрам, клиентских сувениров, подарков руководителям и наборов для мероприятий. Гравировка делает предмет более аккуратным, статусным и запоминающимся.\n\nВ Graver Studio можно подобрать изделие под задачу: зажигалку, ручку, блокнот, powerbank, часы или подарочный набор. Стоимость зависит от изделия, тиража, сложности нанесения и подготовки макета."
@@ -133,7 +133,7 @@
       "status": "published",
       "h1": "Лазерная гравировка в Ташкенте",
       "intro": "Персональная и корпоративная лазерная гравировка на подарках, сувенирах и бизнес-аксессуарах. Поможем подобрать изделие, подготовить макет и сделать подарок запоминающимся.",
-      "heroImage": "/images/pages/lazernaya-gravirovka-tashkent/heroImage.jpg",
+      "heroImage": "/images/pages/lazernaya-gravirovka-tashkent/heroImage.webp",
       "blocks": [
         {
           "discriminant": "hero",
@@ -190,7 +190,7 @@
         {
           "discriminant": "imageText",
           "value": {
-            "image": "/images/pages/lazernaya-gravirovka-tashkent/blocks/3/value/image.jpg",
+            "image": "/images/pages/lazernaya-gravirovka-tashkent/blocks/3/value/image.webp",
             "imageSide": "right",
             "title": "Корпоративная гравировка для подарков и бизнес-сувениров",
             "body": "Лазерная гравировка помогает превратить обычный подарок в персональный бизнес-аксессуар. На изделие можно нанести логотип компании, имя получателя, дату, короткую фразу или элемент фирменного стиля.\n\nТакой формат хорошо подходит для корпоративных подарков, welcome pack, сувениров с логотипом, подарков сотрудникам, клиентам, партнёрам и руководителям. Гравировка делает изделие более аккуратным, статусным и запоминающимся.\n\nВ Graver Studio можно подобрать подарок под задачу: зажигалку, ручку, блокнот, powerbank, часы или подарочный набор. Если вы не знаете, что выбрать, мы подскажем подходящий вариант под повод, стиль и формат заказа."
@@ -302,7 +302,7 @@
       "seo": {
         "title": "Подарочный набор с часами и логотипом компании | Graver Studio",
         "description": "Премиальный корпоративный подарочный набор с часами SLIM, кожаным портмоне и ручкой-роллером. Нанесение логотипа, имени или эмблемы в Ташкенте.",
-        "ogImage": "/images/products/gift-set-watch/hero.png",
+        "ogImage": "/images/products/gift-set-watch/hero.webp",
         "noindex": false
       }
     },
@@ -358,7 +358,7 @@
       "seo": {
         "title": "Kompaniya logotipi tushirilgan soatli sovg‘a to‘plami | Graver Studio",
         "description": "SLIM soat, charm hamyon va ruchkadan iborat premium korporativ sovg‘a to‘plami. Toshkentda logo, ism yoki emblema tushirish.",
-        "ogImage": "/images/products/gift-set-watch/hero.png",
+        "ogImage": "/images/products/gift-set-watch/hero.webp",
         "noindex": false
       }
     },
@@ -368,7 +368,7 @@
       "status": "published",
       "h1": "Biznes uchun gravyurali korporativ sovg‘alar",
       "intro": "Xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarni tanlaymiz va bezaymiz: zajigalkalar, ruchkalar, bloknotlar, powerbank, soatlar va logotipli premium to‘plamlar.",
-      "heroImage": "/images/pages/toshkentda-korporativ-sovgalar/heroImage.jpg",
+      "heroImage": "/images/pages/toshkentda-korporativ-sovgalar/heroImage.webp",
       "blocks": [
         {
           "discriminant": "hero",
@@ -376,7 +376,7 @@
             "badge": "Toshkentda korporativ sovg‘alar",
             "title": "Biznes uchun gravyurali korporativ sovg‘alar",
             "subtitle": "Xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarni tanlaymiz va bezaymiz: zajigalkalar, ruchkalar, bloknotlar, powerbank, soatlar va logotipli premium to‘plamlar.",
-            "image": "/images/pages/toshkentda-korporativ-sovgalar/blocks/0/value/image.jpg",
+            "image": "/images/pages/toshkentda-korporativ-sovgalar/blocks/0/value/image.webp",
             "ctaLabel": "Sovg‘a tanlash",
             "ctaHref": "https://t.me/GraverAdm"
           }
@@ -426,7 +426,7 @@
         {
           "discriminant": "imageText",
           "value": {
-            "image": "/images/pages/toshkentda-korporativ-sovgalar/blocks/3/value/image.jpg",
+            "image": "/images/pages/toshkentda-korporativ-sovgalar/blocks/3/value/image.webp",
             "imageSide": "right",
             "title": "Logotipli va shaxsiy gravyurali sovg‘alar",
             "body": "Korporativ sovg‘a brend va inson bilan bog‘langanda kuchliroq ishlaydi. Buyumga kompaniya logotipi, xodim ismi, lavozim, sana, qisqa tilak yoki firma uslubi elementini tushirish mumkin.\n\nBunday format welcome pack, hamkorlar uchun sovg‘alar, mijozlar uchun suvenirlar, rahbarlar uchun sovg‘alar va tadbirlar uchun to‘plamlarga mos keladi. Gravyura buyumni yanada chiroyli, nufuzli va esda qolarli qiladi.\n\nGraver Studio’da vazifaga mos buyumni tanlash mumkin: zajigalka, ruchka, bloknot, powerbank, soat yoki sovg‘a to‘plami. Narx buyum, tiraj, gravyura murakkabligi va maket tayyorlashga bog‘liq."
@@ -492,7 +492,7 @@
       "status": "published",
       "h1": "Toshkentda lazer gravyura",
       "intro": "Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va qisqa yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va sovg‘ani esda qolarli qilishga yordam beramiz.",
-      "heroImage": "/images/pages/toshkentda-lazer-gravyura/heroImage.jpg",
+      "heroImage": "/images/pages/toshkentda-lazer-gravyura/heroImage.webp",
       "blocks": [
         {
           "discriminant": "hero",
@@ -500,7 +500,7 @@
             "badge": "Toshkentda lazer gravyura",
             "title": "Toshkentda sovg‘alar va suvenirlarga lazer gravyura",
             "subtitle": "Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va qisqa yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va sovg‘ani esda qolarli qilishga yordam beramiz.",
-            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/0/value/image.jpg",
+            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/0/value/image.webp",
             "ctaLabel": "Hisob-kitob olish",
             "ctaHref": "https://t.me/GraverAdm"
           }
@@ -545,7 +545,7 @@
         {
           "discriminant": "imageText",
           "value": {
-            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/3/value/image.jpg",
+            "image": "/images/pages/toshkentda-lazer-gravyura/blocks/3/value/image.webp",
             "imageSide": "right",
             "title": "Sovg‘alar va biznes suvenirlar uchun korporativ gravyura",
             "body": "Lazer gravyura oddiy sovg‘ani shaxsiy biznes aksessuariga aylantirishga yordam beradi. Buyumga kompaniya logotipi, oluvchining ismi, sana, qisqa ibora yoki firma uslubi elementini tushirish mumkin.\n\nBunday format korporativ sovg‘alar, welcome pack, logotipli suvenirlar, xodimlar, mijozlar, hamkorlar va rahbarlar uchun sovg‘alarga mos keladi. Gravyura buyumni yanada nafis, nufuzli va esda qolarli qiladi.\n\nGraver Studio’da vazifaga mos sovg‘ani tanlash mumkin: zajigalka, ruchka, bloknot, powerbank, soat yoki sovg‘a to‘plami. Agar nima tanlashni bilmasangiz, biz holat, uslub va buyurtma formatiga mos variantni tavsiya qilamiz."
@@ -614,7 +614,7 @@
       "nameUz": "Lazer gravyurali zajigalkalar",
       "descriptionRu": "Металлические зажигалки с лазерной гравировкой логотипа, имени или фото.\n4 модели в премиум-отделке: Silver Gloss, Black Matte, Black Texture, Brushed Steel.\nКорпоративный подарок с характером. Тираж от 1 штуки.\n",
       "descriptionUz": "Logotip, ism yoki surat bilan metall zajigalkalar lazer gravyurasi bilan.\n4 model premium tugatma bilan: Silver Gloss, Black Matte, Black Texture, Brushed Steel.\nXarakterli korporativ sovg'a. 1 donadan boshlab.\n",
-      "heroImage": "/images/products/lighters/r109_silver_gloss.jpg",
+      "heroImage": "/images/products/lighters/r109_silver_gloss.webp",
       "brand": "",
       "availability": "InStock",
       "minBatchSize": 1,
@@ -681,7 +681,7 @@
         "titleUz": "Lazer gravyurali metall zajigalkalar — Graver.uz",
         "description": "Зажигалки с гравировкой логотипа, имени или фото. 4 модели: Silver Gloss, Black Matte, Brushed Steel, Black Texture. От 1 штуки. Доставка по Ташкенту.",
         "descriptionUz": "Logotip, ism yoki rasm gravyurali zajigalkalar. 4 model: Silver Gloss, Black Matte, Brushed Steel, Black Texture. 1 donadan. Toshkent bo'ylab yetkazib berish.",
-        "ogImage": "/images/products/lighters/r109_silver_gloss.jpg",
+        "ogImage": "/images/products/lighters/r109_silver_gloss.webp",
         "noindex": false
       }
     },
@@ -981,7 +981,7 @@
       "hasFaq": true,
       "wordCount": 61,
       "file": "content/blog/ru/byudzhet-na-korporativnye-podarki.mdx",
-      "mtime": "2026-06-27T01:10:12.746Z"
+      "mtime": "2026-06-27T01:57:59.904Z"
     },
     {
       "slug": "case-study-welcome-pack-enps",
@@ -1017,7 +1017,7 @@
       "hasFaq": true,
       "wordCount": 90,
       "file": "content/blog/ru/case-study-welcome-pack-enps.mdx",
-      "mtime": "2026-06-27T01:10:12.746Z"
+      "mtime": "2026-06-27T01:57:59.904Z"
     },
     {
       "slug": "chasy-s-logotipom-korporativnye-podarki-tashkent",
@@ -1418,7 +1418,7 @@
       "hasFaq": true,
       "wordCount": 34,
       "file": "content/blog/ru/eko-podarki-dlya-biznesa.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.908Z"
     },
     {
       "slug": "ekonomiya-na-korporativnyh-suvenirax",
@@ -1515,7 +1515,7 @@
       "hasFaq": false,
       "wordCount": 20,
       "file": "content/blog/ru/gravirovka-na-biznes-podarkah.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.908Z"
     },
     {
       "slug": "gravirovka-v-tashkente-na-8-marta",
@@ -1563,7 +1563,7 @@
       "hasFaq": true,
       "wordCount": 68,
       "file": "content/blog/ru/idei-vip-podarkov.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.912Z"
     },
     {
       "slug": "kak-podgotovit-maket-logotipa",
@@ -1675,7 +1675,7 @@
       "hasFaq": false,
       "wordCount": 27,
       "file": "content/blog/ru/kak-vybrat-podarki-dlya-sotrudnikov.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.912Z"
     },
     {
       "slug": "kak-vybrat-vip-podarok-partneru-uzbekistan",
@@ -1723,7 +1723,7 @@
       "hasFaq": false,
       "wordCount": 53,
       "file": "content/blog/ru/keys-brendirovannye-podarki-dlya-it.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.916Z"
     },
     {
       "slug": "keys-welcome-pack-enps-uzbekistan",
@@ -1747,7 +1747,7 @@
       "hasFaq": true,
       "wordCount": 123,
       "file": "content/blog/ru/keys-welcome-pack-enps-uzbekistan.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.916Z"
     },
     {
       "slug": "keys-welcome-pak-it-kompaniya-tashkent",
@@ -1796,7 +1796,7 @@
       "hasFaq": false,
       "wordCount": 28,
       "file": "content/blog/ru/korporativniy-merch-kak-instrument-marketinga.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.920Z"
     },
     {
       "slug": "korporativnye-podarki-b2b-etiket",
@@ -1820,7 +1820,7 @@
       "hasFaq": true,
       "wordCount": 39,
       "file": "content/blog/ru/korporativnye-podarki-b2b-etiket.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.920Z"
     },
     {
       "slug": "korporativnye-podarki-na-8-marta-v-tashkente",
@@ -1944,7 +1944,7 @@
       "hasFaq": true,
       "wordCount": 74,
       "file": "content/blog/ru/korporativnye-podarki-uzbekistan.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.924Z"
     },
     {
       "slug": "korporativnye-podarochnye-nabory",
@@ -2247,7 +2247,7 @@
       "hasFaq": true,
       "wordCount": 86,
       "file": "content/blog/ru/podarki-8-marta-20-idej.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.924Z"
     },
     {
       "slug": "podarki-dlya-bankov-i-finteha-tashkent",
@@ -2384,7 +2384,7 @@
       "hasFaq": true,
       "wordCount": 56,
       "file": "content/blog/ru/podarki-na-8-marta-sotrudnitsam.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.924Z"
     },
     {
       "slug": "podarki-na-den-rozhdeniya-sotrudnika",
@@ -2408,7 +2408,7 @@
       "hasFaq": true,
       "wordCount": 31,
       "file": "content/blog/ru/podarki-na-den-rozhdeniya-sotrudnika.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.928Z"
     },
     {
       "slug": "podarki-na-korporativnye-sobytiya-tashkent",
@@ -2515,7 +2515,7 @@
       "hasFaq": false,
       "wordCount": 24,
       "file": "content/blog/ru/podarki-sotrudnikam-loyalnost.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.928Z"
     },
     {
       "slug": "podarochnye-nabory-s-logotipom",
@@ -2565,7 +2565,7 @@
       "hasFaq": false,
       "wordCount": 101,
       "file": "content/blog/ru/polniy-gid-po-korporativnym-podarkam.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.932Z"
     },
     {
       "slug": "process-zakaza-korporativnyh-podarkov",
@@ -2613,7 +2613,7 @@
       "hasFaq": true,
       "wordCount": 31,
       "file": "content/blog/ru/srochniy-zakaz-korporativnyh-podarkov.mdx",
-      "mtime": "2026-06-27T01:10:12.750Z"
+      "mtime": "2026-06-27T01:57:59.932Z"
     },
     {
       "slug": "top-idei-podarkov-na-novyj-god",
@@ -2686,7 +2686,7 @@
       "hasFaq": false,
       "wordCount": 88,
       "file": "content/blog/ru/welcome-pack-dlya-sotrudnikov-gid.mdx",
-      "mtime": "2026-06-27T01:10:12.754Z"
+      "mtime": "2026-06-27T01:57:59.936Z"
     },
     {
       "slug": "welcome-pack-dlya-sotrudnikov",
@@ -2718,7 +2718,7 @@
       "hasFaq": true,
       "wordCount": 82,
       "file": "content/blog/ru/welcome-pack-dlya-sotrudnikov.mdx",
-      "mtime": "2026-06-27T01:10:12.754Z"
+      "mtime": "2026-06-27T01:57:59.936Z"
     },
     {
       "slug": "welcome-pack-novym-sotrudnikam",
@@ -3686,7 +3686,7 @@
       "hasFaq": true,
       "wordCount": 1167,
       "file": "content/blog/uz/korporativ-sovgalar-ozbekiston.mdx",
-      "mtime": "2026-06-27T01:10:12.754Z"
+      "mtime": "2026-06-27T01:57:59.940Z"
     },
     {
       "slug": "korporativ-sovgalar-toliq-gid-2025-uzbekistan",
@@ -4689,7 +4689,7 @@
       "hasFaq": true,
       "wordCount": 855,
       "file": "content/blog/uz/xodimlar-uchun-welcome-pack.mdx",
-      "mtime": "2026-06-27T01:10:12.758Z"
+      "mtime": "2026-06-27T01:57:59.940Z"
     },
     {
       "slug": "xodimlarga-sovga-loyalikni-oshirish",

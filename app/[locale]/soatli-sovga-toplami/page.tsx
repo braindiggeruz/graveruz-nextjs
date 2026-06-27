@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     ogImage: seo?.ogImage
       ? (seo.ogImage.startsWith('http') ? seo.ogImage : `https://graver-studio.uz${seo.ogImage}`)
-      : 'https://graver-studio.uz/images/products/gift-set-watch/hero.png',
+      : 'https://graver-studio.uz/images/products/gift-set-watch/hero.webp',
     noindex: !!seo?.noindex || page?.status !== 'published',
     alternateSlug: {
       ru: 'podarochniy-nabor-s-chasami',
@@ -85,7 +85,7 @@ export default async function Page({ params }: PageProps) {
     '@type': 'Product',
     name: h1,
     description: intro,
-    image: 'https://graver-studio.uz/images/products/gift-set-watch/hero.png',
+    image: 'https://graver-studio.uz/images/products/gift-set-watch/hero.webp',
     brand: { '@type': 'Brand', name: 'Graver Studio' },
     category: 'Corporate Gifts',
   }

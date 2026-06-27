@@ -27,11 +27,18 @@ Verify deploy: `curl -sI https://graver-studio.uz/ru/?cb=$RANDOM | grep -i <head
 - NOTE: s-maxage=31536000 on HTML is ALSO a perf/freshness risk — investigate
   in PR4 whether to lower it (stale content after deploys).
 
-### PR3 — Privacy + Team (E-E-A-T)
-- [ ] /ru/politika-konfidentsialnosti/ ↔ /uz/maxfiylik-siyosati/
-- [ ] Team page (optional)
-- [ ] schema: [Organization, WebSite, BreadcrumbList, FAQPage] — NOT AboutPage/Person
-- [ ] Footer link to Privacy
+### PR3 — Privacy + Team (E-E-A-T)  [DONE ✅ LIVE on prod, commit c500a2f]
+- [x] /ru/politika-konfidentsialnosti/ ↔ /uz/maxfiylik-siyosati/ (both HTTP 200)
+- [x] hreflang ru/uz/x-default + self-canonical verified live
+- [x] schema: Organization, WebSite, BreadcrumbList
+- [x] Footer link to Privacy (both locales, verified live)
+- [ ] Team page — SKIP unless user asks (no real team data)
+
+### CACHE NOTE (resolved)
+- CF token = scoped Pages token (no zone/account list). BUT cf-cache-status:DYNAMIC
+  → CF does NOT edge-cache HTML despite s-maxage=1yr. No purge needed.
+  Earlier "stale" was local Lighthouse/browser cache. Prod always fresh.
+- s-maxage=31536000 still cosmetically wrong → lower in PR4.
 
 ### PR4 — Performance (Perf 53, hardest)
 - [ ] images webp/sizes/lazy, hero priority

@@ -172,7 +172,7 @@ services:
     hrefRu: /ru/engraved-gifts/
     hrefUz: /uz/engraved-gifts/
 portfolio:
-  - image: /images/portfolio/0/image.jpg
+  - image: /images/portfolio/0/image.webp
     categoryRu: Корпоративные часы
     categoryUz: Korporativ soatlar
     titleRu: Часы с логотипом компании
@@ -187,7 +187,7 @@ portfolio:
     materialUz: Metall, shisha, charm
     applicationRu: Подарки руководителям, партнёрам, сотрудникам и VIP-клиентам
     applicationUz: Rahbarlar, hamkorlar, xodimlar va VIP-mijozlar uchun sovg‘alar
-  - image: /images/portfolio/1/image.jpg
+  - image: /images/portfolio/1/image.webp
     categoryRu: Настольные таблички
     categoryUz: Stol usti tablichkalari
     titleRu: Настольная табличка с логотипом
@@ -202,7 +202,7 @@ portfolio:
     materialUz: Akril, plastik, metall, gravyura
     applicationRu: Ресепшн, клиники, офисы, салоны, стойки администратора
     applicationUz: Resepshn, klinikalar, ofislar, salonlar, administrator stoli
-  - image: /images/portfolio/2/image.jpg
+  - image: /images/portfolio/2/image.webp
     categoryRu: Награды и стелы
     categoryUz: Mukofotlar va stelalar
     titleRu: Акриловая награда с гравировкой
@@ -221,7 +221,7 @@ portfolio:
     applicationUz: >-
       Sport musobaqalari, korporativ mukofotlar, premiyalar, turnirlar va
       esdalik tadbirlar
-  - image: /images/portfolio/3/image.jpg
+  - image: /images/portfolio/3/image.webp
     categoryRu: Зажигалки с гравировкой
     categoryUz: Gravyurali zajigalkalar
     titleRu: Металлическая зажигалка с гравировкой
@@ -238,7 +238,7 @@ portfolio:
     applicationUz: >-
       Shaxsiy sovg‘alar, korporativ suvenirlar, ramzli sovg‘alar, esdalik
       aksessuarlar
-  - image: /images/portfolio/4/image.jpg
+  - image: /images/portfolio/4/image.webp
     categoryRu: Брелоки с логотипом
     categoryUz: Logotipli breloklar
     titleRu: Корпоративные брелоки с гравировкой
@@ -257,7 +257,7 @@ portfolio:
     applicationUz: >-
       Korporativ suvenirlar, mijozlar uchun sovg‘alar, promo-aksiyalar, kafe,
       restoranlar, ofislar va tadbirlar
-  - image: /images/portfolio/5/image.jpg
+  - image: /images/portfolio/5/image.webp
     categoryRu: Корпоративные подарочные наборы
     categoryUz: Korporativ sovg‘a to‘plamlari
     titleRu: Подарочный набор с часами и гравировкой

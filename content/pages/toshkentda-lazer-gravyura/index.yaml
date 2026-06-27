@@ -6,7 +6,7 @@ intro: >-
   Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va qisqa
   yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va sovg‘ani esda
   qolarli qilishga yordam beramiz.
-heroImage: /images/pages/toshkentda-lazer-gravyura/heroImage.jpg
+heroImage: /images/pages/toshkentda-lazer-gravyura/heroImage.webp
 blocks:
   - discriminant: hero
     value:
@@ -16,7 +16,7 @@ blocks:
         Sovg‘alar, suvenirlar va biznes aksessuarlariga ism, logotip, sana va
         qisqa yozuvlarni tushiramiz. Buyumni tanlash, maket tayyorlash va
         sovg‘ani esda qolarli qilishga yordam beramiz.
-      image: /images/pages/toshkentda-lazer-gravyura/blocks/0/value/image.jpg
+      image: /images/pages/toshkentda-lazer-gravyura/blocks/0/value/image.webp
       ctaLabel: Hisob-kitob olish
       ctaHref: https://t.me/GraverAdm
   - discriminant: features
@@ -50,7 +50,7 @@ blocks:
     value: {}
   - discriminant: imageText
     value:
-      image: /images/pages/toshkentda-lazer-gravyura/blocks/3/value/image.jpg
+      image: /images/pages/toshkentda-lazer-gravyura/blocks/3/value/image.webp
       imageSide: right
       title: Sovg‘alar va biznes suvenirlar uchun korporativ gravyura
       body: >-
