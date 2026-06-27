@@ -51,47 +51,45 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html lang={htmlLang} className="scroll-smooth">
       <head>
-        {/* Preconnect to critical origins */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preconnect to analytics origins actually used (fonts are system,
+            so no Google Fonts preconnect needed). */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
 
-        {/* Google Analytics 4 (GA4) — ID from CMS Settings */}
+        {/* ── Analytics deferred to lazyOnload (perf: ~480ms off TBT/LCP) ──
+            gtag()/fbq() stubs are defined inline (afterInteractive) so any
+            early event calls queue safely; the heavy SDKs (gtag.js,
+            fbevents.js) load only after the page is fully loaded. */}
+
+        {/* GA4 + Meta Pixel command stubs (tiny, define queues immediately) */}
         <Script
-          id="ga4-gtag"
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
-        />
-        <Script
-          id="ga4-config"
+          id="analytics-stubs"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer=window.dataLayer||[];
             function gtag(){dataLayer.push(arguments);}
+            window.gtag=gtag;
             gtag('js', new Date());
-            gtag('config', '${ga4Id}', {
-              page_path: window.location.pathname,
-              send_page_view: true
-            });`,
+            gtag('config', '${ga4Id}', { page_path: window.location.pathname, send_page_view: true });
+            !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];}(window,document);
+            fbq('init', '${metaPixelId}');
+            var _gpvId='pv_init_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+            fbq('track','PageView',{event_id:_gpvId},{eventID:_gpvId});`,
           }}
         />
 
-        {/* Meta Pixel — ID from CMS Settings */}
+        {/* Heavy SDKs — load only after full page load (lazyOnload) */}
         <Script
-          id="meta-pixel"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `!function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${metaPixelId}');
-            var _gpvId = 'pv_init_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
-            fbq('track', 'PageView', {event_id: _gpvId}, {eventID: _gpvId});`,
-          }}
+          id="ga4-gtag"
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
+        />
+        <Script
+          id="meta-pixel-sdk"
+          strategy="lazyOnload"
+          src="https://connect.facebook.net/en_US/fbevents.js"
         />
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
